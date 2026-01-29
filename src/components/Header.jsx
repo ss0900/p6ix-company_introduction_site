@@ -144,7 +144,7 @@ function Header() {
       <div className="container header-content">
         <Link to="/" className="logo">
           <img
-            src="/피식스에스씨_rgb_07.상하국문화이트.png"
+            src="/피식스에스씨_rgb_06.좌우국영문화이트.png"
             alt="Company Logo"
             style={{ height: '3.5rem', objectFit: 'contain' }}
           />
