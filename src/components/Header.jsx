@@ -20,7 +20,7 @@ function Header({ sections, onNavigate }) {
           <img
             src="/피식스에스씨_rgb_03.상하국문.png"
             alt="Company Logo"
-            style={{ height: '2.5rem', objectFit: 'contain' }}
+            style={{ height: '3.5rem', objectFit: 'contain' }}
           />
         </div>
 
