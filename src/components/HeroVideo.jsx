@@ -47,12 +47,8 @@ function HeroVideo({ id, scrollToSection }) {
           muted
           loop
           playsInline
-          poster="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1920"
         >
-          <source
-            src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4"
-            type="video/mp4"
-          />
+          <source src="/hero.mp4" type="video/mp4" />
         </video>
         <div className="hero-video-overlay" />
       </div>
