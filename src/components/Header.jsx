@@ -24,32 +24,32 @@ function Header() {
         {
           id: 'intro',
           title: '회사소개',
-          description: 'Company Introduction',
-          image: 'https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&w=400'
+          path: '/company/intro',
+          image: 'https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&w=600'
         },
         {
           id: 'ceo',
           title: 'CEO 소개',
-          description: 'CEO Profile',
-          image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400'
+          path: '/company/ceo',
+          image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=600'
         },
         {
           id: 'organization',
           title: '조직도',
-          description: 'Organization Chart',
-          image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400'
+          path: '/company/organization',
+          image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600'
         },
         {
           id: 'history',
           title: '회사연혁',
-          description: 'Company History',
-          image: 'https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=400'
+          path: '/company/history',
+          image: 'https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=600'
         },
         {
           id: 'pr',
           title: '홍보자료',
-          description: 'PR Materials',
-          image: 'https://images.pexels.com/photos/3184611/pexels-photo-3184611.jpeg?auto=compress&cs=tinysrgb&w=400'
+          path: '/company/pr',
+          image: 'https://images.pexels.com/photos/3184611/pexels-photo-3184611.jpeg?auto=compress&cs=tinysrgb&w=600'
         }
       ]
     },
@@ -60,20 +60,20 @@ function Header() {
         {
           id: 'overview',
           title: '개요',
-          description: 'Overview',
-          image: 'https://images.pexels.com/photos/1098515/pexels-photo-1098515.jpeg?auto=compress&cs=tinysrgb&w=400'
+          path: '/time-management/overview',
+          image: 'https://images.pexels.com/photos/1098515/pexels-photo-1098515.jpeg?auto=compress&cs=tinysrgb&w=600'
         },
         {
           id: 'features',
           title: '기능 소개',
-          description: 'Features',
-          image: 'https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=400'
+          path: '/time-management/features',
+          image: 'https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=600'
         },
         {
           id: 'cases',
           title: '적용 사례',
-          description: 'Case Studies',
-          image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=400'
+          path: '/time-management/cases',
+          image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=600'
         }
       ]
     },
@@ -84,20 +84,20 @@ function Header() {
         {
           id: 'overview',
           title: '개요',
-          description: 'Overview',
-          image: 'https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=400'
+          path: '/ppm/overview',
+          image: 'https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=600'
         },
         {
           id: 'features',
           title: '주요 기능',
-          description: 'Main Features',
-          image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400'
+          path: '/ppm/features',
+          image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600'
         },
         {
           id: 'benefits',
           title: '도입 효과',
-          description: 'Benefits',
-          image: 'https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=400'
+          path: '/ppm/benefits',
+          image: 'https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=600'
         }
       ]
     },
@@ -108,20 +108,20 @@ function Header() {
         {
           id: 'overview',
           title: '개요',
-          description: 'Overview',
-          image: 'https://images.pexels.com/photos/5989932/pexels-photo-5989932.jpeg?auto=compress&cs=tinysrgb&w=400'
+          path: '/eppm/overview',
+          image: 'https://images.pexels.com/photos/5989932/pexels-photo-5989932.jpeg?auto=compress&cs=tinysrgb&w=600'
         },
         {
           id: 'solution',
           title: '솔루션 특징',
-          description: 'Solution Features',
-          image: 'https://images.pexels.com/photos/518543/pexels-photo-518543.jpeg?auto=compress&cs=tinysrgb&w=400'
+          path: '/eppm/solution',
+          image: 'https://images.pexels.com/photos/518543/pexels-photo-518543.jpeg?auto=compress&cs=tinysrgb&w=600'
         },
         {
           id: 'cases',
           title: '구축 사례',
-          description: 'Implementation Cases',
-          image: 'https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=400'
+          path: '/eppm/cases',
+          image: 'https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=600'
         }
       ]
     },
@@ -132,20 +132,20 @@ function Header() {
         {
           id: 'overview',
           title: '개요',
-          description: 'Overview',
-          image: 'https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg?auto=compress&cs=tinysrgb&w=400'
+          path: '/opc/overview',
+          image: 'https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg?auto=compress&cs=tinysrgb&w=600'
         },
         {
           id: 'core',
           title: '핵심 기능',
-          description: 'Core Features',
-          image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400'
+          path: '/opc/core',
+          image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600'
         },
         {
           id: 'application',
           title: '활용 방안',
-          description: 'Application',
-          image: 'https://images.pexels.com/photos/2187605/pexels-photo-2187605.jpeg?auto=compress&cs=tinysrgb&w=400'
+          path: '/opc/application',
+          image: 'https://images.pexels.com/photos/2187605/pexels-photo-2187605.jpeg?auto=compress&cs=tinysrgb&w=600'
         }
       ]
     },
@@ -156,20 +156,20 @@ function Header() {
         {
           id: 'overview',
           title: '개요',
-          description: 'Overview',
-          image: 'https://images.pexels.com/photos/1098515/pexels-photo-1098515.jpeg?auto=compress&cs=tinysrgb&w=400'
+          path: '/unifier/overview',
+          image: 'https://images.pexels.com/photos/1098515/pexels-photo-1098515.jpeg?auto=compress&cs=tinysrgb&w=600'
         },
         {
           id: 'modules',
           title: '모듈 소개',
-          description: 'Module Introduction',
-          image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=400'
+          path: '/unifier/modules',
+          image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=600'
         },
         {
           id: 'customers',
           title: '고객 사례',
-          description: 'Customer Cases',
-          image: 'https://images.pexels.com/photos/3184611/pexels-photo-3184611.jpeg?auto=compress&cs=tinysrgb&w=400'
+          path: '/unifier/customers',
+          image: 'https://images.pexels.com/photos/3184611/pexels-photo-3184611.jpeg?auto=compress&cs=tinysrgb&w=600'
         }
       ]
     },
@@ -180,20 +180,20 @@ function Header() {
         {
           id: 'overview',
           title: '개요',
-          description: 'Overview',
-          image: 'https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&w=400'
+          path: '/aconex/overview',
+          image: 'https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&w=600'
         },
         {
           id: 'features',
           title: '기능 안내',
-          description: 'Feature Guide',
-          image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400'
+          path: '/aconex/features',
+          image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=600'
         },
         {
           id: 'projects',
           title: '프로젝트 사례',
-          description: 'Project Cases',
-          image: 'https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=400'
+          path: '/aconex/projects',
+          image: 'https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=600'
         }
       ]
     }
@@ -225,24 +225,33 @@ function Header() {
             >
               <Link
                 to={link.path}
-                className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
+                className={`nav-link ${location.pathname.startsWith(link.path) ? 'active' : ''}`}
               >
                 {link.label}
               </Link>
 
               {link.subItems && (
-                <div className={`dropdown-menu ${activeDropdown === link.path ? 'show' : ''}`}>
-                  <div className="dropdown-grid">
+                <div className={`mega-menu ${activeDropdown === link.path ? 'show' : ''}`}>
+                  <div className="mega-menu-grid">
                     {link.subItems.map((item) => (
-                      <div key={item.id} className="dropdown-card">
-                        <div className="dropdown-card-image">
-                          <img src={item.image} alt={item.title} />
-                        </div>
-                        <div className="dropdown-card-content">
-                          <h4>{item.title}</h4>
-                          <p>{item.description}</p>
-                        </div>
-                      </div>
+                      <Link
+                        key={item.id}
+                        to={item.path}
+                        className="mega-menu-card"
+                        onClick={() => setActiveDropdown(null)}
+                      >
+                        <div
+                          className="mega-menu-card-bg"
+                          style={{ backgroundImage: `url(${item.image})` }}
+                        />
+                        <div className="mega-menu-card-overlay" />
+                        <span className="mega-menu-card-title">{item.title}</span>
+                        <span className="mega-menu-card-arrow">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" />
+                          </svg>
+                        </span>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -268,7 +277,7 @@ function Header() {
             cursor: 'pointer'
           }}
         >
-          ☰
+          &#9776;
         </button>
       </div>
 
