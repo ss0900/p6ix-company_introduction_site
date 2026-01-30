@@ -3,7 +3,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 
-import Hero from '../components/Hero'
+import HeroVideo from '../components/HeroVideo'
 import WhatWeDo from '../components/WhatWeDo'
 import Capabilities from '../components/Capabilities'
 import Metrics from '../components/Metrics'
@@ -17,6 +17,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
 function Home() {
   const [activeSection, setActiveSection] = useState(0)
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
   const containerRef = useRef(null)
 
   const sections = [
@@ -31,6 +32,25 @@ function Home() {
   ]
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    setPrefersReducedMotion(mediaQuery.matches)
+
+    const handleChange = (e) => {
+      setPrefersReducedMotion(e.matches)
+    }
+
+    mediaQuery.addEventListener('change', handleChange)
+    return () => mediaQuery.removeEventListener('change', handleChange)
+  }, [])
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      initAnimations()
+      return () => {
+        ScrollTrigger.getAll().forEach(t => t.kill())
+      }
+    }
+
     const panels = gsap.utils.toArray('.panel')
 
     panels.forEach((panel, i) => {
@@ -153,9 +173,11 @@ function Home() {
       window.removeEventListener('touchstart', handleTouchStart)
       window.removeEventListener('touchend', handleTouchEnd)
     }
-  }, [])
+  }, [prefersReducedMotion])
 
   const initAnimations = () => {
+    if (prefersReducedMotion) return
+
     gsap.utils.toArray('.fade-in-section').forEach((section) => {
       gsap.fromTo(section,
         { opacity: 0, y: 60 },
@@ -200,11 +222,16 @@ function Home() {
     const panels = gsap.utils.toArray('.panel')
     if (panels[sectionIndex]) {
       setActiveSection(sectionIndex)
-      gsap.to(window, {
-        duration: 0.8,
-        scrollTo: { y: panels[sectionIndex], autoKill: false },
-        ease: 'power3.inOut'
-      })
+
+      if (prefersReducedMotion) {
+        panels[sectionIndex].scrollIntoView({ behavior: 'auto' })
+      } else {
+        gsap.to(window, {
+          duration: 0.8,
+          scrollTo: { y: panels[sectionIndex], autoKill: false },
+          ease: 'power3.inOut'
+        })
+      }
     }
   }
 
@@ -218,7 +245,7 @@ function Home() {
 
       <main ref={containerRef}>
         <section className="panel">
-          <Hero id="hero" scrollToSection={scrollToSection} />
+          <HeroVideo id="hero" scrollToSection={scrollToSection} />
         </section>
         <section className="panel">
           <WhatWeDo id="services" />
