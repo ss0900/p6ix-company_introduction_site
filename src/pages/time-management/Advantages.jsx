@@ -41,7 +41,56 @@ function TimeManagementAdvantages() {
   const ppmEppmSectionRef = useRef(null);
   const ppmEppmTitleRef = useRef(null);
   const ppmEppmCardsRef = useRef([]);
+  const ppmEppmDividerRef = useRef(null);
+  const ppmEppmIconsRef = useRef([]);
+  const ppmEppmBulletsRef = useRef([]);
   const ppmEppmConclusionRef = useRef(null);
+
+  // Drag-to-resize state
+  const [leftRatio, setLeftRatio] = useState(50); // percentage
+  const [isResizing, setIsResizing] = useState(false);
+  const dragStartXRef = useRef(0);
+  const dragStartRatioRef = useRef(50);
+
+  const handleMouseDown = (e) => {
+    setIsResizing(true);
+    dragStartXRef.current = e.clientX;
+    dragStartRatioRef.current = leftRatio;
+    document.body.style.cursor = "col-resize";
+    document.body.style.userSelect = "none";
+  };
+
+  useEffect(() => {
+    if (!isResizing) return;
+
+    const handleMouseMove = (e) => {
+      const deltaX = e.clientX - dragStartXRef.current;
+      const containerWidth =
+        ppmEppmSectionRef.current?.querySelector(".tm-ppm-eppm-grid")
+          ?.offsetWidth || 1000;
+      
+      const deltaRatio = (deltaX / containerWidth) * 100;
+      let newRatio = dragStartRatioRef.current + deltaRatio;
+
+      // Limit ratio between 20% and 80%
+      newRatio = Math.max(20, Math.min(80, newRatio));
+      setLeftRatio(newRatio);
+    };
+
+    const handleMouseUp = () => {
+      setIsResizing(false);
+      document.body.style.cursor = "";
+      document.body.style.userSelect = "";
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseup", handleMouseUp);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, [isResizing]);
 
   // Check reduced motion preference
   useEffect(() => {
@@ -347,7 +396,7 @@ function TimeManagementAdvantages() {
     }
   }, [prefersReducedMotion]);
 
-  // PPM vs EPPM section animations
+  // PPM vs EPPM section animations - Split Expansion Sequence
   useEffect(() => {
     if (prefersReducedMotion) return;
 
@@ -362,30 +411,78 @@ function TimeManagementAdvantages() {
           },
         });
 
+        // 0.0s - Title fade-in
         tl.fromTo(
           ppmEppmTitleRef.current,
           { opacity: 0, y: -30 },
           { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
         );
 
+        // 0.3s - Center Divider Draw (Top to Bottom)
+        if (ppmEppmDividerRef.current) {
+          // Animate the pseudo-element via CSS variable or clip-path?
+          // Since it's a pseudo-element, we might need a workaround or animate the container height/opacity
+          // Alternatively, animate the VS badge or the divider line specifically if possible.
+          // Let's animate the VS badge scale and the divider container opacity/height
+          tl.fromTo(
+            ppmEppmDividerRef.current,
+            { opacity: 0, scaleY: 0 },
+            { opacity: 1, scaleY: 1, duration: 0.6, ease: "power2.inOut" },
+            "-=0.2"
+          );
+        }
+
+        // 0.5s - Cards Slide-in (Left/Right to Center)
         ppmEppmCardsRef.current.forEach((card, i) => {
           if (card) {
             tl.fromTo(
               card,
-              { opacity: 0, x: i === 0 ? -50 : 50 },
-              { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" },
-              "-=0.3",
+              { opacity: 0, x: i === 0 ? -100 : 100 },
+              { opacity: 1, x: 0, duration: 0.8, ease: "power3.out" },
+              "-=0.4",
             );
           }
         });
 
+        // 0.8s - Icons Scale-up
+        if (ppmEppmIconsRef.current.length > 0) {
+           tl.fromTo(
+            ppmEppmIconsRef.current,
+            { opacity: 0, scale: 0, rotation: -15 },
+            { opacity: 1, scale: 1, rotation: 0, duration: 0.6, ease: "back.out(1.7)", stagger: 0.1 },
+            "-=0.4"
+          );
+        }
+
+        // 1.0s - Bullets Fade-in (Staggered)
+        if (ppmEppmBulletsRef.current.length > 0) {
+           tl.fromTo(
+            ppmEppmBulletsRef.current,
+            { opacity: 0, x: -10 },
+            { opacity: 1, x: 0, duration: 0.4, stagger: 0.1, ease: "power2.out" },
+            "-=0.3"
+          );
+        }
+
+        // 1.5s - Conclusion Fade-in
         if (ppmEppmConclusionRef.current) {
           tl.fromTo(
             ppmEppmConclusionRef.current,
             { opacity: 0, y: 20 },
             { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
-            "+=0.2",
+            "-=0.2",
           );
+          
+          // Highlight emphasis
+          const ems = ppmEppmConclusionRef.current.querySelectorAll("em");
+          if(ems.length > 0) {
+             tl.fromTo(
+              ems,
+              { backgroundColor: "rgba(59, 130, 246, 0)", color: "var(--color-text-primary)" },
+              { backgroundColor: "rgba(59, 130, 246, 0.15)", color: "var(--color-accent)", duration: 0.5 },
+              "+=0.1"
+            );
+          }
         }
       }, ppmEppmSectionRef);
     }
@@ -1059,84 +1156,99 @@ function TimeManagementAdvantages() {
           <div className="tm-ppm-eppm-section" ref={ppmEppmSectionRef}>
             <div className="tm-ppm-eppm-container">
               {/* Section Title */}
-              <div className="tm-section-header" ref={ppmEppmTitleRef}>
+              <div
+                className="tm-section-header"
+                ref={ppmEppmTitleRef}
+                style={{ marginTop: "70px", marginBottom: "-10px" }}
+              >
                 <h2 className="tm-section-title">P6 PPM vs. EPPM</h2>
               </div>
 
               {/* Two Column Layout */}
-              <div className="tm-ppm-eppm-grid">
+              <div 
+                className={`tm-ppm-eppm-grid ${isResizing ? 'tm-resizing' : ''}`}
+                style={{
+                  gridTemplateColumns: `${leftRatio}% auto 1fr`
+                }}
+              >
                 {/* PPM Card */}
                 <div
                   className="tm-ppm-eppm-card tm-ppm-card"
                   ref={(el) => (ppmEppmCardsRef.current[0] = el)}
                 >
                   <div className="tm-ppm-eppm-card-header">
-                    <h3>PPM (Professional)</h3>
+                    <h3>PPM</h3>
+                    <span>(Professional)</span>
                   </div>
                   <div className="tm-ppm-eppm-card-content">
                     {/* Icon: Desktop PC */}
-                    <div className="tm-ppm-eppm-icon">
+                    <div
+                      className="tm-ppm-eppm-icon"
+                      ref={(el) => (ppmEppmIconsRef.current[0] = el)}
+                    >
                       <svg
                         viewBox="0 0 80 80"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        {/* Monitor */}
+                        {/* PC Tower (Moved Left to x=0) */}
                         <rect
-                          x="10"
+                          x="0"
                           y="8"
-                          width="60"
-                          height="40"
+                          width="18"
+                          height="48"
+                          rx="2"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          fill="rgba(59, 130, 246, 0.1)"
+                        />
+                        <circle cx="9" cy="14" r="2" fill="currentColor" />
+                        <rect x="4" y="20" width="10" height="8" rx="1" fill="rgba(59, 130, 246, 0.3)" />
+
+                        {/* Monitor (Moved Right to x=24) */}
+                        <rect
+                          x="24"
+                          y="8"
+                          width="54"
+                          height="38"
                           rx="3"
                           stroke="currentColor"
                           strokeWidth="2.5"
                           fill="rgba(59, 130, 246, 0.1)"
                         />
                         <rect
-                          x="14"
+                          x="28"
                           y="12"
-                          width="52"
-                          height="32"
+                          width="46"
+                          height="30"
                           rx="1"
                           fill="rgba(59, 130, 246, 0.2)"
                         />
                         {/* Monitor Stand */}
                         <path
-                          d="M35 48 L35 56 L25 56 L25 58 L55 58 L55 56 L45 56 L45 48"
+                          d="M51 46 L51 54 L41 54 L41 56 L61 56 L61 54 L51 54 L51 46"
                           stroke="currentColor"
                           strokeWidth="2"
                           fill="none"
                         />
-                        {/* PC Tower */}
+                        
+                        {/* Keyboard (Centered on Monitor) */}
                         <rect
-                          x="62"
-                          y="42"
-                          width="12"
-                          height="24"
-                          rx="2"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          fill="rgba(59, 130, 246, 0.1)"
-                        />
-                        <circle cx="68" cy="48" r="2" fill="currentColor" />
-                        <rect x="65" y="54" width="6" height="8" rx="1" fill="rgba(59, 130, 246, 0.3)" />
-                        {/* Keyboard */}
-                        <rect
-                          x="18"
-                          y="62"
-                          width="30"
+                          x="34"
+                          y="60"
+                          width="34"
                           height="8"
                           rx="2"
                           stroke="currentColor"
                           strokeWidth="1.5"
                           fill="rgba(59, 130, 246, 0.1)"
                         />
-                        {/* Mouse */}
+                        {/* Mouse (Right of Keyboard) */}
                         <ellipse
-                          cx="55"
-                          cy="66"
-                          rx="5"
-                          ry="4"
+                          cx="76"
+                          cy="64"
+                          rx="4"
+                          ry="3"
                           stroke="currentColor"
                           strokeWidth="1.5"
                           fill="rgba(59, 130, 246, 0.1)"
@@ -1146,25 +1258,36 @@ function TimeManagementAdvantages() {
 
                     {/* Features */}
                     <ul className="tm-ppm-eppm-features">
-                      <li>
+                      <li ref={(el) => (ppmEppmBulletsRef.current[0] = el)}>
                         <span className="tm-bullet"></span>
-                        <span>Client-based (설치형)</span>
+                        <span>Client-based (PC 설치형)</span>
                       </li>
-                      <li>
+                      <li ref={(el) => (ppmEppmBulletsRef.current[1] = el)}>
                         <span className="tm-bullet"></span>
                         <span>Power User 중심</span>
                       </li>
-                      <li>
+                      <li ref={(el) => (ppmEppmBulletsRef.current[2] = el)}>
                         <span className="tm-bullet"></span>
-                        <span>독립적 프로젝트 관리 강점</span>
+                        <span>독립적 프로젝트 관리</span>
                       </li>
                     </ul>
                   </div>
                 </div>
 
                 {/* Divider */}
-                <div className="tm-ppm-eppm-divider">
+                <div 
+                  className="tm-ppm-eppm-divider" 
+                  ref={ppmEppmDividerRef}
+                  onMouseDown={handleMouseDown}
+                >
                   <div className="tm-ppm-eppm-vs">VS</div>
+                  
+                  {/* Tooltip & Arrows */}
+                  <div className="tm-divider-tooltip">
+                    <span className="tm-divider-arrow">←</span>
+                    <span className="tm-divider-text">두 버전 비교하기</span>
+                    <span className="tm-divider-arrow">→</span>
+                  </div>
                 </div>
 
                 {/* EPPM Card */}
@@ -1173,118 +1296,114 @@ function TimeManagementAdvantages() {
                   ref={(el) => (ppmEppmCardsRef.current[1] = el)}
                 >
                   <div className="tm-ppm-eppm-card-header">
-                    <h3>EPPM (Enterprise)</h3>
+                    <h3>EPPM</h3>
+                    <span>(Enterprise)</span>
                   </div>
                   <div className="tm-ppm-eppm-card-content">
                     {/* Icon: Globe + Server + Cloud */}
-                    <div className="tm-ppm-eppm-icon">
+                    <div
+                      className="tm-ppm-eppm-icon"
+                      ref={(el) => (ppmEppmIconsRef.current[1] = el)}
+                    >
                       <svg
                         viewBox="0 0 80 80"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        {/* Globe */}
+                        {/* Globe (Moved Further Left) */}
                         <circle
-                          cx="28"
-                          cy="35"
-                          r="18"
+                          cx="18"
+                          cy="38"
+                          r="16"
                           stroke="currentColor"
                           strokeWidth="2"
                           fill="rgba(16, 185, 129, 0.1)"
                         />
                         <ellipse
-                          cx="28"
-                          cy="35"
-                          rx="8"
-                          ry="18"
+                          cx="18"
+                          cy="38"
+                          rx="7"
+                          ry="16"
                           stroke="currentColor"
                           strokeWidth="1.5"
                           fill="none"
                         />
                         <line
-                          x1="10"
-                          y1="35"
-                          x2="46"
-                          y2="35"
+                          x1="2"
+                          y1="38"
+                          x2="34"
+                          y2="38"
                           stroke="currentColor"
                           strokeWidth="1.5"
                         />
-                        <line
-                          x1="28"
-                          y1="17"
-                          x2="28"
-                          y2="53"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                        />
-
-                        {/* Server */}
+                        
+                        {/* Server (Moved Further Right) */}
                         <rect
-                          x="52"
-                          y="24"
-                          width="20"
-                          height="32"
+                          x="62"
+                          y="28"
+                          width="18"
+                          height="30"
                           rx="2"
                           stroke="currentColor"
                           strokeWidth="2"
                           fill="rgba(16, 185, 129, 0.1)"
                         />
                         <line
-                          x1="52"
-                          y1="34"
-                          x2="72"
-                          y2="34"
+                          x1="62"
+                          y1="38"
+                          x2="80"
+                          y2="38"
                           stroke="currentColor"
                           strokeWidth="1.5"
                         />
                         <line
-                          x1="52"
-                          y1="44"
-                          x2="72"
-                          y2="44"
+                          x1="62"
+                          y1="48"
+                          x2="80"
+                          y2="48"
                           stroke="currentColor"
                           strokeWidth="1.5"
                         />
-                        <circle cx="56" cy="29" r="1.5" fill="#10b981" />
-                        <circle cx="56" cy="39" r="1.5" fill="#10b981" />
-                        <circle cx="56" cy="49" r="1.5" fill="#10b981" />
+                        <circle cx="66" cy="33" r="1.5" fill="#10b981" />
+                        <circle cx="66" cy="43" r="1.5" fill="#10b981" />
+                        <circle cx="66" cy="53" r="1.5" fill="#10b981" />
 
-                        {/* Cloud Upload */}
+                        {/* Cloud Upload (Moved Further Up) */}
                         <path
-                          d="M55 12 C50 12 46 16 46 20 C42 20 38 24 38 28 C38 32 42 36 48 36 L66 36 C70 36 74 32 74 28 C74 24 70 20 66 20 C66 16 62 12 55 12"
+                          d="M48 2 C43 2 39 6 39 10 C35 10 32 13 32 17 C32 21 35 24 40 24 L58 24 C62 24 66 20 66 16 C66 12 62 8 58 8 C58 4 54 2 48 2"
                           stroke="currentColor"
                           strokeWidth="2"
                           fill="rgba(16, 185, 129, 0.2)"
                         />
                         <path
-                          d="M55 30 L55 22 M52 25 L55 22 L58 25"
+                          d="M49 18 L49 10 M46 13 L49 10 L52 13"
                           stroke="currentColor"
                           strokeWidth="2"
                           strokeLinecap="round"
                           strokeLinejoin="round"
                         />
 
-                        {/* Connection Lines */}
+                        {/* Connection Lines (Spanning the wider gap) */}
                         <path
-                          d="M44 38 L52 38"
+                          d="M34 38 L62 38"
                           stroke="currentColor"
                           strokeWidth="1.5"
-                          strokeDasharray="3 2"
+                          strokeDasharray="3 3"
                         />
                       </svg>
                     </div>
 
                     {/* Features */}
                     <ul className="tm-ppm-eppm-features">
-                      <li>
+                      <li ref={(el) => (ppmEppmBulletsRef.current[3] = el)}>
                         <span className="tm-bullet"></span>
                         <span>Web-based (웹 접속)</span>
                       </li>
-                      <li>
+                      <li ref={(el) => (ppmEppmBulletsRef.current[4] = el)}>
                         <span className="tm-bullet"></span>
                         <span>경영진/관리자 Dashboard 제공</span>
                       </li>
-                      <li>
+                      <li ref={(el) => (ppmEppmBulletsRef.current[5] = el)}>
                         <span className="tm-bullet"></span>
                         <span>전사적 포트폴리오 관리 (Portfolio)</span>
                       </li>

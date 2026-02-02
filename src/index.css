@@ -7435,3 +7435,185 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     font-size: var(--text-lg);
   }
 }
+
+/* ============================================
+   PPM vs EPPM - INTERACTIVE ANIMATIONS
+   ============================================ */
+
+/* 1. Dimming Effect on Hover */
+.tm-ppm-eppm-grid:hover .tm-ppm-eppm-card {
+  opacity: 0.4;
+  filter: grayscale(0.8);
+  transform: scale(0.98);
+}
+
+.tm-ppm-eppm-grid:hover .tm-ppm-eppm-card:hover {
+  opacity: 1;
+  filter: grayscale(0);
+  transform: scale(1.02) translateY(-10px);
+  z-index: 2;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.tm-ppm-eppm-grid:hover .tm-ppm-eppm-card:hover .tm-ppm-eppm-card-header {
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+/* 2. PPM Icon Animation (Typing & Monitor) */
+.tm-ppm-card:hover .tm-ppm-eppm-icon svg rect[x="10"] {
+  fill: rgba(59, 130, 246, 0.4);
+  transition: fill 0.3s ease;
+}
+
+.tm-ppm-card:hover .tm-ppm-eppm-icon svg line[y1="46"] {
+  animation: tm-typing 1.5s infinite;
+}
+
+@keyframes tm-typing {
+  0%, 100% { stroke-dasharray: 0 10; opacity: 0.5; }
+  50% { stroke-dasharray: 4 2; opacity: 1; }
+}
+
+/* 3. EPPM Icon Animation (Global & Cloud) */
+.tm-eppm-card:hover .tm-ppm-eppm-icon svg circle[cx="40"] {
+  animation: tm-globe-pulse 2s infinite ease-in-out;
+}
+
+@keyframes tm-globe-pulse {
+  0%, 100% { stroke: rgba(16, 185, 129, 0.3); stroke-width: 1; }
+  50% { stroke: rgba(16, 185, 129, 0.8); stroke-width: 2.5; }
+}
+
+.tm-eppm-card:hover .tm-ppm-eppm-icon svg path[d^="M55 12"] {
+  animation: tm-cloud-float 3s infinite ease-in-out;
+}
+
+@keyframes tm-cloud-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Server Blink */
+.tm-eppm-card:hover .tm-ppm-eppm-icon svg circle[r="1.5"] {
+  animation: tm-server-blink 0.5s infinite alternate;
+}
+
+@keyframes tm-server-blink {
+  from { opacity: 0.3; fill: #047857; }
+  to { opacity: 1; fill: #10b981; }
+}
+
+/* 4. Divider Interaction */
+.tm-ppm-eppm-divider {
+  transition: all 0.3s ease;
+}
+
+.tm-ppm-eppm-divider:hover .tm-ppm-eppm-vs {
+  transform: scale(1.2) rotate(180deg);
+  background: var(--color-accent);
+  color: white;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  border-color: transparent;
+}
+
+.tm-ppm-eppm-divider:hover::before {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--color-accent) 20%,
+    var(--color-accent) 80%,
+    transparent
+  );
+  width: 2px;
+  box-shadow: 0 0 15px var(--color-accent);
+}
+
+/* 5. Drag Interaction Styles */
+.tm-ppm-eppm-divider {
+  cursor: col-resize;
+  position: relative;
+  /* Increase clickable area without changing visual width */
+  width: 14px; 
+  margin: 0 -6px; /* Compensate for width increase */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.tm-ppm-eppm-divider::before {
+  /* Visual line */
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: rgba(255,255,255,0.1);
+  transform: translateX(-50%);
+  transition: all 0.3s ease;
+}
+
+/* Tooltip & Arrows */
+.tm-divider-tooltip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: rgba(15, 23, 42, 0.9);
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--color-accent);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.tm-ppm-eppm-divider:hover .tm-divider-tooltip,
+.tm-resizing .tm-divider-tooltip { /* Keep tooltip visible while dragging */
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.tm-divider-text {
+  font-size: 12px;
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+
+.tm-divider-arrow {
+  color: var(--color-accent);
+  font-weight: bold;
+  animation: tm-arrow-bounce 1s infinite alternate;
+}
+
+@keyframes tm-arrow-bounce {
+  from { transform: translateX(-2px); }
+  to { transform: translateX(2px); }
+}
+
+/* Dragging State */
+.tm-resizing .tm-ppm-eppm-grid {
+  cursor: col-resize;
+}
+
+.tm-resizing .tm-ppm-eppm-divider::before {
+  background: var(--color-accent);
+  box-shadow: 0 0 15px var(--color-accent);
+  width: 4px; /* Thicker line while dragging */
+}
+
+/* Hide VS circle while dragging or hovering if tooltip is preferred, 
+   but user might want both. Let's keep VS but maybe move it or fade it? 
+   Actually, the VS circle is inside the divider. Let's make sure they don't overlap ugly. */
+.tm-ppm-eppm-divider:hover .tm-ppm-eppm-vs,
+.tm-resizing .tm-ppm-eppm-vs {
+  opacity: 0; /* Hide VS badge to show tooltip clearly */
+  transform: scale(0);
+}

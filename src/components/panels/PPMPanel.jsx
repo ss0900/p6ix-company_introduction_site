@@ -350,12 +350,17 @@ function PPMPanel({ id }) {
             <h2 className="ppm-hero-title">Primavera P6 PPM</h2>
             <div className="ppm-hero-divider" />
             <p className="ppm-hero-headline">
-              <br /><br />모든 규모의 프로젝트를 정밀하게 관리하세요
+              <br />
+              모든 규모의 프로젝트를 정밀하게 관리하세요.
             </p>
             <p className="ppm-hero-desc">
-              복잡한 프로젝트를 정밀하게 일정·자원 계획/통제하는
+              정밀하고 강력한 Primavera P6 PPM은 복잡한 프로젝트의 일정과 자원
+              계획을
               <br />
-              전문가용 PM 도구
+              데스크탑 환경에서 정교하게 제어할 수 있는 전문가용 프로젝트 관리
+              도구로
+              <br />
+              프로젝트 스케줄링과 분석에 특화되어 있습니다.
             </p>
             <br />
             <button
