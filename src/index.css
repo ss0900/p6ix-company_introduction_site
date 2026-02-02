@@ -4529,6 +4529,71 @@ a:hover {
    TIME MANAGEMENT OVERVIEW STYLES
    ============================================ */
 
+/* Panel for full-page scroll */
+.tm-panel {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hero Section */
+.tm-hero-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: var(--space-2xl);
+}
+
+/* Scroll indicator for TM hero - matches homepage style */
+.tm-hero-section .scroll-indicator {
+  z-index: 2;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform var(--duration-base) var(--ease-out-quart);
+}
+
+.tm-hero-section .scroll-indicator:hover {
+  transform: translateX(-50%) translateY(-5px);
+}
+
+.tm-hero-content {
+  text-align: center;
+  z-index: 2;
+}
+
+.tm-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-4xl), 8vw, var(--text-7xl));
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--space-md);
+  line-height: 1.1;
+}
+
+.tm-hero-subtitle {
+  font-size: var(--text-xl);
+  color: var(--color-text-secondary);
+  font-weight: 400;
+}
+
+/* Definition Section */
+.tm-definition-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-primary);
+  padding: var(--space-2xl);
+}
+
 /* Overview Section Container */
 .tm-overview-section {
   display: flex;
@@ -4537,6 +4602,8 @@ a:hover {
   gap: var(--space-3xl);
   padding: var(--space-2xl);
   min-height: 100%;
+  max-width: var(--container-max);
+  width: 100%;
 }
 
 /* Section Header */
@@ -4556,7 +4623,7 @@ a:hover {
 }
 
 .tm-section-title::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -8px;
   left: 0;
@@ -4659,7 +4726,7 @@ a:hover {
 }
 
 .tm-icon-wrapper::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: calc(100% + 4px);
   left: 50%;
@@ -4910,7 +4977,7 @@ a:hover {
 }
 
 .tm-result-item::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: calc(100% + 4px);
   left: 50%;
@@ -5054,4 +5121,2084 @@ a:hover {
   .tm-result-icon {
     font-size: var(--text-base);
   }
+}
+
+/* ============================================
+   TIME MANAGEMENT - NECESSITY SECTION STYLES
+   ============================================ */
+
+/* Necessity Section */
+.tm-necessity-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-primary);
+  padding: var(--space-2xl);
+}
+
+.tm-necessity-container {
+  max-width: var(--container-max);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xl);
+}
+
+/* Cards Grid */
+.tm-necessity-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+}
+
+/* Individual Card */
+.tm-necessity-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-2xl);
+  background: var(--color-bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-2xl);
+  text-align: center;
+  transition: all var(--duration-base) var(--ease-out-quart);
+}
+
+.tm-necessity-card:hover {
+  background: var(--color-bg-card-hover);
+  border-color: rgba(0, 212, 255, 0.3);
+  transform: translateY(-8px);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(0, 212, 255, 0.1);
+}
+
+/* Card Icon */
+.tm-necessity-icon {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--duration-base) var(--ease-out-quart);
+}
+
+.tm-necessity-icon svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.3));
+}
+
+.tm-necessity-card:hover .tm-necessity-icon {
+  transform: scale(1.1);
+}
+
+.tm-necessity-card:hover .tm-necessity-icon svg {
+  filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.5));
+}
+
+/* Card Title */
+.tm-necessity-card-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+/* Card Description */
+.tm-necessity-card-desc {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive Styles for Necessity Section */
+@media (max-width: 992px) {
+  .tm-necessity-cards {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .tm-necessity-card {
+    padding: var(--space-xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .tm-necessity-section {
+    padding: var(--space-lg);
+  }
+
+  .tm-necessity-container {
+    gap: var(--space-2xl);
+  }
+
+  .tm-necessity-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .tm-necessity-card-title {
+    font-size: var(--text-lg);
+  }
+
+  .tm-necessity-card-desc {
+    font-size: var(--text-sm);
+  }
+}
+
+/* ============================================
+   NECESSITY CARD ICON ANIMATIONS
+   ============================================ */
+
+/* Base 3D Tilt styles */
+.tm-necessity-card {
+  transform-style: preserve-3d;
+  transition:
+    transform 0.15s ease-out,
+    box-shadow var(--duration-base) var(--ease-out-quart),
+    border-color var(--duration-base) var(--ease-out-quart);
+}
+
+/* ========== Card 1: Handshake - Particle Animation ========== */
+.tm-icon-handshake .tm-hand-left,
+.tm-icon-handshake .tm-hand-right {
+  transition: transform 0.3s ease;
+}
+
+.tm-card-handshake:hover .tm-hand-left {
+  animation: tm-hand-shake-left 0.5s ease-in-out;
+}
+
+.tm-card-handshake:hover .tm-hand-right {
+  animation: tm-hand-shake-right 0.5s ease-in-out;
+}
+
+/* Particles hidden by default */
+.tm-icon-handshake .tm-particle {
+  opacity: 0;
+  transform-origin: center;
+}
+
+.tm-card-handshake:hover .tm-particle {
+  animation: tm-particle-burst 0.8s ease-out forwards;
+}
+
+.tm-card-handshake:hover .tm-particle-1 {
+  animation-delay: 0.1s;
+}
+.tm-card-handshake:hover .tm-particle-2 {
+  animation-delay: 0.15s;
+}
+.tm-card-handshake:hover .tm-particle-3 {
+  animation-delay: 0.2s;
+}
+.tm-card-handshake:hover .tm-particle-4 {
+  animation-delay: 0.25s;
+}
+.tm-card-handshake:hover .tm-particle-5 {
+  animation-delay: 0.3s;
+}
+
+@keyframes tm-hand-shake-left {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(3px);
+  }
+  75% {
+    transform: translateX(-2px);
+  }
+}
+
+@keyframes tm-hand-shake-right {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-3px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
+}
+
+@keyframes tm-particle-burst {
+  0% {
+    opacity: 0;
+    transform: scale(0) translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1.5) translateY(-5px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5) translateY(-20px);
+  }
+}
+
+/* ========== Card 2: Document - Stamp Drop Animation ========== */
+.tm-icon-document .tm-stamp {
+  transform-origin: 52px 55px;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.tm-card-document:hover .tm-stamp {
+  animation: tm-stamp-drop 0.5s ease-out forwards;
+}
+
+@keyframes tm-stamp-drop {
+  0% {
+    opacity: 0;
+    transform: rotate(-15deg) translateY(-30px) scale(1.2);
+  }
+  60% {
+    opacity: 1;
+    transform: rotate(-15deg) translateY(5px) scale(0.95);
+  }
+  80% {
+    transform: rotate(-15deg) translateY(-3px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-15deg) translateY(0) scale(1);
+  }
+}
+
+/* ========== Card 3: Shield - Arrow Bounce Animation ========== */
+.tm-icon-shield .tm-shield-body {
+  transition: all 0.3s ease;
+}
+
+.tm-card-shield:hover .tm-shield-body {
+  fill: rgba(0, 212, 255, 0.2);
+  filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.3));
+}
+
+/* Incoming arrows animation */
+.tm-icon-shield .tm-incoming-arrow {
+  transition: transform 0.3s ease;
+}
+
+.tm-card-shield:hover .tm-arrow-1 {
+  animation: tm-arrow-bounce-1 0.6s ease-in-out infinite;
+}
+
+.tm-card-shield:hover .tm-arrow-2 {
+  animation: tm-arrow-bounce-2 0.6s ease-in-out infinite 0.2s;
+}
+
+.tm-card-shield:hover .tm-arrow-3 {
+  animation: tm-arrow-bounce-3 0.6s ease-in-out infinite 0.4s;
+}
+
+/* Sparks hidden by default */
+.tm-icon-shield .tm-spark {
+  opacity: 0;
+  transform-origin: center;
+}
+
+.tm-card-shield:hover .tm-spark-1 {
+  animation: tm-spark-flash 0.6s ease-out infinite;
+}
+
+.tm-card-shield:hover .tm-spark-2 {
+  animation: tm-spark-flash 0.6s ease-out infinite 0.2s;
+}
+
+.tm-card-shield:hover .tm-spark-3 {
+  animation: tm-spark-flash 0.6s ease-out infinite 0.4s;
+}
+
+@keyframes tm-arrow-bounce-1 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(5px, -5px);
+  }
+}
+
+@keyframes tm-arrow-bounce-2 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(5px, 5px);
+  }
+}
+
+@keyframes tm-arrow-bounce-3 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-5px, 5px);
+  }
+}
+
+@keyframes tm-spark-flash {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+/* Card-specific theme colors on hover */
+.tm-card-handshake:hover {
+  border-color: var(--color-accent);
+}
+
+.tm-card-document:hover {
+  border-color: #f97316;
+}
+
+.tm-card-shield:hover {
+  border-color: #10b981;
+}
+
+.tm-card-handshake:hover {
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(0, 212, 255, 0.2);
+}
+
+.tm-card-document:hover {
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(249, 115, 22, 0.2);
+}
+
+.tm-card-shield:hover {
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(16, 185, 129, 0.2);
+}
+
+/* ============================================
+   TIME MANAGEMENT - GOALS SECTION STYLES
+   ============================================ */
+
+/* Goals Section */
+.tm-goals-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-primary);
+  padding: var(--space-2xl);
+}
+
+.tm-goals-container {
+  max-width: var(--container-max);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+/* Goals Content Layout */
+.tm-goals-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3xl);
+  flex-wrap: wrap;
+}
+
+/* Circular Diagram */
+.tm-goals-diagram {
+  width: 450px;
+  height: 450px;
+  flex-shrink: 0;
+}
+
+.tm-goals-diagram svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+}
+
+/* Segment Hover Effects */
+.tm-goal-segment {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.tm-goal-segment:hover {
+  filter: brightness(1.2);
+  transform-origin: center;
+}
+
+.tm-segment-quality:hover {
+  fill: rgba(59, 130, 246, 0.9);
+}
+
+.tm-segment-management:hover {
+  fill: rgba(100, 116, 139, 0.9);
+}
+
+.tm-segment-economic:hover {
+  fill: rgba(6, 182, 212, 0.9);
+}
+
+/* Center Circle */
+.tm-goal-center {
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 20px rgba(251, 146, 60, 0.5));
+}
+
+.tm-goals-diagram:hover .tm-goal-center {
+  filter: drop-shadow(0 0 30px rgba(251, 146, 60, 0.8));
+}
+
+/* Labels */
+.tm-goal-label {
+  transition: all 0.3s ease;
+}
+
+.tm-goal-label:hover {
+  transform: scale(1.05);
+}
+
+/* Connecting Lines Animation */
+.tm-connect-line {
+  stroke-dashoffset: 0;
+  animation: tm-dash-flow 2s linear infinite;
+}
+
+@keyframes tm-dash-flow {
+  from {
+    stroke-dashoffset: 12;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Callout Box */
+.tm-goals-callout {
+  max-width: 350px;
+}
+
+.tm-callout-content {
+  background: var(--color-bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 4px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  position: relative;
+}
+
+.tm-callout-content::before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 10px solid transparent;
+  border-right-color: var(--color-accent);
+}
+
+.tm-callout-text {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.tm-callout-text strong {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+/* Responsive Styles for Goals Section */
+@media (max-width: 992px) {
+  .tm-goals-content {
+    flex-direction: column;
+    gap: var(--space-2xl);
+  }
+
+  .tm-goals-diagram {
+    width: 350px;
+    height: 350px;
+  }
+
+  .tm-goals-callout {
+    max-width: 100%;
+  }
+
+  .tm-callout-content::before {
+    left: 50%;
+    top: -20px;
+    transform: translateX(-50%) rotate(90deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .tm-goals-section {
+    padding: var(--space-lg);
+  }
+
+  .tm-goals-diagram {
+    width: 300px;
+    height: 300px;
+  }
+
+  .tm-callout-text {
+    font-size: var(--text-base);
+  }
+}
+
+/* ============================================
+   GOALS DIAGRAM ICON ANIMATIONS
+   ============================================ */
+
+/* Center Circle Pulse Animation */
+.tm-goal-center-group {
+  transform-origin: 250px 250px;
+}
+
+.tm-goal-center {
+  animation: tm-center-pulse 3s ease-in-out infinite;
+}
+
+@keyframes tm-center-pulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 15px rgba(251, 146, 60, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 30px rgba(251, 146, 60, 0.8));
+  }
+}
+
+/* Connecting Lines - Hidden by default */
+.tm-connect-line {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Segment Hover - Show connecting line and dim others */
+.tm-segment-quality:hover ~ .tm-connect-quality,
+.tm-label-quality:hover ~ .tm-connect-quality {
+  opacity: 1;
+}
+
+.tm-segment-management:hover ~ .tm-connect-management,
+.tm-label-management:hover ~ .tm-connect-management {
+  opacity: 1;
+}
+
+.tm-segment-economic:hover ~ .tm-connect-economic,
+.tm-label-economic:hover ~ .tm-connect-economic {
+  opacity: 1;
+}
+
+/* Segment expansion on hover */
+.tm-goal-segment {
+  transform-origin: 250px 250px;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease,
+    fill 0.3s ease;
+}
+
+.tm-goal-segment:hover {
+  transform: scale(1.05);
+  filter: brightness(1.3);
+}
+
+/* Dim other segments when one is hovered */
+.tm-goals-diagram svg:has(.tm-segment-quality:hover) .tm-segment-management,
+.tm-goals-diagram svg:has(.tm-segment-quality:hover) .tm-segment-economic {
+  opacity: 0.5;
+}
+
+.tm-goals-diagram svg:has(.tm-segment-management:hover) .tm-segment-quality,
+.tm-goals-diagram svg:has(.tm-segment-management:hover) .tm-segment-economic {
+  opacity: 0.5;
+}
+
+.tm-goals-diagram svg:has(.tm-segment-economic:hover) .tm-segment-quality,
+.tm-goals-diagram svg:has(.tm-segment-economic:hover) .tm-segment-management {
+  opacity: 0.5;
+}
+
+/* ========== Left Label: Handshake + Check ========== */
+.tm-label-quality .tm-check-popup {
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: center;
+  transition: all 0.3s ease;
+}
+
+.tm-label-quality:hover .tm-check-popup {
+  opacity: 1;
+  transform: scale(1);
+  animation: tm-check-pop 0.4s ease-out;
+}
+
+@keyframes tm-check-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0) translateY(5px);
+  }
+  60% {
+    transform: scale(1.2) translateY(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.tm-label-quality:hover .tm-label-bg {
+  fill: rgba(59, 130, 246, 0.5);
+  filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.5));
+}
+
+/* ========== Right Label: Gear Rotation ========== */
+.tm-label-management .tm-gear-group {
+  transform-origin: 390px 150px;
+  transition: transform 0.3s ease;
+}
+
+.tm-label-management:hover .tm-gear-group {
+  animation: tm-gear-spin 2s linear infinite;
+}
+
+@keyframes tm-gear-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.tm-label-management:hover .tm-label-bg {
+  fill: rgba(148, 163, 184, 0.5);
+  filter: drop-shadow(0 0 10px rgba(148, 163, 184, 0.5));
+}
+
+/* ========== Bottom Label: Arrow Rotation + Sparkles ========== */
+.tm-label-economic .tm-arrow-rotate-group {
+  transform-origin: 250px 400px;
+  transition: transform 0.3s ease;
+}
+
+.tm-label-economic:hover .tm-arrow-rotate-group {
+  animation: tm-arrow-cycle 1.5s linear infinite;
+}
+
+@keyframes tm-arrow-cycle {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Sparkles hidden by default */
+.tm-label-economic .tm-sparkle {
+  opacity: 0;
+  transform-origin: center;
+}
+
+.tm-label-economic:hover .tm-sparkle {
+  animation: tm-sparkle-twinkle 0.6s ease-out infinite;
+}
+
+.tm-label-economic:hover .tm-sparkle-1 {
+  animation-delay: 0s;
+}
+
+.tm-label-economic:hover .tm-sparkle-2 {
+  animation-delay: 0.2s;
+}
+
+.tm-label-economic:hover .tm-sparkle-3 {
+  animation-delay: 0.4s;
+}
+
+@keyframes tm-sparkle-twinkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+.tm-label-economic:hover .tm-label-bg {
+  fill: rgba(6, 182, 212, 0.5);
+  filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.5));
+}
+
+.tm-label-economic:hover .tm-dollar-sign {
+  animation: tm-dollar-glow 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes tm-dollar-glow {
+  0% {
+    fill: #10b981;
+  }
+  100% {
+    fill: #fbbf24;
+  }
+}
+
+/* Label hover general effect */
+.tm-goal-label {
+  cursor: pointer;
+}
+
+.tm-goal-label:hover {
+  transform: scale(1.08);
+}
+
+/* ============================================
+   TIME MANAGEMENT - METHODS SECTION STYLES
+   ============================================ */
+
+/* Methods Section */
+.tm-methods-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-primary);
+  padding: var(--space-2xl);
+}
+
+.tm-methods-container {
+  max-width: var(--container-max);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* Flow Arrows */
+.tm-flow-arrow {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-sm) 0;
+}
+
+.tm-flow-arrow svg {
+  width: 100%;
+  max-width: 800px;
+  height: 30px;
+}
+
+.tm-arrow-backward svg text {
+  font-weight: 500;
+}
+
+/* Chevron Flow Container */
+.tm-chevron-flow {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* Chevron Step */
+.tm-chevron-step {
+  flex: 1;
+  max-width: 320px;
+  position: relative;
+}
+
+.tm-chevron-shape {
+  background: rgba(30, 58, 138, 0.3);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  padding: var(--space-xl) var(--space-lg);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  position: relative;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 30px) 0,
+    100% 50%,
+    calc(100% - 30px) 100%,
+    0 100%,
+    30px 50%
+  );
+  transition:
+    background var(--duration-base),
+    border-color var(--duration-base),
+    transform var(--duration-base);
+}
+
+/* First chevron - no left arrow cut */
+.tm-step-planning .tm-chevron-shape {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 30px) 0,
+    100% 50%,
+    calc(100% - 30px) 100%,
+    0 100%
+  );
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+/* Middle chevron */
+.tm-step-scheduling .tm-chevron-shape {
+  background: rgba(71, 85, 105, 0.3);
+  border-color: rgba(148, 163, 184, 0.4);
+}
+
+/* Last chevron - no right arrow point */
+.tm-step-controlling .tm-chevron-shape {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 30px 50%);
+  background: rgba(30, 41, 59, 0.5);
+  border-color: rgba(100, 116, 139, 0.5);
+}
+
+/* Hover Effects */
+.tm-chevron-step:hover .tm-chevron-shape {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+}
+
+.tm-step-planning:hover .tm-chevron-shape {
+  background: rgba(59, 130, 246, 0.35);
+  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.2);
+}
+
+.tm-step-scheduling:hover .tm-chevron-shape {
+  background: rgba(71, 85, 105, 0.45);
+  box-shadow: 0 8px 30px rgba(148, 163, 184, 0.2);
+}
+
+.tm-step-controlling:hover .tm-chevron-shape {
+  background: rgba(30, 41, 59, 0.65);
+  box-shadow: 0 8px 30px rgba(100, 116, 139, 0.2);
+}
+
+/* Chevron Header */
+.tm-chevron-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  padding-left: 20px;
+}
+
+.tm-step-planning .tm-chevron-header {
+  padding-left: 0;
+}
+
+.tm-step-label-en {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tm-step-label-kr {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+/* Step Items */
+.tm-step-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding-left: 20px;
+}
+
+.tm-step-planning .tm-step-items {
+  padding-left: 0;
+}
+
+.tm-step-items li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--color-text-primary);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.tm-item-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* Step-specific icon colors */
+.tm-step-planning .tm-item-icon {
+  color: #60a5fa;
+}
+
+.tm-step-scheduling .tm-item-icon {
+  color: #94a3b8;
+}
+
+.tm-step-controlling .tm-item-icon {
+  color: #f97316;
+}
+
+/* Responsive Styles for Methods Section */
+@media (max-width: 992px) {
+  .tm-chevron-flow {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .tm-chevron-step {
+    max-width: 100%;
+  }
+
+  .tm-chevron-shape {
+    clip-path: none;
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+  }
+
+  .tm-step-planning .tm-chevron-shape,
+  .tm-step-scheduling .tm-chevron-shape,
+  .tm-step-controlling .tm-chevron-shape {
+    clip-path: none;
+  }
+
+  .tm-chevron-header,
+  .tm-step-items {
+    padding-left: 0;
+  }
+
+  .tm-flow-arrow {
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .tm-methods-section {
+    padding: var(--space-lg);
+  }
+
+  .tm-methods-container {
+    gap: var(--space-md);
+  }
+
+  .tm-step-label-en {
+    font-size: var(--text-lg);
+  }
+
+  .tm-step-items li {
+    font-size: var(--text-xs);
+  }
+
+  .tm-item-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* ============================================
+   METHODS SECTION - PARTICLE FLOW ANIMATIONS
+   ============================================ */
+
+/* Forward particles (left to right) */
+.tm-particle-forward-1 {
+  animation: tm-particle-flow-forward 3s linear infinite;
+  animation-delay: 0s;
+}
+.tm-particle-forward-2 {
+  animation: tm-particle-flow-forward 3s linear infinite;
+  animation-delay: 0.75s;
+}
+.tm-particle-forward-3 {
+  animation: tm-particle-flow-forward 3s linear infinite;
+  animation-delay: 1.5s;
+}
+.tm-particle-forward-4 {
+  animation: tm-particle-flow-forward 3s linear infinite;
+  animation-delay: 2.25s;
+}
+
+@keyframes tm-particle-flow-forward {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(280px);
+    opacity: 0;
+  }
+}
+
+/* Backward particles (right to left) */
+.tm-particle-backward-1 {
+  animation: tm-particle-flow-backward 4s linear infinite;
+  animation-delay: 0s;
+}
+.tm-particle-backward-2 {
+  animation: tm-particle-flow-backward 4s linear infinite;
+  animation-delay: 1s;
+}
+.tm-particle-backward-3 {
+  animation: tm-particle-flow-backward 4s linear infinite;
+  animation-delay: 2s;
+}
+.tm-particle-backward-4 {
+  animation: tm-particle-flow-backward 4s linear infinite;
+  animation-delay: 3s;
+}
+
+@keyframes tm-particle-flow-backward {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(-280px);
+    opacity: 0;
+  }
+}
+
+/* Particle glow effect */
+.tm-particle {
+  filter: drop-shadow(0 0 4px currentColor);
+}
+
+/* ============================================
+   METHODS SECTION - CHEVRON HOVER INTERACTIONS
+   ============================================ */
+
+/* When hovering over flow container, dim non-hovered chevrons */
+.tm-chevron-flow:hover .tm-chevron-step:not(:hover) {
+  opacity: 0.5;
+  filter: grayscale(30%);
+  transition:
+    opacity 0.3s ease,
+    filter 0.3s ease;
+}
+
+.tm-chevron-step {
+  transition:
+    opacity 0.3s ease,
+    filter 0.3s ease,
+    transform 0.3s ease;
+}
+
+.tm-chevron-step:hover {
+  z-index: 10;
+}
+
+/* Enhanced hover state */
+.tm-chevron-step:hover .tm-chevron-shape {
+  transform: scale(1.03) translateY(-6px);
+  filter: brightness(1.1);
+}
+
+/* Connection highlight on hover */
+.tm-step-planning:hover ~ .tm-step-scheduling .tm-chevron-shape,
+.tm-step-scheduling:hover ~ .tm-step-controlling .tm-chevron-shape {
+  border-left-color: var(--color-accent);
+  border-left-width: 3px;
+}
+
+/* ============================================
+   METHODS SECTION - FEEDBACK LOOP HIGHLIGHT
+   ============================================ */
+
+/* Feedback arrow pulse animation */
+.tm-arrow-backward svg {
+  animation: tm-feedback-pulse 3s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+@keyframes tm-feedback-pulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(249, 115, 22, 0.5));
+  }
+}
+
+/* Arrow line hover interaction */
+.tm-arrow-forward:hover .tm-arrow-line {
+  stroke-width: 3;
+  filter: drop-shadow(0 0 6px var(--color-accent));
+  transition:
+    stroke-width 0.2s,
+    filter 0.2s;
+}
+
+.tm-arrow-backward:hover .tm-arrow-line-back {
+  stroke-width: 3;
+  filter: drop-shadow(0 0 6px #f97316);
+  transition:
+    stroke-width 0.2s,
+    filter 0.2s;
+}
+
+/* Entry animation initial states */
+.tm-methods-section .tm-chevron-step {
+  will-change: transform, opacity;
+}
+
+.tm-methods-section .tm-step-items li {
+  will-change: opacity, transform;
+}
+
+/* ============================================
+   TIME MANAGEMENT - ADVANTAGES SECTION STYLES
+   (왜 Primavera인가?)
+   ============================================ */
+
+/* Advantages Section */
+.tm-advantages-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-primary);
+  padding: var(--space-2xl);
+}
+
+.tm-advantages-container {
+  max-width: var(--container-max);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+/* Hub-Spoke Layout */
+.tm-hub-spoke-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  position: relative;
+  min-height: 350px;
+}
+
+/* Spoke Columns */
+.tm-spoke-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  z-index: 2;
+}
+
+.tm-spoke-left {
+  align-items: flex-end;
+}
+
+.tm-spoke-right {
+  align-items: flex-start;
+}
+
+/* Spoke Box */
+.tm-spoke-box {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-lg) var(--space-xl);
+  background: var(--color-bg-card);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: var(--radius-lg);
+  min-width: 260px;
+  transition: all var(--duration-base) var(--ease-out-quart);
+  cursor: pointer;
+}
+
+.tm-spoke-box:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: var(--color-accent);
+  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.2);
+}
+
+.tm-spoke-left .tm-spoke-box {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+/* Spoke Icon */
+.tm-spoke-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.tm-spoke-icon.tm-icon-warning {
+  color: #f59e0b;
+}
+
+.tm-spoke-icon.tm-icon-folder {
+  color: #a78bfa;
+}
+
+.tm-spoke-icon.tm-icon-evm {
+  color: #10b981;
+}
+
+.tm-spoke-text {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+/* Hub Center */
+.tm-hub-center {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 300px;
+  min-height: 250px;
+  z-index: 1;
+}
+
+.tm-connect-svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.tm-connect-line {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+}
+
+/* Cloud Hub */
+.tm-hub-cloud {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 220px; /* 크기 증가: 180 → 220 */
+  height: 150px; /* 크기 증가: 120 → 150 */
+  z-index: 3;
+}
+
+.tm-hub-cloud svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.tm-hub-text {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  /* 
+   * 텍스트 위치 조정 방법:
+   * transform: translate(X축px, Y축px);
+   * - X축: 양수 = 오른쪽, 음수 = 왼쪽
+   * - Y축: 양수 = 아래, 음수 = 위
+   * 예: transform: translate(10px, -5px);  → 오른쪽 10px, 위로 5px
+   */
+  transform: translate(12px, 12px); /* 현재: 아래로 10px 이동 */
+}
+
+.tm-hub-title {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+/* Hub hover effect */
+.tm-hub-cloud:hover {
+  animation: tm-hub-pulse 0.8s ease-in-out;
+}
+
+@keyframes tm-hub-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* ============================================
+   TIMELINE STYLES
+   ============================================ */
+
+.tm-evolution-timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  padding-top: var(--space-xl);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tm-timeline-line {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.tm-timeline-track {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(59, 130, 246, 0.3),
+    var(--color-accent)
+  );
+  border-radius: 2px;
+}
+
+.tm-timeline-arrow {
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 12px solid var(--color-accent);
+  margin-left: 4px;
+}
+
+.tm-timeline-items {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+}
+
+.tm-timeline-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  text-align: center;
+}
+
+.tm-timeline-point {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-bg-card);
+  border: 3px solid var(--color-accent);
+  transition: all var(--duration-base) var(--ease-out-quart);
+}
+
+.tm-timeline-item:hover .tm-timeline-point {
+  transform: scale(1.3);
+  background: var(--color-accent);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
+
+.tm-timeline-current .tm-timeline-point {
+  background: var(--color-accent);
+  width: 20px;
+  height: 20px;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+.tm-timeline-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tm-timeline-year {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.tm-timeline-label {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.tm-timeline-label small {
+  color: #10b981;
+  font-weight: 600;
+}
+
+/* Responsive for Advantages Section */
+@media (max-width: 992px) {
+  .tm-hub-spoke-layout {
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .tm-spoke-column {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .tm-spoke-left .tm-spoke-box,
+  .tm-spoke-right .tm-spoke-box {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .tm-hub-center {
+    order: -1;
+    min-height: 150px;
+  }
+
+  .tm-connect-svg {
+    display: none;
+  }
+
+  .tm-spoke-box {
+    min-width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tm-advantages-section {
+    padding: var(--space-lg);
+  }
+
+  .tm-spoke-box {
+    min-width: 100%;
+    padding: var(--space-md);
+  }
+
+  .tm-spoke-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .tm-spoke-text {
+    font-size: var(--text-sm);
+  }
+
+  .tm-timeline-items {
+    flex-direction: column;
+    gap: var(--space-lg);
+    align-items: flex-start;
+  }
+
+  .tm-timeline-item {
+    flex-direction: row;
+    gap: var(--space-md);
+  }
+
+  .tm-timeline-content {
+    align-items: flex-start;
+  }
+
+  .tm-timeline-line {
+    display: none;
+  }
+}
+
+/* ============================================
+   ADVANTAGES SECTION - HOVER INTERACTIONS
+   ============================================ */
+
+/* Hub hover effects */
+.tm-hub-cloud {
+  cursor: pointer;
+  transition: all var(--duration-base) var(--ease-out-quart);
+}
+
+.tm-hub-cloud::after {
+  content: "글로벌 표준 솔루션";
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: var(--text-xs);
+  color: var(--color-accent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+.tm-hub-cloud:hover {
+  filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.6));
+  animation: tm-hub-float 2s ease-in-out infinite;
+}
+
+.tm-hub-cloud:hover::after {
+  opacity: 1;
+}
+
+.tm-hub-cloud:hover svg path {
+  stroke-width: 3;
+  fill: rgba(59, 130, 246, 0.3);
+}
+
+@keyframes tm-hub-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Hub hover triggers connection line pulse */
+.tm-hub-cloud:hover ~ .tm-connect-svg .tm-connect-line,
+.tm-hub-center:hover .tm-connect-line {
+  animation: tm-line-pulse 1s ease-in-out infinite;
+}
+
+@keyframes tm-line-pulse {
+  0%,
+  100% {
+    stroke-width: 2;
+    filter: none;
+  }
+  50% {
+    stroke-width: 4;
+    filter: drop-shadow(0 0 4px var(--color-accent));
+  }
+}
+
+/* ============================================
+   BOX HOVER INTERACTIONS
+   ============================================ */
+
+/* When hovering on hub-spoke layout, dim non-hovered boxes */
+.tm-hub-spoke-layout:hover .tm-spoke-box:not(:hover) {
+  opacity: 0.4;
+  filter: grayscale(40%);
+}
+
+.tm-spoke-box {
+  transition: all 0.3s ease;
+}
+
+/* Enhanced box hover */
+.tm-spoke-box:hover {
+  transform: translateY(-6px) scale(1.05);
+  border-color: var(--color-accent);
+  box-shadow: 0 12px 40px rgba(59, 130, 246, 0.3);
+  z-index: 10;
+}
+
+/* Connection line highlight when box is hovered */
+.tm-spoke-box:hover ~ .tm-hub-center .tm-connect-line {
+  stroke-width: 3;
+  filter: drop-shadow(0 0 6px var(--color-accent));
+}
+
+/* ============================================
+   ICON ANIMATIONS
+   ============================================ */
+
+/* Base icon animation state */
+.tm-spoke-icon svg {
+  transition: transform 0.3s ease;
+}
+
+/* Icon 1: Calendar - clock hand rotation */
+.tm-spoke-box:nth-child(1) .tm-spoke-icon svg {
+  transform-origin: center;
+}
+
+.tm-spoke-box:nth-child(1):hover .tm-spoke-icon svg circle {
+  animation: tm-calendar-dots 0.8s ease-in-out infinite;
+}
+
+@keyframes tm-calendar-dots {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* Icon 2: Warning triangle - blink + shield transform */
+.tm-icon-warning svg {
+  transition: all 0.3s ease;
+}
+
+.tm-spoke-box:hover .tm-icon-warning svg {
+  animation: tm-warning-blink 0.5s ease-in-out 2;
+}
+
+.tm-spoke-box:hover .tm-icon-warning svg path:first-child {
+  fill: rgba(16, 185, 129, 0.2);
+  stroke: #10b981;
+}
+
+@keyframes tm-warning-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Icon 3: Folder - open effect */
+.tm-icon-folder svg path {
+  transition: transform 0.3s ease;
+}
+
+.tm-spoke-box:hover .tm-icon-folder svg path {
+  transform: translateY(-3px);
+}
+
+.tm-spoke-box:hover .tm-icon-folder svg line {
+  animation: tm-folder-docs 0.6s ease-out;
+}
+
+@keyframes tm-folder-docs {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Icon 4: EVM - graph rise + gear spin */
+.tm-icon-evm svg polyline {
+  stroke-dasharray: 50;
+  stroke-dashoffset: 50;
+  transition: stroke-dashoffset 0.8s ease;
+}
+
+.tm-spoke-box:hover .tm-icon-evm svg polyline {
+  stroke-dashoffset: 0;
+}
+
+.tm-spoke-box:hover .tm-icon-evm svg circle {
+  animation: tm-evm-pulse 0.8s ease-in-out infinite;
+}
+
+@keyframes tm-evm-pulse {
+  0%,
+  100% {
+    r: 3;
+    fill: #10b981;
+  }
+  50% {
+    r: 5;
+    fill: #34d399;
+  }
+}
+
+/* Entry animation trigger class for icons */
+.tm-icon-animated .tm-spoke-icon svg {
+  animation: tm-icon-entrance 0.5s ease-out;
+}
+
+@keyframes tm-icon-entrance {
+  0% {
+    transform: scale(0.5) rotate(-10deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(5deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Timeline track animation support */
+.tm-timeline-track {
+  transform-origin: left center;
+}
+
+/* ============================================
+   COMPARISON TABLE SECTION STYLES
+   (공정관리 Tool 비교)
+   ============================================ */
+
+.tm-comparison-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-primary);
+  padding: var(--space-2xl);
+}
+
+.tm-comparison-container {
+  max-width: var(--container-max);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* Table Wrapper */
+.tm-comparison-table-wrapper {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--color-bg-card);
+}
+
+/* Table Base */
+.tm-comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+/* Table Header */
+.tm-comparison-table thead tr {
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.tm-comparison-table th {
+  padding: var(--space-lg);
+  text-align: center;
+  font-weight: 700;
+  font-size: var(--text-base);
+  color: var(--color-text-primary);
+  border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+  white-space: nowrap;
+}
+
+.tm-th-category {
+  background: rgba(255, 255, 255, 0.05);
+  width: 15%;
+}
+
+.tm-th-p6 {
+  color: var(--color-accent) !important;
+  background: rgba(59, 130, 246, 0.15);
+  width: 30%;
+}
+
+.tm-th-msproject {
+  color: #a78bfa !important;
+  width: 25%;
+}
+
+.tm-th-excel {
+  color: #10b981 !important;
+  width: 25%;
+}
+
+/* Table Body */
+.tm-comparison-table tbody tr {
+  transition: background 0.2s ease;
+}
+
+.tm-comparison-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.tm-comparison-table td {
+  padding: var(--space-md) var(--space-lg);
+  text-align: center;
+  vertical-align: middle;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Category Column */
+.tm-td-category {
+  font-weight: 600;
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  background: rgba(255, 255, 255, 0.02);
+  text-align: left;
+}
+
+/* P6 Column Highlight */
+.tm-td-p6 {
+  background: rgba(59, 130, 246, 0.05);
+  color: var(--color-accent);
+}
+
+.tm-td-p6 strong {
+  color: #10b981;
+}
+
+/* MS-Project Column */
+.tm-td-msproject {
+  color: var(--color-text-primary);
+}
+
+/* Excel Column */
+.tm-td-excel {
+  color: var(--color-text-secondary);
+}
+
+.tm-td-none {
+  color: rgba(255, 255, 255, 0.3);
+  font-style: italic;
+}
+
+.tm-td-weak {
+  color: #f59e0b;
+}
+
+/* Cell Content with Icon */
+.tm-cell-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.tm-cell-icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.tm-td-p6 .tm-cell-icon {
+  color: var(--color-accent);
+}
+
+.tm-td-msproject .tm-cell-icon {
+  color: #a78bfa;
+}
+
+.tm-td-excel .tm-cell-icon {
+  color: #10b981;
+}
+
+.tm-cell-content span {
+  text-align: left;
+}
+
+.tm-cell-content small {
+  color: #10b981;
+  font-weight: 600;
+}
+
+/* Conclusion */
+.tm-comparison-conclusion {
+  text-align: center;
+  padding: var(--space-xl);
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.1),
+    rgba(16, 185, 129, 0.05)
+  );
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.tm-comparison-conclusion p {
+  font-size: var(--text-lg);
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: 1.8;
+}
+
+.tm-comparison-conclusion em {
+  color: var(--color-accent);
+  font-style: normal;
+  font-weight: 700;
+  padding: 2px 8px;
+  background: rgba(59, 130, 246, 0.2);
+  border-radius: var(--radius-sm);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tm-comparison-section {
+    padding: var(--space-lg);
+  }
+
+  .tm-comparison-table th,
+  .tm-comparison-table td {
+    padding: var(--space-sm);
+    font-size: var(--text-xs);
+  }
+
+  .tm-cell-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .tm-cell-content {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .tm-cell-content span {
+    text-align: center;
+  }
+
+  .tm-comparison-conclusion p {
+    font-size: var(--text-base);
+  }
+}
+
+/* ============================================
+   COMPARISON TABLE - HOVER INTERACTIONS
+   ============================================ */
+
+/* 1. Row Hover Highlight */
+.tm-comparison-table tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.tm-comparison-table tbody tr:hover .tm-td-category {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-accent);
+}
+
+.tm-comparison-table tbody tr:hover .tm-td-p6 {
+  background: rgba(59, 130, 246, 0.1);
+}
+
+/* 2. Column Hover Effects (simulated via cell hover siblings) */
+/* Note: Full column hover requires JS or complex CSS. Using cell-based focus here. */
+
+/* P6 Column Focus */
+.tm-td-p6:hover {
+  background: rgba(59, 130, 246, 0.15) !important;
+  transform: scale(1.02);
+  z-index: 2;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
+  border-radius: var(--radius-md);
+  position: relative;
+}
+
+.tm-td-msproject:hover,
+.tm-td-excel:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* 3. Cell Tooltips */
+.tm-td-p6 span, 
+.tm-td-category {
+  position: relative;
+  cursor: default;
+}
+
+/* Tooltip for Network System */
+tr:nth-child(2) .tm-td-p6:hover::after {
+  content: 'PDM: Precedence Diagram Method\A CPM: Critical Path Method\A\A 복잡한 의존관계와 주공정선을\A 체계적으로 분석·관리 가능';
+  white-space: pre-wrap;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid var(--color-accent);
+  color: var(--color-text-primary);
+  padding: 12px;
+  border-radius: var(--radius-md);
+  font-size: var(--text-xs);
+  width: 260px;
+  z-index: 10;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  animation: tm-tooltip-pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes tm-tooltip-pop {
+  0% { opacity: 0; transform: translateX(-50%) scale(0.8) translateY(10px); }
+  100% { opacity: 1; transform: translateX(-50%) scale(1) translateY(0); }
+}
+
+/* 4. Best Item Indicator (Trophy/Crown) */
+.tm-td-p6 {
+  position: relative;
+}
+
+.tm-comparison-table tbody tr:hover .tm-td-p6::before {
+  content: '🏆';
+  font-size: 1.2rem;
+  position: absolute;
+  top: -10px;
+  right: -5px;
+  animation: tm-trophy-pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  z-index: 5;
+  filter: drop-shadow(0 0 5px gold);
+}
+
+@keyframes tm-trophy-pop {
+  0% { transform: scale(0) rotate(-20deg); opacity: 0; }
+  100% { transform: scale(1) rotate(15deg); opacity: 1; }
+}
+
+/* Rating Stars on Cell Hover */
+.tm-td-p6:hover .tm-cell-content::before {
+  content: '★★★★★';
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  color: gold;
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+.tm-td-msproject:hover .tm-cell-content::before {
+  content: '★★★☆☆';
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  color: #a78bfa;
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+.tm-td-excel:hover .tm-cell-content::before {
+  content: '★☆☆☆☆';
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  color: #10b981;
+  font-size: 10px;
+  opacity: 0.8;
 }

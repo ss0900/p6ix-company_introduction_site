@@ -20,7 +20,7 @@ import CompanyHistory from './pages/company/History'
 import CompanyPR from './pages/company/PR'
 
 import TimeManagementOverview from './pages/time-management/Overview'
-import TimeManagementFeatures from './pages/time-management/Features'
+import TimeManagementAdvantages from './pages/time-management/Advantages'
 import TimeManagementCases from './pages/time-management/Cases'
 
 import PPMOverview from './pages/ppm/Overview'
@@ -71,7 +71,7 @@ function App() {
 
         <Route path="/time-management" element={<Navigate to="/time-management/overview" replace />} />
         <Route path="/time-management/overview" element={<TimeManagementOverview />} />
-        <Route path="/time-management/features" element={<TimeManagementFeatures />} />
+        <Route path="/time-management/advantages" element={<TimeManagementAdvantages />} />
         <Route path="/time-management/cases" element={<TimeManagementCases />} />
 
         <Route path="/ppm" element={<Navigate to="/ppm/overview" replace />} />

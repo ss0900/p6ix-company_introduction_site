@@ -70,9 +70,9 @@ function Header() {
             "https://images.pexels.com/photos/1098515/pexels-photo-1098515.jpeg?auto=compress&cs=tinysrgb&w=600",
         },
         {
-          id: "features",
-          title: "기능 소개",
-          path: "/time-management/features",
+          id: "advantages",
+          title: "장점",
+          path: "/time-management/advantages",
           image:
             "https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=600",
         },

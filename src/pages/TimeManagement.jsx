@@ -25,8 +25,8 @@ function TimeManagement() {
     },
     {
       id: "features",
-      title: "기능 소개",
-      description: "Features",
+      title: "장점",
+      description: "Advantages",
       image:
         "https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=800",
     },
