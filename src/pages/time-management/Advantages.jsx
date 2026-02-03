@@ -1159,7 +1159,7 @@ function TimeManagementAdvantages() {
               <div
                 className="tm-section-header"
                 ref={ppmEppmTitleRef}
-                style={{ marginTop: "70px", marginBottom: "-10px" }}
+                style={{ marginTop: "50px", marginBottom: "-10px" }}
               >
                 <h2 className="tm-section-title">P6 PPM vs. EPPM</h2>
               </div>
@@ -1168,7 +1168,8 @@ function TimeManagementAdvantages() {
               <div 
                 className={`tm-ppm-eppm-grid ${isResizing ? 'tm-resizing' : ''}`}
                 style={{
-                  gridTemplateColumns: `${leftRatio}% auto 1fr`
+                  gridTemplateColumns: `${leftRatio}% auto 1fr`,
+                  marginTop: "50px", marginBottom: "-10px"
                 }}
               >
                 {/* PPM Card */}
@@ -1415,6 +1416,7 @@ function TimeManagementAdvantages() {
               {/* Conclusion */}
               <div
                 className="tm-ppm-eppm-conclusion"
+                style={{ marginTop: "40px", marginBottom: "-10px" }}
                 ref={ppmEppmConclusionRef}
               >
                 <p>

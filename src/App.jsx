@@ -1,58 +1,63 @@
-import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Loader from './components/Loader'
-import Home from './pages/Home'
-import Company from './pages/Company'
-import TimeManagement from './pages/TimeManagement'
-import PPM from './pages/PPM'
-import EPPM from './pages/EPPM'
-import OPC from './pages/OPC'
-import Unifier from './pages/Unifier'
-import Aconex from './pages/Aconex'
-import Contact from './components/Contact'
+import { useState, useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Loader from "./components/Loader";
+import Home from "./pages/Home";
+import Company from "./pages/Company";
+import TimeManagement from "./pages/TimeManagement";
+import PPM from "./pages/PPM";
+import EPPM from "./pages/EPPM";
+import OPC from "./pages/OPC";
+import Unifier from "./pages/Unifier";
+import Aconex from "./pages/Aconex";
+import Contact from "./components/Contact";
 
-import CompanyIntro from './pages/company/Intro'
-import CompanyCEO from './pages/company/CEO'
-import CompanyOrganization from './pages/company/Organization'
-import CompanyHistory from './pages/company/History'
-import CompanyPR from './pages/company/PR'
+import CompanyIntro from "./pages/company/Intro";
+import CompanyCEO from "./pages/company/CEO";
+import CompanyOrganization from "./pages/company/Organization";
+import CompanyHistory from "./pages/company/History";
+import CompanyPR from "./pages/company/PR";
 
-import TimeManagementOverview from './pages/time-management/Overview'
-import TimeManagementAdvantages from './pages/time-management/Advantages'
-import TimeManagementCases from './pages/time-management/Cases'
+import TimeManagementOverview from "./pages/time-management/Overview";
+import TimeManagementAdvantages from "./pages/time-management/Advantages";
+import TimeManagementCases from "./pages/time-management/Cases";
 
-import PPMOverview from './pages/ppm/Overview'
-import PPMFeatures from './pages/ppm/Features'
-import PPMBenefits from './pages/ppm/Benefits'
+import PPMOverview from "./pages/ppm/Overview";
+import PPMFeatures from "./pages/ppm/Cpm";
+import PPMBenefits from "./pages/ppm/Benefits";
 
-import EPPMOverview from './pages/eppm/Overview'
-import EPPMSolution from './pages/eppm/Solution'
-import EPPMCases from './pages/eppm/Cases'
+import EPPMOverview from "./pages/eppm/Overview";
+import EPPMSolution from "./pages/eppm/Solution";
+import EPPMCases from "./pages/eppm/Cases";
 
-import OPCOverview from './pages/opc/Overview'
-import OPCCore from './pages/opc/Core'
-import OPCApplication from './pages/opc/Application'
+import OPCOverview from "./pages/opc/Overview";
+import OPCCore from "./pages/opc/Core";
+import OPCApplication from "./pages/opc/Application";
 
-import UnifierOverview from './pages/unifier/Overview'
-import UnifierModules from './pages/unifier/Modules'
-import UnifierCustomers from './pages/unifier/Customers'
+import UnifierOverview from "./pages/unifier/Overview";
+import UnifierModules from "./pages/unifier/Modules";
+import UnifierCustomers from "./pages/unifier/Customers";
 
-import AconexOverview from './pages/aconex/Overview'
-import AconexFeatures from './pages/aconex/Features'
-import AconexProjects from './pages/aconex/Projects'
+import AconexOverview from "./pages/aconex/Overview";
+import AconexFeatures from "./pages/aconex/Features";
+import AconexProjects from "./pages/aconex/Projects";
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 2000)
+      setIsLoading(false);
+    }, 2000);
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <Router>
@@ -69,17 +74,32 @@ function App() {
         <Route path="/company/history" element={<CompanyHistory />} />
         <Route path="/company/pr" element={<CompanyPR />} />
 
-        <Route path="/time-management" element={<Navigate to="/time-management/overview" replace />} />
-        <Route path="/time-management/overview" element={<TimeManagementOverview />} />
-        <Route path="/time-management/advantages" element={<TimeManagementAdvantages />} />
-        <Route path="/time-management/cases" element={<TimeManagementCases />} />
+        <Route
+          path="/time-management"
+          element={<Navigate to="/time-management/overview" replace />}
+        />
+        <Route
+          path="/time-management/overview"
+          element={<TimeManagementOverview />}
+        />
+        <Route
+          path="/time-management/advantages"
+          element={<TimeManagementAdvantages />}
+        />
+        <Route
+          path="/time-management/cases"
+          element={<TimeManagementCases />}
+        />
 
         <Route path="/ppm" element={<Navigate to="/ppm/overview" replace />} />
         <Route path="/ppm/overview" element={<PPMOverview />} />
-        <Route path="/ppm/features" element={<PPMFeatures />} />
+        <Route path="/ppm/cpm" element={<PPMFeatures />} />
         <Route path="/ppm/benefits" element={<PPMBenefits />} />
 
-        <Route path="/eppm" element={<Navigate to="/eppm/overview" replace />} />
+        <Route
+          path="/eppm"
+          element={<Navigate to="/eppm/overview" replace />}
+        />
         <Route path="/eppm/overview" element={<EPPMOverview />} />
         <Route path="/eppm/solution" element={<EPPMSolution />} />
         <Route path="/eppm/cases" element={<EPPMCases />} />
@@ -89,12 +109,18 @@ function App() {
         <Route path="/opc/core" element={<OPCCore />} />
         <Route path="/opc/application" element={<OPCApplication />} />
 
-        <Route path="/unifier" element={<Navigate to="/unifier/overview" replace />} />
+        <Route
+          path="/unifier"
+          element={<Navigate to="/unifier/overview" replace />}
+        />
         <Route path="/unifier/overview" element={<UnifierOverview />} />
         <Route path="/unifier/modules" element={<UnifierModules />} />
         <Route path="/unifier/customers" element={<UnifierCustomers />} />
 
-        <Route path="/aconex" element={<Navigate to="/aconex/overview" replace />} />
+        <Route
+          path="/aconex"
+          element={<Navigate to="/aconex/overview" replace />}
+        />
         <Route path="/aconex/overview" element={<AconexOverview />} />
         <Route path="/aconex/features" element={<AconexFeatures />} />
         <Route path="/aconex/projects" element={<AconexProjects />} />
@@ -104,7 +130,7 @@ function App() {
 
       <Footer />
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;

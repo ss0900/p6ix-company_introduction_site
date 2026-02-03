@@ -7,12 +7,11 @@ import SectionIndicator from '../../components/SectionIndicator'
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
 const sections = [
-  { id: 'hero', label: 'EPPM 개요' },
-  { id: 'integration', label: '통합 운영' },
-  { id: 'features', label: 'CPM 공정표' }
+  { id: 'hero', label: 'CPM 공정관리' },
+  { id: 'features', label: '주요 특징' }
 ]
 
-function EPPMOverview() {
+function PPMFeatures() {
   const [activeSection, setActiveSection] = useState(0)
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
   const [hoveredIndex, setHoveredIndex] = useState(null)
@@ -23,13 +22,9 @@ function EPPMOverview() {
 
   // Section refs
   const heroSectionRef = useRef(null)
-  const integrationSectionRef = useRef(null)
   const featuresSectionRef = useRef(null)
   const imageCardRef = useRef(null)
-  const integrationImageCardRef = useRef(null)
   const featureCardsRef = useRef([])
-  const integrationCardsRef = useRef([])
-  const [integrationHoveredIndex, setIntegrationHoveredIndex] = useState(null)
 
   // Check reduced motion preference
   useEffect(() => {
@@ -49,7 +44,7 @@ function EPPMOverview() {
     const sectionIndex = sections.findIndex(s => s.id === sectionId)
     if (sectionIndex === -1) return
 
-    const panels = gsap.utils.toArray('.eppm-panel')
+    const panels = gsap.utils.toArray('.cpm-panel')
     if (!panels[sectionIndex]) return
 
     currentSectionRef.current = sectionIndex
@@ -81,7 +76,7 @@ function EPPMOverview() {
       }
     }
 
-    const panels = gsap.utils.toArray('.eppm-panel')
+    const panels = gsap.utils.toArray('.cpm-panel')
 
     // Track active section
     panels.forEach((panel, i) => {
@@ -229,71 +224,58 @@ function EPPMOverview() {
         }
       })
 
-      // 1. Title fade-in
+      // 1. Title fade-in (0.0s)
       featuresTl.fromTo('.cpm-section-title', 
         { opacity: 0, y: 20 },
         { opacity: 1, y: 0, duration: 0.5 }
       )
 
-      // 2. Image drop-in + bounce
+      // 2. Image drop-in + bounce (0.3s)
       featuresTl.fromTo(imageCardRef.current,
         { y: -100, opacity: 0 },
         { y: 0, opacity: 1, duration: 1, ease: 'bounce.out' },
         "-=0.2"
       )
 
-      // 3. Feature cards sequential appearance
+      // 3. Feature cards sequential appearance (1.0s~)
       const cards = featureCardsRef.current
       
+      // Card 1: Slide in from left
       if (cards[0]) {
         featuresTl.fromTo(cards[0], { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5 }, "-=0.5")
       }
+      
+      // Card 2: Fade up
       if (cards[1]) {
         featuresTl.fromTo(cards[1], { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 }, "-=0.3")
       }
+      
+      // Card 3: Fade up
       if (cards[2]) {
         featuresTl.fromTo(cards[2], { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 }, "-=0.3")
       }
+      
+      // Card 4: Slide in from right
       if (cards[3]) {
         featuresTl.fromTo(cards[3], { x: 50, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5 }, "-=0.3")
       }
 
-      // Integration section animations
-      const integrationTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: integrationSectionRef.current,
-          start: 'top 60%',
-          toggleActions: 'play none none reverse'
-        }
-      })
-
-      // Integration title fade-in
-      integrationTl.fromTo('#integration .cpm-section-title', 
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.5 }
-      )
-
-      // Integration image drop-in
-      integrationTl.fromTo(integrationImageCardRef.current,
-        { y: -100, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, ease: 'bounce.out' },
-        "-=0.2"
-      )
-
-      // Integration cards (2 cards: left slide, right slide)
-      const integrationCards = integrationCardsRef.current
-      if (integrationCards[0]) {
-        integrationTl.fromTo(integrationCards[0], { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5 }, "-=0.5")
-      }
-      if (integrationCards[1]) {
-        integrationTl.fromTo(integrationCards[1], { x: 50, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5 }, "-=0.3")
-      }
+      // 4. Dividers draw (1.8s) - using DOM elements
+      // We need to target the pseudo-elements, but standard CSS animation might be easier for pseudo-elements, 
+      // OR we can rely on opacity/transform of the card itself if the divider is part of it.
+      // Since ::after is hard to animate with GSAP directly without CSS variables, we'll try animating the full card entry which includes the divider. 
+      // Alternatively, we can use CSS variables to animate the height.
+      // Let's stick to the card entrance for now, but to be precise with "dividers draw", we can add a className to trigger CSS animation.
+      // Or cleaner: Use a real div for divider instead of ::after to animate it easily with GSAP.
+      // For now, let's keep ::after and just let it appear with the card, or use CSS keyframes triggered by a class.
+      // Given the request for "sequential draw", using a real element is best. 
+      // Use <div className="cpm-feature-divider-line"> logic in the render.
     })
 
     return () => ctx.revert()
   }
 
-  // Feature items data for EPPM
+  // Feature items data
   const featureItems = [
     {
       icon: (
@@ -347,59 +329,27 @@ function EPPMOverview() {
     }
   ]
 
-  // Integration section items (2 cards)
-  const integrationItems = [
-    {
-      icon: (
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="24" cy="14" r="8" stroke="currentColor" strokeWidth="2" fill="rgba(99, 102, 241, 0.1)" />
-          <circle cx="12" cy="36" r="6" stroke="currentColor" strokeWidth="2" fill="rgba(99, 102, 241, 0.1)" />
-          <circle cx="36" cy="36" r="6" stroke="currentColor" strokeWidth="2" fill="rgba(99, 102, 241, 0.1)" />
-          <circle cx="24" cy="36" r="6" stroke="currentColor" strokeWidth="2" fill="rgba(99, 102, 241, 0.1)" />
-          <line x1="20" y1="20" x2="14" y2="30" stroke="currentColor" strokeWidth="1.5" />
-          <line x1="24" y1="22" x2="24" y2="30" stroke="currentColor" strokeWidth="1.5" />
-          <line x1="28" y1="20" x2="34" y2="30" stroke="currentColor" strokeWidth="1.5" />
-        </svg>
-      ),
-      title: (<>다수의 사용자가 동시에 접속해<br />협업 및 시각화된 의사결정</>)
-    },
-    {
-      icon: (
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="4" y="8" width="40" height="28" rx="2" stroke="currentColor" strokeWidth="2" fill="rgba(99, 102, 241, 0.1)" />
-          <line x1="4" y1="16" x2="44" y2="16" stroke="currentColor" strokeWidth="1.5" />
-          <rect x="8" y="20" width="12" height="12" rx="1" stroke="currentColor" strokeWidth="1.5" />
-          <line x1="24" y1="20" x2="40" y2="20" stroke="currentColor" strokeWidth="1.5" />
-          <line x1="24" y1="26" x2="36" y2="26" stroke="currentColor" strokeWidth="1.5" />
-          <line x1="24" y1="32" x2="40" y2="32" stroke="currentColor" strokeWidth="1.5" />
-          <path d="M10 28 L14 24 L18 26" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      ),
-      title: (<>대시보드, 차트, 리포트 등을 통해<br />경영진부터 실무자까지 모든 레벨의 사용자를 지원</>)
-    }
-  ]
-
   return (
     <>
       <div className="cpm-schedule-page" ref={containerRef}>
         {/* Hero Section */}
-        <section className="eppm-panel tm-panel" id="hero">
+        <section className="cpm-panel tm-panel" id="hero">
           <div
             className="tm-hero-section"
             ref={heroSectionRef}
             style={{
-              backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url(https://images.pexels.com/photos/5989932/pexels-photo-5989932.jpeg?auto=compress&cs=tinysrgb&w=1200)`,
+              backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url(https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1200)`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
           >
             <div className="tm-hero-content">
-              <h1 className="tm-hero-title">EPPM 개요</h1>
-              <p className="tm-hero-subtitle">Enterprise Project Portfolio Management</p>
+              <h1 className="tm-hero-title">CPM 공정관리</h1>
+              <p className="tm-hero-subtitle">Critical Path Method Process</p>
             </div>
             <button
               className="scroll-indicator"
-              onClick={() => scrollToSection("integration")}
+              onClick={() => scrollToSection("features")}
               aria-label="다음 섹션으로 스크롤"
             >
               <span>Scroll Down</span>
@@ -408,63 +358,9 @@ function EPPMOverview() {
           </div>
         </section>
 
-        {/* Integration Section */}
-        <section 
-          className="eppm-panel cpm-features-section" 
-          id="integration"
-          ref={integrationSectionRef}
-        >
-          <div className="cpm-features-container">
-            <div className="cpm-section-header">
-              <h2 className="cpm-section-title">통합 운영</h2>
-            </div>
-            
-            {/* EPPM Dashboard Image Card */}
-            <div 
-              className="cpm-image-card"
-              ref={integrationImageCardRef}
-            >
-              <img 
-                src="/EPPM.png"
-                alt="EPPM 통합 운영 대시보드"
-                onError={(e) => {
-                  e.target.style.display = 'none'
-                  e.target.parentElement.innerHTML = '<div class="cpm-image-placeholder">EPPM Dashboard Screenshot</div>'
-                }}
-              />
-            </div>
-
-            {/* Integration Feature Cards - 2 columns */}
-            <div 
-              className="cpm-feature-cards" 
-              style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}
-              onMouseLeave={() => setIntegrationHoveredIndex(null)}
-            >
-              {integrationItems.map((item, index) => (
-                <div 
-                  key={index}
-                  className={`cpm-feature-card ${integrationHoveredIndex !== null && integrationHoveredIndex !== index ? 'dimmed' : ''}`}
-                  ref={el => integrationCardsRef.current[index] = el}
-                  onMouseEnter={() => setIntegrationHoveredIndex(index)}
-                >
-                  <div className="cpm-feature-icon">
-                    {item.icon}
-                  </div>
-                  <h4 className="cpm-feature-title">{item.title}</h4>
-                  
-                  {/* Divider Line */}
-                  {index < integrationItems.length - 1 && (
-                    <div className="cpm-feature-divider-line" />
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Features Section */}
         <section 
-          className="eppm-panel cpm-features-section" 
+          className="cpm-panel cpm-features-section" 
           id="features"
           ref={featuresSectionRef}
         >
@@ -526,4 +422,4 @@ function EPPMOverview() {
   )
 }
 
-export default EPPMOverview
+export default PPMFeatures

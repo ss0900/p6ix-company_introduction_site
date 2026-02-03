@@ -640,6 +640,13 @@ a:hover {
 
 .hero-video-section .hero-content {
   z-index: 2;
+  margin: 0 auto;               /* 홈(hero-video)에서 수평 중앙 정렬 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;         /* 자식 요소(타이틀/서브타이틀) 중앙 정렬 */
+  text-align: center;          /* 텍스트 자체도 가운데 정렬 */
+  width: 100%;
+  max-width: 800px;
 }
 
 .hero-video-section .scroll-indicator {
@@ -4011,9 +4018,38 @@ a:hover {
   font-size: var(--text-lg);
   color: var(--color-text-secondary);
   line-height: 1.7;
-  max-width: 500px;
+  max-width: 560px;            /* 조금 넓혀서 의도한 구절 단위로 줄바꿈 되게 함 */
+  word-break: keep-all;       /* 한글 단어 내부에서 줄바꿈 방지 */
+  overflow-wrap: normal;      /* 브라우저가 임의로 단어 중간에 끊지 않도록 함 */
+  hyphens: none;
+  white-space: normal;
 }
 
+/* prevent specific phrase from breaking across lines on desktop */
+.ppm-hero-desc .nowrap {
+  display: inline-block;
+  white-space: nowrap;        /* 문장 내부에서 강제 줄바꿈 금지 */
+  -webkit-font-smoothing: subpixel-antialiased;
+  text-wrap: none;
+}
+
+@media (max-width: 880px) {
+  .ppm-hero-desc {
+    max-width: 460px;        /* 작은 화면에서 읽기 좋은 폭으로 축소 */
+  }
+  .ppm-hero-desc .nowrap {
+    white-space: normal;     /* 모바일에서는 줄바꿈 허용 */
+    display: inline;         /* 한 줄 고정 해제 */
+  }
+}
+
+@media (max-width: 480px) {
+  .ppm-hero-desc {
+    max-width: 320px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}
 .ppm-hero-cta {
   display: inline-flex;
   align-items: center;
@@ -4049,6 +4085,23 @@ a:hover {
   width: 20px;
   height: 20px;
   animation: checkBounce 0.5s ease-out;
+}
+
+/* source note shown under hero CTA buttons (small, muted, centered) */
+.ppm-source-note {
+  margin-top: var(--space-sm);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  opacity: 0.95;
+  text-align: center;
+  line-height: 1.2;
+  user-select: none;
+}
+
+@media (max-width: 480px) {
+  .ppm-source-note {
+    font-size: 0.7rem;
+  }
 }
 
 @keyframes checkBounce {
@@ -4540,6 +4593,7 @@ a:hover {
 /* Hero Section */
 .tm-hero-section {
   min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7616,4 +7670,322 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 .tm-resizing .tm-ppm-eppm-vs {
   opacity: 0; /* Hide VS badge to show tooltip clearly */
   transform: scale(0);
+}
+
+/* =============================================
+   CPM Schedule Page Styles
+   ============================================= */
+
+.cpm-schedule-page {
+  min-height: 100vh;
+  background: var(--color-bg-primary);
+}
+
+/* CPM/EPPM Panel (Full Page Section) */
+.cpm-panel, .eppm-panel {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Hero Section */
+.cpm-hero-section {
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.08) 0%,
+    rgba(0, 212, 255, 0.05) 50%,
+    transparent 100%
+  );
+}
+
+.cpm-hero-content {
+  text-align: center;
+  padding: var(--space-2xl);
+}
+
+.cpm-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--space-md);
+  letter-spacing: -0.02em;
+}
+
+.cpm-hero-subtitle {
+  font-size: var(--text-xl);
+  color: var(--color-text-secondary);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-3xl);
+}
+
+/* Scroll Indicator */
+.cpm-scroll-indicator {
+  position: absolute;
+  bottom: var(--space-3xl);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  animation: cpmFadeInUp 1s ease-out 0.5s both;
+}
+
+.cpm-scroll-icon {
+  width: 24px;
+  height: 38px;
+  border: 2px solid var(--color-text-muted);
+  border-radius: 12px;
+  position: relative;
+  opacity: 0.6;
+}
+
+.cpm-scroll-wheel {
+  width: 4px;
+  height: 8px;
+  background: var(--color-accent);
+  border-radius: 2px;
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: cpmScrollWheel 1.5s ease-in-out infinite;
+}
+
+@keyframes cpmScrollWheel {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+  50% { transform: translateX(-50%) translateY(12px); opacity: 0.3; }
+}
+
+@keyframes cpmFadeInUp {
+  from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Features Section */
+.cpm-features-section {
+  background: var(--color-bg-primary);
+  padding: 120px var(--space-xl) var(--space-3xl);
+}
+
+.cpm-features-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Section Header - Matching Advantages page style */
+.cpm-section-header {
+  text-align: left;
+  width: 100%;
+  margin-bottom: var(--space-xl);
+}
+
+.cpm-section-title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+  position: relative;
+  display: inline-block;
+}
+
+.cpm-section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+}
+
+/* Image Card */
+.cpm-image-card {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  margin-bottom: var(--space-xl);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-height: 55vh;
+}
+
+.cpm-image-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 30px 60px -15px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 30px rgba(99, 102, 241, 0.1);
+}
+
+.cpm-image-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  max-height: 55vh;
+}
+
+.cpm-image-placeholder {
+  padding: var(--space-3xl);
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(0, 212, 255, 0.05) 100%);
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Feature Cards Row */
+.cpm-feature-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  position: relative;
+}
+
+.cpm-feature-card {
+  padding: var(--space-md);
+  text-align: center;
+  position: relative;
+  transition: background 0.3s ease, opacity 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: default;
+  border: 1px solid transparent;
+}
+
+.cpm-feature-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3), inset 0 0 20px rgba(0, 212, 255, 0.05);
+}
+
+.cpm-feature-card.dimmed {
+  opacity: 0.4;
+  filter: blur(1px);
+}
+
+/* Vertical Divider Line (Div element) */
+.cpm-feature-divider-line {
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  transform-origin: top;
+}
+
+.cpm-feature-icon {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto var(--space-md);
+  color: var(--color-accent);
+}
+
+.cpm-feature-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.cpm-feature-title {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-sm);
+  line-height: 1.4;
+}
+
+.cpm-feature-desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .cpm-feature-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cpm-feature-card:nth-child(2) .cpm-feature-divider-line {
+    display: none;
+  }
+
+  .cpm-feature-card:nth-child(1) .cpm-feature-divider-line,
+  .cpm-feature-card:nth-child(3) .cpm-feature-divider-line {
+    display: block;
+  }
+
+  /* Add horizontal divider for 2-column layout */
+  .cpm-feature-card:nth-child(1),
+  .cpm-feature-card:nth-child(2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+@media (max-width: 640px) {
+  .cpm-feature-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .cpm-feature-divider-line {
+    display: none !important;
+  }
+
+  .cpm-feature-card:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .cpm-hero-subtitle {
+    font-size: var(--text-base);
+  }
+
+  .cpm-section-title {
+    font-size: var(--text-2xl);
+    text-align: center;
+  }
+
+  .cpm-features-section {
+    padding: var(--space-2xl) var(--space-md);
+  }
+  
+  /* Fix header overlap on mobile too if needed, though 140px might be too much for mobile */
+  .cpm-features-section {
+    padding-top: 100px;
+  }
+
+  .cpm-image-card {
+    max-height: 35vh;
+  }
+  
+  .cpm-image-card img {
+    max-height: 35vh;
+  }
 }

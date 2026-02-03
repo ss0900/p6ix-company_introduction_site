@@ -350,12 +350,13 @@ function PPMPanel({ id }) {
             <h2 className="ppm-hero-title">Primavera P6 PPM</h2>
             <div className="ppm-hero-divider" />
             <p className="ppm-hero-headline">
-              <br />
-              모든 규모의 프로젝트를 정밀하게 관리하세요.
+              모든 규모의 프로젝트를 정밀하게 관리하세요
             </p>
             <p className="ppm-hero-desc">
-              정밀하고 강력한 Primavera P6 PPM은 복잡한 프로젝트의 일정과 자원
-              계획을
+              <span className="nowrap">
+                정밀하고 강력한 Primavera P6 PPM은 복잡한 프로젝트의 일정과 자원
+                계획을
+              </span>
               <br />
               데스크탑 환경에서 정교하게 제어할 수 있는 전문가용 프로젝트 관리
               도구로
@@ -396,6 +397,10 @@ function PPMPanel({ id }) {
                 </>
               )}
             </button>
+
+            <p className="ppm-source-note" aria-hidden="true">
+              출처 : Oracle 공식 홈페이지
+            </p>
           </div>
         </div>
       </div>

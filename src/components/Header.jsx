@@ -97,9 +97,9 @@ function Header() {
             "https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=600",
         },
         {
-          id: "features",
-          title: "주요 기능",
-          path: "/ppm/features",
+          id: "cpm",
+          title: "CPM 공정관리",
+          path: "/ppm/cpm",
           image:
             "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600",
         },
