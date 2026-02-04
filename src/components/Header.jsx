@@ -77,9 +77,9 @@ function Header() {
             "https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=600",
         },
         {
-          id: "core",
-          title: "\uD575\uC2EC \uAC1C\uB150",
-          path: "/time-management/core",
+          id: "cases",
+          title: "적용 사례",
+          path: "/time-management/cases",
           image:
             "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=600",
         },

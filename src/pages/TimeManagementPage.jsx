@@ -17,6 +17,29 @@ const sections = [
   { id: "advantages", label: "Primavera" },
   { id: "comparison", label: "Tool 비교" },
   { id: "ppm-eppm", label: "PPM vs EPPM" },
+  { id: "cases", label: "적용 사례" },
+];
+
+// Cases Data
+const casesData = [
+  {
+    tag: "건설",
+    title: "대형 플랜트 프로젝트",
+    desc: "복합 발전소 건설 프로젝트의 일정 관리 시스템 구축",
+    img: "https://images.pexels.com/photos/159358/construction-site-build-construction-work-159358.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    tag: "인프라",
+    title: "교통 인프라 프로젝트",
+    desc: "도시 철도 건설 프로젝트 일정 최적화",
+    img: "https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    tag: "해외",
+    title: "해외 건설 프로젝트",
+    desc: "중동 지역 대형 건설 프로젝트 관리",
+    img: "https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
 ];
 
 // Menu items for the navigation section
@@ -34,8 +57,8 @@ const subMenuItems = [
       "https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
-    id: "core",
-    title: "\uD575\uC2EC \uAC1C\uB150",
+    id: "cases",
+    title: "적용 사례",
     image:
       "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
@@ -98,6 +121,8 @@ function TimeManagementPage() {
   const ppmEppmIconsRef = useRef([]);
   const ppmEppmBulletsRef = useRef([]);
   const ppmEppmConclusionRef = useRef(null);
+  const casesSectionRef = useRef(null);
+  const casesCardsRef = useRef([]);
 
   // PPM vs EPPM drag-to-resize state
   const [leftRatio, setLeftRatio] = useState(50);
@@ -227,6 +252,9 @@ function TimeManagementPage() {
         if (subId === "3") targetId = "ppm-eppm";
       }
 
+      if (sectionId === "cases") {
+        targetId = "cases";
+      }
 
       const targetIndex = sections.findIndex((s) => s.id === targetId);
 
@@ -251,6 +279,7 @@ function TimeManagementPage() {
       if (index === 6) path = "/time-management/advantages/1"; // advantages
       if (index === 7) path = "/time-management/advantages/2"; // comparison
       if (index === 8) path = "/time-management/advantages/3"; // ppm-eppm
+      if (index === 9) path = "/time-management/cases"; // cases
 
       navigate(path, { replace: true });
     },
@@ -856,6 +885,26 @@ function TimeManagementPage() {
       }, ppmEppmSectionRef);
     }
 
+    // Cases section animations
+    if (casesSectionRef.current) {
+      gsap.context(() => {
+        gsap.fromTo(
+          casesCardsRef.current,
+          { y: 50, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            stagger: 0.2,
+            scrollTrigger: {
+              trigger: casesSectionRef.current,
+              start: "top 60%",
+              toggleActions: "play none none reverse",
+            },
+          },
+        );
+      }, casesSectionRef);
+    }
   }, [prefersReducedMotion]);
 
   // GSAP scroll hijacking
@@ -1067,7 +1116,7 @@ function TimeManagementPage() {
                       if (item.id === "overview") scrollToSection("definition");
                       if (item.id === "advantages")
                         scrollToSection("advantages");
-                      if (item.id === "core") navigate("/time-management/core");
+                      if (item.id === "cases") scrollToSection("definition"); // Placeholder
                     }}
                   >
                     <div
@@ -3467,6 +3516,101 @@ function TimeManagementPage() {
           </div>
         </section>
 
+        {/* Panel 10: Cases Section */}
+        <section className="tm-panel" id="cases" ref={casesSectionRef}>
+          <div
+            className="tm-methods-section"
+            style={{ background: "var(--bg-darker)" }}
+          >
+            <div className="tm-methods-container">
+              <div className="tm-section-header">
+                <h2 className="tm-section-title">적용 사례</h2>
+                <p
+                  style={{
+                    textAlign: "center",
+                    color: "var(--text-secondary)",
+                    marginBottom: "40px",
+                  }}
+                >
+                  Time Management 솔루션이 적용된 프로젝트 사례
+                </p>
+              </div>
+              <div
+                className="tm-ppm-eppm-grid"
+                style={{
+                  gridTemplateColumns: "repeat(3, 1fr)",
+                  gap: "30px",
+                  marginTop: "40px",
+                }}
+              >
+                {casesData.map((item, index) => (
+                  <div
+                    key={index}
+                    className="tm-ppm-eppm-card"
+                    style={{ padding: "0", overflow: "hidden", height: "auto" }}
+                    ref={(el) => (casesCardsRef.current[index] = el)}
+                  >
+                    <div
+                      className="tm-card-image"
+                      style={{
+                        height: "200px",
+                        overflow: "hidden",
+                        position: "relative",
+                      }}
+                    >
+                      <img
+                        src={item.img}
+                        alt={item.title}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                        }}
+                      />
+                      <span
+                        style={{
+                          position: "absolute",
+                          top: "15px",
+                          left: "15px",
+                          background: "rgba(0,0,0,0.7)",
+                          color: "white",
+                          padding: "5px 10px",
+                          borderRadius: "4px",
+                          fontSize: "0.8rem",
+                        }}
+                      >
+                        {item.tag}
+                      </span>
+                    </div>
+                    <div
+                      className="tm-card-content"
+                      style={{ padding: "25px" }}
+                    >
+                      <h3
+                        style={{
+                          fontSize: "1.25rem",
+                          marginBottom: "15px",
+                          color: "var(--text-primary)",
+                        }}
+                      >
+                        {item.title}
+                      </h3>
+                      <p
+                        style={{
+                          fontSize: "0.95rem",
+                          color: "var(--text-secondary)",
+                          lineHeight: "1.6",
+                        }}
+                      >
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </>
   );

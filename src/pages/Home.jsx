@@ -1,5 +1,7 @@
-import { useCallback } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 
 import HeroVideo from '../components/HeroVideo'
 import PPMPanel from '../components/panels/PPMPanel'
@@ -8,7 +10,8 @@ import OPCPanel from '../components/panels/OPCPanel'
 import UnifierPanel from '../components/panels/UnifierPanel'
 import AconexPanel from '../components/panels/AconexPanel'
 import SectionIndicator from '../components/SectionIndicator'
-import useGsapScrollController from '../hooks/useGsapScrollController'
+
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
 const sections = [
   { id: 'hero', label: 'Main' },
@@ -20,7 +23,175 @@ const sections = [
 ]
 
 function Home() {
-  const initAnimations = useCallback(({ prefersReducedMotion }) => {
+  const [activeSection, setActiveSection] = useState(0)
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
+  const containerRef = useRef(null)
+  const isAnimatingRef = useRef(false)
+  const currentSectionRef = useRef(0)
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    setPrefersReducedMotion(mediaQuery.matches)
+
+    const handleChange = (e) => {
+      setPrefersReducedMotion(e.matches)
+    }
+
+    mediaQuery.addEventListener('change', handleChange)
+    return () => mediaQuery.removeEventListener('change', handleChange)
+  }, [])
+
+  const scrollToSection = useCallback((sectionId) => {
+    const sectionIndex = sections.findIndex(s => s.id === sectionId)
+    if (sectionIndex === -1) return
+
+    const panels = gsap.utils.toArray('.panel')
+    if (!panels[sectionIndex]) return
+
+    currentSectionRef.current = sectionIndex
+    setActiveSection(sectionIndex)
+
+    if (prefersReducedMotion) {
+      panels[sectionIndex].scrollIntoView({ behavior: 'auto' })
+    } else {
+      isAnimatingRef.current = true
+      gsap.to(window, {
+        duration: 0.8,
+        scrollTo: { y: panels[sectionIndex], autoKill: false },
+        ease: 'power3.inOut',
+        onComplete: () => {
+          setTimeout(() => {
+            isAnimatingRef.current = false
+          }, 100)
+        }
+      })
+    }
+  }, [prefersReducedMotion])
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      initAnimations()
+      return () => {
+        ScrollTrigger.getAll().forEach(t => t.kill())
+      }
+    }
+
+    const panels = gsap.utils.toArray('.panel')
+
+    panels.forEach((panel, i) => {
+      ScrollTrigger.create({
+        trigger: panel,
+        start: 'top center',
+        end: 'bottom center',
+        onEnter: () => {
+          currentSectionRef.current = i
+          setActiveSection(i)
+        },
+        onEnterBack: () => {
+          currentSectionRef.current = i
+          setActiveSection(i)
+        }
+      })
+    })
+
+    const handleWheel = (e) => {
+      if (isAnimatingRef.current) {
+        e.preventDefault()
+        return
+      }
+
+      const delta = e.deltaY
+      const threshold = 50
+
+      if (Math.abs(delta) < threshold) return
+
+      e.preventDefault()
+      isAnimatingRef.current = true
+
+      let nextSection = currentSectionRef.current
+
+      if (delta > 0 && currentSectionRef.current < panels.length - 1) {
+        nextSection = currentSectionRef.current + 1
+      } else if (delta < 0 && currentSectionRef.current > 0) {
+        nextSection = currentSectionRef.current - 1
+      } else {
+        isAnimatingRef.current = false
+        return
+      }
+
+      currentSectionRef.current = nextSection
+      setActiveSection(nextSection)
+
+      gsap.to(window, {
+        duration: 0.8,
+        scrollTo: { y: panels[nextSection], autoKill: false },
+        ease: 'power3.inOut',
+        onComplete: () => {
+          setTimeout(() => {
+            isAnimatingRef.current = false
+          }, 100)
+        }
+      })
+    }
+
+    let touchStartY = 0
+
+    const handleTouchStart = (e) => {
+      touchStartY = e.touches[0].clientY
+    }
+
+    const handleTouchEnd = (e) => {
+      if (isAnimatingRef.current) return
+
+      const touchEndY = e.changedTouches[0].clientY
+      const delta = touchStartY - touchEndY
+      const threshold = 50
+
+      if (Math.abs(delta) < threshold) return
+
+      isAnimatingRef.current = true
+
+      let nextSection = currentSectionRef.current
+
+      if (delta > 0 && currentSectionRef.current < panels.length - 1) {
+        nextSection = currentSectionRef.current + 1
+      } else if (delta < 0 && currentSectionRef.current > 0) {
+        nextSection = currentSectionRef.current - 1
+      } else {
+        isAnimatingRef.current = false
+        return
+      }
+
+      currentSectionRef.current = nextSection
+      setActiveSection(nextSection)
+
+      gsap.to(window, {
+        duration: 0.8,
+        scrollTo: { y: panels[nextSection], autoKill: false },
+        ease: 'power3.inOut',
+        onComplete: () => {
+          setTimeout(() => {
+            isAnimatingRef.current = false
+          }, 100)
+        }
+      })
+    }
+
+    window.addEventListener('wheel', handleWheel, { passive: false })
+    window.addEventListener('touchstart', handleTouchStart, { passive: true })
+    window.addEventListener('touchend', handleTouchEnd, { passive: true })
+
+    initAnimations()
+
+    return () => {
+      ScrollTrigger.getAll().forEach(t => t.kill())
+      window.removeEventListener('wheel', handleWheel)
+      window.removeEventListener('touchstart', handleTouchStart)
+      window.removeEventListener('touchend', handleTouchEnd)
+    }
+  }, [prefersReducedMotion])
+
+  const initAnimations = () => {
     if (prefersReducedMotion) return
 
     gsap.utils.toArray('.fade-in-section').forEach((section) => {
@@ -58,13 +229,7 @@ function Home() {
         }
       )
     })
-  }, [])
-
-  const { activeSection, scrollToSection } = useGsapScrollController({
-    panelSelector: '.panel',
-    sections,
-    onInitAnimations: initAnimations
-  })
+  }
 
   return (
     <>
@@ -74,7 +239,7 @@ function Home() {
         onNavigate={scrollToSection}
       />
 
-      <main>
+      <main ref={containerRef}>
         <section className="panel">
           <HeroVideo id="hero" scrollToSection={scrollToSection} />
         </section>

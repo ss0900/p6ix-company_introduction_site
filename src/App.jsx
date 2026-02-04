@@ -12,7 +12,6 @@ import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import Company from "./pages/Company";
 import TimeManagementPage from "./pages/TimeManagementPage";
-import TimeManagementCore from "./pages/time-management/Core";
 import PPM from "./pages/PPM";
 import EPPM from "./pages/EPPM";
 import OPC from "./pages/OPC";
@@ -65,11 +64,6 @@ function App() {
         <Route path="/company/pr" element={<CompanyPR />} />
 
         <Route path="/time-management" element={<TimeManagementPage />} />
-        <Route path="/time-management/core" element={<TimeManagementCore />} />
-        <Route
-          path="/time-management/cases"
-          element={<Navigate to="/time-management/core" replace />}
-        />
         <Route path="/time-management/:sectionId" element={<TimeManagementPage />} />
         <Route path="/time-management/:sectionId/:subId" element={<TimeManagementPage />} />
 
