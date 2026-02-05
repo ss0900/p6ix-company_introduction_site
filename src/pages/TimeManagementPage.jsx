@@ -17,30 +17,10 @@ const sections = [
   { id: "advantages", label: "Primavera" },
   { id: "comparison", label: "Tool 비교" },
   { id: "ppm-eppm", label: "PPM vs EPPM" },
-  { id: "cases", label: "적용 사례" },
+  { id: "core", label: "핵심 개념" },
 ];
 
-// Cases Data
-const casesData = [
-  {
-    tag: "건설",
-    title: "대형 플랜트 프로젝트",
-    desc: "복합 발전소 건설 프로젝트의 일정 관리 시스템 구축",
-    img: "https://images.pexels.com/photos/159358/construction-site-build-construction-work-159358.jpeg?auto=compress&cs=tinysrgb&w=600",
-  },
-  {
-    tag: "인프라",
-    title: "교통 인프라 프로젝트",
-    desc: "도시 철도 건설 프로젝트 일정 최적화",
-    img: "https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=600",
-  },
-  {
-    tag: "해외",
-    title: "해외 건설 프로젝트",
-    desc: "중동 지역 대형 건설 프로젝트 관리",
-    img: "https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=600",
-  },
-];
+
 
 // Menu items for the navigation section
 const subMenuItems = [
@@ -57,8 +37,8 @@ const subMenuItems = [
       "https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
-    id: "cases",
-    title: "적용 사례",
+    id: "core",
+    title: "핵심 개념",
     image:
       "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
@@ -121,8 +101,11 @@ function TimeManagementPage() {
   const ppmEppmIconsRef = useRef([]);
   const ppmEppmBulletsRef = useRef([]);
   const ppmEppmConclusionRef = useRef(null);
-  const casesSectionRef = useRef(null);
-  const casesCardsRef = useRef([]);
+  const coreSectionRef = useRef(null);
+  const coreTitleRef = useRef(null);
+  const coreDefinitionRef = useRef(null);
+  const coreWbsTreeRef = useRef(null);
+  const coreNodesRef = useRef([]);
 
   // PPM vs EPPM drag-to-resize state
   const [leftRatio, setLeftRatio] = useState(50);
@@ -252,8 +235,8 @@ function TimeManagementPage() {
         if (subId === "3") targetId = "ppm-eppm";
       }
 
-      if (sectionId === "cases") {
-        targetId = "cases";
+      if (sectionId === "core") {
+        targetId = "core";
       }
 
       const targetIndex = sections.findIndex((s) => s.id === targetId);
@@ -279,7 +262,7 @@ function TimeManagementPage() {
       if (index === 6) path = "/time-management/advantages/1"; // advantages
       if (index === 7) path = "/time-management/advantages/2"; // comparison
       if (index === 8) path = "/time-management/advantages/3"; // ppm-eppm
-      if (index === 9) path = "/time-management/cases"; // cases
+      if (index === 9) path = "/time-management/core"; // core (핵심 개념)
 
       navigate(path, { replace: true });
     },
@@ -885,25 +868,55 @@ function TimeManagementPage() {
       }, ppmEppmSectionRef);
     }
 
-    // Cases section animations
-    if (casesSectionRef.current) {
+    // Core section animations (WBS)
+    if (coreSectionRef.current && coreTitleRef.current) {
       gsap.context(() => {
-        gsap.fromTo(
-          casesCardsRef.current,
-          { y: 50, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.6,
-            stagger: 0.2,
-            scrollTrigger: {
-              trigger: casesSectionRef.current,
-              start: "top 60%",
-              toggleActions: "play none none reverse",
-            },
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: coreSectionRef.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
           },
+        });
+
+        // Title fade in
+        tl.fromTo(
+          coreTitleRef.current,
+          { opacity: 0, y: -30 },
+          { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }
         );
-      }, casesSectionRef);
+
+        // Definition box
+        if (coreDefinitionRef.current) {
+          tl.fromTo(
+            coreDefinitionRef.current,
+            { opacity: 0, x: 50 },
+            { opacity: 1, x: 0, duration: 0.5, ease: "power2.out" },
+            "-=0.3"
+          );
+        }
+
+        // WBS Tree - staggered node animation
+        if (coreNodesRef.current.length > 0) {
+          coreNodesRef.current.forEach((node, i) => {
+            if (node) {
+              tl.fromTo(
+                node,
+                { opacity: 0, scale: 0.8, y: 20 },
+                { 
+                  opacity: 1, 
+                  scale: 1, 
+                  y: 0, 
+                  duration: 0.4, 
+                  ease: "back.out(1.4)" 
+                },
+                i === 0 ? "-=0.2" : "-=0.3"
+              );
+            }
+          });
+        }
+      }, coreSectionRef);
     }
   }, [prefersReducedMotion]);
 
@@ -1116,7 +1129,7 @@ function TimeManagementPage() {
                       if (item.id === "overview") scrollToSection("definition");
                       if (item.id === "advantages")
                         scrollToSection("advantages");
-                      if (item.id === "cases") scrollToSection("definition"); // Placeholder
+                      if (item.id === "core") scrollToSection("core");
                     }}
                   >
                     <div
@@ -3516,97 +3529,186 @@ function TimeManagementPage() {
           </div>
         </section>
 
-        {/* Panel 10: Cases Section */}
-        <section className="tm-panel" id="cases" ref={casesSectionRef}>
-          <div
-            className="tm-methods-section"
-            style={{ background: "var(--bg-darker)" }}
-          >
-            <div className="tm-methods-container">
-              <div className="tm-section-header">
-                <h2 className="tm-section-title">적용 사례</h2>
-                <p
-                  style={{
-                    textAlign: "center",
-                    color: "var(--text-secondary)",
-                    marginBottom: "40px",
-                  }}
-                >
-                  Time Management 솔루션이 적용된 프로젝트 사례
+        {/* Panel 10: Core Section - WBS (Work Breakdown Structure) */}
+        <section className="tm-panel" id="core" ref={coreSectionRef}>
+          <div className="tm-core-section">
+            <div className="tm-core-container">
+              {/* Section Title */}
+              <div className="tm-section-header" ref={coreTitleRef}>
+                <h2 className="tm-section-title">WBS (Work Breakdown Structure)</h2>
+              </div>
+
+              {/* Definition Box - Top Right */}
+              <div className="tm-wbs-definition-box" ref={coreDefinitionRef}>
+                <span className="tm-wbs-definition-label">정의</span>
+                <p className="tm-wbs-definition-text">
+                  프로젝트 산출물 중심의 계층적 구조<br />
+                  (의사소통 및 관리의 기준)
                 </p>
               </div>
-              <div
-                className="tm-ppm-eppm-grid"
-                style={{
-                  gridTemplateColumns: "repeat(3, 1fr)",
-                  gap: "30px",
-                  marginTop: "40px",
-                }}
-              >
-                {casesData.map((item, index) => (
-                  <div
-                    key={index}
-                    className="tm-ppm-eppm-card"
-                    style={{ padding: "0", overflow: "hidden", height: "auto" }}
-                    ref={(el) => (casesCardsRef.current[index] = el)}
+
+              {/* WBS Tree Diagram */}
+              <div className="tm-wbs-tree" ref={coreWbsTreeRef}>
+                {/* Level 1: Project Root */}
+                <div className="tm-wbs-level tm-wbs-level-1">
+                  <div 
+                    className="tm-wbs-node tm-wbs-node-root"
+                    ref={(el) => (coreNodesRef.current[0] = el)}
                   >
-                    <div
-                      className="tm-card-image"
-                      style={{
-                        height: "200px",
-                        overflow: "hidden",
-                        position: "relative",
-                      }}
-                    >
-                      <img
-                        src={item.img}
-                        alt={item.title}
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "cover",
-                        }}
-                      />
-                      <span
-                        style={{
-                          position: "absolute",
-                          top: "15px",
-                          left: "15px",
-                          background: "rgba(0,0,0,0.7)",
-                          color: "white",
-                          padding: "5px 10px",
-                          borderRadius: "4px",
-                          fontSize: "0.8rem",
-                        }}
-                      >
-                        {item.tag}
-                      </span>
-                    </div>
-                    <div
-                      className="tm-card-content"
-                      style={{ padding: "25px" }}
-                    >
-                      <h3
-                        style={{
-                          fontSize: "1.25rem",
-                          marginBottom: "15px",
-                          color: "var(--text-primary)",
-                        }}
-                      >
-                        {item.title}
-                      </h3>
-                      <p
-                        style={{
-                          fontSize: "0.95rem",
-                          color: "var(--text-secondary)",
-                          lineHeight: "1.6",
-                        }}
-                      >
-                        {item.desc}
-                      </p>
-                    </div>
+                    <span className="tm-wbs-node-text">Project</span>
+                    <span className="tm-wbs-node-subtext">(EPC 공사)</span>
                   </div>
-                ))}
+                </div>
+
+                {/* Connector Line from Root */}
+                <div className="tm-wbs-connector tm-wbs-connector-vertical"></div>
+                <div className="tm-wbs-connector tm-wbs-connector-horizontal-3"></div>
+
+                {/* Level 2: Design, Procurement, Construction */}
+                <div className="tm-wbs-level tm-wbs-level-2">
+                  <div 
+                    className="tm-wbs-node tm-wbs-node-main"
+                    ref={(el) => (coreNodesRef.current[1] = el)}
+                  >
+                    <span className="tm-wbs-node-text">Design</span>
+                    <span className="tm-wbs-node-subtext">(설계)</span>
+                  </div>
+                  <div 
+                    className="tm-wbs-node tm-wbs-node-main"
+                    ref={(el) => (coreNodesRef.current[2] = el)}
+                  >
+                    <span className="tm-wbs-node-text">Procurement</span>
+                    <span className="tm-wbs-node-subtext">(구매)</span>
+                  </div>
+                  <div 
+                    className="tm-wbs-node tm-wbs-node-main tm-wbs-node-highlight"
+                    ref={(el) => (coreNodesRef.current[3] = el)}
+                  >
+                    <span className="tm-wbs-node-text">Construction</span>
+                    <span className="tm-wbs-node-subtext">(시공)</span>
+                  </div>
+                </div>
+
+                {/* Connector from Construction to Zones */}
+                <div className="tm-wbs-connector tm-wbs-connector-branch">
+                  <div className="tm-wbs-branch-line"></div>
+                </div>
+
+                {/* Level 3: Zones */}
+                <div className="tm-wbs-level tm-wbs-level-3">
+                  <div 
+                    className="tm-wbs-node tm-wbs-node-zone"
+                    ref={(el) => (coreNodesRef.current[4] = el)}
+                  >
+                    <div className="tm-wbs-zone-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <rect x="3" y="3" width="7" height="7" rx="1" />
+                        <rect x="14" y="3" width="7" height="7" rx="1" />
+                        <rect x="3" y="14" width="7" height="7" rx="1" />
+                        <rect x="14" y="14" width="7" height="7" rx="1" />
+                      </svg>
+                    </div>
+                    <span className="tm-wbs-node-text">Zone A</span>
+                  </div>
+                  <div 
+                    className="tm-wbs-node tm-wbs-node-zone"
+                    ref={(el) => (coreNodesRef.current[5] = el)}
+                  >
+                    <div className="tm-wbs-zone-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <rect x="3" y="3" width="7" height="7" rx="1" />
+                        <rect x="14" y="3" width="7" height="7" rx="1" />
+                        <rect x="3" y="14" width="7" height="7" rx="1" />
+                        <rect x="14" y="14" width="7" height="7" rx="1" />
+                      </svg>
+                    </div>
+                    <span className="tm-wbs-node-text">Zone B</span>
+                  </div>
+                </div>
+
+                {/* Connector from Zone A to Disciplines */}
+                <div className="tm-wbs-connector tm-wbs-connector-discipline">
+                  <div className="tm-wbs-branch-line"></div>
+                </div>
+
+                {/* Level 4: Disciplines (토목, 건축, 기계) */}
+                <div className="tm-wbs-level tm-wbs-level-4">
+                  <div 
+                    className="tm-wbs-node tm-wbs-node-discipline"
+                    ref={(el) => (coreNodesRef.current[6] = el)}
+                  >
+                    <div className="tm-wbs-discipline-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M2 20h20M4 20v-6l8-8 8 8v6" />
+                        <path d="M9 20v-4h6v4" />
+                      </svg>
+                    </div>
+                    <span className="tm-wbs-node-text">토목</span>
+                  </div>
+                  <div 
+                    className="tm-wbs-node tm-wbs-node-discipline"
+                    ref={(el) => (coreNodesRef.current[7] = el)}
+                  >
+                    <div className="tm-wbs-discipline-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <rect x="3" y="8" width="18" height="12" rx="1" />
+                        <path d="M3 8l9-5 9 5" />
+                        <rect x="8" y="13" width="3" height="7" />
+                        <rect x="13" y="13" width="3" height="4" />
+                      </svg>
+                    </div>
+                    <span className="tm-wbs-node-text">건축</span>
+                  </div>
+                  <div 
+                    className="tm-wbs-node tm-wbs-node-discipline"
+                    ref={(el) => (coreNodesRef.current[8] = el)}
+                  >
+                    <div className="tm-wbs-discipline-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <circle cx="12" cy="12" r="3" />
+                        <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
+                      </svg>
+                    </div>
+                    <span className="tm-wbs-node-text">기계</span>
+                  </div>
+                </div>
+
+                {/* Connector to Activities */}
+                <div className="tm-wbs-connector tm-wbs-connector-activity">
+                  <div className="tm-wbs-branch-line"></div>
+                </div>
+
+                {/* Level 5: Activities */}
+                <div className="tm-wbs-level tm-wbs-level-5">
+                  <div 
+                    className="tm-wbs-node tm-wbs-node-activity"
+                    ref={(el) => (coreNodesRef.current[9] = el)}
+                  >
+                    <span className="tm-wbs-node-text">Activity</span>
+                    <span className="tm-wbs-node-subtext">(단위 작업)</span>
+                  </div>
+                  <div 
+                    className="tm-wbs-node tm-wbs-node-activity"
+                    ref={(el) => (coreNodesRef.current[10] = el)}
+                  >
+                    <span className="tm-wbs-node-text">Activity</span>
+                    <span className="tm-wbs-node-subtext">(단위 작업)</span>
+                  </div>
+                  <div 
+                    className="tm-wbs-node tm-wbs-node-activity"
+                    ref={(el) => (coreNodesRef.current[11] = el)}
+                  >
+                    <span className="tm-wbs-node-text">Activity</span>
+                    <span className="tm-wbs-node-subtext">(단위 작업)</span>
+                  </div>
+                  <div 
+                    className="tm-wbs-node tm-wbs-node-activity"
+                    ref={(el) => (coreNodesRef.current[12] = el)}
+                  >
+                    <span className="tm-wbs-node-text">Activity</span>
+                    <span className="tm-wbs-node-subtext">(단위 작업)</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
