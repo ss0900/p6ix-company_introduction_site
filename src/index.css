@@ -9151,6 +9151,12 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   gap: var(--space-sm);
   margin-top: var(--space-4xl);
   padding: var(--space-2xl);
+  --tm-wbs-line-opacity: 0;
+  --tm-wbs-activity-width: 120px;
+  --tm-wbs-activity-gap: var(--space-md);
+  --tm-wbs-discipline-col-width: calc(
+    (var(--tm-wbs-activity-width) * 2) + var(--tm-wbs-activity-gap)
+  );
 }
 
 /* WBS Levels */
@@ -9184,6 +9190,83 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 .tm-wbs-level-5 {
   gap: var(--space-md);
   /* Activities should be centered under disciplines */
+}
+
+/* WBS Sibling Connector Groups */
+.tm-wbs-sibling-group {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--tm-wbs-sibling-gap, var(--space-lg));
+  padding-top: var(--tm-wbs-stem-height, 0px);
+  overflow: visible;
+}
+
+.tm-wbs-sibling-group--multi::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: var(--tm-wbs-line-inset, 0px);
+  right: var(--tm-wbs-line-inset, 0px);
+  height: 2px;
+  background: var(--tm-wbs-line-color, rgba(255, 255, 255, 0.2));
+  opacity: var(--tm-wbs-line-opacity, 1);
+  transition: opacity var(--duration-base) var(--ease-out-quart);
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.tm-wbs-sibling {
+  flex: 0 0 var(--tm-wbs-sibling-width, auto);
+  width: var(--tm-wbs-sibling-width, auto);
+  overflow: visible;
+}
+
+.tm-wbs-sibling-group--level-2 {
+  --tm-wbs-sibling-width: 160px;
+  --tm-wbs-stem-height: 20px;
+  --tm-wbs-line-color: rgba(59, 130, 246, 0.5);
+  --tm-wbs-line-inset: calc(var(--tm-wbs-sibling-width) / 2);
+  --tm-wbs-sibling-gap: var(--space-2xl);
+}
+
+.tm-wbs-sibling-group--level-3 {
+  --tm-wbs-sibling-width: 130px;
+  --tm-wbs-stem-height: 25px;
+  --tm-wbs-line-color: rgba(148, 163, 184, 0.4);
+  --tm-wbs-line-inset: calc(var(--tm-wbs-sibling-width) / 2);
+  --tm-wbs-sibling-gap: var(--space-xl);
+}
+
+.tm-wbs-sibling-group--level-4 {
+  --tm-wbs-sibling-width: var(--tm-wbs-discipline-col-width);
+  --tm-wbs-stem-height: 25px;
+  --tm-wbs-line-color: rgba(148, 163, 184, 0.4);
+  --tm-wbs-line-inset: calc(var(--tm-wbs-sibling-width) / 2);
+  --tm-wbs-sibling-gap: var(--space-lg);
+}
+
+.tm-wbs-sibling-group--level-5 {
+  --tm-wbs-sibling-width: var(--tm-wbs-activity-width);
+  --tm-wbs-stem-height: 25px;
+  --tm-wbs-line-color: rgba(249, 115, 22, 0.4);
+  --tm-wbs-line-inset: calc(var(--tm-wbs-sibling-width) / 2);
+  --tm-wbs-sibling-gap: var(--tm-wbs-activity-gap);
+}
+
+.tm-wbs-activity-group {
+  align-self: stretch;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: var(--space-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tm-wbs-tree {
+    --tm-wbs-line-opacity: 1;
+  }
 }
 
 /* WBS Nodes - Base */
@@ -9596,10 +9679,14 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 
   .tm-wbs-definition-box {
     padding: var(--space-md);
+    display: flex;
+    align-items: baseline; /* 라벨/본문 글줄 맞춤 */
+    gap: 12px;
   }
 
   .tm-wbs-definition-text {
     font-size: var(--text-sm);
+    margin: 0;
   }
 }
 

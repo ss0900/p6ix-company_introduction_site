@@ -124,7 +124,7 @@ function TimeManagementCore() {
           >
             {/* Connection Lines */}
             {/* <g className="tm-wbs-lines"> */}
-            {/* Level 1 (Project) to Level 2 (Design, Procurement, Construction) */}
+            {/* Level 1 (Project) to Level 2 (Engineering, Procurement, Construction) */}
             {/* <path
                 ref={(el) => (linesRef.current[0] = el)}
                 d="M700 120 V160 H300 V200"
@@ -280,7 +280,7 @@ function TimeManagementCore() {
                 </text>
               </g>
 
-              {/* Level 2: Design, Procurement, Construction */}
+              {/* Level 2: Engineering, Procurement, Construction */}
               <g ref={(el) => (nodesRef.current[1] = el)}>
                 <rect
                   x="200"

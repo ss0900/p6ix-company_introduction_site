@@ -914,6 +914,18 @@ function TimeManagementPage() {
             }
           });
         }
+
+        if (coreWbsTreeRef.current) {
+          tl.to(
+            coreWbsTreeRef.current,
+            {
+              "--tm-wbs-line-opacity": 1,
+              duration: 0.3,
+              ease: "power2.out",
+            },
+            "-=0.2",
+          );
+        }
       }, coreSectionRef);
     }
   }, [prefersReducedMotion]);
@@ -3565,17 +3577,17 @@ function TimeManagementPage() {
                 <div className="tm-wbs-connector tm-wbs-connector-vertical"></div>
                 <div className="tm-wbs-connector tm-wbs-connector-horizontal-3"></div> */}
 
-                {/* Level 2: Design, Procurement, Construction */}
-                <div className="tm-wbs-level tm-wbs-level-2">
+                {/* Level 2: Engineering, Procurement, Construction */}
+                <div className="tm-wbs-level tm-wbs-level-2 tm-wbs-sibling-group tm-wbs-sibling-group--multi tm-wbs-sibling-group--level-2">
                   <div
-                    className="tm-wbs-node tm-wbs-node-main"
+                    className="tm-wbs-node tm-wbs-node-main tm-wbs-sibling"
                     ref={(el) => (coreNodesRef.current[1] = el)}
                   >
-                    <span className="tm-wbs-node-text">Design</span>
+                    <span className="tm-wbs-node-text">Engineering</span>
                     <span className="tm-wbs-node-subtext">(설계)</span>
                   </div>
                   <div
-                    className="tm-wbs-node tm-wbs-node-main"
+                    className="tm-wbs-node tm-wbs-node-main tm-wbs-sibling"
                     ref={(el) => (coreNodesRef.current[2] = el)}
                   >
                     <span className="tm-wbs-node-text">Procurement</span>
@@ -3583,7 +3595,7 @@ function TimeManagementPage() {
                   </div>
 
                   {/* Construction Subtree Wrapper */}
-                  <div className="tm-wbs-construction-subtree">
+                  <div className="tm-wbs-construction-subtree tm-wbs-sibling">
                     <div
                       className="tm-wbs-node tm-wbs-node-main tm-wbs-node-highlight"
                       ref={(el) => (coreNodesRef.current[3] = el)}
@@ -3598,9 +3610,9 @@ function TimeManagementPage() {
                     </div> */}
 
                     {/* Level 3: Zones */}
-                    <div className="tm-wbs-level tm-wbs-level-3">
+                    <div className="tm-wbs-level tm-wbs-level-3 tm-wbs-sibling-group tm-wbs-sibling-group--multi tm-wbs-sibling-group--level-3">
                       {/* Zone A Subtree Wrapper */}
-                      <div className="tm-wbs-zone-a-subtree">
+                      <div className="tm-wbs-zone-a-subtree tm-wbs-sibling">
                         <div
                           className="tm-wbs-node tm-wbs-node-zone"
                           ref={(el) => (coreNodesRef.current[4] = el)}
@@ -3627,9 +3639,9 @@ function TimeManagementPage() {
                         </div> */}
 
                         {/* Level 4: Disciplines (토목, 건축, 기계) */}
-                        <div className="tm-wbs-level tm-wbs-level-4">
+                        <div className="tm-wbs-level tm-wbs-level-4 tm-wbs-sibling-group tm-wbs-sibling-group--multi tm-wbs-sibling-group--level-4">
                           {/* 토목 Subtree - 2 Activities */}
-                          <div className="tm-wbs-discipline-subtree">
+                          <div className="tm-wbs-discipline-subtree tm-wbs-sibling">
                             <div
                               className="tm-wbs-node tm-wbs-node-discipline"
                               ref={(el) => (coreNodesRef.current[6] = el)}
@@ -3654,9 +3666,9 @@ function TimeManagementPage() {
                             </div> */}
 
                             {/* Activities for 토목 */}
-                            <div className="tm-wbs-level tm-wbs-level-5">
+                            <div className="tm-wbs-level tm-wbs-level-5 tm-wbs-activity-group tm-wbs-sibling-group tm-wbs-sibling-group--multi tm-wbs-sibling-group--level-5">
                               <div
-                                className="tm-wbs-node tm-wbs-node-activity"
+                                className="tm-wbs-node tm-wbs-node-activity tm-wbs-sibling"
                                 ref={(el) => (coreNodesRef.current[9] = el)}
                               >
                                 <span className="tm-wbs-node-text">
@@ -3667,7 +3679,7 @@ function TimeManagementPage() {
                                 </span>
                               </div>
                               <div
-                                className="tm-wbs-node tm-wbs-node-activity"
+                                className="tm-wbs-node tm-wbs-node-activity tm-wbs-sibling"
                                 ref={(el) => (coreNodesRef.current[10] = el)}
                               >
                                 <span className="tm-wbs-node-text">
@@ -3681,7 +3693,7 @@ function TimeManagementPage() {
                           </div>
 
                           {/* 건축 Subtree - 1 Activity */}
-                          <div className="tm-wbs-discipline-subtree">
+                          <div className="tm-wbs-discipline-subtree tm-wbs-sibling">
                             <div
                               className="tm-wbs-node tm-wbs-node-discipline"
                               ref={(el) => (coreNodesRef.current[7] = el)}
@@ -3714,9 +3726,9 @@ function TimeManagementPage() {
                             </div> */}
 
                             {/* Activities for 건축 */}
-                            <div className="tm-wbs-level tm-wbs-level-5">
+                            <div className="tm-wbs-level tm-wbs-level-5 tm-wbs-activity-group tm-wbs-sibling-group tm-wbs-sibling-group--level-5">
                               <div
-                                className="tm-wbs-node tm-wbs-node-activity"
+                                className="tm-wbs-node tm-wbs-node-activity tm-wbs-sibling"
                                 ref={(el) => (coreNodesRef.current[11] = el)}
                               >
                                 <span className="tm-wbs-node-text">
@@ -3730,7 +3742,7 @@ function TimeManagementPage() {
                           </div>
 
                           {/* 기계 Subtree - 1 Activity */}
-                          <div className="tm-wbs-discipline-subtree">
+                          <div className="tm-wbs-discipline-subtree tm-wbs-sibling">
                             <div
                               className="tm-wbs-node tm-wbs-node-discipline"
                               ref={(el) => (coreNodesRef.current[8] = el)}
@@ -3755,9 +3767,9 @@ function TimeManagementPage() {
                             </div> */}
 
                             {/* Activities for 기계 */}
-                            <div className="tm-wbs-level tm-wbs-level-5">
+                            <div className="tm-wbs-level tm-wbs-level-5 tm-wbs-activity-group tm-wbs-sibling-group tm-wbs-sibling-group--level-5">
                               <div
-                                className="tm-wbs-node tm-wbs-node-activity"
+                                className="tm-wbs-node tm-wbs-node-activity tm-wbs-sibling"
                                 ref={(el) => (coreNodesRef.current[12] = el)}
                               >
                                 <span className="tm-wbs-node-text">
@@ -3774,7 +3786,7 @@ function TimeManagementPage() {
 
                       {/* Zone B - Independent */}
                       <div
-                        className="tm-wbs-node tm-wbs-node-zone"
+                        className="tm-wbs-node tm-wbs-node-zone tm-wbs-sibling"
                         ref={(el) => (coreNodesRef.current[5] = el)}
                       >
                         <div className="tm-wbs-zone-icon">
