@@ -12,11 +12,9 @@ const sections = [
   { id: "overview", label: "메뉴" },
   { id: "overview-content", label: "개요" },
   { id: "overview-features-2", label: "PPM 개요 2" },
-  { id: "cpm-features", label: "CPM 공정관리" },
+  { id: "functions", label: "기능 소개" },
   { id: "benefits", label: "도입 효과" },
 ];
-
-
 
 // Sub-menu items data
 const subMenuItems = [
@@ -29,12 +27,12 @@ const subMenuItems = [
     link: "#overview",
   },
   {
-    id: "cpm",
-    title: "CPM 공정관리",
+    id: "functions",
+    title: "기능 소개",
     description: "Critical Path Method 기반 공정 관리 솔루션",
     image:
       "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600",
-    link: "#cpm-features",
+    link: "#functions",
   },
   {
     id: "benefits",
@@ -99,15 +97,9 @@ const featureItems = [
         />
       </svg>
     ),
-    title: (
-      <>
-        대규모와 개별 프로젝트
-        <br />
-        계획 및 공정 관리
-      </>
-    ),
-    image: "/cpm-gantt-chart.png",
-    alt: "CPM 공정표 - 대규모 프로젝트 관리",
+    title: <>포트폴리오 구성</>,
+    image: "포트폴리오 구성(PortfolioProgramProject 인벤토리 & 계층).png",
+    alt: "기능 소개 - 포트폴리오 구성",
   },
   {
     icon: (
@@ -137,14 +129,13 @@ const featureItems = [
     ),
     title: (
       <>
-        프로젝트와 연동된
+        우선순위 매트릭스로
         <br />
-        Costs 관리
+        평가/선정
       </>
     ),
-    image:
-      "https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    alt: "CPM 공정표 - 비용 관리",
+    image: "우선순위 매트릭스(Prioritization Matrix)로 평가선정.png",
+    alt: "기능 소개 - 우선순위 매트릭스",
   },
   {
     icon: (
@@ -223,10 +214,15 @@ const featureItems = [
         />
       </svg>
     ),
-    title: "전사적 프로젝트 관리",
-    image:
-      "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    alt: "CPM 공정표 - 전사적 관리",
+    title: (
+      <>
+        Investor Map / Scorecard 기반
+        <br />
+        포트폴리오 분석
+      </>
+    ),
+    image: "Investor Map  Scorecard 기반 포트폴리오 분석(시각 분석).png",
+    alt: "기능 소개 - 포트폴리오 분석",
   },
   {
     icon: (
@@ -282,16 +278,9 @@ const featureItems = [
         />
       </svg>
     ),
-    title: (
-      <>
-        원활한 실적 업데이트를
-        <br />
-        위한 팀 네트워크
-      </>
-    ),
-    image:
-      "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    alt: "CPM 공정표 - 팀 협업",
+    title: <>시나리오 플래닝 & 비교</>,
+    image: "시나리오 플래닝 & 비교(What-if  Scenario Comparison).png",
+    alt: "기능 소개 - 시나리오 플래닝 & 비교",
   },
 ];
 
@@ -300,37 +289,115 @@ const overviewContentItems = [
   {
     icon: (
       <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="8" y="12" width="32" height="24" rx="2" stroke="currentColor" strokeWidth="2" fill="rgba(99, 102, 241, 0.1)" />
-        <rect x="14" y="18" width="8" height="12" rx="1" stroke="currentColor" strokeWidth="1.5" fill="rgba(99, 102, 241, 0.2)" />
-        <rect x="26" y="22" width="8" height="8" rx="1" stroke="currentColor" strokeWidth="1.5" fill="rgba(99, 102, 241, 0.2)" />
-        <line x1="12" y1="8" x2="12" y2="12" stroke="currentColor" strokeWidth="2" />
-        <line x1="24" y1="8" x2="24" y2="12" stroke="currentColor" strokeWidth="2" />
-        <line x1="36" y1="8" x2="36" y2="12" stroke="currentColor" strokeWidth="2" />
+        <rect
+          x="8"
+          y="12"
+          width="32"
+          height="24"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <rect
+          x="14"
+          y="18"
+          width="8"
+          height="12"
+          rx="1"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          fill="rgba(99, 102, 241, 0.2)"
+        />
+        <rect
+          x="26"
+          y="22"
+          width="8"
+          height="8"
+          rx="1"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          fill="rgba(99, 102, 241, 0.2)"
+        />
+        <line
+          x1="12"
+          y1="8"
+          x2="12"
+          y2="12"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <line
+          x1="24"
+          y1="8"
+          x2="24"
+          y2="12"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <line
+          x1="36"
+          y1="8"
+          x2="36"
+          y2="12"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
       </svg>
     ),
     title: "포트폴리오 관리",
     description: "전사 프로젝트 현황 통합 관리",
-    image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    alt: "PPM 개요 - 포트폴리오 관리"
+    image:
+      "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    alt: "PPM 개요 - 포트폴리오 관리",
   },
   {
     icon: (
       <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="24" cy="24" r="16" stroke="currentColor" strokeWidth="2" fill="rgba(99, 102, 241, 0.1)" />
-        <text x="24" y="28" fontSize="16" fill="currentColor" textAnchor="middle" fontWeight="bold">1</text>
+        <circle
+          cx="24"
+          cy="24"
+          r="16"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <text
+          x="24"
+          y="28"
+          fontSize="16"
+          fill="currentColor"
+          textAnchor="middle"
+          fontWeight="bold"
+        >
+          1
+        </text>
         <path d="M24 8 L28 16 L24 12 L20 16 Z" fill="currentColor" />
       </svg>
     ),
     title: "우선순위 결정",
     description: "전략 기반 프로젝트 우선순위 설정",
-    image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    alt: "PPM 개요 - 우선순위 결정"
+    image:
+      "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    alt: "PPM 개요 - 우선순위 결정",
   },
   {
     icon: (
       <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="24" cy="24" r="18" stroke="currentColor" strokeWidth="2" fill="rgba(99, 102, 241, 0.1)" />
-        <path d="M24 10 L24 24 L34 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <circle
+          cx="24"
+          cy="24"
+          r="18"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <path
+          d="M24 10 L24 24 L34 24"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
         <circle cx="14" cy="24" r="3" fill="currentColor" />
         <circle cx="34" cy="14" r="3" fill="currentColor" />
         <circle cx="34" cy="34" r="3" fill="currentColor" />
@@ -338,26 +405,66 @@ const overviewContentItems = [
     ),
     title: "자원 최적화",
     description: "전사 자원의 효율적 배분",
-    image: "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    alt: "PPM 개요 - 자원 최적화"
+    image:
+      "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    alt: "PPM 개요 - 자원 최적화",
   },
   {
     icon: (
       <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="12" y1="36" x2="12" y2="24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <line x1="20" y1="36" x2="20" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <line x1="28" y1="36" x2="28" y2="14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <line x1="36" y1="36" x2="36" y2="20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <path d="M10 20 L18 14 L26 10 L34 16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+        <line
+          x1="12"
+          y1="36"
+          x2="12"
+          y2="24"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <line
+          x1="20"
+          y1="36"
+          x2="20"
+          y2="18"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <line
+          x1="28"
+          y1="36"
+          x2="28"
+          y2="14"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <line
+          x1="36"
+          y1="36"
+          x2="36"
+          y2="20"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <path
+          d="M10 20 L18 14 L26 10 L34 16"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
       </svg>
     ),
     title: "성과 분석",
     description: "프로젝트 성과 측정 및 분석",
-    image: "https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    alt: "PPM 개요 - 성과 분석"
+    image:
+      "https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    alt: "PPM 개요 - 성과 분석",
   },
 ];
-
 
 // Benefits data
 const benefitItems = [
@@ -378,8 +485,9 @@ const benefitItems = [
     ),
     title: "의사결정 개선",
     description: "데이터 기반의 전략적 의사결정 지원",
-    image: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    alt: "PPM 효과 - 의사결정 개선"
+    image:
+      "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    alt: "PPM 효과 - 의사결정 개선",
   },
   {
     icon: (
@@ -397,8 +505,9 @@ const benefitItems = [
     ),
     title: "효율성 향상",
     description: "프로젝트 수행 효율 30% 이상 개선",
-    image: "https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    alt: "PPM 효과 - 효율성 향상"
+    image:
+      "https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    alt: "PPM 효과 - 효율성 향상",
   },
   {
     icon: (
@@ -415,8 +524,9 @@ const benefitItems = [
     ),
     title: "자원 최적화",
     description: "전사 자원 활용도 극대화",
-    image: "https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    alt: "PPM 효과 - 자원 최적화"
+    image:
+      "https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    alt: "PPM 효과 - 자원 최적화",
   },
   {
     icon: (
@@ -434,23 +544,26 @@ const benefitItems = [
     ),
     title: "리스크 감소",
     description: "체계적인 리스크 관리로 실패율 감소",
-    image: "https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    alt: "PPM 효과 - 리스크 감소"
+    image:
+      "https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    alt: "PPM 효과 - 리스크 감소",
   },
 ];
-
 
 function PPMPage() {
   const { sectionId, subId } = useParams();
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState(0);
+  const [activeSectionId, setActiveSectionId] = useState(sections[0].id);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [hoveredCardIndex, setHoveredCardIndex] = useState(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const [activeOverviewSlide, setActiveOverviewSlide] = useState(0);
-  const [hoveredOverviewCardIndex, setHoveredOverviewCardIndex] = useState(null);
+  const [hoveredOverviewCardIndex, setHoveredOverviewCardIndex] =
+    useState(null);
   const [activeBenefitsSlide, setActiveBenefitsSlide] = useState(0);
-  const [hoveredBenefitsCardIndex, setHoveredBenefitsCardIndex] = useState(null);
+  const [hoveredBenefitsCardIndex, setHoveredBenefitsCardIndex] =
+    useState(null);
 
   const containerRef = useRef(null);
   const isAnimatingRef = useRef(false);
@@ -469,8 +582,6 @@ function PPMPage() {
   const benefitsImageCardRef = useRef(null);
   const benefitsCardsRef = useRef([]);
 
-
-
   // Check reduced motion preference
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -484,48 +595,49 @@ function PPMPage() {
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
-  // Auto-play carousel - only when in CPM section
+  // Auto-play carousel - only when in Functions section
   useEffect(() => {
     if (prefersReducedMotion) return;
 
-    // Only auto-play when in CPM section (index 3)
-    if (activeSection !== 3) return;
+    // Only auto-play when in Functions section (id: functions)
+    if (activeSectionId !== "functions") return;
 
     const interval = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % featureItems.length);
     }, 4000); // 4 seconds
 
     return () => clearInterval(interval);
-  }, [prefersReducedMotion, activeSection]);
+  }, [prefersReducedMotion, activeSectionId]);
 
   // Auto-play carousel for Overview Content - only when in Overview Content section
   useEffect(() => {
     if (prefersReducedMotion) return;
 
-    // Only auto-play when in Overview Content section (index 2)
-    if (activeSection !== 2) return;
+    // Only auto-play when in Overview Content section (id: overview-content)
+    if (activeSectionId !== "overview-content") return;
 
     const interval = setInterval(() => {
-      setActiveOverviewSlide((prev) => (prev + 1) % overviewContentItems.length);
+      setActiveOverviewSlide(
+        (prev) => (prev + 1) % overviewContentItems.length,
+      );
     }, 4000); // 4 seconds
 
     return () => clearInterval(interval);
-  }, [prefersReducedMotion, activeSection]);
+  }, [prefersReducedMotion, activeSectionId]);
 
   // Auto-play carousel for Benefits - only when in Benefits section
   useEffect(() => {
     if (prefersReducedMotion) return;
 
-    // Only auto-play when in Benefits section (index 4)
-    if (activeSection !== 4) return;
+    // Only auto-play when in Benefits section (id: benefits)
+    if (activeSectionId !== "benefits") return;
 
     const interval = setInterval(() => {
       setActiveBenefitsSlide((prev) => (prev + 1) % benefitItems.length);
     }, 4000); // 4 seconds
 
     return () => clearInterval(interval);
-  }, [prefersReducedMotion, activeSection]);
-
+  }, [prefersReducedMotion, activeSectionId]);
 
   // Navigate to section
   const scrollToSection = useCallback(
@@ -538,6 +650,7 @@ function PPMPage() {
 
       currentSectionRef.current = sectionIndex;
       setActiveSection(sectionIndex);
+      setActiveSectionId(sectionId);
 
       if (prefersReducedMotion) {
         panels[sectionIndex].scrollIntoView({ behavior: "auto" });
@@ -563,10 +676,10 @@ function PPMPage() {
     if (sectionId) {
       let targetId = sectionId;
       if (sectionId === "overview") {
-          targetId = "overview-content";
-          if (subId === "2") targetId = "overview-features-2";
+        targetId = "overview-content";
+        if (subId === "2") targetId = "overview-features-2";
       }
-      if (sectionId === "cpm") targetId = "cpm-features";
+      if (sectionId === "functions") targetId = "functions";
       // benefits matches benefits
 
       const targetIndex = sections.findIndex((s) => s.id === targetId);
@@ -577,7 +690,7 @@ function PPMPage() {
         const slideIndex = parseInt(subId, 10) - 1;
         if (!isNaN(slideIndex) && slideIndex >= 0) {
           // if (targetId === "overview-content") setActiveOverviewSlide(slideIndex); // Overridden by Section logic
-          if (targetId === "cpm-features") setActiveSlide(slideIndex);
+          if (targetId === "functions") setActiveSlide(slideIndex);
           if (targetId === "benefits") setActiveBenefitsSlide(slideIndex);
         }
       }
@@ -594,18 +707,21 @@ function PPMPage() {
   }, [sectionId, subId, scrollToSection]);
 
   // Update URL based on section
-  const updateUrlForSection = useCallback((index) => {
-    let path = "/ppm";
-    // Index 0 (Hero) and 1 (Menu) stay as /ppm to avoid confusion
-    if (index === 2) path = "/ppm/overview/1";
-    if (index === 3) path = "/ppm/overview/2";
-    if (index === 4) path = "/ppm/cpm";
-    if (index === 5) path = "/ppm/benefits";
+  const updateUrlForSection = useCallback(
+    (index) => {
+      let path = "/ppm";
+      // Index 0 (Hero) and 1 (Menu) stay as /ppm to avoid confusion
+      if (index === 2) path = "/ppm/overview/1";
+      if (index === 3) path = "/ppm/overview/2";
+      if (index === 4) path = "/ppm/functions";
+      if (index === 5) path = "/ppm/benefits";
 
-    // Only navigate if path is different from current params
-    // Use replace to avoid filling history with scroll events
-    navigate(path, { replace: true });
-  }, [navigate]);
+      // Only navigate if path is different from current params
+      // Use replace to avoid filling history with scroll events
+      navigate(path, { replace: true });
+    },
+    [navigate],
+  );
 
   // GSAP scroll hijacking
   useEffect(() => {
@@ -627,11 +743,13 @@ function PPMPage() {
         onEnter: () => {
           currentSectionRef.current = i;
           setActiveSection(i);
+          setActiveSectionId(sections[i].id);
           updateUrlForSection(i);
         },
         onEnterBack: () => {
           currentSectionRef.current = i;
           setActiveSection(i);
+          setActiveSectionId(sections[i].id);
           updateUrlForSection(i);
         },
       });
@@ -784,8 +902,9 @@ function PPMPage() {
       });
 
       // Scope key elements within this section
-      const overviewTitle = overviewContentSectionRef.current.querySelector(".ppm-cpm-title");
-      
+      const overviewTitle =
+        overviewContentSectionRef.current.querySelector(".ppm-cpm-title");
+
       if (overviewTitle) {
         overviewContentTl.fromTo(
           overviewTitle,
@@ -846,7 +965,7 @@ function PPMPage() {
 
       // Scope key elements within CPM section
       const cpmTitle = cpmSectionRef.current.querySelector(".ppm-cpm-title");
-      
+
       if (cpmTitle) {
         featuresTl.fromTo(
           cpmTitle,
@@ -906,8 +1025,9 @@ function PPMPage() {
       });
 
       // Scope key elements within Benefits section
-      const benefitsTitle = benefitsSectionRef.current.querySelector(".ppm-cpm-title");
-      
+      const benefitsTitle =
+        benefitsSectionRef.current.querySelector(".ppm-cpm-title");
+
       if (benefitsTitle) {
         benefitsTl.fromTo(
           benefitsTitle,
@@ -1039,8 +1159,8 @@ function PPMPage() {
                       scrollToSection(
                         item.id === "overview"
                           ? "overview-content"
-                          : item.id === "cpm"
-                            ? "cpm-features"
+                          : item.id === "functions"
+                            ? "functions"
                             : "benefits",
                       )
                     }
@@ -1089,7 +1209,9 @@ function PPMPage() {
                   <div
                     key={index}
                     className={`cpm-carousel-slide ${index === activeOverviewSlide ? "active" : ""}`}
-                    style={{ transform: `translateX(-${activeOverviewSlide * 100}%)` }}
+                    style={{
+                      transform: `translateX(-${activeOverviewSlide * 100}%)`,
+                    }}
                   >
                     <img
                       src={item.image}
@@ -1151,22 +1273,33 @@ function PPMPage() {
             <div className="ppm-cpm-header">
               <h2 className="ppm-cpm-title">PPM 개요 2</h2>
             </div>
-            <div className="cpm-carousel-container" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '400px', background: 'rgba(255,255,255,0.05)', borderRadius: '16px'}}>
-               <p style={{fontSize: '24px', color: 'white'}}>임시 섹션입니다</p>
+            <div
+              className="cpm-carousel-container"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "400px",
+                background: "rgba(255,255,255,0.05)",
+                borderRadius: "16px",
+              }}
+            >
+              <p style={{ fontSize: "24px", color: "white" }}>
+                임시 섹션입니다
+              </p>
             </div>
           </div>
         </section>
 
-
-        {/* CPM Features Section */}
+        {/* Functions Section */}
         <section
           className="ppm-panel ppm-cpm-section"
-          id="cpm-features"
+          id="functions"
           ref={cpmSectionRef}
         >
           <div className="ppm-cpm-container">
             <div className="ppm-cpm-header">
-              <h2 className="ppm-cpm-title">CPM 공정표</h2>
+              <h2 className="ppm-cpm-title">기능 소개</h2>
             </div>
 
             {/* Carousel Image Card */}
@@ -1247,7 +1380,9 @@ function PPMPage() {
                   <div
                     key={index}
                     className={`cpm-carousel-slide ${index === activeBenefitsSlide ? "active" : ""}`}
-                    style={{ transform: `translateX(-${activeBenefitsSlide * 100}%)` }}
+                    style={{
+                      transform: `translateX(-${activeBenefitsSlide * 100}%)`,
+                    }}
                   >
                     <img
                       src={item.image}
@@ -1299,7 +1434,6 @@ function PPMPage() {
             </div>
           </div>
         </section>
-
       </div>
 
       {/* Section Indicator */}

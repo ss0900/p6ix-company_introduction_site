@@ -9404,12 +9404,12 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   font-weight: 600;
 }
 
-.tm-core-scurve-line-label--planned {
+.tm-core-scurve-svg .tm-core-scurve-line-label--planned {
   fill: rgba(255, 255, 255, 0.6);
 }
 
-.tm-core-scurve-line-label--earned {
-  fill: #7fa6c8;
+.tm-core-scurve-svg .tm-core-scurve-line-label--earned {
+  fill: #2b5c90;
 }
 
 .tm-core-scurve-variance line {
@@ -9426,7 +9426,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 .tm-core-scurve-info {
   display: flex;
   align-items: center;
-  min-height: clamp(220px, 35vh, 320px);
+  min-height: clamp(220px, 25vh, 320px);
 }
 
 .tm-core-scurve-bullets {

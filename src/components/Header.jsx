@@ -97,9 +97,9 @@ function Header() {
             "https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=600",
         },
         {
-          id: "cpm",
-          title: "CPM 공정관리",
-          path: "/ppm/cpm",
+          id: "functions",
+          title: "기능 소개",
+          path: "/ppm/functions",
           image:
             "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600",
         },

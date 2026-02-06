@@ -1,40 +1,43 @@
-import { useEffect } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { initPageAnimations } from '../utils/animations'
+import { useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { initPageAnimations } from "../utils/animations";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 function PPM() {
   useEffect(() => {
-    ScrollTrigger.refresh()
-    initPageAnimations()
+    ScrollTrigger.refresh();
+    initPageAnimations();
 
     return () => {
-      ScrollTrigger.getAll().forEach(t => t.kill())
-    }
-  }, [])
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
+  }, []);
 
   const cards = [
     {
-      id: 'overview',
-      title: '개요',
-      description: 'Overview',
-      image: 'https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=800'
+      id: "overview",
+      title: "개요",
+      description: "Overview",
+      image:
+        "https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=800",
     },
     {
-      id: 'cpm',
-      title: 'CPM 공정관리',
-      description: 'Critical Path Method Process',
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800'
+      id: "functions",
+      title: "기능 소개",
+      description: "Critical Path Method Process",
+      image:
+        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800",
     },
     {
-      id: 'benefits',
-      title: '도입 효과',
-      description: 'Benefits',
-      image: 'https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=800'
-    }
-  ]
+      id: "benefits",
+      title: "도입 효과",
+      description: "Benefits",
+      image:
+        "https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=800",
+    },
+  ];
 
   return (
     <div className="subpage-container">
@@ -61,7 +64,7 @@ function PPM() {
         </div>
       </section>
     </div>
-  )
+  );
 }
 
-export default PPM
+export default PPM;

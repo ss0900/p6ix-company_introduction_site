@@ -4409,14 +4409,24 @@ function TimeManagementPage() {
                         x="300"
                         y="155"
                       >
-                        Planned Value (계획)
+                        <tspan x="250" dy="0">
+                          Planned Value
+                        </tspan>
+                        <tspan x="275" dy="1.2em">
+                          (계획)
+                        </tspan>
                       </text>
                       <text
                         className="tm-core-scurve-line-label tm-core-scurve-line-label--earned"
                         x="300"
                         y="265"
                       >
-                        Earned Value (실적)
+                        <tspan x="300" dy="0">
+                          Earned Value
+                        </tspan>
+                        <tspan x="320" dy="1.2em">
+                          (실적)
+                        </tspan>
                       </text>
                     </g>
 
@@ -4446,6 +4456,7 @@ function TimeManagementPage() {
                       <strong>Resources:</strong> 인력, 자재, 장비의 투입이 곧
                       진도율(Progress)로 연결
                     </li>
+                    <br />
                     <li>
                       <strong>EPC 기성:</strong> 내역 기성 또는 Milestone 달성
                       기준
