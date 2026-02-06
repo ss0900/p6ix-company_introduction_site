@@ -21,6 +21,7 @@ const sections = [
   { id: "core-2", label: "Activity & Logic & Duration" },
   { id: "core-3", label: "Baseline & Update" },
   { id: "core-4", label: "Schedule Control" },
+  { id: "core-5", label: "자원 관리 및 S-Curve" },
 ];
 
 // Menu items for the navigation section
@@ -173,6 +174,73 @@ function TimeManagementPage() {
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mouseup", handleMouseUp);
 
+    const scurveChart = {
+      width: 640,
+      height: 420,
+      plot: { xMin: 90, xMax: 560, yMin: 60, yMax: 340 },
+    };
+
+    const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+    const plannedProgress = (t) => 1 / (1 + Math.exp(-8 * (t - 0.5)));
+    const earnedProgress = (t) => clamp(plannedProgress(t) - 0.08, 0, 0.95);
+
+    const toX = (t) =>
+      scurveChart.plot.xMin +
+      t * (scurveChart.plot.xMax - scurveChart.plot.xMin);
+    const toY = (progress) =>
+      scurveChart.plot.yMax -
+      progress * (scurveChart.plot.yMax - scurveChart.plot.yMin);
+
+    const buildCurvePath = (progressFn, steps = 44) => {
+      let d = "";
+
+      for (let i = 0; i <= steps; i += 1) {
+        const t = i / steps;
+        const x = toX(t);
+        const y = toY(progressFn(t));
+
+        d += `${i == 0 ? "M" : " L"} ${x.toFixed(1)} ${y.toFixed(1)}`;
+      }
+
+      return d;
+    };
+
+    const plannedPath = buildCurvePath(plannedProgress);
+    const earnedPath = buildCurvePath(earnedProgress);
+
+    const plannedLabelT = 0.62;
+    const earnedLabelT = 0.55;
+
+    const plannedLabelAnchor = {
+      x: toX(plannedLabelT),
+      y: toY(plannedProgress(plannedLabelT)),
+    };
+    const earnedLabelAnchor = {
+      x: toX(earnedLabelT),
+      y: toY(earnedProgress(earnedLabelT)),
+    };
+
+    const plannedLabel = {
+      x: plannedLabelAnchor.x + 12,
+      y: plannedLabelAnchor.y - 18,
+    };
+    const earnedLabel = {
+      x: earnedLabelAnchor.x + 12,
+      y: earnedLabelAnchor.y + 18,
+    };
+
+    const varianceT = 0.76;
+    const varianceX = toX(varianceT);
+    const variancePlannedY = toY(plannedProgress(varianceT));
+    const varianceEarnedY = toY(earnedProgress(varianceT));
+    const varianceTopY = Math.min(variancePlannedY, varianceEarnedY);
+    const varianceBottomY = Math.max(variancePlannedY, varianceEarnedY);
+    const varianceLabel = {
+      x: varianceX + 16,
+      y: (varianceTopY + varianceBottomY) / 2 - 8,
+    };
+
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseup", handleMouseUp);
@@ -248,6 +316,7 @@ function TimeManagementPage() {
         if (subId === "2") targetId = "core-2";
         if (subId === "3") targetId = "core-3";
         if (subId === "4") targetId = "core-4";
+        if (subId === "5") targetId = "core-5";
       }
 
       const targetIndex = sections.findIndex((s) => s.id === targetId);
@@ -278,6 +347,7 @@ function TimeManagementPage() {
       if (index === 10) path = "/time-management/core/2"; // core (Activity & Logic & Duration)
       if (index === 11) path = "/time-management/core/3"; // core (Baseline & Update)
       if (index === 12) path = "/time-management/core/4"; // core (Schedule Control)
+      if (index === 13) path = "/time-management/core/5"; // core (S-Curve)
 
       navigate(path, { replace: true });
     },
@@ -4122,10 +4192,266 @@ function TimeManagementPage() {
               {/* Section Title */}
               <div className="tm-section-header">
                 <h2 className="tm-section-title">Schedule Control</h2>
+                <p className="tm-section-subtitle">
+                  개발(Development) → 평가(Assessment) →
+                  유지/통제(Maintenance/Control)
+                </p>
               </div>
 
-              <div className="tm-core-placeholder">
-                <p>Content coming soon.</p>
+              <div className="tm-core-flowchart">
+                <div className="tm-core-flow-node tm-core-flow-node--status card glass">
+                  <span className="tm-core-flow-icon" aria-hidden="true">
+                    ⚠️
+                  </span>
+                  <span className="tm-core-flow-title">
+                    지연 발생 (Delay Detected)
+                  </span>
+                  <span className="tm-core-flow-sub">
+                    Critical Path 영향 확인
+                  </span>
+                </div>
+
+                <div
+                  className="tm-core-flow-connector"
+                  aria-hidden="true"
+                ></div>
+
+                <div className="tm-core-flow-diamond card glass">
+                  <div className="tm-core-flow-diamond-inner">
+                    범위(Scope) 유지 & 기간 단축 필요?
+                  </div>
+                </div>
+
+                <div className="tm-core-flow-branches">
+                  <svg
+                    className="tm-core-flow-branch-svg"
+                    viewBox="0 0 100 100"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      className="tm-core-flow-branch-path tm-core-flow-branch-path--left"
+                      d="M45 0 L20 0 L20 46"
+                    />
+                    <path
+                      className="tm-core-flow-branch-path tm-core-flow-branch-path--right"
+                      d="M55 0 L80 0 L80 46"
+                    />
+                    <path
+                      className="tm-core-flow-branch-arrow tm-core-flow-branch-arrow--left"
+                      d="M19 46 L20 49 L21 46 Z"
+                    />
+                    <path
+                      className="tm-core-flow-branch-arrow tm-core-flow-branch-arrow--right"
+                      d="M79 46 L80 49 L81 46 Z"
+                    />
+                  </svg>
+
+                  <span className="tm-core-flow-branch-label tm-core-flow-branch-label--left">
+                    Logic 변경 (Change Logic)
+                  </span>
+                  <span className="tm-core-flow-branch-label tm-core-flow-branch-label--right tm-core-flow-branch-label--emphasis">
+                    자원 투입 (Add Resources)
+                  </span>
+
+                  <div className="tm-core-flow-branch tm-core-flow-branch--left">
+                    <div className="tm-core-flow-result card glass">
+                      <span
+                        className="tm-core-flow-result-icon"
+                        aria-hidden="true"
+                      >
+                        🧱
+                      </span>
+                      <span className="tm-core-flow-result-text">
+                        공정 중첩 (Fast Tracking)
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="tm-core-flow-branch tm-core-flow-branch--right">
+                    <div className="tm-core-flow-result tm-core-flow-result--emphasis card glass">
+                      <span
+                        className="tm-core-flow-result-icon"
+                        aria-hidden="true"
+                      >
+                        🪙
+                      </span>
+                      <span className="tm-core-flow-result-text">
+                        공정 압축 (Crashing)
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="tm-core-flow-note">
+                  Note: Schedule Compression은 범위를 줄이지 않고 총 기간을
+                  단축하는 기법입니다.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Panel 14: Core Section - S-Curve */}
+        <section className="tm-panel" id="core-5">
+          <div className="tm-core-section">
+            <div className="tm-core-container">
+              {/* Section Title */}
+              <div className="tm-section-header">
+                <h2 className="tm-section-title">자원 관리 및 S-Curve</h2>
+              </div>
+
+              <div className="tm-core-scurve grid grid-2">
+                <div className="tm-core-scurve-chart card glass">
+                  <svg
+                    className="tm-core-scurve-svg"
+                    viewBox="0 0 640 420"
+                    role="img"
+                    aria-label="S-Curve progress chart"
+                    preserveAspectRatio="xMidYMid meet"
+                  >
+                    <defs>
+                      <marker
+                        id="tm-scurve-axis-arrow"
+                        viewBox="0 0 10 10"
+                        refX="9"
+                        refY="5"
+                        markerWidth="8"
+                        markerHeight="8"
+                        orient="auto"
+                      >
+                        <path d="M0 0L10 5L0 10Z" fill="#b7b7c7" />
+                      </marker>
+                      <marker
+                        id="tm-scurve-variance-arrow"
+                        viewBox="0 0 10 10"
+                        refX="5"
+                        refY="5"
+                        markerWidth="8"
+                        markerHeight="8"
+                        orient="auto-start-reverse"
+                      >
+                        <path d="M0 0L10 5L0 10Z" fill="#f59e0b" />
+                      </marker>
+                    </defs>
+
+                    {/* Axis and ticks */}
+                    <g className="tm-core-scurve-axis">
+                      <line x1="90" y1="60" x2="90" y2="340" />
+                      <line
+                        x1="90"
+                        y1="340"
+                        x2="560"
+                        y2="340"
+                        markerEnd="url(#tm-scurve-axis-arrow)"
+                      />
+
+                      <g className="tm-core-scurve-ticks">
+                        <line x1="82" y1="340" x2="90" y2="340" />
+                        <line x1="82" y1="284" x2="90" y2="284" />
+                        <line x1="82" y1="228" x2="90" y2="228" />
+                        <line x1="82" y1="172" x2="90" y2="172" />
+                        <line x1="82" y1="116" x2="90" y2="116" />
+                        <line x1="82" y1="60" x2="90" y2="60" />
+                      </g>
+
+                      <g className="tm-core-scurve-tick-labels">
+                        <text x="60" y="344">
+                          0%
+                        </text>
+                        <text x="52" y="288">
+                          20%
+                        </text>
+                        <text x="52" y="232">
+                          40%
+                        </text>
+                        <text x="52" y="176">
+                          60%
+                        </text>
+                        <text x="52" y="120">
+                          80%
+                        </text>
+                        <text x="46" y="64">
+                          100%
+                        </text>
+                      </g>
+
+                      <text
+                        className="tm-core-scurve-axis-label"
+                        x="10"
+                        y="220"
+                        transform="rotate(-90 24 220)"
+                      >
+                        Progress (%)
+                      </text>
+                      <text
+                        className="tm-core-scurve-axis-label"
+                        x="250"
+                        y="380"
+                      >
+                        Time (Project Duration)
+                      </text>
+                    </g>
+
+                    {/* Curves */}
+                    <g className="tm-core-scurve-curves">
+                      <path
+                        className="tm-core-scurve-line tm-core-scurve-line--planned"
+                        d="M90 340 C170 320 230 270 300 210 C370 150 430 70 560 80"
+                      />
+                      <path
+                        className="tm-core-scurve-line tm-core-scurve-line--earned"
+                        d="M90 340 C170 330 230 290 300 245 C360 205 430 165 520 150"
+                      />
+
+                      <text
+                        className="tm-core-scurve-line-label tm-core-scurve-line-label--planned"
+                        x="300"
+                        y="155"
+                      >
+                        Planned Value (계획)
+                      </text>
+                      <text
+                        className="tm-core-scurve-line-label tm-core-scurve-line-label--earned"
+                        x="300"
+                        y="265"
+                      >
+                        Earned Value (실적)
+                      </text>
+                    </g>
+
+                    {/* Schedule Variance */}
+                    <g className="tm-core-scurve-variance">
+                      <line
+                        x1="465"
+                        y1="97"
+                        x2="465"
+                        y2="156"
+                        markerStart="url(#tm-scurve-variance-arrow)"
+                        markerEnd="url(#tm-scurve-variance-arrow)"
+                      />
+                      <text x="480" y="115">
+                        Schedule Variance
+                      </text>
+                      <text x="508" y="135">
+                        (공정 차이)
+                      </text>
+                    </g>
+                  </svg>
+                </div>
+
+                <div className="tm-core-scurve-info card glass">
+                  <ul className="tm-core-scurve-bullets">
+                    <li>
+                      <strong>Resources:</strong> 인력, 자재, 장비의 투입이 곧
+                      진도율(Progress)로 연결
+                    </li>
+                    <li>
+                      <strong>EPC 기성:</strong> 내역 기성 또는 Milestone 달성
+                      기준
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
