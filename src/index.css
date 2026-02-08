@@ -8023,6 +8023,20 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     grid-template-columns: 1fr;
   }
 
+  .eppm-page-container #functions .ppm-functions-layout,
+  .eppm-page-container #functions-2 .ppm-functions-layout {
+    flex-direction: column;
+  }
+
+  .eppm-page-container #functions .ppm-functions-cards,
+  .eppm-page-container #functions-2 .ppm-functions-cards,
+  .eppm-page-container #functions .ppm-functions-media,
+  .eppm-page-container #functions-2 .ppm-functions-media {
+    order: initial;
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
   #functions .ppm-functions-cards,
   #functions-2 .ppm-functions-cards {
     margin-top: var(--space-lg);
@@ -8819,20 +8833,82 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   align-items: stretch;
 }
 
-#functions .ppm-functions-media,
+/* EPPM Functions: swap layout (cards left, image right) on desktop */
+.eppm-page-container #functions .ppm-functions-layout,
+.eppm-page-container #functions-2 .ppm-functions-layout {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-xl);
+}
+
+/* Functions-2: stretch cards to match media height */
+.eppm-page-container #functions-2 .ppm-functions-layout {
+  align-items: stretch;
+}
+
+.eppm-page-container #functions-2 .ppm-functions-cards {
+  align-self: stretch;
+  height: auto;
+}
+
+#functions-2 .cpm-feature-cards {
+  height: 100%;
+}
+
+.eppm-page-container #functions .ppm-functions-cards,
+.eppm-page-container #functions-2 .ppm-functions-cards {
+  flex: 0 0 170px;
+  order: 1;
+  margin-top: 25px;
+}
+
+.eppm-page-container #functions .ppm-functions-media,
+.eppm-page-container #functions-2 .ppm-functions-media {
+  flex: 0 1 900px;
+  min-width: 0;
+  order: 2;
+}
+
+/* EPPM Functions: right-align card contents */
+.eppm-page-container #functions .cpm-feature-card,
+.eppm-page-container #functions-2 .cpm-feature-card {
+  text-align: right;
+}
+
+.eppm-page-container #functions .cpm-feature-icon,
+.eppm-page-container #functions-2 .cpm-feature-icon {
+  margin: 0 0 var(--space-xl) auto;
+}
+
+#functions .ppm-functions-media {
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  /* padding-bottom: -20px; */
+  padding-top: 35px;
+}
+
 #functions-2 .ppm-functions-media {
   min-width: 0;
   height: 100%;
   display: flex;
   align-items: center;
   /* padding-bottom: -20px; */
-  padding-top: 30px;
+  padding-top: 15px;
+  transform: translateY(20px);
 }
 
 #functions .ppm-functions-cards,
 #functions-2 .ppm-functions-cards {
   display: flex;
   height: 100%;
+}
+
+#functions-2 .ppm-functions-cards {
+  min-height: 500px;
 }
 
 #functions .cpm-feature-cards,

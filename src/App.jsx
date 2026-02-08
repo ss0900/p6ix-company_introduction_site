@@ -77,9 +77,15 @@ function App() {
 
         <Route path="/opc" element={<OPCPage />} />
         <Route path="/opc/:sectionId" element={<OPCPage />} />
+        <Route path="/opc/:sectionId/:subId" element={<OPCPage />} />
 
         <Route path="/unifier" element={<UnifierPage />} />
+        <Route
+          path="/unifier/modules"
+          element={<Navigate to="/unifier/functions/1" replace />}
+        />
         <Route path="/unifier/:sectionId" element={<UnifierPage />} />
+        <Route path="/unifier/:sectionId/:subId" element={<UnifierPage />} />
 
         <Route path="/aconex" element={<AconexPage />} />
         <Route path="/aconex/:sectionId" element={<AconexPage />} />

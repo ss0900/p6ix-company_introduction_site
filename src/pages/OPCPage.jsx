@@ -11,7 +11,8 @@ const sections = [
   { id: "hero", label: "OPC" },
   { id: "menu", label: "메뉴" },
   { id: "overview-content", label: "개요" },
-  { id: "core", label: "핵심 기능" },
+  { id: "functions", label: "기능 소개" },
+  { id: "functions-2", label: "기능 소개 2" },
   { id: "application", label: "활용 방안" },
 ];
 
@@ -25,12 +26,12 @@ const subMenuItems = [
     link: "#overview-content",
   },
   {
-    id: "core",
-    title: "핵심 기능",
+    id: "functions",
+    title: "기능 소개",
     description: "일정, 리스크, 포트폴리오, Lean 관리",
     image:
       "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600",
-    link: "#core",
+    link: "#functions",
   },
   {
     id: "application",
@@ -50,27 +51,464 @@ const overviewFeatures = [
   { title: "자동 업데이트", desc: "최신 기능 자동 업데이트" },
 ];
 
-// Core Features Data
-const coreFeatures = [
+// Function Intro Data (mirrors PPM functions/1)
+const functionItems1 = [
   {
-    number: "01",
-    title: "Schedule Management",
-    desc: "클라우드 기반 일정 관리 및 협업",
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect
+          x="4"
+          y="8"
+          width="16"
+          height="14"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <rect
+          x="28"
+          y="8"
+          width="16"
+          height="14"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <rect
+          x="16"
+          y="26"
+          width="16"
+          height="14"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <line
+          x1="12"
+          y1="22"
+          x2="24"
+          y2="26"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <line
+          x1="36"
+          y1="22"
+          x2="24"
+          y2="26"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+      </svg>
+    ),
+    title: <>일정 관리</>,
+    image: "/일정 관리(Schedule  CPM).png",
+    alt: "기능 소개 - 일정 관리",
   },
   {
-    number: "02",
-    title: "Risk Analysis",
-    desc: "Monte Carlo 시뮬레이션 기반 리스크 분석",
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle
+          cx="24"
+          cy="24"
+          r="16"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <path
+          d="M24 14 L24 24 L32 28"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <path
+          d="M16 32 L20 28 L24 30 L28 26 L32 28"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+    title: <>리스크 관리</>,
+    image: "/리스크 관리(Risk 정성 + 정량, Monte Carlo).png",
+    alt: "기능 소개 - 리스크 관리",
   },
   {
-    number: "03",
-    title: "Portfolio Analytics",
-    desc: "포트폴리오 분석 및 인사이트 도출",
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect
+          x="8"
+          y="4"
+          width="32"
+          height="10"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <rect
+          x="4"
+          y="19"
+          width="18"
+          height="10"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <rect
+          x="26"
+          y="19"
+          width="18"
+          height="10"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <rect
+          x="8"
+          y="34"
+          width="32"
+          height="10"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <line
+          x1="24"
+          y1="14"
+          x2="13"
+          y2="19"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <line
+          x1="24"
+          y1="14"
+          x2="35"
+          y2="19"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <line
+          x1="13"
+          y1="29"
+          x2="24"
+          y2="34"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <line
+          x1="35"
+          y1="29"
+          x2="24"
+          y2="34"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+      </svg>
+    ),
+    title: (
+      <>
+        포트폴리오와 <br /> 자본 · 예산 계획
+      </>
+    ),
+    image: "/포트폴리오자본·예산 계획(Portfolio & Capital Planning).png",
+    alt: "기능 소개 - 포트폴리오와 자본 · 예산 계획",
   },
   {
-    number: "04",
-    title: "Lean Task Management",
-    desc: "애자일 방식의 태스크 관리",
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle
+          cx="24"
+          cy="12"
+          r="8"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <circle
+          cx="10"
+          cy="34"
+          r="6"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <circle
+          cx="38"
+          cy="34"
+          r="6"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <line
+          x1="20"
+          y1="18"
+          x2="13"
+          y2="29"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <line
+          x1="28"
+          y1="18"
+          x2="35"
+          y2="29"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <line
+          x1="16"
+          y1="34"
+          x2="32"
+          y2="34"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeDasharray="3 2"
+        />
+      </svg>
+    ),
+    title: <>대시보드 & 분석</>,
+    image: "/대시보드 & 분석(Ops Dashboard  Primavera Analytics).png",
+    alt: "기능 소개 - 대시보드 & 분석",
+  },
+];
+
+// Function Intro Data 2 (placeholder)
+const functionItems2 = [
+  {
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect
+          x="4"
+          y="8"
+          width="16"
+          height="14"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <rect
+          x="28"
+          y="8"
+          width="16"
+          height="14"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <rect
+          x="16"
+          y="26"
+          width="16"
+          height="14"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <line
+          x1="12"
+          y1="22"
+          x2="24"
+          y2="26"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <line
+          x1="36"
+          y1="22"
+          x2="24"
+          y2="26"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+      </svg>
+    ),
+    title: <>워크플로우 & 폼</>,
+    image: "/워크플로우 & 폼(Workflow  Forms).png",
+    alt: "기능 소개 - 워크플로우 & 폼",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle
+          cx="24"
+          cy="24"
+          r="16"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <path
+          d="M24 14 L24 24 L32 28"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <path
+          d="M16 32 L20 28 L24 30 L28 26 L32 28"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+    title: <>작업 관리</>,
+    image: "/작업관리(Task Management Lean 보드핸드오프제약).png",
+    alt: "기능 소개 - 작업 관리",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect
+          x="8"
+          y="4"
+          width="32"
+          height="10"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <rect
+          x="4"
+          y="19"
+          width="18"
+          height="10"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <rect
+          x="26"
+          y="19"
+          width="18"
+          height="10"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <rect
+          x="8"
+          y="34"
+          width="32"
+          height="10"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <line
+          x1="24"
+          y1="14"
+          x2="13"
+          y2="19"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <line
+          x1="24"
+          y1="14"
+          x2="35"
+          y2="19"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <line
+          x1="13"
+          y1="29"
+          x2="24"
+          y2="34"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <line
+          x1="35"
+          y1="29"
+          x2="24"
+          y2="34"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+      </svg>
+    ),
+    title: <>타임시트</>,
+    image: "/타임시트(Timesheets).png",
+    alt: "기능 소개 - 타임시트",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle
+          cx="24"
+          cy="12"
+          r="8"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <circle
+          cx="10"
+          cy="34"
+          r="6"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <circle
+          cx="38"
+          cy="34"
+          r="6"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <line
+          x1="20"
+          y1="18"
+          x2="13"
+          y2="29"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <line
+          x1="28"
+          y1="18"
+          x2="35"
+          y2="29"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <line
+          x1="16"
+          y1="34"
+          x2="32"
+          y2="34"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeDasharray="3 2"
+        />
+      </svg>
+    ),
+    title: <>범위 관리</>,
+    image:
+      "/범위 관리(Scope Management Scope Items  Work Packages  Assignments).png",
+    alt: "기능 소개 - 범위 관리",
   },
 ];
 
@@ -97,10 +535,15 @@ const applicationData = [
 ];
 
 function OPCPage() {
-  const { sectionId } = useParams();
+  const { sectionId, subId } = useParams();
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState(0);
+  const [activeSectionId, setActiveSectionId] = useState(sections[0].id);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [hoveredCardIndex, setHoveredCardIndex] = useState(null);
+  const [hoveredCardIndex2, setHoveredCardIndex2] = useState(null);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [activeSlide2, setActiveSlide2] = useState(0);
 
   const containerRef = useRef(null);
   const isAnimatingRef = useRef(false);
@@ -110,12 +553,16 @@ function OPCPage() {
   const heroSectionRef = useRef(null);
   const menuSectionRef = useRef(null);
   const overviewSectionRef = useRef(null);
-  const coreSectionRef = useRef(null);
+  const functionsSectionRef = useRef(null);
+  const functionsSectionRef2 = useRef(null);
   const applicationSectionRef = useRef(null);
 
   // Animation refs
   const overviewCardsRef = useRef([]);
-  const coreCardsRef = useRef([]);
+  const imageCardRef = useRef(null);
+  const featureCardsRef = useRef([]);
+  const imageCardRef2 = useRef(null);
+  const featureCardsRef2 = useRef([]);
   const applicationCardsRef = useRef([]);
 
   // Check reduced motion preference
@@ -126,6 +573,30 @@ function OPCPage() {
     mediaQuery.addEventListener("change", handleChange);
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
+
+  // Auto-play carousel only when in Functions section
+  useEffect(() => {
+    if (prefersReducedMotion) return;
+    if (activeSectionId !== "functions") return;
+
+    const interval = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % functionItems1.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [prefersReducedMotion, activeSectionId]);
+
+  // Auto-play carousel only when in Functions section 2
+  useEffect(() => {
+    if (prefersReducedMotion) return;
+    if (activeSectionId !== "functions-2") return;
+
+    const interval = setInterval(() => {
+      setActiveSlide2((prev) => (prev + 1) % functionItems2.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [prefersReducedMotion, activeSectionId]);
 
   // Navigate to section
   const scrollToSection = useCallback(
@@ -138,6 +609,7 @@ function OPCPage() {
 
       currentSectionRef.current = sectionIndex;
       setActiveSection(sectionIndex);
+      setActiveSectionId(sectionId);
 
       if (prefersReducedMotion) {
         panels[sectionIndex].scrollIntoView({ behavior: "auto" });
@@ -160,26 +632,34 @@ function OPCPage() {
 
   // Deep linking logic
   useEffect(() => {
-    if (sectionId) {
-      // Only scroll if we are not already at the right section (to avoid loops if param matches)
-      const targetIndex = sections.findIndex((s) => s.id === sectionId); // Simple mapping for strict ids like 'core', 'application'
+    if (!sectionId) return;
 
-      // Handle mapping if necessary, or just rely on direct ID match
-      // The user requested /opc/overview, /opc/core, /opc/application
-      // Our IDs are: overview-content, core, application
+    // The user requested /opc/overview, /opc/functions/1, /opc/functions/2, /opc/application
+    // Our IDs are: overview-content, functions, functions-2, application
+    let targetId = sectionId;
+    let isFunctionsSectionNumber = false;
+    if (sectionId === "overview") targetId = "overview-content";
+    if (sectionId === "functions") {
+      isFunctionsSectionNumber = subId === "1" || subId === "2";
+      targetId = subId === "2" ? "functions-2" : "functions";
+    }
 
-      let targetId = sectionId;
-      if (sectionId === "overview") targetId = "overview-content";
-
-      const foundIndex = sections.findIndex((s) => s.id === targetId);
-
-      if (foundIndex !== -1 && foundIndex !== currentSectionRef.current) {
-        setTimeout(() => {
-          scrollToSection(targetId);
-        }, 100);
+    if (subId && sectionId !== "overview" && !isFunctionsSectionNumber) {
+      const slideIndex = parseInt(subId, 10) - 1;
+      if (!isNaN(slideIndex) && slideIndex >= 0) {
+        if (targetId === "functions") setActiveSlide(slideIndex);
+        if (targetId === "functions-2") setActiveSlide2(slideIndex);
       }
     }
-  }, [sectionId, scrollToSection]);
+
+    const foundIndex = sections.findIndex((s) => s.id === targetId);
+
+    if (foundIndex !== -1 && foundIndex !== currentSectionRef.current) {
+      setTimeout(() => {
+        scrollToSection(targetId);
+      }, 100);
+    }
+  }, [sectionId, subId, scrollToSection]);
 
   // Update URL based on section
   const updateUrlForSection = useCallback(
@@ -187,8 +667,9 @@ function OPCPage() {
       let path = "/opc";
       // index 0(Hero), 1(Menu) -> /opc
       if (index === 2) path = "/opc/overview";
-      if (index === 3) path = "/opc/core";
-      if (index === 4) path = "/opc/application";
+      if (index === 3) path = "/opc/functions/1";
+      if (index === 4) path = "/opc/functions/2";
+      if (index === 5) path = "/opc/application";
 
       navigate(path, { replace: true });
     },
@@ -214,11 +695,13 @@ function OPCPage() {
         onEnter: () => {
           currentSectionRef.current = i;
           setActiveSection(i);
+          setActiveSectionId(sections[i].id);
           updateUrlForSection(i);
         },
         onEnterBack: () => {
           currentSectionRef.current = i;
           setActiveSection(i);
+          setActiveSectionId(sections[i].id);
           updateUrlForSection(i);
         },
       });
@@ -376,23 +859,134 @@ function OPCPage() {
         );
       }
 
-      // Core Features
-      if (coreSectionRef.current) {
-        gsap.fromTo(
-          coreCardsRef.current,
-          { x: -30, opacity: 0 },
-          {
-            x: 0,
-            opacity: 1,
-            duration: 0.5,
-            stagger: 0.1,
-            scrollTrigger: {
-              trigger: coreSectionRef.current,
-              start: "top 60%",
-              toggleActions: "play none none reverse",
-            },
+      // Functions Intro
+      if (functionsSectionRef.current) {
+        const featuresTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: functionsSectionRef.current,
+            start: "top 60%",
+            toggleActions: "play none none reverse",
           },
-        );
+        });
+
+        const functionsTitle =
+          functionsSectionRef.current.querySelector(".ppm-cpm-title");
+
+        if (functionsTitle) {
+          featuresTl.fromTo(
+            functionsTitle,
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.5 },
+          );
+        }
+
+        if (imageCardRef.current) {
+          featuresTl.fromTo(
+            imageCardRef.current,
+            { y: -100, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1, ease: "bounce.out" },
+            "-=0.2",
+          );
+        }
+
+        const cards = featureCardsRef.current;
+        if (cards[0]) {
+          featuresTl.fromTo(
+            cards[0],
+            { x: -50, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.5 },
+            "-=0.5",
+          );
+        }
+        if (cards[1]) {
+          featuresTl.fromTo(
+            cards[1],
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.5 },
+            "-=0.3",
+          );
+        }
+        if (cards[2]) {
+          featuresTl.fromTo(
+            cards[2],
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.5 },
+            "-=0.3",
+          );
+        }
+        if (cards[3]) {
+          featuresTl.fromTo(
+            cards[3],
+            { x: 50, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.5 },
+            "-=0.3",
+          );
+        }
+      }
+
+      // Functions Intro 2
+      if (functionsSectionRef2.current) {
+        const featuresTl2 = gsap.timeline({
+          scrollTrigger: {
+            trigger: functionsSectionRef2.current,
+            start: "top 60%",
+            toggleActions: "play none none reverse",
+          },
+        });
+
+        const functionsTitle2 =
+          functionsSectionRef2.current.querySelector(".ppm-cpm-title");
+
+        if (functionsTitle2) {
+          featuresTl2.fromTo(
+            functionsTitle2,
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.5 },
+          );
+        }
+
+        if (imageCardRef2.current) {
+          featuresTl2.fromTo(
+            imageCardRef2.current,
+            { y: -100, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1, ease: "bounce.out" },
+            "-=0.2",
+          );
+        }
+
+        const cards2 = featureCardsRef2.current;
+        if (cards2[0]) {
+          featuresTl2.fromTo(
+            cards2[0],
+            { x: -50, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.5 },
+            "-=0.5",
+          );
+        }
+        if (cards2[1]) {
+          featuresTl2.fromTo(
+            cards2[1],
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.5 },
+            "-=0.3",
+          );
+        }
+        if (cards2[2]) {
+          featuresTl2.fromTo(
+            cards2[2],
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.5 },
+            "-=0.3",
+          );
+        }
+        if (cards2[3]) {
+          featuresTl2.fromTo(
+            cards2[3],
+            { x: 50, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.5 },
+            "-=0.3",
+          );
+        }
       }
 
       // Application
@@ -594,76 +1188,168 @@ function OPCPage() {
           </div>
         </section>
 
-        {/* 4. Core Features Section */}
-        <section className="opc-panel tm-panel" id="core" ref={coreSectionRef}>
-          <div className="tm-advantages-section">
-            <div className="tm-advantages-container">
-              <div className="tm-section-header">
-                <h2 className="tm-section-title">핵심 기능</h2>
-                <p
-                  style={{
-                    textAlign: "center",
-                    color: "var(--text-secondary)",
-                    marginBottom: "40px",
-                  }}
-                >
-                  Oracle Primavera Cloud의 강력한 기능
-                </p>
-              </div>
-              <div
-                className="tm-ppm-eppm-grid"
-                style={{ gridTemplateColumns: "repeat(2, 1fr)", gap: "30px" }}
-              >
-                {coreFeatures.map((item, index) => (
-                  <div
-                    key={index}
-                    className="tm-ppm-eppm-card"
-                    style={{
-                      padding: "30px",
-                      display: "flex",
-                      alignItems: "flex-start",
-                    }}
-                    ref={(el) => (coreCardsRef.current[index] = el)}
-                  >
-                    <div
-                      style={{
-                        fontSize: "2rem",
-                        fontWeight: "bold",
-                        color: "var(--color-accent)",
-                        marginRight: "20px",
-                        opacity: 0.5,
-                      }}
-                    >
-                      {item.number}
-                    </div>
-                    <div>
-                      <h3
+        {/* 4. Functions Intro Section */}
+        <section
+          className="opc-panel ppm-panel ppm-cpm-section"
+          id="functions"
+          ref={functionsSectionRef}
+        >
+          <div className="ppm-cpm-container">
+            <div className="ppm-cpm-header">
+              <h2 className="ppm-cpm-title">기능 소개</h2>
+            </div>
+
+            <div className="ppm-functions-layout">
+              {/* Carousel Image Card */}
+              <div className="ppm-functions-media">
+                <div className="cpm-carousel-container" ref={imageCardRef}>
+                  <div className="cpm-carousel-wrapper">
+                    {functionItems1.map((item, index) => (
+                      <div
+                        key={index}
+                        className={`cpm-carousel-slide ${index === activeSlide ? "active" : ""}`}
                         style={{
-                          fontSize: "1.4rem",
-                          marginBottom: "10px",
-                          color: "var(--text-primary)",
+                          transform: `translateX(-${activeSlide * 100}%)`,
                         }}
                       >
-                        {item.title}
-                      </h3>
-                      <p
-                        style={{
-                          fontSize: "1rem",
-                          color: "var(--text-secondary)",
-                          lineHeight: "1.5",
-                        }}
-                      >
-                        {item.desc}
-                      </p>
-                    </div>
+                        <img
+                          src={item.image}
+                          alt={item.alt}
+                          onError={(e) => {
+                            e.target.style.display = "none";
+                            e.target.parentElement.innerHTML =
+                              '<div class="cpm-image-placeholder">OPC Screenshot</div>';
+                          }}
+                        />
+                      </div>
+                    ))}
                   </div>
-                ))}
+
+                  {/* Carousel Navigation Dots */}
+                  <div className="cpm-carousel-dots">
+                    {functionItems1.map((_, index) => (
+                      <button
+                        key={index}
+                        className={`cpm-carousel-dot ${index === activeSlide ? "active" : ""}`}
+                        onClick={() => setActiveSlide(index)}
+                        aria-label={`슬라이드 ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Feature Cards */}
+              <div className="ppm-functions-cards">
+                <div
+                  className="cpm-feature-cards"
+                  onMouseLeave={() => setHoveredCardIndex(null)}
+                >
+                  {functionItems1.map((item, index) => (
+                    <button
+                      key={index}
+                      className={`cpm-feature-card ${hoveredCardIndex !== null && hoveredCardIndex !== index ? "dimmed" : ""} ${index === activeSlide ? "active" : ""}`}
+                      ref={(el) => (featureCardsRef.current[index] = el)}
+                      onClick={() => setActiveSlide(index)}
+                      onMouseEnter={() => setHoveredCardIndex(index)}
+                    >
+                      <div className="cpm-feature-icon">{item.icon}</div>
+                      <h4 className="cpm-feature-title">{item.title}</h4>
+
+                      {index < functionItems1.length - 1 && (
+                        <div className="cpm-feature-divider-line" />
+                      )}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 5. Application Section */}
+        {/* 5. Functions Intro Section 2 */}
+        <section
+          className="opc-panel ppm-panel ppm-cpm-section"
+          id="functions-2"
+          ref={functionsSectionRef2}
+        >
+          <div className="ppm-cpm-container">
+            <div className="ppm-cpm-header">
+              <h2 className="ppm-cpm-title">기능 소개</h2>
+            </div>
+
+            <div className="ppm-functions-layout">
+              {/* Carousel Image Card */}
+              <div
+                className="ppm-functions-media"
+                style={{ marginTop: "-12px" }}
+              >
+                <div className="cpm-carousel-container" ref={imageCardRef2}>
+                  <div className="cpm-carousel-wrapper">
+                    {functionItems2.map((item, index) => (
+                      <div
+                        key={index}
+                        className={`cpm-carousel-slide ${index === activeSlide2 ? "active" : ""}`}
+                        style={{
+                          transform: `translateX(-${activeSlide2 * 100}%)`,
+                        }}
+                      >
+                        <img
+                          src={item.image}
+                          alt={item.alt}
+                          onError={(e) => {
+                            e.target.style.display = "none";
+                            e.target.parentElement.innerHTML =
+                              '<div class="cpm-image-placeholder">OPC Screenshot</div>';
+                          }}
+                        />
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Carousel Navigation Dots */}
+                  <div className="cpm-carousel-dots">
+                    {functionItems2.map((_, index) => (
+                      <button
+                        key={index}
+                        className={`cpm-carousel-dot ${index === activeSlide2 ? "active" : ""}`}
+                        onClick={() => setActiveSlide2(index)}
+                        aria-label={`슬라이드 ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Feature Cards */}
+              <div className="ppm-functions-cards">
+                <div
+                  className="cpm-feature-cards"
+                  onMouseLeave={() => setHoveredCardIndex2(null)}
+                >
+                  {functionItems2.map((item, index) => (
+                    <button
+                      key={index}
+                      className={`cpm-feature-card ${hoveredCardIndex2 !== null && hoveredCardIndex2 !== index ? "dimmed" : ""} ${index === activeSlide2 ? "active" : ""}`}
+                      ref={(el) => (featureCardsRef2.current[index] = el)}
+                      onClick={() => setActiveSlide2(index)}
+                      onMouseEnter={() => setHoveredCardIndex2(index)}
+                    >
+                      <div className="cpm-feature-icon">{item.icon}</div>
+                      <h4 className="cpm-feature-title">{item.title}</h4>
+
+                      {index < functionItems2.length - 1 && (
+                        <div className="cpm-feature-divider-line" />
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 6. Application Section */}
         <section
           className="opc-panel tm-panel"
           id="application"

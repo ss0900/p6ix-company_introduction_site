@@ -151,9 +151,9 @@ function Header() {
             "https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg?auto=compress&cs=tinysrgb&w=600",
         },
         {
-          id: "core",
-          title: "핵심 기능",
-          path: "/opc/core",
+          id: "functions",
+          title: "기능 소개",
+          path: "/opc/functions/1",
           image:
             "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600",
         },
@@ -178,11 +178,11 @@ function Header() {
             "https://images.pexels.com/photos/1098515/pexels-photo-1098515.jpeg?auto=compress&cs=tinysrgb&w=600",
         },
         {
-          id: "modules",
-          title: "모듈 소개",
-          path: "/unifier/modules",
+          id: "functions",
+          title: "기능 소개",
+          path: "/unifier/functions/1",
           image:
-            "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=600",
+            "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600",
         },
         {
           id: "customers",

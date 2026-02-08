@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import SectionIndicator from "../components/SectionIndicator";
+import EppmFunctionsSection from "../components/EppmFunctionsSection";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -13,6 +14,7 @@ const sections = [
   { id: "integration", label: "통합 운영" },
   { id: "cpm-features", label: "CPM 공정표" },
   { id: "functions", label: "기능 소개" },
+  { id: "functions-2", label: "기능 소개 2" },
   { id: "cases", label: "구축 사례" },
 ];
 
@@ -99,7 +101,7 @@ const functionItems = [
       </svg>
     ),
     title: <>일정 관리</>,
-    image: "일정 관리.png",
+    image: "/일정 관리.png",
     alt: "기능 소개 - 일정 관리",
   },
   {
@@ -129,7 +131,7 @@ const functionItems = [
       </svg>
     ),
     title: <>진척 관리</>,
-    image: "진척 관리.png",
+    image: "/진척 관리.png",
     alt: "기능 소개 - 진척 관리",
   },
   {
@@ -210,7 +212,7 @@ const functionItems = [
       </svg>
     ),
     title: <>자원 관리</>,
-    image: "자원 관리.png",
+    image: "/자원 관리.png",
     alt: "기능 소개 - 자원 관리",
   },
   {
@@ -268,8 +270,113 @@ const functionItems = [
       </svg>
     ),
     title: <>공정 분석</>,
-    image: "공정 분석.png",
+    image: "/공정 분석.png",
     alt: "기능 소개 - 공정 분석",
+  },
+];
+
+// Feature items for Functions section 2 (separate content)
+const functionItems2 = [
+  {
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M24 6 L36 10 V20 C36 28 30 34 24 38 C18 34 12 28 12 20 V10 Z"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <path
+          d="M20 22 L23 25 L28 20"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+    title: "코드 관리",
+    image: "/코드 관리.png",
+    alt: "기능 소개 - 코드 관리",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect
+          x="8"
+          y="22"
+          width="6"
+          height="14"
+          rx="1"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <rect
+          x="20"
+          y="14"
+          width="6"
+          height="22"
+          rx="1"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <rect
+          x="32"
+          y="10"
+          width="6"
+          height="26"
+          rx="1"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <line
+          x1="8"
+          y1="38"
+          x2="40"
+          y2="38"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+      </svg>
+    ),
+    title: "보고 기능",
+    image: "/보고 기능.png",
+    alt: "기능 소개 - 보고 기능",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M16 16 L10 24 L16 32"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M32 16 L38 24 L32 32"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <line
+          x1="22"
+          y1="34"
+          x2="26"
+          y2="14"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+      </svg>
+    ),
+    title: "권한 관리",
+    image: "/권한 관리.png",
+    alt: "기능 소개 - 권한 관리",
   },
 ];
 
@@ -683,9 +790,6 @@ function EPPMPage() {
   const [activeSection, setActiveSection] = useState(0);
   const [activeSectionId, setActiveSectionId] = useState(sections[0].id);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const [hoveredFunctionsCardIndex, setHoveredFunctionsCardIndex] =
-    useState(null);
-  const [activeSlide, setActiveSlide] = useState(0);
 
   const containerRef = useRef(null);
   const isAnimatingRef = useRef(false);
@@ -697,6 +801,7 @@ function EPPMPage() {
   const integrationSectionRef = useRef(null);
   const cpmFeaturesSectionRef = useRef(null);
   const functionsSectionRef = useRef(null);
+  const functionsSectionRef2 = useRef(null);
   const casesSectionRef = useRef(null);
 
   // Animation refs
@@ -709,7 +814,9 @@ function EPPMPage() {
   const [cpmHoveredIndex, setCpmHoveredIndex] = useState(null);
 
   const functionsImageCardRef = useRef(null);
+  const functionsImageCardRef2 = useRef(null);
   const functionsCardsRef = useRef([]);
+  const functionsCardsRef2 = useRef([]);
   const casesCardsRef = useRef([]);
 
   // Check reduced motion preference
@@ -720,19 +827,6 @@ function EPPMPage() {
     mediaQuery.addEventListener("change", handleChange);
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
-
-  // Auto-play carousel - only when in Functions section
-  useEffect(() => {
-    if (prefersReducedMotion) return;
-
-    if (activeSectionId !== "functions") return;
-
-    const interval = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % functionItems.length);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [prefersReducedMotion, activeSectionId]);
 
   // Navigate to section
   const scrollToSection = useCallback(
@@ -776,7 +870,7 @@ function EPPMPage() {
         if (subId === "2") targetId = "cpm-features";
       }
       if (sectionId === "functions") {
-        targetId = "functions";
+        targetId = subId === "2" ? "functions-2" : "functions";
       }
       if (sectionId === "solution") {
         targetId = "functions";
@@ -801,7 +895,8 @@ function EPPMPage() {
       if (index === 2) path = "/eppm/overview/1";
       if (index === 3) path = "/eppm/overview/2";
       if (index === 4) path = "/eppm/functions/1";
-      if (index === 5) path = "/eppm/cases";
+      if (index === 5) path = "/eppm/functions/2";
+      if (index === 6) path = "/eppm/cases";
 
       navigate(path, { replace: true });
     },
@@ -1087,6 +1182,70 @@ function EPPMPage() {
         }
       }
 
+      if (functionsSectionRef2.current) {
+        const functionsTl2 = gsap.timeline({
+          scrollTrigger: {
+            trigger: functionsSectionRef2.current,
+            start: "top 60%",
+            toggleActions: "play none none reverse",
+          },
+        });
+
+        const functionsTitle2 =
+          functionsSectionRef2.current.querySelector(".ppm-cpm-title");
+
+        if (functionsTitle2) {
+          functionsTl2.fromTo(
+            functionsTitle2,
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.5 },
+          );
+        }
+
+        if (functionsImageCardRef2.current) {
+          functionsTl2.fromTo(
+            functionsImageCardRef2.current,
+            { y: -100, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1, ease: "bounce.out" },
+            "-=0.2",
+          );
+        }
+
+        const cards2 = functionsCardsRef2.current;
+        if (cards2[0]) {
+          functionsTl2.fromTo(
+            cards2[0],
+            { x: -50, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.5 },
+            "-=0.5",
+          );
+        }
+        if (cards2[1]) {
+          functionsTl2.fromTo(
+            cards2[1],
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.5 },
+            "-=0.3",
+          );
+        }
+        if (cards2[2]) {
+          functionsTl2.fromTo(
+            cards2[2],
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.5 },
+            "-=0.3",
+          );
+        }
+        if (cards2[3]) {
+          functionsTl2.fromTo(
+            cards2[3],
+            { x: 50, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.5 },
+            "-=0.3",
+          );
+        }
+      }
+
       // Cases
       const casesTl = gsap.timeline({
         scrollTrigger: {
@@ -1294,90 +1453,32 @@ function EPPMPage() {
             </div>
           </div>
         </section>
-
         {/* 5. Functions Section */}
-        <section
-          className="eppm-panel ppm-panel ppm-cpm-section"
-          id="functions"
-          ref={functionsSectionRef}
-        >
-          <div className="ppm-cpm-container">
-            <div className="ppm-cpm-header">
-              <h2 className="ppm-cpm-title">기능 소개</h2>
-            </div>
+        <EppmFunctionsSection
+          sectionId="functions"
+          title="기능 소개"
+          items={functionItems}
+          sectionRef={functionsSectionRef}
+          imageCardRef={functionsImageCardRef}
+          cardRefs={functionsCardsRef}
+          prefersReducedMotion={prefersReducedMotion}
+          isActive={activeSectionId === "functions"}
+        />
 
-            <div className="ppm-functions-layout">
-              {/* Carousel Image Card */}
-              <div className="ppm-functions-media">
-                <div
-                  className="cpm-carousel-container"
-                  ref={functionsImageCardRef}
-                >
-                  <div className="cpm-carousel-wrapper">
-                    {functionItems.map((item, index) => (
-                      <div
-                        key={index}
-                        className={`cpm-carousel-slide ${index === activeSlide ? "active" : ""}`}
-                        style={{
-                          transform: `translateX(-${activeSlide * 100}%)`,
-                        }}
-                      >
-                        <img
-                          src={item.image}
-                          alt={item.alt}
-                          onError={(e) => {
-                            e.target.style.display = "none";
-                            e.target.parentElement.innerHTML =
-                              '<div class="cpm-image-placeholder">CPM Screenshot</div>';
-                          }}
-                        />
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Carousel Navigation Dots */}
-                  <div className="cpm-carousel-dots">
-                    {functionItems.map((_, index) => (
-                      <button
-                        key={index}
-                        className={`cpm-carousel-dot ${index === activeSlide ? "active" : ""}`}
-                        onClick={() => setActiveSlide(index)}
-                        aria-label={`슬라이드 ${index + 1}`}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Feature Cards */}
-              <div className="ppm-functions-cards">
-                <div
-                  className="cpm-feature-cards"
-                  onMouseLeave={() => setHoveredFunctionsCardIndex(null)}
-                >
-                  {functionItems.map((item, index) => (
-                    <button
-                      key={index}
-                      className={`cpm-feature-card ${hoveredFunctionsCardIndex !== null && hoveredFunctionsCardIndex !== index ? "dimmed" : ""} ${index === activeSlide ? "active" : ""}`}
-                      ref={(el) => (functionsCardsRef.current[index] = el)}
-                      onClick={() => setActiveSlide(index)}
-                      onMouseEnter={() => setHoveredFunctionsCardIndex(index)}
-                    >
-                      <div className="cpm-feature-icon">{item.icon}</div>
-                      <h4 className="cpm-feature-title">{item.title}</h4>
-
-                      {index < functionItems.length - 1 && (
-                        <div className="cpm-feature-divider-line" />
-                      )}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* 5-2. Functions Section */}
+        <EppmFunctionsSection
+          sectionId="functions-2"
+          title="기능 소개"
+          items={functionItems2}
+          sectionRef={functionsSectionRef2}
+          imageCardRef={functionsImageCardRef2}
+          cardRefs={functionsCardsRef2}
+          prefersReducedMotion={prefersReducedMotion}
+          isActive={activeSectionId === "functions-2"}
+        />
 
         {/* 6. Cases Section */}
+
         <section
           className="eppm-panel tm-panel"
           id="cases"
