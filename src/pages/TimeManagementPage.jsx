@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import SectionIndicator from "../components/SectionIndicator";
+import CoreDocsCard from "../components/CoreDocsCard";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -4550,18 +4551,12 @@ function TimeManagementPage() {
               <div className="tm-core-docs-layout">
                 <div className="tm-core-docs-grid grid grid-3">
                   {coreDocumentationItems.map((item) => (
-                    <article
+                    <CoreDocsCard
                       key={item.title}
-                      className="tm-core-docs-card card glass"
-                    >
-                      <div className="tm-core-docs-icon-shell">
-                        <CoreDocumentationIcon iconKey={item.iconKey} />
-                      </div>
-                      <h3 className="tm-core-docs-card-title">{item.title}</h3>
-                      <p className="tm-core-docs-card-desc">
-                        {item.description}
-                      </p>
-                    </article>
+                      icon={<CoreDocumentationIcon iconKey={item.iconKey} />}
+                      title={item.title}
+                      description={item.description}
+                    />
                   ))}
                 </div>
 

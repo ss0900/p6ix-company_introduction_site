@@ -3012,6 +3012,101 @@ a:hover {
   margin-top: var(--space-2xl);
 }
 
+/* OPC Overview Executive Q&A */
+.opc-overview-executive-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px var(--space-xl) var(--space-3xl);
+  background: var(--color-bg-secondary);
+}
+
+.opc-overview-header {
+  margin-bottom: var(--space-xl);
+}
+
+.opc-overview-header .ppm-cpm-title {
+  margin-bottom: var(--space-2xl);
+}
+
+.opc-overview-questions-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.opc-overview-summary {
+  margin: var(--space-xl) auto 0;
+  max-width: 980px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-md);
+  padding: var(--space-lg) var(--space-xl);
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.opc-overview-summary-marker {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  color: var(--color-accent);
+  background: rgba(0, 212, 255, 0.12);
+  border: 1px solid rgba(0, 212, 255, 0.35);
+}
+
+.opc-overview-summary-marker svg {
+  width: 18px;
+  height: 18px;
+}
+
+.opc-overview-summary-text {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: clamp(var(--text-lg), 1.6vw, var(--text-2xl));
+  text-align: center;
+  line-height: 1.6;
+}
+
+.opc-overview-summary-text strong {
+  color: var(--color-text-primary);
+  font-weight: 700;
+}
+
+@media (max-width: 1024px) {
+  .opc-overview-questions-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .opc-overview-summary {
+    padding: var(--space-lg);
+  }
+}
+
+@media (max-width: 700px) {
+  .opc-overview-questions-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .opc-overview-executive-section {
+    padding: 100px var(--space-md) var(--space-2xl);
+  }
+
+  .opc-overview-summary {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 /* Unifier Panel Styles */
 .unifier-panel {
   background: var(--color-bg-secondary);

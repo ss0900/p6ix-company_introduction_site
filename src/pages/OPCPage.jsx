@@ -11,6 +11,7 @@ const sections = [
   { id: "hero", label: "OPC" },
   { id: "menu", label: "메뉴" },
   { id: "overview-content", label: "개요" },
+  { id: "overview-content-2", label: "개요 2" },
   { id: "functions", label: "기능 소개" },
   { id: "functions-2", label: "기능 소개 2" },
   { id: "application", label: "활용 방안" },
@@ -553,6 +554,7 @@ function OPCPage() {
   const heroSectionRef = useRef(null);
   const menuSectionRef = useRef(null);
   const overviewSectionRef = useRef(null);
+  const overviewSectionRef2 = useRef(null);
   const functionsSectionRef = useRef(null);
   const functionsSectionRef2 = useRef(null);
   const applicationSectionRef = useRef(null);
@@ -634,11 +636,13 @@ function OPCPage() {
   useEffect(() => {
     if (!sectionId) return;
 
-    // The user requested /opc/overview, /opc/functions/1, /opc/functions/2, /opc/application
-    // Our IDs are: overview-content, functions, functions-2, application
+    // Supported deep links:
+    // /opc/overview/1, /opc/overview/2, /opc/functions/1, /opc/functions/2, /opc/application
     let targetId = sectionId;
     let isFunctionsSectionNumber = false;
-    if (sectionId === "overview") targetId = "overview-content";
+    if (sectionId === "overview") {
+      targetId = subId === "2" ? "overview-content-2" : "overview-content";
+    }
     if (sectionId === "functions") {
       isFunctionsSectionNumber = subId === "1" || subId === "2";
       targetId = subId === "2" ? "functions-2" : "functions";
@@ -667,9 +671,10 @@ function OPCPage() {
       let path = "/opc";
       // index 0(Hero), 1(Menu) -> /opc
       if (index === 2) path = "/opc/overview/1";
-      if (index === 3) path = "/opc/functions/1";
-      if (index === 4) path = "/opc/functions/2";
-      if (index === 5) path = "/opc/application";
+      if (index === 3) path = "/opc/overview/2";
+      if (index === 4) path = "/opc/functions/1";
+      if (index === 5) path = "/opc/functions/2";
+      if (index === 6) path = "/opc/application";
 
       navigate(path, { replace: true });
     },
@@ -1189,8 +1194,28 @@ function OPCPage() {
             </div>
           </div>
         </section>
+        {/* 4. Overview Section 2 (Placeholder) */}
+        <section
+          className="opc-panel tm-panel"
+          id="overview-content-2"
+          ref={overviewSectionRef2}
+        >
+          <div className="tm-core-section">
+            <div className="tm-core-container">
+              <div className="tm-section-header">
+                <h2 className="tm-section-title">
+                  발주처를 ‘보고받는 위치’에서 ‘프로젝트를 통제하는 위치’로 이동시킵니다.
+                </h2>
+              </div>
 
-        {/* 4. Functions Intro Section */}
+              <div className="tm-core-placeholder card glass">
+                <p>Placeholder</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 5. Functions Intro Section */}
         <section
           className="opc-panel ppm-panel ppm-cpm-section"
           id="functions"
@@ -1269,7 +1294,7 @@ function OPCPage() {
           </div>
         </section>
 
-        {/* 5. Functions Intro Section 2 */}
+        {/* 6. Functions Intro Section 2 */}
         <section
           className="opc-panel ppm-panel ppm-cpm-section"
           id="functions-2"
@@ -1351,7 +1376,7 @@ function OPCPage() {
           </div>
         </section>
 
-        {/* 6. Application Section */}
+        {/* 7. Application Section */}
         <section
           className="opc-panel tm-panel"
           id="application"
