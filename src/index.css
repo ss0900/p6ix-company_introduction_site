@@ -3144,6 +3144,265 @@ a:hover {
   }
 }
 
+/* OPC Comparison (P6 vs OPC) */
+.opc-comparison-section {
+  background: var(--color-bg-primary);
+}
+
+.opc-comparison-container {
+  gap: var(--space-lg);
+}
+
+.opc-comparison-container .tm-section-header {
+  margin-bottom: var(--space-lg);
+}
+
+.opc-comparison-container .tm-section-title {
+  max-width: 1100px;
+}
+
+.opc-comparison-shell {
+  position: relative;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 56px;
+  --opc-comparison-label-left-offset: -30px;
+  --opc-comparison-label-right-offset: -45px;
+}
+
+.opc-comparison-table-wrapper {
+  overflow-x: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 60%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.36),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.opc-comparison-table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+}
+
+.opc-comparison-table thead tr {
+  background: rgba(0, 212, 255, 0.08);
+}
+
+.opc-comparison-table th,
+.opc-comparison-table td {
+  padding: clamp(0.56rem, 0.95vw, 0.8rem) clamp(0.8rem, 1.1vw, 1.1rem);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.opc-comparison-table thead th {
+  text-align: center;
+  color: var(--color-text-primary);
+  font-size: clamp(0.9rem, 1.2vw, 1.02rem);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.opc-comparison-col-item {
+  width: 34%;
+  text-align: left !important;
+}
+
+.opc-comparison-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.opc-comparison-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.opc-comparison-item-cell {
+  text-align: left;
+  font-size: clamp(0.98rem, 1.45vw, 1.4rem);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+}
+
+.opc-comparison-item-cell.is-emphasized {
+  font-weight: 800;
+}
+
+.opc-comparison-rating-cell {
+  text-align: center;
+}
+
+.opc-comparison-stars {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-height: 20px;
+  color: #fbbf24;
+  text-shadow: 0 0 12px rgba(251, 191, 36, 0.28);
+}
+
+.opc-comparison-star-icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  display: block;
+  flex-shrink: 0;
+}
+
+.opc-comparison-bracket {
+  position: absolute;
+  width: 16px;
+  pointer-events: none;
+}
+
+.opc-comparison-bracket::before,
+.opc-comparison-bracket::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+}
+
+.opc-comparison-bracket-left {
+  left: 20px;
+  border-left: 1.5px solid rgba(0, 212, 255, 0.6);
+}
+
+.opc-comparison-bracket-left::before,
+.opc-comparison-bracket-left::after {
+  right: 0;
+  border-top: 1.5px solid rgba(0, 212, 255, 0.6);
+}
+
+.opc-comparison-bracket-left::before {
+  top: 0;
+}
+
+.opc-comparison-bracket-left::after {
+  bottom: 0;
+}
+
+.opc-comparison-bracket-right {
+  right: 20px;
+  border-right: 1.5px solid rgba(251, 191, 36, 0.72);
+}
+
+.opc-comparison-bracket-right::before,
+.opc-comparison-bracket-right::after {
+  left: 0;
+  border-top: 1.5px solid rgba(251, 191, 36, 0.72);
+}
+
+.opc-comparison-bracket-right::before {
+  top: 0;
+}
+
+.opc-comparison-bracket-right::after {
+  bottom: 0;
+}
+
+.opc-comparison-bracket-label {
+  position: absolute;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: normal;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  padding: 0.35rem 0.22rem;
+  min-width: 38px;
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(var(--blur-sm));
+  pointer-events: none;
+}
+
+.opc-comparison-bracket-label-left {
+  left: var(--opc-comparison-label-left-offset);
+  color: var(--color-accent);
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.24);
+}
+
+.opc-comparison-bracket-label-right {
+  right: var(--opc-comparison-label-right-offset);
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.12);
+  border: 1px solid rgba(251, 191, 36, 0.26);
+}
+
+.opc-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 1200px) {
+  .opc-comparison-shell {
+    max-width: 1040px;
+    padding: 0 48px;
+    --opc-comparison-label-left-offset: -24px;
+    --opc-comparison-label-right-offset: -26px;
+  }
+}
+
+@media (max-width: 900px) {
+  .opc-comparison-shell {
+    max-width: 920px;
+    padding: 0 34px;
+    --opc-comparison-label-left-offset: -22px;
+    --opc-comparison-label-right-offset: -24px;
+  }
+
+  .opc-comparison-table {
+    min-width: 760px;
+  }
+
+  .opc-comparison-item-cell {
+    font-size: clamp(0.94rem, 1.9vw, 1.15rem);
+  }
+
+  .opc-comparison-star-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .opc-comparison-shell {
+    padding: 0;
+  }
+
+  .opc-comparison-bracket,
+  .opc-comparison-bracket-label {
+    display: none;
+  }
+
+  .opc-comparison-table {
+    min-width: 680px;
+  }
+
+  .opc-comparison-table th,
+  .opc-comparison-table td {
+    padding: 0.62rem 0.78rem;
+  }
+}
+
 /* Unifier Panel Styles */
 .unifier-panel {
   background: var(--color-bg-secondary);

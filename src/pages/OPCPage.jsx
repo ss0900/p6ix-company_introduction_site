@@ -15,7 +15,7 @@ const sections = [
   { id: "overview-content-2", label: "개요 2" },
   { id: "functions", label: "기능 소개" },
   { id: "functions-2", label: "기능 소개 2" },
-  { id: "application", label: "활용 방안" },
+  { id: "application", label: "비교" },
 ];
 
 const subMenuItems = [
@@ -36,9 +36,9 @@ const subMenuItems = [
     link: "#functions",
   },
   {
-    id: "application",
-    title: "활용 방안",
-    description: "기업 규모별 최적의 도입 방안",
+    id: "comparison",
+    title: "비교",
+    description: "P6와 OPC의 역할 기반 기능 전문성 비교",
     image:
       "https://images.pexels.com/photos/2187605/pexels-photo-2187605.jpeg?auto=compress&cs=tinysrgb&w=600",
     link: "#application",
@@ -643,27 +643,59 @@ const functionItems2 = [
   },
 ];
 
-// Application Data
-const applicationData = [
-  {
-    title: "중소기업",
-    desc: "초기 투자 없이 클라우드 서비스로 프로젝트 관리 시작",
-    list: ["빠른 도입 및 적용", "낮은 초기 비용", "유연한 확장"],
-    img: "https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg?auto=compress&cs=tinysrgb&w=600",
-  },
-  {
-    title: "대기업",
-    desc: "기존 On-premise 솔루션과 연계한 하이브리드 운영",
-    list: ["P6와 연동", "글로벌 팀 협업", "통합 대시보드"],
-    img: "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=600",
-  },
-  {
-    title: "프로젝트 팀",
-    desc: "현장 중심의 실시간 프로젝트 관리",
-    list: ["모바일 접근", "실시간 업데이트", "팀 협업 강화"],
-    img: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=600",
-  },
+const comparisonRows = [
+  { item: "CPM 일정 분석", p6Stars: 5, opcStars: 4 },
+  { item: "대규모 일정 처리", p6Stars: 5, opcStars: 4 },
+  { item: "자원/로직 상세 제어", p6Stars: 5, opcStars: 3 },
+  { item: "비용 관리", p6Stars: 3, opcStars: 4 },
+  { item: "리스크 관리", p6Stars: 2, opcStars: 4 },
+  { item: "실시간 대시보드", p6Stars: 2, opcStars: 5, emphasized: true },
+  { item: "포트폴리오 관리", p6Stars: 2, opcStars: 5, emphasized: true },
+  { item: "협업/접근성", p6Stars: 3, opcStars: 5, emphasized: true },
+  { item: "경영진 보고", p6Stars: 2, opcStars: 5, emphasized: true },
 ];
+
+const comparisonGroups = {
+  left: {
+    startIndex: 0,
+    endIndex: 2,
+    label: "실행 전문성",
+    line1: "실행",
+    line2: "전문성",
+    srText:
+      "상단 3개 비교 항목인 CPM 일정 분석부터 자원/로직 상세 제어까지는 실행 전문성 범주입니다.",
+  },
+  right: {
+    startIndex: 5,
+    endIndex: 8,
+    label: "경영/통제 전문성",
+    line1: "경영/통제",
+    line2: "전문성",
+    srText:
+      "하단 4개 비교 항목인 실시간 대시보드부터 경영진 보고까지는 경영 통제 전문성 범주입니다.",
+  },
+};
+
+function StarRating({ count, label }) {
+  return (
+    <div
+      className="opc-comparison-stars"
+      role="img"
+      aria-label={`${label} ${count}점`}
+    >
+      {Array.from({ length: count }).map((_, index) => (
+        <svg
+          key={`${label}-${index}`}
+          className="opc-comparison-star-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M12 2.4L14.94 8.36L21.52 9.32L16.76 13.96L17.88 20.52L12 17.44L6.12 20.52L7.24 13.96L2.48 9.32L9.06 8.36L12 2.4Z" />
+        </svg>
+      ))}
+    </div>
+  );
+}
 
 function OPCPage() {
   const { sectionId, subId } = useParams();
@@ -696,7 +728,40 @@ function OPCPage() {
   const featureCardsRef = useRef([]);
   const imageCardRef2 = useRef(null);
   const featureCardsRef2 = useRef([]);
-  const applicationCardsRef = useRef([]);
+  const comparisonShellRef = useRef(null);
+  const comparisonRowRefs = useRef([]);
+  const [comparisonBracketOffsets, setComparisonBracketOffsets] = useState({
+    left: { top: 0, height: 0 },
+    right: { top: 0, height: 0 },
+  });
+
+  const updateComparisonBracketOffsets = useCallback(() => {
+    const shell = comparisonShellRef.current;
+    if (!shell) return;
+
+    const rows = comparisonRowRefs.current;
+    if (rows.length < comparisonRows.length || rows.some((row) => !row)) return;
+
+    const shellRect = shell.getBoundingClientRect();
+    const getGroupMetrics = (group) => {
+      const firstRow = rows[group.startIndex];
+      const lastRow = rows[group.endIndex];
+      if (!firstRow || !lastRow) return { top: 0, height: 0 };
+
+      const firstRect = firstRow.getBoundingClientRect();
+      const lastRect = lastRow.getBoundingClientRect();
+
+      return {
+        top: Math.max(0, firstRect.top - shellRect.top),
+        height: Math.max(0, lastRect.bottom - firstRect.top),
+      };
+    };
+
+    setComparisonBracketOffsets({
+      left: getGroupMetrics(comparisonGroups.left),
+      right: getGroupMetrics(comparisonGroups.right),
+    });
+  }, []);
 
   // Check reduced motion preference
   useEffect(() => {
@@ -768,7 +833,7 @@ function OPCPage() {
     if (!sectionId) return;
 
     // Supported deep links:
-    // /opc/overview/1, /opc/overview/2, /opc/functions/1, /opc/functions/2, /opc/application
+    // /opc/overview/1, /opc/overview/2, /opc/functions/1, /opc/functions/2, /opc/comparison/1
     let targetId = sectionId;
     let isFunctionsSectionNumber = false;
     if (sectionId === "overview") {
@@ -777,6 +842,9 @@ function OPCPage() {
     if (sectionId === "functions") {
       isFunctionsSectionNumber = subId === "1" || subId === "2";
       targetId = subId === "2" ? "functions-2" : "functions";
+    }
+    if (sectionId === "comparison") {
+      targetId = "application";
     }
 
     if (subId && sectionId !== "overview" && !isFunctionsSectionNumber) {
@@ -805,7 +873,7 @@ function OPCPage() {
       if (index === 3) path = "/opc/overview/2";
       if (index === 4) path = "/opc/functions/1";
       if (index === 5) path = "/opc/functions/2";
-      if (index === 6) path = "/opc/application";
+      if (index === 6) path = "/opc/comparison/1";
 
       navigate(path, { replace: true });
     },
@@ -934,6 +1002,25 @@ function OPCPage() {
       window.removeEventListener("touchend", handleTouchEnd);
     };
   }, [prefersReducedMotion]);
+
+  useEffect(() => {
+    const resizeHandler = () => updateComparisonBracketOffsets();
+    const rafId = requestAnimationFrame(updateComparisonBracketOffsets);
+
+    window.addEventListener("resize", resizeHandler);
+    window.addEventListener("orientationchange", resizeHandler);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener("resize", resizeHandler);
+      window.removeEventListener("orientationchange", resizeHandler);
+    };
+  }, [updateComparisonBracketOffsets]);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(updateComparisonBracketOffsets, 120);
+    return () => clearTimeout(timeoutId);
+  }, [activeSectionId, updateComparisonBracketOffsets]);
 
   // Content Animations
   const initContentAnimations = () => {
@@ -1155,8 +1242,12 @@ function OPCPage() {
 
       // Application
       if (applicationSectionRef.current) {
+        const comparisonElements = applicationSectionRef.current.querySelectorAll(
+          ".opc-comparison-animate",
+        );
+
         gsap.fromTo(
-          applicationCardsRef.current,
+          comparisonElements,
           { y: 50, opacity: 0 },
           {
             y: 0,
@@ -1533,93 +1624,112 @@ function OPCPage() {
           id="application"
           ref={applicationSectionRef}
         >
-          <div
-            className="tm-methods-section"
-            style={{ background: "var(--bg-darker)" }}
-          >
-            <div className="tm-methods-container">
-              <div className="tm-section-header">
-                <h2 className="tm-section-title">활용 방안</h2>
+          <div className="tm-methods-section opc-comparison-section">
+            <div className="tm-methods-container opc-comparison-container">
+              <div className="tm-section-header opc-comparison-animate">
+                <h2 className="tm-section-title">
+                  역할에 따른 기능의 전문성: P6 vs OPC
+                </h2>
               </div>
+
               <div
-                className="tm-ppm-eppm-grid"
-                style={{
-                  gridTemplateColumns: "repeat(3, 1fr)",
-                  gap: "30px",
-                  marginTop: "40px",
-                }}
+                className="opc-comparison-shell opc-comparison-animate"
+                ref={comparisonShellRef}
               >
-                {applicationData.map((item, index) => (
-                  <div
-                    key={index}
-                    className="tm-ppm-eppm-card"
-                    style={{ padding: "0", overflow: "hidden", height: "auto" }}
-                    ref={(el) => (applicationCardsRef.current[index] = el)}
-                  >
+                <span className="opc-visually-hidden">{comparisonGroups.left.srText}</span>
+                <span className="opc-visually-hidden">
+                  {comparisonGroups.right.srText}
+                </span>
+
+                {comparisonBracketOffsets.left.height > 0 && (
+                  <>
                     <div
-                      className="tm-card-image"
-                      style={{ height: "200px", overflow: "hidden" }}
+                      className="opc-comparison-bracket opc-comparison-bracket-left"
+                      style={{
+                        top: `${comparisonBracketOffsets.left.top}px`,
+                        height: `${comparisonBracketOffsets.left.height}px`,
+                      }}
+                      aria-hidden="true"
+                    />
+                    <div
+                      className="opc-comparison-bracket-label opc-comparison-bracket-label-left"
+                      style={{
+                        top: `${comparisonBracketOffsets.left.top + comparisonBracketOffsets.left.height / 2}px`,
+                      }}
+                      aria-label={comparisonGroups.left.label}
                     >
-                      <img
-                        src={item.img}
-                        alt={item.title}
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "cover",
-                        }}
-                      />
+                      <span>
+                        {comparisonGroups.left.line1}
+                        <br />
+                        {comparisonGroups.left.line2}
+                      </span>
                     </div>
+                  </>
+                )}
+
+                {comparisonBracketOffsets.right.height > 0 && (
+                  <>
                     <div
-                      className="tm-card-content"
-                      style={{ padding: "20px" }}
+                      className="opc-comparison-bracket opc-comparison-bracket-right"
+                      style={{
+                        top: `${comparisonBracketOffsets.right.top}px`,
+                        height: `${comparisonBracketOffsets.right.height}px`,
+                      }}
+                      aria-hidden="true"
+                    />
+                    <div
+                      className="opc-comparison-bracket-label opc-comparison-bracket-label-right"
+                      style={{
+                        top: `${comparisonBracketOffsets.right.top + comparisonBracketOffsets.right.height / 2}px`,
+                      }}
+                      aria-label={comparisonGroups.right.label}
                     >
-                      <h3
-                        style={{
-                          fontSize: "1.25rem",
-                          marginBottom: "15px",
-                          color: "var(--text-primary)",
-                        }}
-                      >
-                        {item.title}
-                      </h3>
-                      <p
-                        style={{
-                          fontSize: "0.95rem",
-                          color: "var(--text-secondary)",
-                          marginBottom: "15px",
-                          lineHeight: "1.5",
-                        }}
-                      >
-                        {item.desc}
-                      </p>
-                      <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-                        {item.list.map((li, i) => (
-                          <li
-                            key={i}
-                            style={{
-                              color: "var(--text-tertiary)",
-                              fontSize: "0.9rem",
-                              marginBottom: "5px",
-                              display: "flex",
-                              alignItems: "center",
-                            }}
+                      <span>
+                        {comparisonGroups.right.line1}
+                        <br />
+                        {comparisonGroups.right.line2}
+                      </span>
+                    </div>
+                  </>
+                )}
+
+                <div className="opc-comparison-table-wrapper">
+                  <table className="opc-comparison-table">
+                    <thead>
+                      <tr>
+                        <th scope="col" className="opc-comparison-col-item">
+                          비교 항목
+                        </th>
+                        <th scope="col">Primavera P6 PPM</th>
+                        <th scope="col">Oracle Primavera Cloud (OPC)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {comparisonRows.map((row, index) => (
+                        <tr key={row.item} ref={(el) => (comparisonRowRefs.current[index] = el)}>
+                          <th
+                            scope="row"
+                            className={`opc-comparison-item-cell ${row.emphasized ? "is-emphasized" : ""}`}
                           >
-                            <span
-                              style={{
-                                color: "var(--color-primary)",
-                                marginRight: "8px",
-                              }}
-                            >
-                              •
-                            </span>{" "}
-                            {li}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                ))}
+                            {row.item}
+                          </th>
+                          <td className="opc-comparison-rating-cell">
+                            <StarRating
+                              count={row.p6Stars}
+                              label={`Primavera P6 PPM ${row.item}`}
+                            />
+                          </td>
+                          <td className="opc-comparison-rating-cell">
+                            <StarRating
+                              count={row.opcStars}
+                              label={`Oracle Primavera Cloud ${row.item}`}
+                            />
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
