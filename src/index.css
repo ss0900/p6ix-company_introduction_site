@@ -3107,6 +3107,43 @@ a:hover {
   }
 }
 
+/* OPC Overview 2: Executive Control */
+.opc-overview-control-section {
+  background: var(--color-bg-secondary);
+}
+
+.opc-overview-control-container {
+  gap: var(--space-xl);
+}
+
+.opc-overview-control-header {
+  margin-bottom: var(--space-3xl);
+}
+
+.opc-overview-control-grid {
+  width: 100%;
+  gap: clamp(var(--space-lg), 2vw, var(--space-2xl));
+}
+
+.opc-overview-control-card {
+  justify-content: flex-start;
+  min-height: clamp(280px, 34vh, 360px);
+}
+
+.opc-overview-control-icon-shell {
+  margin-bottom: var(--space-lg);
+}
+
+.opc-overview-control-card-desc {
+  line-height: 1.7;
+}
+
+@media (max-width: 700px) {
+  .opc-overview-control-header {
+    margin-bottom: var(--space-md);
+  }
+}
+
 /* Unifier Panel Styles */
 .unifier-panel {
   background: var(--color-bg-secondary);

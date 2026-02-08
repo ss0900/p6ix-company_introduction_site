@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+﻿import { useEffect, useRef, useState, useCallback } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import SectionIndicator from "../components/SectionIndicator";
+import CoreDocsCard from "../components/CoreDocsCard";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -51,6 +52,135 @@ const overviewFeatures = [
   { title: "실시간 협업", desc: "팀원간 실시간 협업 환경" },
   { title: "자동 업데이트", desc: "최신 기능 자동 업데이트" },
 ];
+
+const executiveQuestionCards = [
+  {
+    iconKey: "plan-status",
+    title: "프로젝트가 계획대로 가고 있는가?",
+    description: "",
+  },
+  {
+    iconKey: "delay-signal",
+    title: "지연 가능성은 언제, 어디서 발생하는가?",
+    description: "",
+  },
+  {
+    iconKey: "impact-analysis",
+    title: (
+      <>
+        이 일정 변경이 비용과 리스크에
+        <br />
+        어떤 영향을 주는가?
+      </>
+    ),
+    description: "",
+  },
+];
+
+function OPCExecutiveQuestionIcon({ iconKey }) {
+  if (iconKey === "plan-status") {
+    return (
+      <svg viewBox="0 0 64 64" className="tm-core-docs-icon" aria-hidden="true">
+        <rect x="10" y="14" width="44" height="40" rx="8" />
+        <path d="M10 24H54" />
+        <path d="M22 10V20" />
+        <path d="M32 10V20" />
+        <path d="M42 10V20" />
+        <path d="M20 32H26M30 32H36M40 32H46" />
+        <path d="M20 40H26M30 40H36M40 40H46" />
+      </svg>
+    );
+  }
+
+  if (iconKey === "delay-signal") {
+    return (
+      <svg viewBox="0 0 64 64" className="tm-core-docs-icon" aria-hidden="true">
+        <path d="M8 48H54" />
+        <path d="M8 48V16" />
+        <path d="M14 42L24 32L32 36L44 24L52 28" />
+        <circle cx="46" cy="18" r="10" />
+        <path d="M46 12V18L50 20" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 64 64" className="tm-core-docs-icon" aria-hidden="true">
+      <path d="M18 8H40L50 18V50A6 6 0 0 1 44 56H18A6 6 0 0 1 12 50V14A6 6 0 0 1 18 8Z" />
+      <path d="M40 8V18H50" />
+      <path d="M24 28H38M24 36H38M24 44H34" />
+      <circle cx="46" cy="44" r="8" />
+      <path d="M46 40V45" />
+      <circle cx="46" cy="48" r="0.8" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+const overviewControlCards = [
+  {
+    iconKey: "visibility",
+    title: "1. 경영 관점의 실시간 가시성",
+    lines: [
+      "프로젝트 · 프로그램 · 포트폴리오 단위",
+      "KPI, 마일스톤, 리스크 상태 즉시 확인",
+    ],
+  },
+  {
+    iconKey: "proactive",
+    title: "2. 사후 보고 → 사전 통제",
+    lines: [
+      "일정 변경 시 비용 · 리스크 영향 자동 분석",
+      "'문제가 될 가능성'을 사전에 인지",
+    ],
+  },
+  {
+    iconKey: "decision",
+    title: "3. 객관적 의사결정 기반",
+    lines: [
+      "감정이나 주관이 아닌 데이터 기반 판단",
+      "변경 및 클레임 발생 시 명확한 근거 확보",
+    ],
+  },
+];
+
+function OPCOverviewControlIcon({ iconKey }) {
+  if (iconKey === "visibility") {
+    return (
+      <svg viewBox="0 0 64 64" className="tm-core-docs-icon" aria-hidden="true">
+        <rect x="34" y="8" width="22" height="16" rx="3" />
+        <path d="M38 18L43 14L47 16L52 11" />
+        <path d="M38 21H52" />
+        <path d="M8 38C13 30 19 26 24 26C29 26 35 30 40 38C35 46 29 50 24 50C19 50 13 46 8 38Z" />
+        <circle cx="24" cy="38" r="6" />
+      </svg>
+    );
+  }
+
+  if (iconKey === "proactive") {
+    return (
+      <svg viewBox="0 0 64 64" className="tm-core-docs-icon" aria-hidden="true">
+        <path d="M8 44H56" />
+        <path d="M16 40C16 28 24 18 36 18H42" />
+        <path d="M38 10L50 18L38 26" />
+        <path d="M22 34H30" />
+        <path d="M34 34H42" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 64 64" className="tm-core-docs-icon" aria-hidden="true">
+      <path d="M32 12V48" />
+      <path d="M18 18H46" />
+      <path d="M18 18L12 30H24L18 18Z" />
+      <path d="M46 18L40 30H52L46 18Z" />
+      <path d="M32 48H22" />
+      <path d="M32 48H42" />
+      <path d="M24 30C24 33 21 35 18 35C15 35 12 33 12 30" />
+      <path d="M52 30C52 33 49 35 46 35C43 35 40 33 40 30" />
+    </svg>
+  );
+}
 
 // Function Intro Data (mirrors PPM functions/1)
 const functionItems1 = [
@@ -561,6 +691,7 @@ function OPCPage() {
 
   // Animation refs
   const overviewCardsRef = useRef([]);
+  const overviewControlCardsRef = useRef([]);
   const imageCardRef = useRef(null);
   const featureCardsRef = useRef([]);
   const imageCardRef2 = useRef(null);
@@ -864,6 +995,34 @@ function OPCPage() {
         );
       }
 
+      if (overviewSectionRef2.current) {
+        const overviewControlTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: overviewSectionRef2.current,
+            start: "top 60%",
+            toggleActions: "play none none reverse",
+          },
+        });
+
+        const overviewControlTitle =
+          overviewSectionRef2.current.querySelector(".tm-section-title");
+
+        if (overviewControlTitle) {
+          overviewControlTl.fromTo(
+            overviewControlTitle,
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.5 },
+          );
+        }
+
+        overviewControlTl.fromTo(
+          overviewControlCardsRef.current,
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, stagger: 0.12 },
+          "-=0.2",
+        );
+      }
+
       // Functions Intro
       if (functionsSectionRef.current) {
         const featuresTl = gsap.timeline({
@@ -1122,94 +1281,86 @@ function OPCPage() {
           id="overview-content"
           ref={overviewSectionRef}
         >
-          <div className="tm-methods-section">
-            <div className="tm-methods-container">
-              <div className="tm-section-header">
-                <h2 className="tm-section-title">OPC 개요</h2>
-                <p
-                  style={{
-                    textAlign: "center",
-                    color: "var(--text-secondary)",
-                    marginBottom: "40px",
-                  }}
-                >
-                  언제 어디서나 프로젝트를 관리할 수 있는 유연함
-                </p>
+          <div className="tm-methods-section opc-overview-executive-section">
+            <div className="tm-methods-container opc-overview-executive-container">
+              <div className="tm-section-header opc-overview-header">
+                <h2 className="tm-section-title">
+                  발주처와 경영진의 핵심 질문에 답합니다.
+                </h2>
               </div>
-              <div
-                className="tm-ppm-eppm-grid"
-                style={{ gridTemplateColumns: "repeat(4, 1fr)", gap: "20px" }}
-              >
-                {overviewFeatures.map((item, index) => (
-                  <div
+
+              <div className="opc-overview-questions-grid tm-core-docs-grid grid grid-3">
+                {executiveQuestionCards.map((item, index) => (
+                  <CoreDocsCard
                     key={index}
-                    className="tm-spoke-box"
-                    style={{
-                      width: "100%",
-                      flexDirection: "column",
-                      padding: "30px 20px",
-                      height: "auto",
-                      alignItems: "center",
-                      textAlign: "center",
-                    }}
-                    ref={(el) => (overviewCardsRef.current[index] = el)}
-                  >
-                    <div
-                      className="tm-spoke-icon"
-                      style={{ marginBottom: "15px" }}
-                    >
-                      {/* Icon */}
-                      <svg
-                        viewBox="0 0 24 24"
-                        width="32"
-                        height="32"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      >
-                        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
-                      </svg>
-                    </div>
-                    <h4
-                      style={{
-                        fontSize: "1.2rem",
-                        marginBottom: "10px",
-                        color: "var(--text-primary)",
-                      }}
-                    >
-                      {item.title}
-                    </h4>
-                    <p
-                      style={{
-                        fontSize: "0.9rem",
-                        color: "var(--text-secondary)",
-                        lineHeight: "1.5",
-                      }}
-                    >
-                      {item.desc}
-                    </p>
-                  </div>
+                    icon={<OPCExecutiveQuestionIcon iconKey={item.iconKey} />}
+                    title={item.title}
+                    description={item.description}
+                    cardRef={(el) => (overviewCardsRef.current[index] = el)}
+                  />
                 ))}
+              </div>
+
+              <div
+                className="opc-overview-summary"
+                ref={(el) => (overviewCardsRef.current[3] = el)}
+              >
+                <span
+                  className="opc-overview-summary-marker"
+                  role="img"
+                  aria-label="핵심 메시지"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M20 6L9 17L4 12" strokeWidth="2.5" />
+                  </svg>
+                </span>
+                <p className="opc-overview-summary-text">
+                  OPC는 <strong>일정·비용·리스크를 하나의 화면에서</strong>{" "}
+                  연결해
+                  <br />
+                  모든 질문에 대한 답을 실시간으로 보여줍니다.
+                </p>
               </div>
             </div>
           </div>
         </section>
-        {/* 4. Overview Section 2 (Placeholder) */}
+
+        {/* 4. Overview Section 2 */}
         <section
           className="opc-panel tm-panel"
           id="overview-content-2"
           ref={overviewSectionRef2}
         >
-          <div className="tm-core-section">
-            <div className="tm-core-container">
-              <div className="tm-section-header">
+          <div className="tm-core-section opc-overview-control-section">
+            <div className="tm-core-container opc-overview-control-container">
+              <div className="tm-section-header opc-overview-control-header">
                 <h2 className="tm-section-title">
-                  발주처를 ‘보고받는 위치’에서 ‘프로젝트를 통제하는 위치’로 이동시킵니다.
+                  발주처를 '보고받는 위치'에서 '프로젝트를 통제하는 위치'로
+                  이동시킵니다.
                 </h2>
               </div>
 
-              <div className="tm-core-placeholder card glass">
-                <p>Placeholder</p>
+              <div className="opc-overview-control-grid tm-core-docs-grid grid">
+                {overviewControlCards.map((item, index) => (
+                  <article
+                    key={item.title}
+                    className="tm-core-docs-card card glass opc-overview-control-card"
+                    ref={(el) => (overviewControlCardsRef.current[index] = el)}
+                  >
+                    <div className="tm-core-docs-icon-shell opc-overview-control-icon-shell">
+                      <OPCOverviewControlIcon iconKey={item.iconKey} />
+                    </div>
+                    <h3 className="tm-core-docs-card-title">{item.title}</h3>
+                    <p className="tm-core-docs-card-desc opc-overview-control-card-desc">
+                      {item.lines.map((line, lineIndex) => (
+                        <span key={line}>
+                          {line}
+                          {lineIndex < item.lines.length - 1 && <br />}
+                        </span>
+                      ))}
+                    </p>
+                  </article>
+                ))}
               </div>
             </div>
           </div>
