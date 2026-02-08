@@ -10913,3 +10913,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+
+.unifier-page-container #functions .ppm-functions-media {
+  transform: translateY(37px);
+}

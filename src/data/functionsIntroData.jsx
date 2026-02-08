@@ -228,10 +228,22 @@ export const eppmFunctionsIntro = {
     },
   ],
   heroImages: [
-    { src: "/일정 관리.png", alt: "기능 소개 - 일정 관리" },
-    { src: "/진척 관리.png", alt: "기능 소개 - 진척 관리" },
-    { src: "/자원 관리.png", alt: "기능 소개 - 자원 관리" },
-    { src: "/공정 분석.png", alt: "기능 소개 - 공정 분석" },
+    {
+      src: "/비즈니스 프로세스(Business Processes, BP)·워크플로우 자동화.png",
+      alt: "기능 소개 - 비즈니스 프로세스 및 워크플로우 자동화",
+    },
+    {
+      src: "/계약(Contract)·조달·변경(Change) 관리.png",
+      alt: "기능 소개 - 계약, 조달 및 변경 관리",
+    },
+    {
+      src: "/비용관리(Cost Management) 예산·원가·실적·예측(Forecast).png",
+      alt: "기능 소개 - 비용 관리",
+    },
+    {
+      src: "/자금·현금흐름(Cash Flow) 및 다중 기준선예측 비교.png",
+      alt: "기능 소개 - 자금 및 현금 흐름 관리",
+    },
   ],
 };
 
