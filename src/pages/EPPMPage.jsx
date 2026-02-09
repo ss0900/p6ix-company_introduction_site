@@ -1044,19 +1044,32 @@ function EPPMPage() {
               className="eppm-overview-gap-frame"
               ref={integrationImageCardRef}
             >
-              <header className="eppm-overview-gap-headline-wrap">
-                <h3 className="eppm-overview-gap-headline">
-                  (Headline Placeholder)
-                </h3>
-              </header>
-
               <div className="eppm-overview-gap-visuals">
                 <div
                   className="eppm-overview-gap-visual-column"
                   ref={(el) => (integrationCardsRef.current[0] = el)}
                 >
-                  <div className="eppm-overview-gap-visual-card">
-                    <span>(Simple Icon Placeholder)</span>
+                  <div
+                    className="eppm-overview-gap-visual-card is-simple"
+                    role="img"
+                    aria-label="회의와 의사결정을 상징하는 아이콘"
+                  >
+                    <svg
+                      className="eppm-simple-decision-icon"
+                      viewBox="0 0 240 240"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <circle cx="120" cy="38" r="14" />
+                      <rect x="92" y="58" width="56" height="34" rx="6" />
+                      <polygon points="72,112 168,112 186,182 54,182" />
+                      <rect x="98" y="182" width="44" height="44" rx="3" />
+                      <path d="M34 98H58V132H34V98Z" />
+                      <path d="M20 132H58V150H20V132Z" />
+                      <path d="M182 98H206V132H182V98Z" />
+                      <path d="M182 132H220V150H182V132Z" />
+                    </svg>
                   </div>
                 </div>
                 <div className="eppm-overview-gap-divider" aria-hidden="true" />
@@ -1064,8 +1077,65 @@ function EPPMPage() {
                   className="eppm-overview-gap-visual-column"
                   ref={(el) => (integrationCardsRef.current[1] = el)}
                 >
-                  <div className="eppm-overview-gap-visual-card">
-                    <span>(Blueprint Placeholder)</span>
+                  <div
+                    className="eppm-overview-gap-visual-card is-complex"
+                    role="img"
+                    aria-label="복잡한 실행 현장 네트워크 다이어그램"
+                  >
+                    <svg
+                      className="eppm-complex-network-svg"
+                      viewBox="0 0 640 360"
+                      fill="none"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <g stroke="currentColor" strokeWidth="2" opacity="0.46">
+                        <path d="M44 300L118 230L186 244L252 178L328 198L404 132L486 146L578 96" />
+                        <path d="M70 78L154 122L210 90L278 132L346 102L420 146L510 126L594 172" />
+                        <path d="M92 300L136 184L208 208L260 122L332 142L396 88L472 104L548 58" />
+                        <path d="M44 222L130 206L186 256L250 230L326 266L390 240L458 278L536 236" />
+                        <path d="M136 44L188 98L250 68L318 102L396 78L468 112L530 84" />
+                        <path d="M238 300L286 250L338 278L408 212L474 236L534 194L586 212" />
+                      </g>
+
+                      <g stroke="currentColor" strokeWidth="1.4" opacity="0.5">
+                        <rect x="152" y="160" width="64" height="44" rx="4" />
+                        <rect x="236" y="206" width="74" height="50" rx="4" />
+                        <rect x="328" y="86" width="70" height="48" rx="4" />
+                        <rect x="424" y="152" width="76" height="54" rx="4" />
+                        <rect x="492" y="214" width="58" height="40" rx="4" />
+                        <rect x="94" y="98" width="58" height="36" rx="4" />
+                        <path d="M184 182H236M310 232H424M364 134V206M500 178H548M122 134V176" />
+                      </g>
+
+                      <g fill="currentColor" opacity="0.78">
+                        <circle cx="44" cy="300" r="3.8" />
+                        <circle cx="118" cy="230" r="3.2" />
+                        <circle cx="186" cy="244" r="3.5" />
+                        <circle cx="252" cy="178" r="3.2" />
+                        <circle cx="328" cy="198" r="3.6" />
+                        <circle cx="404" cy="132" r="3.2" />
+                        <circle cx="486" cy="146" r="3.6" />
+                        <circle cx="578" cy="96" r="4" />
+                        <circle cx="70" cy="78" r="3.2" />
+                        <circle cx="154" cy="122" r="3.5" />
+                        <circle cx="210" cy="90" r="3.2" />
+                        <circle cx="278" cy="132" r="3.2" />
+                        <circle cx="346" cy="102" r="3.2" />
+                        <circle cx="420" cy="146" r="3.5" />
+                        <circle cx="510" cy="126" r="3.7" />
+                        <circle cx="594" cy="172" r="4" />
+                        <circle cx="548" cy="236" r="3.6" />
+                        <circle cx="458" cy="278" r="3.4" />
+                        <circle cx="390" cy="240" r="3.2" />
+                        <circle cx="326" cy="266" r="3.4" />
+                        <circle cx="250" cy="230" r="3.2" />
+                        <circle cx="136" cy="184" r="3.4" />
+                        <circle cx="260" cy="122" r="3.2" />
+                        <circle cx="396" cy="88" r="3.4" />
+                        <circle cx="548" cy="58" r="3.8" />
+                      </g>
+                    </svg>
                   </div>
                 </div>
               </div>
@@ -1077,12 +1147,11 @@ function EPPMPage() {
                 >
                   <h4>The Challenge</h4>
                   <p>
-                    Portfolio priorities and field execution context drift apart
-                    over time.
-                  </p>
-                  <p>
-                    Teams need one view that links planning assumptions to
-                    changing on-site reality.
+                    Roboto Mono
+                    <br />
+                    대규모 건설, 플랜트, 엔지니어링
+                    <br />
+                    프로젝트의 복잡성 증가
                   </p>
                 </article>
 
@@ -1090,7 +1159,11 @@ function EPPMPage() {
                   className="eppm-overview-gap-conclusion"
                   ref={(el) => (integrationCardsRef.current[3] = el)}
                 >
-                  <p>단일 플랫폼에서의 통합된 시각 필요.</p>
+                  <p>
+                    단일 플랫폼에서의
+                    <br />
+                    통합된 시각 필요
+                  </p>
                 </div>
 
                 <article
@@ -1099,12 +1172,11 @@ function EPPMPage() {
                 >
                   <h4>The Disconnect</h4>
                   <p>
-                    Executive-level intent and WBS-based execution data often
-                    fail to stay aligned.
-                  </p>
-                  <p>
-                    Without a shared operational layer, decisions become delayed
-                    and fragmented.
+                    Roboto Mono
+                    <br />
+                    상위 레벨의 투자 결정과 현장의
+                    <br />
+                    WBS 기반 실행 간의 데이터 불일치
                   </p>
                 </article>
               </div>
