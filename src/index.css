@@ -8855,13 +8855,17 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 /* EPPM Process (eppm/process/1) */
 .eppm-page-container #cases,
 .eppm-page-container #cases-2,
-.eppm-page-container #cases-3 {
+.eppm-page-container #cases-3,
+.eppm-page-container #cases-4,
+.eppm-page-container #cases-5 {
   background: var(--color-bg-primary);
 }
 
 .eppm-page-container #cases .eppm-process-section,
 .eppm-page-container #cases-2 .eppm-process-section,
-.eppm-page-container #cases-3 .eppm-process-section {
+.eppm-page-container #cases-3 .eppm-process-section,
+.eppm-page-container #cases-4 .eppm-process-section,
+.eppm-page-container #cases-5 .eppm-process-section {
   padding: clamp(96px, 10vh, 124px) var(--space-xl);
   background: transparent;
   border: 0;
@@ -8872,7 +8876,9 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 
 .eppm-page-container #cases .eppm-process-container,
 .eppm-page-container #cases-2 .eppm-process-container,
-.eppm-page-container #cases-3 .eppm-process-container {
+.eppm-page-container #cases-3 .eppm-process-container,
+.eppm-page-container #cases-4 .eppm-process-container,
+.eppm-page-container #cases-5 .eppm-process-container {
   gap: clamp(24px, 2.6vw, 34px);
   background: transparent;
   border: 0;
@@ -8881,11 +8887,14 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 
 .eppm-page-container #cases .eppm-process-container {
   position: relative;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .eppm-page-container #cases .eppm-process-focus-section {
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
 }
 
 .eppm-process-focus-layout {
@@ -8985,10 +8994,11 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   font-family: var(--font-display);
   font-size: 34px;
   font-weight: 700;
-  stroke: rgba(3, 8, 16, 0.95);
-  stroke-width: 3.6px;
+  stroke: rgba(0, 0, 0, 0.92);
+  stroke-width: 4.4px;
   stroke-linejoin: round;
   paint-order: stroke fill;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.82));
 }
 
 .eppm-process-focus-key-message {
@@ -9002,28 +9012,31 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 }
 
 .eppm-page-container #cases .eppm-process-focus-layout {
-  --cases-diagram-width: min(42vw, 520px);
-  min-height: clamp(560px, 76vh, 780px);
-  grid-template-columns: minmax(320px, 460px) minmax(0, 1fr);
-  grid-template-rows: auto 1fr;
-  grid-template-areas:
-    "header visual"
-    "header key";
-  column-gap: clamp(28px, 4.2vw, 68px);
-  row-gap: clamp(14px, 2vh, 26px);
-  align-items: start;
+  --cases-diagram-width: clamp(420px, 41vw, 620px);
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 620px;
+  display: block;
+  margin: 0 auto;
 }
 
 .eppm-page-container #cases .eppm-process-focus-header {
-  grid-area: header;
-  align-self: start;
-  margin-top: 40px;
+  position: absolute;
+  top: clamp(18px, 3.2vw, 44px);
+  left: 0;
+  z-index: 4;
+  max-width: min(460px, 34vw);
+  margin-top: 0;
 }
 
 .eppm-page-container #cases .eppm-process-focus-visual {
-  grid-area: visual;
+  position: relative;
+  left: 50%;
+  top: 53%;
+  transform: translate(-50%, -50%);
   width: var(--cases-diagram-width);
-  justify-self: center;
+  z-index: 2;
   justify-content: center;
   align-items: center;
   margin-top: 0;
@@ -9035,12 +9048,14 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 }
 
 .eppm-page-container #cases .eppm-process-focus-key-message {
-  grid-area: key;
-  justify-self: center;
-  align-self: start;
-  width: var(--cases-diagram-width);
-  margin-top: clamp(-4px, -0.5vh, 4px);
-  font-size: clamp(var(--text-lg), 1.6vw, var(--text-2xl));
+  position: absolute;
+  left: 50%;
+  bottom: clamp(20px, 4vh, 44px);
+  transform: translateX(-50%);
+  z-index: 3;
+  width: min(64%, 560px);
+  margin-top: 0;
+  font-size: clamp(var(--text-lg), 1.8vw, var(--text-2xl));
 }
 
 .eppm-process-shell {
@@ -9260,15 +9275,17 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   }
 
   .eppm-page-container #cases .eppm-process-focus-layout {
-    --cases-diagram-width: min(78vw, 500px);
-    min-height: clamp(520px, 74vh, 760px);
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto;
-    grid-template-areas:
-      "header"
-      "visual"
-      "key";
-    row-gap: clamp(20px, 2.4vh, 30px);
+    --cases-diagram-width: min(72vw, 540px);
+    width: 100%;
+    aspect-ratio: auto;
+    min-height: clamp(650px, 82vh, 860px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: clamp(168px, 23vh, 214px);
+    padding-bottom: clamp(50px, 7vh, 72px);
+    gap: clamp(14px, 2vh, 22px);
   }
 
   .eppm-process-focus-svg {
@@ -9286,7 +9303,10 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   }
 
   .eppm-page-container #cases .eppm-process-focus-header {
-    margin-top: clamp(12px, 2vh, 24px);
+    top: clamp(20px, 3.6vh, 40px);
+    left: 0;
+    max-width: min(440px, 56vw);
+    margin-top: 0;
   }
 
   .eppm-process-focus-visual {
@@ -9295,12 +9315,28 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 
   .eppm-page-container #cases .eppm-process-focus-key-message {
     width: var(--cases-diagram-width);
-    margin-top: 0;
+    margin-top: clamp(6px, 1vh, 12px);
+  }
+
+  .eppm-page-container #cases .eppm-process-focus-visual {
+    left: auto;
+    top: auto;
+    transform: none;
+    width: var(--cases-diagram-width);
+  }
+
+  .eppm-page-container #cases .eppm-process-focus-key-message {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    width: var(--cases-diagram-width);
+    margin-top: clamp(6px, 1vh, 12px);
   }
 
   .eppm-process-focus-label {
     font-size: 31px;
-    stroke-width: 3.3px;
+    stroke-width: 4px;
   }
 
   .eppm-process-focus-core-text {
@@ -9377,7 +9413,9 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 
   .eppm-page-container #cases .eppm-process-section,
   .eppm-page-container #cases-2 .eppm-process-section,
-  .eppm-page-container #cases-3 .eppm-process-section {
+  .eppm-page-container #cases-3 .eppm-process-section,
+  .eppm-page-container #cases-4 .eppm-process-section,
+  .eppm-page-container #cases-5 .eppm-process-section {
     padding: 88px var(--space-md) var(--space-2xl);
   }
 
@@ -9387,20 +9425,22 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   }
 
   .eppm-page-container #cases .eppm-process-focus-layout {
-    --cases-diagram-width: min(90vw, 390px);
-    min-height: clamp(500px, 70vh, 680px);
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto;
-    grid-template-areas:
-      "header"
-      "visual"
-      "key";
-    row-gap: var(--space-lg);
+    --cases-diagram-width: min(88vw, 410px);
+    min-height: clamp(560px, 82vh, 740px);
+    padding-top: clamp(142px, 24vh, 182px);
+    padding-bottom: clamp(36px, 6vh, 56px);
+    gap: clamp(12px, 1.8vh, 18px);
   }
 
   .eppm-process-focus-header {
     max-width: 100%;
     margin-top: 0;
+  }
+
+  .eppm-page-container #cases .eppm-process-focus-header {
+    top: clamp(10px, 2.2vh, 18px);
+    left: 0;
+    max-width: min(92vw, 350px);
   }
 
   .eppm-process-focus-subtitle {
@@ -9416,11 +9456,12 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 
   .eppm-page-container #cases .eppm-process-focus-key-message {
     width: var(--cases-diagram-width);
+    margin-top: clamp(8px, 1.6vh, 16px);
   }
 
   .eppm-process-focus-label {
     font-size: 29px;
-    stroke-width: 3px;
+    stroke-width: 3.8px;
   }
 
   .eppm-process-focus-core-text {
@@ -11057,11 +11098,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   border-radius: var(--radius-xl);
   overflow: hidden;
   background:
-    linear-gradient(
-      160deg,
-      rgba(14, 28, 49, 0.9),
-      rgba(7, 17, 34, 0.92)
-    ),
+    linear-gradient(160deg, rgba(14, 28, 49, 0.9), rgba(7, 17, 34, 0.92)),
     rgba(8, 16, 32, 0.72);
 }
 
@@ -11078,11 +11115,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   font-weight: 700;
   color: rgba(244, 250, 255, 0.98);
   background:
-    linear-gradient(
-      180deg,
-      rgba(34, 58, 90, 0.74),
-      rgba(24, 45, 73, 0.66)
-    ),
+    linear-gradient(180deg, rgba(34, 58, 90, 0.74), rgba(24, 45, 73, 0.66)),
     rgba(29, 50, 78, 0.62);
   border-bottom: 1px solid rgba(132, 173, 214, 0.35);
   text-align: left;
