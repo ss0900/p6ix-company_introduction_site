@@ -15,8 +15,8 @@ const sections = [
   { id: "overview-features-3", label: "PPM 개요 3" },
   { id: "functions", label: "기능 소개" },
   { id: "functions-2", label: "기능 소개 2" },
-  { id: "benefits", label: "도입 효과" },
-  { id: "benefits-2", label: "도입 효과 2" },
+  { id: "benefits", label: "효과" },
+  { id: "benefits-2", label: "효과 2" },
 ];
 
 // Sub-menu items data
@@ -25,21 +25,21 @@ const subMenuItems = [
     id: "overview",
     title: "개요",
     description: "PPM(Project Portfolio Management) 개요 및 핵심 기능",
-    image: "/WBS 및 Activity.png",
+    image: "/PPM%20개요.png",
     link: "#overview",
   },
   {
     id: "functions",
     title: "기능 소개",
     description: "Critical Path Method 기반 공정 관리 중심 기능",
-    image: "/CPM Activity 분석.png",
+    image: "/PPM%20기능%20소개.png",
     link: "#functions",
   },
   {
     id: "benefits",
-    title: "도입 효과",
+    title: "효과",
     description: "PPM 솔루션 도입으로 기대할 수 있는 효과",
-    image: "/공정 진도 및 실적 관리.png",
+    image: "/PPM%20효과.png",
     link: "#benefits",
   },
 ];
@@ -1136,6 +1136,8 @@ const p6MsComparisonRows = [
     category: "프로젝트 규모",
     p6: "초대형·복합 프로젝트 최적",
     ms: "소규모~중규모 적합",
+    p6Accent: true,
+    msAccent: false,
     p6Icon: (
       <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -1163,6 +1165,8 @@ const p6MsComparisonRows = [
     category: "다중 프로젝트/포트폴리오",
     p6: "중앙 DB 기반 강력 처리",
     ms: "단일 프로젝트 중심",
+    p6Accent: true,
+    msAccent: false,
     p6Icon: (
       <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <ellipse
@@ -1197,6 +1201,8 @@ const p6MsComparisonRows = [
     category: "Baseline 비교",
     p6: "무제한 저장·비교",
     ms: "제한적 수준",
+    p6Accent: true,
+    msAccent: false,
     p6Icon: (
       <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -1218,6 +1224,8 @@ const p6MsComparisonRows = [
     category: "리소스/로직 제어",
     p6: "고급 레벨링 / 복잡 로직 가능",
     ms: "기본 수준",
+    p6Accent: true,
+    msAccent: false,
     p6Icon: (
       <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -1248,6 +1256,8 @@ const p6MsComparisonRows = [
     category: "리스크/성과 분석",
     p6: "고급 분석 기능 지원",
     ms: "제한적",
+    p6Accent: false,
+    msAccent: false,
     p6Icon: (
       <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -1277,6 +1287,8 @@ const p6MsComparisonRows = [
     category: "비용",
     p6: "높은 초기 투자",
     ms: "낮은 진입 비용",
+    p6Accent: false,
+    msAccent: false,
     p6Icon: (
       <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -1308,6 +1320,8 @@ const p6MsComparisonRows = [
     category: "사용자 접근성",
     p6: "학습 곡선 있음",
     ms: "사용자 친화적, Office 친화",
+    p6Accent: false,
+    msAccent: true,
     p6Icon: (
       <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -2000,7 +2014,7 @@ function PPMPage() {
           id="hero"
           ref={heroSectionRef}
           style={{
-            backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url(/공정 분석.png)`,
+            backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url(/PPM.png)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -2941,7 +2955,11 @@ function PPMPage() {
                           <th scope="row">{row.category}</th>
                           <td data-label="Primavera P6">
                             <div className="ppm-benefits-compare-cell">
-                              <span>{row.p6}</span>
+                              <span
+                                className={`ppm-benefits-compare-text ${row.p6Accent ? "ppm-benefits-compare-text-accent" : ""}`}
+                              >
+                                {row.p6}
+                              </span>
                               <span
                                 className="ppm-benefits-compare-icon"
                                 aria-hidden="true"
@@ -2952,7 +2970,11 @@ function PPMPage() {
                           </td>
                           <td data-label="MS Project">
                             <div className="ppm-benefits-compare-cell">
-                              <span>{row.ms}</span>
+                              <span
+                                className={`ppm-benefits-compare-text ${row.msAccent ? "ppm-benefits-compare-text-accent-soft" : ""}`}
+                              >
+                                {row.ms}
+                              </span>
                               <span
                                 className="ppm-benefits-compare-icon"
                                 aria-hidden="true"

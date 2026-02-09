@@ -54,7 +54,7 @@ export const eppmFunctionsIntro = {
       ),
       title: (
         <>
-          비즈니스 프로세스와 <br /> 워크플로우 자동화
+          일정 관리
         </>
       ),
     },
@@ -84,7 +84,7 @@ export const eppmFunctionsIntro = {
           />
         </svg>
       ),
-      title: <>계약 · 조달 · 변경 관리</>,
+      title: <>진척 관리</>,
     },
     {
       icon: (
@@ -163,7 +163,7 @@ export const eppmFunctionsIntro = {
           />
         </svg>
       ),
-      title: <>비용 관리</>,
+      title: <>자원 관리</>,
     },
     {
       icon: (
@@ -221,6 +221,54 @@ export const eppmFunctionsIntro = {
       ),
       title: (
         <>
+          공정 분석
+        </>
+      ),
+    },
+  ],
+  heroImages: [
+    {
+      src: "/일정 관리.png",
+      alt: "기능 소개 - 일정 관리",
+    },
+    {
+      src: "/진척 관리.png",
+      alt: "기능 소개 - 진척 관리",
+    },
+    {
+      src: "/자원 관리.png",
+      alt: "기능 소개 - 자원 관리",
+    },
+    {
+      src: "/공정 분석.png",
+      alt: "기능 소개 - 공정 분석",
+    },
+  ],
+};
+
+export const unifierFunctionsIntro = {
+  title: "기능 소개",
+  items: [
+    {
+      ...eppmFunctionsIntro.items[0],
+      title: (
+        <>
+          비즈니스 프로세스와 <br /> 워크플로우 자동화
+        </>
+      ),
+    },
+    {
+      ...eppmFunctionsIntro.items[1],
+      title: <>계약 · 조달 · 변경 관리</>,
+    },
+    {
+      ...eppmFunctionsIntro.items[2],
+      title: <>비용 관리</>,
+    },
+    {
+      ...eppmFunctionsIntro.items[3],
+      title: (
+        <>
           자금 · 현금 흐름 및 <br />
           다중 기준선 / 예측 비교
         </>
@@ -245,10 +293,4 @@ export const eppmFunctionsIntro = {
       alt: "기능 소개 - 자금 및 현금 흐름 관리",
     },
   ],
-};
-
-export const unifierFunctionsIntro = {
-  title: "기능 소개",
-  items: [...eppmFunctionsIntro.items],
-  heroImages: [...eppmFunctionsIntro.heroImages],
 };

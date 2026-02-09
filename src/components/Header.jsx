@@ -22,7 +22,7 @@ function Header() {
     //   label: "Company",
     //   subItems: [
     //     {
-      //       title: "회사소개",
+    //       title: "회사소개",
     //       path: "/company/intro",
     //       image:
     //         "https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -65,22 +65,19 @@ function Header() {
           id: "overview",
           title: "개요",
           path: "/time-management/overview/1",
-          image:
-            "https://images.pexels.com/photos/1098515/pexels-photo-1098515.jpeg?auto=compress&cs=tinysrgb&w=600",
+          image: "/공정관리%20개요.png",
         },
         {
           id: "advantages",
           title: "장점",
           path: "/time-management/advantages/1",
-          image:
-            "https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=600",
+          image: "/공정관리%20장점.png",
         },
         {
           id: "cases",
           title: "핵심 개념",
           path: "/time-management/core/1",
-          image:
-            "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=600",
+          image: "/공정관리%20핵심%20개념.png",
         },
       ],
     },
@@ -92,22 +89,20 @@ function Header() {
           id: "overview",
           title: "개요",
           path: "/ppm/overview",
-          image:
-            "https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=600",
+          image: "/PPM%20개요.png",
         },
         {
           id: "functions",
           title: "기능 소개",
           path: "/ppm/functions/1",
-          image:
-            "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600",
+          image: "/PPM%20기능%20소개.png",
         },
         {
           id: "benefits",
-          title: "도입 효과",
+          title: "효과",
           path: "/ppm/benefits",
           image:
-            "https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=600",
+            "/PPM%20효과.png",
         },
       ],
     },

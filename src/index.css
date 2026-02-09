@@ -10628,6 +10628,12 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   justify-content: center;
 }
 
+/* PPM: Match benefits backgrounds to functions section tone */
+#benefits.ppm-benefits-section,
+#benefits-2.ppm-overview-content-section {
+  background: var(--color-bg-primary);
+}
+
 .ppm-overview-infographic {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-2xl);
@@ -10922,6 +10928,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 /* PPM Benefits 2 - Primavera P6 vs. MS Project */
 .ppm-benefits-compare-section {
   align-items: flex-start;
+  overflow: visible;
 }
 
 .ppm-benefits-compare-shell {
@@ -10930,18 +10937,26 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: clamp(15px, 2.3vh, 21px);
+  gap: clamp(16px, 2.4vh, 24px);
 }
 
 .ppm-benefits-compare-card {
-  padding: clamp(13px, 1.55vw, 19px);
+  padding: clamp(12px, 1.4vw, 18px);
+  border: none;
+  box-shadow: none;
 }
 
 .ppm-benefits-compare-table-wrap {
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(132, 173, 214, 0.38);
   border-radius: var(--radius-xl);
   overflow: hidden;
-  background: rgba(8, 16, 32, 0.68);
+  background:
+    linear-gradient(
+      160deg,
+      rgba(14, 28, 49, 0.9),
+      rgba(7, 17, 34, 0.92)
+    ),
+    rgba(8, 16, 32, 0.72);
 }
 
 .ppm-benefits-compare-table {
@@ -10951,61 +10966,94 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 }
 
 .ppm-benefits-compare-table thead th {
-  padding: 16px 20px;
+  padding: 15px 18px;
   font-family: var(--font-display);
-  font-size: clamp(var(--text-base), 1.12vw, var(--text-lg));
+  font-size: clamp(var(--text-base), 1.04vw, var(--text-lg));
   font-weight: 700;
-  color: var(--color-text-primary);
-  background: rgba(255, 255, 255, 0.04);
+  color: rgba(244, 250, 255, 0.98);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(34, 58, 90, 0.74),
+      rgba(24, 45, 73, 0.66)
+    ),
+    rgba(29, 50, 78, 0.62);
+  border-bottom: 1px solid rgba(132, 173, 214, 0.35);
   text-align: left;
+  letter-spacing: 0.01em;
 }
 
 .ppm-benefits-compare-table thead th:nth-child(1) {
-  width: 30%;
+  width: 32%;
 }
 
 .ppm-benefits-compare-table thead th:nth-child(2),
 .ppm-benefits-compare-table thead th:nth-child(3) {
-  width: 35%;
+  width: 34%;
+}
+
+.ppm-benefits-compare-table thead th:not(:last-child),
+.ppm-benefits-compare-table tbody th,
+.ppm-benefits-compare-table tbody td:not(:last-child) {
+  border-right: 1px solid rgba(119, 161, 203, 0.26);
 }
 
 .ppm-benefits-compare-table tbody th,
 .ppm-benefits-compare-table tbody td {
-  padding: 16px 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 15px 18px;
+  border-top: 1px solid rgba(118, 158, 199, 0.22);
   vertical-align: middle;
+}
+
+.ppm-benefits-compare-table tbody tr:nth-child(even) th,
+.ppm-benefits-compare-table tbody tr:nth-child(even) td {
+  background: rgba(10, 23, 44, 0.36);
 }
 
 .ppm-benefits-compare-table tbody th {
   font-family: var(--font-display);
-  font-size: clamp(var(--text-sm), 1.02vw, var(--text-base));
+  font-size: clamp(var(--text-sm), 0.95vw, var(--text-base));
   font-weight: 700;
-  color: var(--color-text-primary);
+  color: rgba(240, 246, 252, 0.96);
   text-align: left;
-  background: rgba(255, 255, 255, 0.02);
-  line-height: 1.36;
+  background: rgba(16, 30, 52, 0.42);
+  line-height: 1.4;
 }
 
 .ppm-benefits-compare-table tbody td {
-  font-size: clamp(var(--text-sm), 1vw, var(--text-base));
-  color: var(--color-text-secondary);
-  line-height: 1.36;
+  font-size: clamp(var(--text-sm), 0.93vw, var(--text-base));
+  color: rgba(214, 226, 240, 0.95);
+  line-height: 1.4;
 }
 
 .ppm-benefits-compare-cell {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 13px;
-  line-height: 1.36;
+  gap: 14px;
+  line-height: 1.4;
   white-space: nowrap;
 }
 
+.ppm-benefits-compare-text {
+  color: inherit;
+}
+
+.ppm-benefits-compare-text-accent {
+  color: #f4ab57;
+  font-weight: 700;
+}
+
+.ppm-benefits-compare-text-accent-soft {
+  color: #ffc07b;
+  font-weight: 700;
+}
+
 .ppm-benefits-compare-icon {
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  color: rgba(167, 223, 255, 0.95);
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  color: rgba(182, 224, 255, 0.96);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -11018,33 +11066,29 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 
 .ppm-benefits-compare-summary {
   max-width: 100%;
-  margin: clamp(12px, 1.8vh, 18px) auto 0;
+  margin: clamp(16px, 2.4vh, 24px) auto 0;
   width: 100%;
-  border-radius: var(--radius-xl);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: clamp(16px, 2.3vh, 25px) clamp(20px, 2.6vw, 32px);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(137, 179, 221, 0.3);
+  padding: clamp(14px, 2vh, 23px) clamp(16px, 2.1vw, 26px);
   text-align: center;
-  background:
-    linear-gradient(
-      150deg,
-      rgba(255, 255, 255, 0.03),
-      rgba(255, 255, 255, 0.01)
-    ),
-    rgba(6, 12, 24, 0.65);
+  background: rgba(9, 18, 35, 0.36);
+  box-shadow: none;
 }
 
 .ppm-benefits-compare-summary p {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(var(--text-base), 1.84vw, var(--text-xl));
+  font-size: clamp(1.5rem, 1.75vw, 1.98rem);
   font-weight: 700;
-  line-height: 1.34;
-  color: var(--color-text-primary);
+  line-height: 1.3;
+  color: rgba(234, 243, 252, 0.98);
   word-break: keep-all;
+  letter-spacing: -0.01em;
 }
 
 .ppm-benefits-compare-summary p + p {
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 @media (max-height: 920px) and (min-width: 1025px) {
@@ -11063,34 +11107,43 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   }
 
   .ppm-benefits-compare-summary {
-    margin-top: 20px;
-    padding: 13px 17px;
+    margin-top: 12px;
+    padding: 12px 15px;
   }
 
   .ppm-benefits-compare-summary p {
-    font-size: clamp(var(--text-sm), 1.45vw, var(--text-lg));
+    font-size: clamp(1.14rem, 1.34vw, 1.58rem);
   }
 }
 
 @media (max-height: 820px) and (min-width: 1025px) {
+  .ppm-benefits-compare-shell {
+    gap: 10px;
+  }
+
   .ppm-benefits-compare-table thead th,
   .ppm-benefits-compare-table tbody th,
   .ppm-benefits-compare-table tbody td {
-    padding: 12px 15px;
+    padding: 11px 14px;
   }
 
   .ppm-benefits-compare-icon {
-    width: 18px;
-    height: 18px;
-    min-width: 18px;
-  }
-
-  .ppm-benefits-compare-summary p + p {
-    margin-top: 7px;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
   }
 
   .ppm-benefits-compare-summary {
-    margin-top: 8px;
+    margin-top: 7px;
+    padding: 10px 12px;
+  }
+
+  .ppm-benefits-compare-summary p {
+    font-size: clamp(1.02rem, 1.2vw, 1.34rem);
+  }
+
+  .ppm-benefits-compare-summary p + p {
+    margin-top: 5px;
   }
 }
 
@@ -11101,12 +11154,13 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     padding: 14px 16px;
   }
 
-  .ppm-benefits-compare-table thead th {
-    font-size: var(--text-base);
+  .ppm-benefits-compare-summary {
+    margin-top: 12px;
+    padding: 11px 13px;
   }
 
-  .ppm-benefits-compare-cell {
-    font-size: var(--text-sm);
+  .ppm-benefits-compare-summary p {
+    font-size: clamp(1rem, 2vw, 1.3rem);
   }
 }
 
@@ -11143,11 +11197,13 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 
   .ppm-benefits-compare-table tbody th {
     border-top: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: none;
+    border-bottom: 1px solid rgba(118, 158, 199, 0.24);
     padding: 14px 16px;
   }
 
   .ppm-benefits-compare-table tbody td {
+    border-right: none;
     border-top: none;
     padding: 12px 16px 14px;
   }
@@ -11163,6 +11219,15 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 
   .ppm-benefits-compare-cell {
     white-space: normal;
+    grid-template-columns: minmax(0, 1fr) 24px;
+  }
+
+  .ppm-benefits-compare-summary {
+    margin-top: 10px;
+  }
+
+  .ppm-benefits-compare-summary p {
+    font-size: clamp(0.96rem, 4.2vw, 1.22rem);
   }
 }
 

@@ -32,19 +32,19 @@ const subMenuItems = [
     id: "overview",
     title: "개요",
     image:
-      "/일정 관리.png",
+      "/공정관리%20개요.png",
   },
   {
     id: "advantages",
     title: "장점",
     image:
-      "/진척 관리.png",
+      "/공정관리%20장점.png",
   },
   {
     id: "core",
     title: "핵심 개념",
     image:
-      "/자원 관리.png",
+      "/공정관리%20핵심%20개념.png",
   },
 ];
 
@@ -1305,12 +1305,19 @@ function TimeManagementPage() {
           id="hero"
           ref={heroSectionRef}
           style={{
-            backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url(/공정 분석.png)`,
+            backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url(/공정관리.png)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         >
-          <div className="tm-hero-section">
+          <div
+            className="tm-hero-section"
+            style={{
+              backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url(/공정관리.png)`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
             <div className="tm-hero-content">
               <h1 className="tm-hero-title">Time Management</h1>
               <p className="tm-hero-subtitle">공정관리</p>
