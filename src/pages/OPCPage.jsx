@@ -739,7 +739,11 @@ const comparisonRoleColumns = [
 function OPCComparisonRoleIcon({ iconKey }) {
   if (iconKey === "schedule-tool") {
     return (
-      <svg viewBox="0 0 64 64" className="opc-comparison-2-item-icon" aria-hidden="true">
+      <svg
+        viewBox="0 0 64 64"
+        className="opc-comparison-2-item-icon"
+        aria-hidden="true"
+      >
         <rect x="8" y="18" width="30" height="24" rx="5" />
         <path d="M38 30H56" />
         <path d="M48 20V40" />
@@ -750,7 +754,11 @@ function OPCComparisonRoleIcon({ iconKey }) {
 
   if (iconKey === "expert") {
     return (
-      <svg viewBox="0 0 64 64" className="opc-comparison-2-item-icon" aria-hidden="true">
+      <svg
+        viewBox="0 0 64 64"
+        className="opc-comparison-2-item-icon"
+        aria-hidden="true"
+      >
         <circle cx="32" cy="19" r="9" />
         <path d="M14 50C14 40 22 33 32 33C42 33 50 40 50 50" />
         <rect x="24" y="43" width="16" height="9" rx="2" />
@@ -760,7 +768,11 @@ function OPCComparisonRoleIcon({ iconKey }) {
 
   if (iconKey === "cpm") {
     return (
-      <svg viewBox="0 0 64 64" className="opc-comparison-2-item-icon" aria-hidden="true">
+      <svg
+        viewBox="0 0 64 64"
+        className="opc-comparison-2-item-icon"
+        aria-hidden="true"
+      >
         <rect x="8" y="10" width="48" height="44" rx="6" />
         <path d="M16 18H48M16 26H34M16 34H30M16 42H26" />
         <path d="M40 42L46 36L52 39" />
@@ -770,7 +782,11 @@ function OPCComparisonRoleIcon({ iconKey }) {
 
   if (iconKey === "local-file") {
     return (
-      <svg viewBox="0 0 64 64" className="opc-comparison-2-item-icon" aria-hidden="true">
+      <svg
+        viewBox="0 0 64 64"
+        className="opc-comparison-2-item-icon"
+        aria-hidden="true"
+      >
         <rect x="8" y="12" width="34" height="24" rx="4" />
         <rect x="18" y="42" width="14" height="4" rx="2" />
         <rect x="46" y="12" width="10" height="32" rx="2" />
@@ -780,7 +796,11 @@ function OPCComparisonRoleIcon({ iconKey }) {
 
   if (iconKey === "platform") {
     return (
-      <svg viewBox="0 0 64 64" className="opc-comparison-2-item-icon" aria-hidden="true">
+      <svg
+        viewBox="0 0 64 64"
+        className="opc-comparison-2-item-icon"
+        aria-hidden="true"
+      >
         <path d="M11 30C11 20 19 12 29 12C36 12 41 16 44 22C45 22 46 22 47 22C53 22 58 27 58 33C58 39 53 44 47 44H18C13 44 9 40 9 35C9 32 10 31 11 30Z" />
         <rect x="20" y="30" width="16" height="10" rx="2" />
         <path d="M42 30H52M42 36H52" />
@@ -790,7 +810,11 @@ function OPCComparisonRoleIcon({ iconKey }) {
 
   if (iconKey === "stakeholders") {
     return (
-      <svg viewBox="0 0 64 64" className="opc-comparison-2-item-icon" aria-hidden="true">
+      <svg
+        viewBox="0 0 64 64"
+        className="opc-comparison-2-item-icon"
+        aria-hidden="true"
+      >
         <circle cx="17" cy="22" r="6" />
         <circle cx="32" cy="18" r="7" />
         <circle cx="47" cy="22" r="6" />
@@ -803,7 +827,11 @@ function OPCComparisonRoleIcon({ iconKey }) {
 
   if (iconKey === "cost-risk") {
     return (
-      <svg viewBox="0 0 64 64" className="opc-comparison-2-item-icon" aria-hidden="true">
+      <svg
+        viewBox="0 0 64 64"
+        className="opc-comparison-2-item-icon"
+        aria-hidden="true"
+      >
         <circle cx="24" cy="24" r="10" />
         <circle cx="39" cy="24" r="10" />
         <circle cx="32" cy="39" r="10" />
@@ -813,7 +841,11 @@ function OPCComparisonRoleIcon({ iconKey }) {
   }
 
   return (
-    <svg viewBox="0 0 64 64" className="opc-comparison-2-item-icon" aria-hidden="true">
+    <svg
+      viewBox="0 0 64 64"
+      className="opc-comparison-2-item-icon"
+      aria-hidden="true"
+    >
       <path d="M16 36V22C16 17 20 13 25 13C29 13 32 15 34 18C35 17 38 16 40 16C46 16 50 20 50 26V36" />
       <rect x="12" y="36" width="40" height="14" rx="3" />
       <path d="M22 50V56M42 50V56" />
@@ -1389,9 +1421,10 @@ function OPCPage() {
 
       // Application
       if (applicationSectionRef.current) {
-        const comparisonElements = applicationSectionRef.current.querySelectorAll(
-          ".opc-comparison-animate",
-        );
+        const comparisonElements =
+          applicationSectionRef.current.querySelectorAll(
+            ".opc-comparison-animate",
+          );
 
         gsap.fromTo(
           comparisonElements,
@@ -1450,8 +1483,10 @@ function OPCPage() {
             }}
           >
             <div className="tm-hero-content">
-              <h1 className="opc-hero-title tm-hero-title">OPC</h1>
-              <p className="tm-hero-subtitle">Oracle Primavera Cloud</p>
+              <h1 className="opc-hero-title tm-hero-title">
+                Oracle Primavera Cloud
+              </h1>
+              <p className="tm-hero-subtitle">OPC</p>
             </div>
             <button
               className="scroll-indicator"
@@ -1806,7 +1841,9 @@ function OPCPage() {
                 className="opc-comparison-shell opc-comparison-animate"
                 ref={comparisonShellRef}
               >
-                <span className="opc-visually-hidden">{comparisonGroups.left.srText}</span>
+                <span className="opc-visually-hidden">
+                  {comparisonGroups.left.srText}
+                </span>
                 <span className="opc-visually-hidden">
                   {comparisonGroups.right.srText}
                 </span>
@@ -1876,7 +1913,10 @@ function OPCPage() {
                     </thead>
                     <tbody>
                       {comparisonRows.map((row, index) => (
-                        <tr key={row.item} ref={(el) => (comparisonRowRefs.current[index] = el)}>
+                        <tr
+                          key={row.item}
+                          ref={(el) => (comparisonRowRefs.current[index] = el)}
+                        >
                           <th
                             scope="row"
                             className={`opc-comparison-item-cell ${row.emphasized ? "is-emphasized" : ""}`}

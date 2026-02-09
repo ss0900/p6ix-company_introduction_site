@@ -1412,7 +1412,7 @@ function PPMPage() {
           }}
         >
           <div className="ppm-hero-content">
-            <h1 className="ppm-hero-title">Project Portfolio Management</h1>
+            <h1 className="ppm-hero-title">Professional Project Management</h1>
             <p className="ppm-hero-subtitle">PPM</p>
           </div>
           <button

@@ -542,8 +542,10 @@ function UnifierPage() {
             }}
           >
             <div className="tm-hero-content">
-              <h1 className="unifier-hero-title tm-hero-title">Unifier</h1>
-              <p className="tm-hero-subtitle">Oracle Primavera Unifier</p>
+              <h1 className="unifier-hero-title tm-hero-title">
+                Oracle Primavera Unifier
+              </h1>
+              <p className="tm-hero-subtitle">Unifier</p>
             </div>
             <button
               className="scroll-indicator"

@@ -539,8 +539,8 @@ function AconexPage() {
             }}
           >
             <div className="tm-hero-content">
-              <h1 className="aconex-hero-title tm-hero-title">Aconex</h1>
-              <p className="tm-hero-subtitle">Oracle Aconex</p>
+              <h1 className="aconex-hero-title tm-hero-title">Oracle Aconex</h1>
+              <p className="tm-hero-subtitle">Aconex</p>
             </div>
             <button
               className="scroll-indicator"

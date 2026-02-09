@@ -68,7 +68,7 @@ function TimeManagementAdvantages() {
       const containerWidth =
         ppmEppmSectionRef.current?.querySelector(".tm-ppm-eppm-grid")
           ?.offsetWidth || 1000;
-      
+
       const deltaRatio = (deltaX / containerWidth) * 100;
       let newRatio = dragStartRatioRef.current + deltaRatio;
 
@@ -428,7 +428,7 @@ function TimeManagementAdvantages() {
             ppmEppmDividerRef.current,
             { opacity: 0, scaleY: 0 },
             { opacity: 1, scaleY: 1, duration: 0.6, ease: "power2.inOut" },
-            "-=0.2"
+            "-=0.2",
           );
         }
 
@@ -446,21 +446,34 @@ function TimeManagementAdvantages() {
 
         // 0.8s - Icons Scale-up
         if (ppmEppmIconsRef.current.length > 0) {
-           tl.fromTo(
+          tl.fromTo(
             ppmEppmIconsRef.current,
             { opacity: 0, scale: 0, rotation: -15 },
-            { opacity: 1, scale: 1, rotation: 0, duration: 0.6, ease: "back.out(1.7)", stagger: 0.1 },
-            "-=0.4"
+            {
+              opacity: 1,
+              scale: 1,
+              rotation: 0,
+              duration: 0.6,
+              ease: "back.out(1.7)",
+              stagger: 0.1,
+            },
+            "-=0.4",
           );
         }
 
         // 1.0s - Bullets Fade-in (Staggered)
         if (ppmEppmBulletsRef.current.length > 0) {
-           tl.fromTo(
+          tl.fromTo(
             ppmEppmBulletsRef.current,
             { opacity: 0, x: -10 },
-            { opacity: 1, x: 0, duration: 0.4, stagger: 0.1, ease: "power2.out" },
-            "-=0.3"
+            {
+              opacity: 1,
+              x: 0,
+              duration: 0.4,
+              stagger: 0.1,
+              ease: "power2.out",
+            },
+            "-=0.3",
           );
         }
 
@@ -472,15 +485,22 @@ function TimeManagementAdvantages() {
             { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
             "-=0.2",
           );
-          
+
           // Highlight emphasis
           const ems = ppmEppmConclusionRef.current.querySelectorAll("em");
-          if(ems.length > 0) {
-             tl.fromTo(
+          if (ems.length > 0) {
+            tl.fromTo(
               ems,
-              { backgroundColor: "rgba(59, 130, 246, 0)", color: "var(--color-text-primary)" },
-              { backgroundColor: "rgba(59, 130, 246, 0.15)", color: "var(--color-accent)", duration: 0.5 },
-              "+=0.1"
+              {
+                backgroundColor: "rgba(59, 130, 246, 0)",
+                color: "var(--color-text-primary)",
+              },
+              {
+                backgroundColor: "rgba(59, 130, 246, 0.15)",
+                color: "var(--color-accent)",
+                duration: 0.5,
+              },
+              "+=0.1",
             );
           }
         }
@@ -1165,11 +1185,12 @@ function TimeManagementAdvantages() {
               </div>
 
               {/* Two Column Layout */}
-              <div 
-                className={`tm-ppm-eppm-grid ${isResizing ? 'tm-resizing' : ''}`}
+              <div
+                className={`tm-ppm-eppm-grid ${isResizing ? "tm-resizing" : ""}`}
                 style={{
                   gridTemplateColumns: `${leftRatio}% auto 1fr`,
-                  marginTop: "50px", marginBottom: "-10px"
+                  marginTop: "50px",
+                  marginBottom: "-10px",
                 }}
               >
                 {/* PPM Card */}
@@ -1204,7 +1225,14 @@ function TimeManagementAdvantages() {
                           fill="rgba(59, 130, 246, 0.1)"
                         />
                         <circle cx="9" cy="14" r="2" fill="currentColor" />
-                        <rect x="4" y="20" width="10" height="8" rx="1" fill="rgba(59, 130, 246, 0.3)" />
+                        <rect
+                          x="4"
+                          y="20"
+                          width="10"
+                          height="8"
+                          rx="1"
+                          fill="rgba(59, 130, 246, 0.3)"
+                        />
 
                         {/* Monitor (Moved Right to x=24) */}
                         <rect
@@ -1232,7 +1260,7 @@ function TimeManagementAdvantages() {
                           strokeWidth="2"
                           fill="none"
                         />
-                        
+
                         {/* Keyboard (Centered on Monitor) */}
                         <rect
                           x="34"
@@ -1276,13 +1304,13 @@ function TimeManagementAdvantages() {
                 </div>
 
                 {/* Divider */}
-                <div 
-                  className="tm-ppm-eppm-divider" 
+                <div
+                  className="tm-ppm-eppm-divider"
                   ref={ppmEppmDividerRef}
                   onMouseDown={handleMouseDown}
                 >
                   <div className="tm-ppm-eppm-vs">VS</div>
-                  
+
                   {/* Tooltip & Arrows */}
                   <div className="tm-divider-tooltip">
                     <span className="tm-divider-arrow">←</span>
@@ -1337,7 +1365,7 @@ function TimeManagementAdvantages() {
                           stroke="currentColor"
                           strokeWidth="1.5"
                         />
-                        
+
                         {/* Server (Moved Further Right) */}
                         <rect
                           x="62"

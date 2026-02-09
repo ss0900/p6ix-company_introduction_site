@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+﻿import { useEffect, useRef, useState, useCallback } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import SectionIndicator from "../components/SectionIndicator";
 import EppmFunctionsSection from "../components/EppmFunctionsSection";
+import RadarNetworkMap from "../components/RadarNetworkMap";
 import { eppmFunctionsIntro } from "../data/functionsIntroData";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
@@ -16,7 +17,9 @@ const sections = [
   { id: "cpm-features", label: "CPM 공정표" },
   { id: "functions", label: "기능 소개" },
   { id: "functions-2", label: "기능 소개 2" },
-  { id: "cases", label: "구축 사례" },
+  { id: "cases", label: "과정" },
+  { id: "cases-2", label: "과정 2" },
+  { id: "cases-3", label: "과정 3" },
 ];
 
 // Sub-menu items data
@@ -41,7 +44,7 @@ const subMenuItems = [
   {
     id: "cases",
     title: "과정",
-    description: "제조, 에너지, 건설 등 다양한 구축 사례",
+    description: "우선순위 결정 및 투자 최적화 과정",
     image:
       "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=600",
     link: "#cases",
@@ -414,26 +417,25 @@ const eppmCoreChallenges = [
   },
 ];
 
-// Cases Data
-const caseStudies = [
+const processInsightCards = [
   {
-    tag: "제조",
-    title: "글로벌 제조기업",
-    desc: "전사 R&D 프로젝트 통합 관리 시스템 구축",
-    img: "https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=600",
+    keyword: "Hierarchy",
+    body: "포트폴리오 → 프로그램 → 프로젝트의 계층적 관리 구조",
   },
   {
-    tag: "에너지",
-    title: "에너지 기업",
-    desc: "발전소 건설 프로젝트 포트폴리오 관리",
-    img: "https://images.pexels.com/photos/1036936/pexels-photo-1036936.jpeg?auto=compress&cs=tinysrgb&w=600",
+    keyword: "Constraints",
+    body: "자본 및 자원 제약 조건을 고려한 최적의 프로젝트 선별",
   },
   {
-    tag: "건설",
-    title: "종합 건설사",
-    desc: "국내외 건설 프로젝트 통합 관리",
-    img: "https://images.pexels.com/photos/159358/construction-site-build-construction-work-159358.jpeg?auto=compress&cs=tinysrgb&w=600",
+    keyword: "Outcome",
+    body: "기업 전략에 부합하는 프로젝트 선정",
   },
+];
+
+const processStep2PlaceholderCards = [
+  { title: "Placeholder 1", body: "Content coming soon." },
+  { title: "Placeholder 2", body: "Content coming soon." },
+  { title: "Placeholder 3", body: "Content coming soon." },
 ];
 
 function EPPMPage() {
@@ -526,7 +528,8 @@ function EPPMPage() {
         targetId = "functions";
       }
       if (sectionId === "process") {
-        targetId = "cases";
+        targetId =
+          subId === "3" ? "cases-3" : subId === "2" ? "cases-2" : "cases";
       }
       // cases matches cases
 
@@ -550,6 +553,8 @@ function EPPMPage() {
       if (index === 4) path = "/eppm/functions/1";
       if (index === 5) path = "/eppm/functions/2";
       if (index === 6) path = "/eppm/process/1";
+      if (index === 7) path = "/eppm/process/2";
+      if (index === 8) path = "/eppm/process/3";
 
       navigate(path, { replace: true });
     },
@@ -932,10 +937,12 @@ function EPPMPage() {
             }}
           >
             <div className="tm-hero-content">
-              <h1 className="eppm-hero-title tm-hero-title">EPPM</h1>
-              <p className="tm-hero-subtitle">
-                Enterprise Project Portfolio Management
-              </p>
+              <h1 className="eppm-hero-title tm-hero-title">
+                Enterprise Professional
+                <br />
+                Project Management
+              </h1>
+              <p className="tm-hero-subtitle">EPPM</p>
             </div>
             <button
               className="scroll-indicator"
@@ -1164,84 +1171,211 @@ function EPPMPage() {
           isActive={activeSectionId === "functions-2"}
         />
 
-        {/* 6. Cases Section */}
+        {/* 6. Process Section 1 */}
+        <section className="eppm-panel tm-panel" id="cases">
+          <div className="tm-advantages-section eppm-process-section">
+            <div className="tm-advantages-container eppm-process-container">
+              <div className="tm-section-header">
+                <h2 className="tm-section-title">단일 플랫폼, 완전한 통제</h2>
+              </div>
 
+              <div className="eppm-process-shell">
+                <div className="eppm-process-badge" aria-hidden="true">
+                  <svg
+                    className="eppm-process-badge-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 4L4 8L12 12L20 8L12 4Z"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M4 12L12 16L20 12"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M4 16L12 20L20 16"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+
+                <div className="eppm-process-grid">
+                  <article className="eppm-process-visual-card tm-ppm-eppm-card">
+                    <div className="eppm-process-visual-media">
+                      <span>Step 1 Placeholder</span>
+                    </div>
+                  </article>
+
+                  <div className="eppm-process-info-stack">
+                    {processStep2PlaceholderCards.map((item) => (
+                      <article
+                        key={item.title}
+                        className="eppm-process-info-card tm-ppm-eppm-card"
+                      >
+                        <h3 className="eppm-process-info-label">
+                          {item.title}
+                        </h3>
+                        <p className="eppm-process-info-body">{item.body}</p>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 7. Process Section 2 */}
         <section
           className="eppm-panel tm-panel"
-          id="cases"
+          id="cases-2"
           ref={casesSectionRef}
         >
-          <div className="tm-advantages-section">
-            <div className="tm-advantages-container">
+          <div className="tm-advantages-section eppm-process-section">
+            <div className="tm-advantages-container eppm-process-container">
               <div className="tm-section-header">
-                <h2 className="tm-section-title">구축 사례</h2>
+                <h2 className="tm-section-title">
+                  1단계: 우선순위 결정 및 투자 최적화
+                </h2>
               </div>
-              <div
-                className="tm-ppm-eppm-grid"
-                style={{
-                  gridTemplateColumns: "repeat(3, 1fr)",
-                  gap: "30px",
-                  marginTop: "40px",
-                }}
-              >
-                {caseStudies.map((item, index) => (
-                  <div
-                    key={index}
-                    className="tm-ppm-eppm-card"
-                    style={{ padding: "0", overflow: "hidden", height: "auto" }}
-                    ref={(el) => (casesCardsRef.current[index] = el)}
+
+              <div className="eppm-process-shell">
+                <div className="eppm-process-badge" aria-hidden="true">
+                  <svg
+                    className="eppm-process-badge-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <div
-                      className="tm-card-image"
-                      style={{ height: "200px", overflow: "hidden" }}
-                    >
-                      <img
-                        src={item.img}
-                        alt={item.title}
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "cover",
-                        }}
-                      />
+                    <path
+                      d="M12 4L4 8L12 12L20 8L12 4Z"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M4 12L12 16L20 12"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M4 16L12 20L20 16"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+
+                <div className="eppm-process-grid">
+                  <article
+                    className="eppm-process-visual-card tm-ppm-eppm-card"
+                    ref={(el) => (casesCardsRef.current[0] = el)}
+                  >
+                    <div className="eppm-process-visual-media eppm-process-visual-media--radar">
+                      <RadarNetworkMap />
                     </div>
-                    <div
-                      className="tm-card-content"
-                      style={{ padding: "20px" }}
-                    >
-                      <span
-                        style={{
-                          fontSize: "0.8rem",
-                          color: "var(--color-accent)",
-                          fontWeight: "600",
-                          textTransform: "uppercase",
-                          display: "block",
-                          marginBottom: "8px",
-                        }}
+                  </article>
+
+                  <div className="eppm-process-info-stack">
+                    {processInsightCards.map((item, index) => (
+                      <article
+                        key={item.keyword}
+                        className="eppm-process-info-card tm-ppm-eppm-card"
+                        ref={(el) => (casesCardsRef.current[index + 1] = el)}
                       >
-                        {item.tag}
-                      </span>
-                      <h3
-                        style={{
-                          fontSize: "1.25rem",
-                          marginBottom: "10px",
-                          color: "var(--text-primary)",
-                        }}
-                      >
-                        {item.title}
-                      </h3>
-                      <p
-                        style={{
-                          fontSize: "0.9rem",
-                          color: "var(--text-secondary)",
-                          lineHeight: "1.5",
-                        }}
-                      >
-                        {item.desc}
-                      </p>
-                    </div>
+                        <h3 className="eppm-process-info-label">
+                          {item.keyword}:
+                        </h3>
+                        <p className="eppm-process-info-body">{item.body}</p>
+                      </article>
+                    ))}
                   </div>
-                ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 8. Process Section 3 */}
+        <section className="eppm-panel tm-panel" id="cases-3">
+          <div className="tm-advantages-section eppm-process-section">
+            <div className="tm-advantages-container eppm-process-container">
+              <div className="tm-section-header">
+                <h2 className="tm-section-title">
+                  2단계: 정교한 계획 및 일정 수립
+                </h2>
+              </div>
+
+              <div className="eppm-process-shell">
+                <div className="eppm-process-badge" aria-hidden="true">
+                  <svg
+                    className="eppm-process-badge-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 4L4 8L12 12L20 8L12 4Z"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M4 12L12 16L20 12"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M4 16L12 20L20 16"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+
+                <div className="eppm-process-grid">
+                  <article className="eppm-process-visual-card tm-ppm-eppm-card">
+                    <div className="eppm-process-visual-media">
+                      <span>Step 2 Placeholder</span>
+                    </div>
+                  </article>
+
+                  <div className="eppm-process-info-stack">
+                    {processStep2PlaceholderCards.map((item) => (
+                      <article
+                        key={item.title}
+                        className="eppm-process-info-card tm-ppm-eppm-card"
+                      >
+                        <h3 className="eppm-process-info-label">
+                          {item.title}
+                        </h3>
+                        <p className="eppm-process-info-body">{item.body}</p>
+                      </article>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
