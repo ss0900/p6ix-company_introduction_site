@@ -1245,65 +1245,276 @@ function EPPMPage() {
 
         {/* 6. Process Section 1 */}
         <section className="eppm-panel tm-panel" id="cases">
-          <div className="tm-advantages-section eppm-process-section">
-            <div className="tm-advantages-container eppm-process-container">
-              <div className="tm-section-header">
-                <h2 className="tm-section-title">단일 플랫폼, 완전한 통제</h2>
-              </div>
+          <div className="tm-advantages-section eppm-process-section eppm-process-focus-section">
+            <div className="tm-advantages-container eppm-process-container eppm-process-focus-container">
+              <div className="eppm-process-focus-layout">
+                <div className="tm-section-header eppm-process-focus-header">
+                  <h2 className="tm-section-title">단일 플랫폼, 완전한 통제</h2>
+                  <p className="eppm-process-focus-subtitle">
+                    <span>
+                      프로젝트, 프로그램, 포트폴리오를 아우르는 엔터프라이즈급
+                      관리 솔루션
+                    </span>
+                  </p>
+                </div>
 
-              <div className="eppm-process-shell">
-                <div className="eppm-process-badge" aria-hidden="true">
+                <div className="eppm-process-focus-visual">
                   <svg
-                    className="eppm-process-badge-icon"
-                    viewBox="0 0 24 24"
-                    fill="none"
+                    className="eppm-process-focus-svg"
+                    viewBox="0 0 640 640"
+                    role="img"
+                    aria-label="P6 통합 관리 허브 다이어그램"
                     xmlns="http://www.w3.org/2000/svg"
                   >
+                    <title>P6 통합 관리 허브 다이어그램</title>
+                    <defs>
+                      <linearGradient
+                        id="eppmHubRingGradient"
+                        x1="120"
+                        y1="120"
+                        x2="520"
+                        y2="520"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop
+                          offset="0%"
+                          stopColor="#9ad4ff"
+                          stopOpacity="0.9"
+                        />
+                        <stop
+                          offset="55%"
+                          stopColor="#4cb9ff"
+                          stopOpacity="0.8"
+                        />
+                        <stop
+                          offset="100%"
+                          stopColor="#1a84d6"
+                          stopOpacity="0.9"
+                        />
+                      </linearGradient>
+                      <radialGradient
+                        id="eppmHubCoreGradient"
+                        cx="0.5"
+                        cy="0.5"
+                        r="0.62"
+                      >
+                        <stop
+                          offset="0%"
+                          stopColor="#1c5c93"
+                          stopOpacity="0.9"
+                        />
+                        <stop
+                          offset="100%"
+                          stopColor="#0b1627"
+                          stopOpacity="0.95"
+                        />
+                      </radialGradient>
+                      <radialGradient
+                        id="eppmHubAuraGradient"
+                        cx="0.5"
+                        cy="0.5"
+                        r="0.7"
+                      >
+                        <stop
+                          offset="0%"
+                          stopColor="#29c3ff"
+                          stopOpacity="0.2"
+                        />
+                        <stop
+                          offset="100%"
+                          stopColor="#29c3ff"
+                          stopOpacity="0"
+                        />
+                      </radialGradient>
+                      <pattern
+                        id="eppmHubBlueprintPattern"
+                        width="22"
+                        height="22"
+                        patternUnits="userSpaceOnUse"
+                      >
+                        <path
+                          d="M22 0H0V22"
+                          fill="none"
+                          stroke="rgba(140, 206, 255, 0.32)"
+                          strokeWidth="0.8"
+                        />
+                      </pattern>
+                    </defs>
+
+                    <circle
+                      cx="320"
+                      cy="320"
+                      r="272"
+                      fill="url(#eppmHubAuraGradient)"
+                    />
+                    <circle
+                      cx="320"
+                      cy="320"
+                      r="258"
+                      fill="url(#eppmHubBlueprintPattern)"
+                      opacity="0.26"
+                    />
+                    <circle
+                      cx="320"
+                      cy="320"
+                      r="244"
+                      fill="none"
+                      stroke="rgba(117, 195, 255, 0.2)"
+                      strokeWidth="1.6"
+                    />
+
                     <path
-                      d="M12 4L4 8L12 12L20 8L12 4Z"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                      className="eppm-process-focus-ring-segment"
+                      d="M201.8 151.3 A206 206 0 0 1 438.2 151.3"
                     />
                     <path
-                      d="M4 12L12 16L20 12"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                      className="eppm-process-focus-ring-segment"
+                      d="M488.7 201.8 A206 206 0 0 1 488.7 438.2"
                     />
                     <path
-                      d="M4 16L12 20L20 16"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                      className="eppm-process-focus-ring-segment"
+                      d="M438.2 488.7 A206 206 0 0 1 201.8 488.7"
                     />
+                    <path
+                      className="eppm-process-focus-ring-segment"
+                      d="M151.3 438.2 A206 206 0 0 1 151.3 201.8"
+                    />
+
+                    <path
+                      className="eppm-process-focus-inner-segment"
+                      d="M228.2 189.0 A160 160 0 0 1 411.8 189.0"
+                    />
+                    <path
+                      className="eppm-process-focus-inner-segment"
+                      d="M451.0 228.2 A160 160 0 0 1 451.0 411.8"
+                    />
+                    <path
+                      className="eppm-process-focus-inner-segment"
+                      d="M411.8 451.0 A160 160 0 0 1 228.2 451.0"
+                    />
+                    <path
+                      className="eppm-process-focus-inner-segment"
+                      d="M189.0 411.8 A160 160 0 0 1 189.0 228.2"
+                    />
+
+                    <line
+                      className="eppm-process-focus-connector"
+                      x1="320"
+                      y1="320"
+                      x2="320"
+                      y2="162"
+                    />
+                    <line
+                      className="eppm-process-focus-connector"
+                      x1="320"
+                      y1="320"
+                      x2="478"
+                      y2="320"
+                    />
+                    <line
+                      className="eppm-process-focus-connector"
+                      x1="320"
+                      y1="320"
+                      x2="320"
+                      y2="478"
+                    />
+                    <line
+                      className="eppm-process-focus-connector"
+                      x1="320"
+                      y1="320"
+                      x2="162"
+                      y2="320"
+                    />
+
+                    <circle
+                      cx="320"
+                      cy="320"
+                      r="120"
+                      className="eppm-process-focus-core-outer"
+                    />
+                    <circle
+                      cx="320"
+                      cy="320"
+                      r="90"
+                      className="eppm-process-focus-core-inner"
+                    />
+
+                    <ellipse
+                      cx="320"
+                      cy="292"
+                      rx="28"
+                      ry="10"
+                      className="eppm-process-focus-db-line"
+                    />
+                    <path
+                      d="M292 292V332C292 337.5 304.5 342 320 342C335.5 342 348 337.5 348 332V292"
+                      className="eppm-process-focus-db-line"
+                    />
+                    <path
+                      d="M292 307C292 312.5 304.5 317 320 317C335.5 317 348 312.5 348 307"
+                      className="eppm-process-focus-db-line"
+                    />
+                    <path
+                      d="M292 322C292 327.5 304.5 332 320 332C335.5 332 348 327.5 348 322"
+                      className="eppm-process-focus-db-line"
+                    />
+                    <text
+                      x="322"
+                      y="390"
+                      textAnchor="middle"
+                      className="eppm-process-focus-core-text"
+                    >
+                      P6
+                    </text>
+
+                    <text
+                      x="320"
+                      y="154"
+                      textAnchor="middle"
+                      className="eppm-process-focus-label"
+                    >
+                      우선순위 결정
+                    </text>
+                    <text
+                      x="498"
+                      y="304"
+                      textAnchor="middle"
+                      className="eppm-process-focus-label"
+                    >
+                      <tspan x="498" dy="0">
+                        계획 및
+                      </tspan>
+                      <tspan x="498" dy="36">
+                        일정 수립
+                      </tspan>
+                    </text>
+                    <text
+                      x="320"
+                      y="514"
+                      textAnchor="middle"
+                      className="eppm-process-focus-label"
+                    >
+                      실행 통제
+                    </text>
+                    <text
+                      x="142"
+                      y="304"
+                      textAnchor="middle"
+                      className="eppm-process-focus-label"
+                    >
+                      <tspan x="142" dy="0">
+                        성과
+                      </tspan>
+                      <tspan x="142" dy="36">
+                        분석
+                      </tspan>
+                    </text>
                   </svg>
                 </div>
 
-                <div className="eppm-process-grid">
-                  <article className="eppm-process-visual-card tm-ppm-eppm-card">
-                    <div className="eppm-process-visual-media">
-                      <span>Step 1 Placeholder</span>
-                    </div>
-                  </article>
-
-                  <div className="eppm-process-info-stack">
-                    {processStep2PlaceholderCards.map((item) => (
-                      <article
-                        key={item.title}
-                        className="eppm-process-info-card tm-ppm-eppm-card"
-                      >
-                        <h3 className="eppm-process-info-label">
-                          {item.title}
-                        </h3>
-                        <p className="eppm-process-info-body">{item.body}</p>
-                      </article>
-                    ))}
-                  </div>
-                </div>
+                <p className="eppm-process-focus-key-message">
+                  단일 플랫폼에서의 통합된 시각 필요.
+                </p>
               </div>
             </div>
           </div>

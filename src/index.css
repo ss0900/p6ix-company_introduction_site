@@ -8883,6 +8883,11 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   position: relative;
 }
 
+.eppm-page-container #cases .eppm-process-focus-section {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
 .eppm-process-focus-layout {
   width: 100%;
   min-height: clamp(560px, 78vh, 800px);
@@ -8893,6 +8898,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 
 .eppm-process-focus-header {
   max-width: 460px;
+  margin-top: clamp(20px, 3vh, 40px);
 }
 
 .eppm-process-focus-subtitle {
@@ -8915,6 +8921,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: clamp(8px, 1.8vh, 22px);
 }
 
 .eppm-process-focus-svg {
@@ -8978,6 +8985,10 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   font-family: var(--font-display);
   font-size: 34px;
   font-weight: 700;
+  stroke: rgba(3, 8, 16, 0.95);
+  stroke-width: 3.6px;
+  stroke-linejoin: round;
+  paint-order: stroke fill;
 }
 
 .eppm-process-focus-key-message {
@@ -8988,6 +8999,48 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   font-size: clamp(var(--text-xl), 2vw, var(--text-3xl));
   font-weight: 700;
   line-height: 1.35;
+}
+
+.eppm-page-container #cases .eppm-process-focus-layout {
+  --cases-diagram-width: min(42vw, 520px);
+  min-height: clamp(560px, 76vh, 780px);
+  grid-template-columns: minmax(320px, 460px) minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "header visual"
+    "header key";
+  column-gap: clamp(28px, 4.2vw, 68px);
+  row-gap: clamp(14px, 2vh, 26px);
+  align-items: start;
+}
+
+.eppm-page-container #cases .eppm-process-focus-header {
+  grid-area: header;
+  align-self: start;
+  margin-top: 40px;
+}
+
+.eppm-page-container #cases .eppm-process-focus-visual {
+  grid-area: visual;
+  width: var(--cases-diagram-width);
+  justify-self: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+}
+
+.eppm-page-container #cases .eppm-process-focus-svg {
+  width: 100%;
+  min-width: 0;
+}
+
+.eppm-page-container #cases .eppm-process-focus-key-message {
+  grid-area: key;
+  justify-self: center;
+  align-self: start;
+  width: var(--cases-diagram-width);
+  margin-top: clamp(-4px, -0.5vh, 4px);
+  font-size: clamp(var(--text-lg), 1.6vw, var(--text-2xl));
 }
 
 .eppm-process-shell {
@@ -9206,13 +9259,48 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     gap: clamp(20px, 2.4vh, 30px);
   }
 
+  .eppm-page-container #cases .eppm-process-focus-layout {
+    --cases-diagram-width: min(78vw, 500px);
+    min-height: clamp(520px, 74vh, 760px);
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "header"
+      "visual"
+      "key";
+    row-gap: clamp(20px, 2.4vh, 30px);
+  }
+
   .eppm-process-focus-svg {
     width: min(82vw, 560px);
     min-width: 280px;
   }
 
+  .eppm-page-container #cases .eppm-process-focus-svg {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .eppm-process-focus-header {
+    margin-top: clamp(12px, 2vh, 24px);
+  }
+
+  .eppm-page-container #cases .eppm-process-focus-header {
+    margin-top: clamp(12px, 2vh, 24px);
+  }
+
+  .eppm-process-focus-visual {
+    margin-top: clamp(4px, 1.4vh, 14px);
+  }
+
+  .eppm-page-container #cases .eppm-process-focus-key-message {
+    width: var(--cases-diagram-width);
+    margin-top: 0;
+  }
+
   .eppm-process-focus-label {
     font-size: 31px;
+    stroke-width: 3.3px;
   }
 
   .eppm-process-focus-core-text {
@@ -9298,8 +9386,21 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     gap: var(--space-lg);
   }
 
+  .eppm-page-container #cases .eppm-process-focus-layout {
+    --cases-diagram-width: min(90vw, 390px);
+    min-height: clamp(500px, 70vh, 680px);
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "header"
+      "visual"
+      "key";
+    row-gap: var(--space-lg);
+  }
+
   .eppm-process-focus-header {
     max-width: 100%;
+    margin-top: 0;
   }
 
   .eppm-process-focus-subtitle {
@@ -9313,8 +9414,13 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     min-width: 250px;
   }
 
+  .eppm-page-container #cases .eppm-process-focus-key-message {
+    width: var(--cases-diagram-width);
+  }
+
   .eppm-process-focus-label {
     font-size: 29px;
+    stroke-width: 3px;
   }
 
   .eppm-process-focus-core-text {
