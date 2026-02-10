@@ -25,7 +25,7 @@ const subMenuItems = [
     title: "개요",
     description: "클라우드 기반의 유연한 프로젝트 관리",
     image:
-      "https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "/OPC%20개요.png",
     link: "#overview-content",
   },
   {
@@ -1477,7 +1477,7 @@ function OPCPage() {
           <div
             className="tm-hero-section"
             style={{
-              backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url(https://images.pexels.com/photos/540518/pexels-photo-540518.jpeg?auto=compress&cs=tinysrgb&w=1200)`,
+              backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url(/OPC.png)`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}

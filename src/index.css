@@ -11568,6 +11568,226 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   }
 }
 
+/* Unifier Benefits (KPI 2-card layout) */
+#customers .unifier-benefits-section {
+  padding: clamp(20px, 4vh, 44px) var(--space-xl);
+  background: var(--color-bg-primary);
+}
+
+#customers .unifier-benefits-container {
+  max-width: 1160px;
+  min-height: calc(100vh - clamp(72px, 12vh, 140px) - 40px);
+  margin-top: clamp(152px, 12vh, 210px);
+  justify-content: flex-start;
+  gap: clamp(20px, 2.4vh, 34px);
+}
+
+#customers .unifier-benefits-header .tm-section-title {
+  max-width: 980px;
+  line-height: 1.2;
+}
+
+#customers .unifier-benefits-subtitle {
+  margin: var(--space-lg) 0 0;
+  max-width: 920px;
+  color: var(--color-text-secondary);
+  font-size: clamp(1rem, 1.2vw, 1.4rem);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+#customers .unifier-benefits-kpi-grid {
+  width: min(100%, 1040px);
+  margin: clamp(4px, 0.8vh, 12px) auto 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(16px, 1.8vw, 28px);
+}
+
+#customers .unifier-benefits-kpi-card {
+  /* Reuses .tm-ppm-eppm-card shell; this block only adjusts KPI layout/scale */
+  min-height: clamp(220px, 33vh, 340px);
+  padding: clamp(24px, 2.7vw, 42px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-color: rgba(255, 255, 255, 0.12);
+  background: linear-gradient(
+    170deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  box-shadow: var(--shadow-sm);
+}
+
+#customers .unifier-benefits-kpi-value {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(3.8rem, 9vw, 8rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+}
+
+#customers .unifier-benefits-kpi-label {
+  margin: clamp(14px, 2vh, 24px) 0 0;
+  color: var(--color-text-primary);
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.6vw, 2rem);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+#customers .unifier-benefits-conclusion {
+  margin: clamp(8px, 1.6vh, 20px) auto 0;
+  text-align: center;
+  color: var(--color-text-primary);
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.75vw, 2.1rem);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 1024px) {
+  #customers .unifier-benefits-section {
+    padding: var(--space-xl) var(--space-lg);
+  }
+
+  #customers .unifier-benefits-container {
+    min-height: auto;
+    margin-top: clamp(132px, 10vh, 172px);
+    gap: var(--space-xl);
+  }
+
+  #customers .unifier-benefits-kpi-grid {
+    gap: var(--space-lg);
+  }
+
+  #customers .unifier-benefits-kpi-card {
+    min-height: clamp(200px, 30vw, 280px);
+    padding: clamp(20px, 2.6vw, 30px);
+  }
+}
+
+@media (max-width: 640px) {
+  #customers .unifier-benefits-section {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  #customers .unifier-benefits-container {
+    margin-top: clamp(112px, 8.4vh, 142px);
+    gap: var(--space-lg);
+  }
+
+  #customers .unifier-benefits-kpi-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  #customers .unifier-benefits-kpi-card {
+    min-height: 176px;
+    padding: var(--space-lg);
+  }
+
+  #customers .unifier-benefits-kpi-value {
+    font-size: clamp(3.2rem, 17vw, 4.5rem);
+  }
+
+  #customers .unifier-benefits-kpi-label {
+    font-size: clamp(0.96rem, 4.6vw, 1.24rem);
+  }
+
+  #customers .unifier-benefits-subtitle {
+    font-size: clamp(0.9rem, 3.6vw, 1.05rem);
+  }
+
+  #customers .unifier-benefits-conclusion {
+    font-size: clamp(0.96rem, 4.2vw, 1.28rem);
+  }
+}
+
+/* Unifier Benefits 2 (placeholder scaffold) */
+#benefits-2 .unifier-benefits-section {
+  padding: clamp(20px, 4vh, 44px) var(--space-xl);
+  background: var(--color-bg-primary);
+}
+
+#benefits-2 .unifier-benefits-container {
+  max-width: 1160px;
+  min-height: calc(100vh - clamp(72px, 12vh, 140px) - 40px);
+  margin-top: clamp(152px, 12vh, 210px);
+  justify-content: flex-start;
+  gap: clamp(20px, 2.4vh, 34px);
+}
+
+#benefits-2 .unifier-benefits-header .tm-section-title {
+  max-width: 980px;
+  line-height: 1.2;
+}
+
+#benefits-2 .unifier-benefits-2-placeholder {
+  width: min(100%, 1040px);
+  margin: clamp(4px, 0.8vh, 12px) auto 0;
+  min-height: clamp(220px, 33vh, 340px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-color: rgba(255, 255, 255, 0.12);
+  background: linear-gradient(
+    170deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  box-shadow: var(--shadow-sm);
+}
+
+#benefits-2 .unifier-benefits-2-placeholder p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-family: var(--font-primary);
+  font-size: clamp(1rem, 1.2vw, 1.25rem);
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 1024px) {
+  #benefits-2 .unifier-benefits-section {
+    padding: var(--space-xl) var(--space-lg);
+  }
+
+  #benefits-2 .unifier-benefits-container {
+    min-height: auto;
+    margin-top: clamp(132px, 10vh, 172px);
+    gap: var(--space-xl);
+  }
+
+  #benefits-2 .unifier-benefits-2-placeholder {
+    min-height: clamp(200px, 30vw, 280px);
+    padding: clamp(20px, 2.6vw, 30px);
+  }
+}
+
+@media (max-width: 640px) {
+  #benefits-2 .unifier-benefits-section {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  #benefits-2 .unifier-benefits-container {
+    margin-top: clamp(112px, 8.4vh, 142px);
+    gap: var(--space-lg);
+  }
+
+  #benefits-2 .unifier-benefits-2-placeholder {
+    min-height: 176px;
+    padding: var(--space-lg);
+  }
+}
+
 /* EPPM Functions: swap layout (cards left, image right) on desktop */
 .eppm-page-container #functions .ppm-functions-layout,
 .eppm-page-container #functions-2 .ppm-functions-layout {

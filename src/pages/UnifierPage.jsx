@@ -18,6 +18,7 @@ const sections = [
   { id: "functions", label: "기능 소개" },
   { id: "functions-2", label: "기능 소개 2" },
   { id: "customers", label: "효과" },
+  { id: "benefits-2", label: "효과 2" },
 ];
 
 const subMenuItems = [
@@ -74,26 +75,9 @@ const {
 const { title: functionsTitle2, items: functionItems2 } =
   unifierFunctions2Intro;
 
-// Customers Data
-const customersData = [
-  {
-    tag: "공공",
-    title: "공공기관 시설 관리",
-    desc: "대규모 공공 시설의 자산 및 유지보수 관리 시스템 구축",
-    img: "https://images.pexels.com/photos/1036936/pexels-photo-1036936.jpeg?auto=compress&cs=tinysrgb&w=600",
-  },
-  {
-    tag: "부동산",
-    title: "부동산 개발사",
-    desc: "복합 개발 프로젝트의 비용 및 계약 관리",
-    img: "https://images.pexels.com/photos/416405/pexels-photo-416405.jpeg?auto=compress&cs=tinysrgb&w=600",
-  },
-  {
-    tag: "인프라",
-    title: "인프라 운영사",
-    desc: "도로 및 철도 자산의 생애주기 관리",
-    img: "https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=600",
-  },
+const benefitsKpiData = [
+  { value: "125+", label: "사전 구성된 비즈니스 프로세스" },
+  { value: "250+", label: "대시보드 및 리포트" },
 ];
 
 function UnifierPage() {
@@ -113,7 +97,8 @@ function UnifierPage() {
   const overviewSectionRef2 = useRef(null);
   const functionsSectionRef = useRef(null);
   const functionsSectionRef2 = useRef(null);
-  const customersSectionRef = useRef(null);
+  const benefitsSectionRef = useRef(null);
+  const benefitsSectionRef2 = useRef(null);
 
   // Animation refs
   const overviewCardsRef = useRef([]);
@@ -122,7 +107,8 @@ function UnifierPage() {
   const functionsImageCardRef2 = useRef(null);
   const functionsCardsRef = useRef([]);
   const functionsCardsRef2 = useRef([]);
-  const customersCardsRef = useRef([]);
+  const benefitsItemsRef = useRef([]);
+  const benefitsItemsRef2 = useRef([]);
 
   // Check reduced motion preference
   useEffect(() => {
@@ -168,8 +154,9 @@ function UnifierPage() {
   useEffect(() => {
     if (sectionId) {
       // Handle mapping if necessary, or just rely on direct ID match
-      // The user requested /unifier/overview/1, /unifier/overview/2, /unifier/functions/1, /unifier/functions/2, /unifier/benefits/1
-      // Our IDs are: overview-content, overview-content-2, functions, functions-2, customers
+      // Route map:
+      // /unifier/overview/1, /unifier/overview/2, /unifier/functions/1, /unifier/functions/2, /unifier/benefits/1, /unifier/benefits/2
+      // IDs: overview-content, overview-content-2, functions, functions-2, customers, benefits-2
 
       let targetId = sectionId;
       if (sectionId === "overview")
@@ -177,7 +164,8 @@ function UnifierPage() {
       if (sectionId === "modules") targetId = "functions";
       if (sectionId === "functions")
         targetId = subId === "2" ? "functions-2" : "functions";
-      if (sectionId === "benefits") targetId = "customers";
+      if (sectionId === "benefits")
+        targetId = subId === "2" ? "benefits-2" : "customers";
 
       const foundIndex = sections.findIndex((s) => s.id === targetId);
 
@@ -199,6 +187,7 @@ function UnifierPage() {
       if (index === 4) path = "/unifier/functions/1";
       if (index === 5) path = "/unifier/functions/2";
       if (index === 6) path = "/unifier/benefits/1";
+      if (index === 7) path = "/unifier/benefits/2";
 
       navigate(path, { replace: true });
     },
@@ -532,10 +521,10 @@ function UnifierPage() {
         }
       }
 
-      // Customers
-      if (customersSectionRef.current) {
+      // Benefits
+      if (benefitsSectionRef.current) {
         gsap.fromTo(
-          customersCardsRef.current,
+          benefitsItemsRef.current,
           { y: 50, opacity: 0 },
           {
             y: 0,
@@ -543,7 +532,25 @@ function UnifierPage() {
             duration: 0.6,
             stagger: 0.2,
             scrollTrigger: {
-              trigger: customersSectionRef.current,
+              trigger: benefitsSectionRef.current,
+              start: "top 60%",
+              toggleActions: "play none none reverse",
+            },
+          },
+        );
+      }
+
+      if (benefitsSectionRef2.current) {
+        gsap.fromTo(
+          benefitsItemsRef2.current,
+          { y: 50, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            stagger: 0.2,
+            scrollTrigger: {
+              trigger: benefitsSectionRef2.current,
               start: "top 60%",
               toggleActions: "play none none reverse",
             },
@@ -726,7 +733,7 @@ function UnifierPage() {
                 className="unifier-overview-summary"
                 ref={(el) => (overviewCardsRef.current[2] = el)}
               >
-                여러 참여자가 공통된 프로세스 안에서 표준화·자동화된 방식으로
+                여러 참여자가 공통된 프로세스 안에서 표준화 · 자동화된 방식으로
                 협업합니다.
               </p>
             </div>
@@ -819,93 +826,74 @@ function UnifierPage() {
           isActive={sections[activeSection]?.id === "functions-2"}
         />
 
-        {/* 7. Customers Section */}
+        {/* 7. Benefits Section (route: /unifier/benefits/1 -> section id "customers") */}
         <section
           className="unifier-panel tm-panel"
           id="customers"
-          ref={customersSectionRef}
+          ref={benefitsSectionRef}
         >
-          <div
-            className="tm-methods-section"
-            style={{ background: "var(--bg-darker)" }}
-          >
-            <div className="tm-methods-container">
-              <div className="tm-section-header">
-                <h2 className="tm-section-title">고객 사례</h2>
+          <div className="tm-methods-section unifier-benefits-section">
+            <div className="tm-methods-container unifier-benefits-container">
+              {/* Reuse shared section header rhythm: tm-section-header + tm-section-title */}
+              <div className="tm-section-header unifier-benefits-header">
+                <h2 className="tm-section-title">
+                  Unifier Accelerator: 빠른 가치 실현 (Speed to Value)
+                </h2>
+                <p className="unifier-benefits-subtitle">
+                  Oracle이 제공하는 글로벌 모범사례(Best Practice) 기반의 무상
+                  구성 템플릿
+                </p>
               </div>
-              <div
-                className="tm-ppm-eppm-grid"
-                style={{
-                  gridTemplateColumns: "repeat(3, 1fr)",
-                  gap: "30px",
-                  marginTop: "40px",
-                }}
-              >
-                {customersData.map((item, index) => (
-                  <div
-                    key={index}
-                    className="tm-ppm-eppm-card"
-                    style={{ padding: "0", overflow: "hidden", height: "auto" }}
-                    ref={(el) => (customersCardsRef.current[index] = el)}
+
+              <div className="unifier-benefits-kpi-grid">
+                {benefitsKpiData.map((item, index) => (
+                  // Reuse tm-ppm-eppm-card surface (dark bg, border, radius, hover baseline)
+                  <article
+                    key={item.value}
+                    className="tm-ppm-eppm-card unifier-benefits-kpi-card"
+                    ref={(el) => (benefitsItemsRef.current[index] = el)}
                   >
-                    <div
-                      className="tm-card-image"
-                      style={{
-                        height: "200px",
-                        overflow: "hidden",
-                        position: "relative",
-                      }}
-                    >
-                      <img
-                        src={item.img}
-                        alt={item.title}
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "cover",
-                        }}
-                      />
-                      <span
-                        style={{
-                          position: "absolute",
-                          top: "15px",
-                          left: "15px",
-                          background: "rgba(0,0,0,0.7)",
-                          color: "white",
-                          padding: "5px 10px",
-                          borderRadius: "4px",
-                          fontSize: "0.8rem",
-                        }}
-                      >
-                        {item.tag}
-                      </span>
-                    </div>
-                    <div
-                      className="tm-card-content"
-                      style={{ padding: "25px" }}
-                    >
-                      <h3
-                        style={{
-                          fontSize: "1.25rem",
-                          marginBottom: "15px",
-                          color: "var(--text-primary)",
-                        }}
-                      >
-                        {item.title}
-                      </h3>
-                      <p
-                        style={{
-                          fontSize: "0.95rem",
-                          color: "var(--text-secondary)",
-                          lineHeight: "1.6",
-                        }}
-                      >
-                        {item.desc}
-                      </p>
-                    </div>
-                  </div>
+                    <p className="unifier-benefits-kpi-value">{item.value}</p>
+                    <p className="unifier-benefits-kpi-label">{item.label}</p>
+                  </article>
                 ))}
               </div>
+
+              <p
+                className="unifier-benefits-conclusion"
+                ref={(el) =>
+                  (benefitsItemsRef.current[benefitsKpiData.length] = el)
+                }
+              >
+                복잡한 초기 설정 없이 즉시 도입하여 표준화 달성
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* 8. Benefits Section 2 (route: /unifier/benefits/2 -> section id "benefits-2") */}
+        <section
+          className="unifier-panel tm-panel"
+          id="benefits-2"
+          ref={benefitsSectionRef2}
+        >
+          <div className="tm-methods-section unifier-benefits-section">
+            <div className="tm-methods-container unifier-benefits-container unifier-benefits-2-container">
+              <div
+                className="tm-section-header unifier-benefits-header"
+                ref={(el) => (benefitsItemsRef2.current[0] = el)}
+              >
+                <h2 className="tm-section-title">
+                  The Synergy: Unifier + P6 EPPM
+                </h2>
+              </div>
+
+              <article
+                className="tm-ppm-eppm-card unifier-benefits-2-placeholder"
+                ref={(el) => (benefitsItemsRef2.current[1] = el)}
+              >
+                <p>Placeholder</p>
+              </article>
             </div>
           </div>
         </section>

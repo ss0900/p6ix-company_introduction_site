@@ -140,8 +140,7 @@ function Header() {
           id: "overview",
           title: "개요",
           path: "/opc/overview/1",
-          image:
-            "https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg?auto=compress&cs=tinysrgb&w=600",
+          image: "/OPC%20개요.png",
         },
         {
           id: "functions",
