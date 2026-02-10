@@ -93,6 +93,10 @@ function App() {
           path="/unifier/modules"
           element={<Navigate to="/unifier/functions/1" replace />}
         />
+        <Route
+          path="/unifier/customers"
+          element={<Navigate to="/unifier/benefits/1" replace />}
+        />
         <Route path="/unifier/:sectionId" element={<UnifierPage />} />
         <Route path="/unifier/:sectionId/:subId" element={<UnifierPage />} />
 

@@ -14,9 +14,10 @@ const sections = [
   { id: "hero", label: "Unifier" },
   { id: "menu", label: "메뉴" },
   { id: "overview-content", label: "개요" },
+  { id: "overview-content-2", label: "개요 2" },
   { id: "functions", label: "기능 소개" },
   { id: "functions-2", label: "기능 소개 2" },
-  { id: "customers", label: "사례" },
+  { id: "customers", label: "효과" },
 ];
 
 const subMenuItems = [
@@ -37,21 +38,31 @@ const subMenuItems = [
     link: "#functions",
   },
   {
-    id: "customers",
-    title: "고객 사례",
-    description: "공공, 부동산, 인프라 성공 사례",
+    id: "benefits",
+    title: "효과",
+    description: "공공, 부동산, 인프라 도입 효과",
     image:
       "https://images.pexels.com/photos/3184611/pexels-photo-3184611.jpeg?auto=compress&cs=tinysrgb&w=600",
     link: "#customers",
   },
 ];
 
-// Overview Features Data
-const overviewFeatures = [
-  { title: "비용 관리", desc: "프로젝트 예산 및 비용 통합 관리" },
-  { title: "계약 관리", desc: "계약 및 변경 관리 자동화" },
-  { title: "문서 관리", desc: "프로젝트 문서 중앙 관리" },
-  { title: "워크플로우", desc: "업무 프로세스 자동화" },
+const overview2FlowSteps = [
+  {
+    title: "Capital Planning",
+    description: "투자 결정 및 우선순위",
+    tone: "planning",
+  },
+  {
+    title: "Project Controls",
+    description: "실행 및 통제",
+    tone: "controls",
+  },
+  {
+    title: "Facilities & Asset Mgmt",
+    description: "운영 및 자산 관리",
+    tone: "asset",
+  },
 ];
 
 // Functions Data (mirrors Unifier modules - 4 cards)
@@ -99,12 +110,14 @@ function UnifierPage() {
   const heroSectionRef = useRef(null);
   const menuSectionRef = useRef(null);
   const overviewSectionRef = useRef(null);
+  const overviewSectionRef2 = useRef(null);
   const functionsSectionRef = useRef(null);
   const functionsSectionRef2 = useRef(null);
   const customersSectionRef = useRef(null);
 
   // Animation refs
   const overviewCardsRef = useRef([]);
+  const overviewFlowRef = useRef(null);
   const functionsImageCardRef = useRef(null);
   const functionsImageCardRef2 = useRef(null);
   const functionsCardsRef = useRef([]);
@@ -155,14 +168,16 @@ function UnifierPage() {
   useEffect(() => {
     if (sectionId) {
       // Handle mapping if necessary, or just rely on direct ID match
-      // The user requested /unifier/overview/1, /unifier/functions/1, /unifier/functions/2, /unifier/customers
-      // Our IDs are: overview-content, functions, functions-2, customers
+      // The user requested /unifier/overview/1, /unifier/overview/2, /unifier/functions/1, /unifier/functions/2, /unifier/benefits/1
+      // Our IDs are: overview-content, overview-content-2, functions, functions-2, customers
 
       let targetId = sectionId;
-      if (sectionId === "overview") targetId = "overview-content";
+      if (sectionId === "overview")
+        targetId = subId === "2" ? "overview-content-2" : "overview-content";
       if (sectionId === "modules") targetId = "functions";
       if (sectionId === "functions")
         targetId = subId === "2" ? "functions-2" : "functions";
+      if (sectionId === "benefits") targetId = "customers";
 
       const foundIndex = sections.findIndex((s) => s.id === targetId);
 
@@ -180,9 +195,10 @@ function UnifierPage() {
       let path = "/unifier";
       // index 0(Hero), 1(Menu) -> /unifier
       if (index === 2) path = "/unifier/overview/1";
-      if (index === 3) path = "/unifier/functions/1";
-      if (index === 4) path = "/unifier/functions/2";
-      if (index === 5) path = "/unifier/customers";
+      if (index === 3) path = "/unifier/overview/2";
+      if (index === 4) path = "/unifier/functions/1";
+      if (index === 5) path = "/unifier/functions/2";
+      if (index === 6) path = "/unifier/benefits/1";
 
       navigate(path, { replace: true });
     },
@@ -363,6 +379,23 @@ function UnifierPage() {
             stagger: 0.1,
             scrollTrigger: {
               trigger: overviewSectionRef.current,
+              start: "top 60%",
+              toggleActions: "play none none reverse",
+            },
+          },
+        );
+      }
+
+      if (overviewSectionRef2.current && overviewFlowRef.current) {
+        gsap.fromTo(
+          overviewFlowRef.current,
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+            scrollTrigger: {
+              trigger: overviewSectionRef2.current,
               start: "top 60%",
               toggleActions: "play none none reverse",
             },
@@ -636,84 +669,130 @@ function UnifierPage() {
           id="overview-content"
           ref={overviewSectionRef}
         >
-          <div className="tm-methods-section">
-            <div className="tm-methods-container">
+          <div className="tm-methods-section unifier-overview-shell">
+            <div className="tm-methods-container" id="unifier-overview-1">
               <div className="tm-section-header">
-                <h2 className="tm-section-title">Unifier 개요</h2>
-                <p
-                  style={{
-                    textAlign: "center",
-                    color: "var(--text-secondary)",
-                    marginBottom: "40px",
-                  }}
-                >
-                  프로젝트 비용, 계약, 문서 관리의 통합
-                </p>
+                <h2 className="tm-section-title">
+                  혼란에서 명확성으로: 단 하나의 진실
+                </h2>
               </div>
-              <div
-                className="tm-ppm-eppm-grid"
-                style={{ gridTemplateColumns: "repeat(4, 1fr)", gap: "20px" }}
-              >
-                {overviewFeatures.map((item, index) => (
+              <div className="unifier-overview-layout">
+                <aside
+                  className="tm-ppm-eppm-card unifier-overview-message-card"
+                  ref={(el) => (overviewCardsRef.current[0] = el)}
+                >
+                  <p>업무 프로세스(Workflow) +</p>
+                  <p>프로젝트 통제(Project Controls) +</p>
+                  <p>정보 관리(PMIS)의 완벽한 결합</p>
+                </aside>
+
+                <div
+                  className="unifier-overview-visual-wrap"
+                  ref={(el) => (overviewCardsRef.current[1] = el)}
+                >
                   <div
-                    key={index}
-                    className="tm-spoke-box"
-                    style={{
-                      width: "100%",
-                      flexDirection: "column",
-                      padding: "30px 20px",
-                      height: "auto",
-                      alignItems: "center",
-                      textAlign: "center",
-                    }}
-                    ref={(el) => (overviewCardsRef.current[index] = el)}
+                    className="unifier-overview-donut"
+                    role="img"
+                    aria-label="Platform Core를 중심으로 협력사, 발주처, CM, 시공사가 연결된 통합 구조"
                   >
-                    <div
-                      className="tm-spoke-icon"
-                      style={{ marginBottom: "15px" }}
-                    >
-                      {/* Icon */}
-                      <svg
-                        viewBox="0 0 24 24"
-                        width="32"
-                        height="32"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      >
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                        <polyline points="14 2 14 8 20 8"></polyline>
-                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                        <polyline points="10 9 9 9 8 9"></polyline>
-                      </svg>
+                    <div className="unifier-overview-outer-ring" />
+
+                    <span className="unifier-overview-ring-label is-top-left">
+                      협력사
+                    </span>
+                    <span className="unifier-overview-ring-label is-top-right">
+                      발주처
+                    </span>
+                    <span className="unifier-overview-ring-label is-bottom-right">
+                      CM
+                    </span>
+                    <span className="unifier-overview-ring-label is-bottom-left">
+                      시공사
+                    </span>
+
+                    <div className="unifier-overview-inner-segments" />
+
+                    <div className="unifier-overview-core">
+                      <span>
+                        Platform
+                        <br />
+                        Core
+                      </span>
                     </div>
-                    <h4
-                      style={{
-                        fontSize: "1.2rem",
-                        marginBottom: "10px",
-                        color: "var(--text-primary)",
-                      }}
-                    >
-                      {item.title}
-                    </h4>
-                    <p
-                      style={{
-                        fontSize: "0.9rem",
-                        color: "var(--text-secondary)",
-                        lineHeight: "1.5",
-                      }}
-                    >
-                      {item.desc}
-                    </p>
                   </div>
-                ))}
+                </div>
+              </div>
+              <p
+                className="unifier-overview-summary"
+                ref={(el) => (overviewCardsRef.current[2] = el)}
+              >
+                여러 참여자가 공통된 프로세스 안에서 표준화·자동화된 방식으로
+                협업합니다.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* 4. Overview Section 2 */}
+        <section
+          className="unifier-panel tm-panel"
+          id="overview-content-2"
+          ref={overviewSectionRef2}
+        >
+          <div className="tm-methods-section unifier-overview-shell">
+            <div className="tm-methods-container" id="unifier-overview-2">
+              <div className="tm-section-header">
+                <h2 className="tm-section-title">
+                  프로젝트의 탄생부터 운영까지
+                </h2>
+              </div>
+
+              <div className="unifier-overview2-content" ref={overviewFlowRef}>
+                <div className="unifier-overview2-flow" role="list">
+                  {overview2FlowSteps.map((step, index) => (
+                    <div
+                      key={step.title}
+                      className="unifier-overview2-step-wrap"
+                      role="listitem"
+                    >
+                      <article
+                        className={`tm-ppm-eppm-card unifier-overview2-step unifier-overview2-step--${step.tone}`}
+                      >
+                        <div className="unifier-overview2-step-text">
+                          <h3 className="unifier-overview2-step-title">
+                            {step.title}
+                          </h3>
+                          <p className="unifier-overview2-step-description">
+                            {step.description}
+                          </p>
+                        </div>
+                      </article>
+
+                      {index < overview2FlowSteps.length - 1 ? (
+                        <span
+                          className="unifier-overview2-step-connector"
+                          aria-hidden="true"
+                        />
+                      ) : null}
+                    </div>
+                  ))}
+                </div>
+
+                <div className="unifier-overview2-flowline">
+                  <div
+                    className="unifier-overview2-flowline-track"
+                    aria-hidden="true"
+                  />
+                  <p className="unifier-overview2-flowline-caption">
+                    끊김 없는 데이터 흐름 (Seamless Data Flow)
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 4. Functions Section */}
+        {/* 5. Functions Section */}
         <EppmFunctionsSection
           panelClassName="unifier-panel"
           sectionId="functions"
@@ -727,7 +806,7 @@ function UnifierPage() {
           isActive={sections[activeSection]?.id === "functions"}
         />
 
-        {/* 5. Functions Section 2 */}
+        {/* 6. Functions Section 2 */}
         <EppmFunctionsSection
           panelClassName="unifier-panel"
           sectionId="functions-2"
@@ -740,7 +819,7 @@ function UnifierPage() {
           isActive={sections[activeSection]?.id === "functions-2"}
         />
 
-        {/* 6. Customers Section */}
+        {/* 7. Customers Section */}
         <section
           className="unifier-panel tm-panel"
           id="customers"

@@ -5,7 +5,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import SectionIndicator from "../components/SectionIndicator";
 import EppmFunctionsSection from "../components/EppmFunctionsSection";
-import RadarNetworkMap from "../components/RadarNetworkMap";
 import { eppmFunctionsIntro } from "../data/functionsIntroData";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
@@ -32,7 +31,7 @@ const subMenuItems = [
     description:
       "EPPM(Enterprise Project Portfolio Management) 개요 및 핵심 기능",
     image:
-      "https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "/EPPM%20개요.png",
     link: "#integration",
   },
   {
@@ -40,7 +39,7 @@ const subMenuItems = [
     title: "기능 소개",
     description: "Critical Path Method 기반 공정 관리 솔루션",
     image:
-      "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "/EPPM%20기능%20소개.png",
     link: "#functions",
   },
   {
@@ -48,7 +47,7 @@ const subMenuItems = [
     title: "과정",
     description: "우선순위 결정 및 투자 최적화 과정",
     image:
-      "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "/EPPM%20과정.png",
     link: "#cases",
   },
 ];
@@ -1038,7 +1037,7 @@ function EPPMPage() {
           <div
             className="tm-hero-section"
             style={{
-              backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url(https://images.pexels.com/photos/5989932/pexels-photo-5989932.jpeg?auto=compress&cs=tinysrgb&w=1200)`,
+              backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url(/EPPM.png)`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -1671,8 +1670,11 @@ function EPPMPage() {
                     className="eppm-process-visual-card tm-ppm-eppm-card"
                     ref={(el) => (casesCardsRef.current[0] = el)}
                   >
-                    <div className="eppm-process-visual-media eppm-process-visual-media--radar">
-                      <RadarNetworkMap />
+                    <div className="eppm-process-visual-media">
+                      <img
+                        src={encodeURI("/1단계 우선순위 결정 및 투자 최적화.png")}
+                        alt="1단계 우선순위 결정 및 투자 최적화"
+                      />
                     </div>
                   </article>
 

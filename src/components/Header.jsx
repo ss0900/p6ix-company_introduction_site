@@ -178,9 +178,9 @@ function Header() {
             "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600",
         },
         {
-          id: "customers",
-          title: "고객 사례",
-          path: "/unifier/customers",
+          id: "benefits",
+          title: "효과",
+          path: "/unifier/benefits/1",
           image:
             "https://images.pexels.com/photos/3184611/pexels-photo-3184611.jpeg?auto=compress&cs=tinysrgb&w=600",
         },
