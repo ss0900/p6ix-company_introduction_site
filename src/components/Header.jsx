@@ -101,8 +101,7 @@ function Header() {
           id: "benefits",
           title: "효과",
           path: "/ppm/benefits",
-          image:
-            "/PPM%20효과.png",
+          image: "/PPM%20효과.png",
         },
       ],
     },
@@ -167,7 +166,7 @@ function Header() {
         {
           id: "overview",
           title: "개요",
-          path: "/unifier/overview",
+          path: "/unifier/overview/1",
           image:
             "https://images.pexels.com/photos/1098515/pexels-photo-1098515.jpeg?auto=compress&cs=tinysrgb&w=600",
         },

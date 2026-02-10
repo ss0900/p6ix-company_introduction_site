@@ -155,7 +155,7 @@ function UnifierPage() {
   useEffect(() => {
     if (sectionId) {
       // Handle mapping if necessary, or just rely on direct ID match
-      // The user requested /unifier/overview, /unifier/functions/1, /unifier/functions/2, /unifier/customers
+      // The user requested /unifier/overview/1, /unifier/functions/1, /unifier/functions/2, /unifier/customers
       // Our IDs are: overview-content, functions, functions-2, customers
 
       let targetId = sectionId;
@@ -179,7 +179,7 @@ function UnifierPage() {
     (index) => {
       let path = "/unifier";
       // index 0(Hero), 1(Menu) -> /unifier
-      if (index === 2) path = "/unifier/overview";
+      if (index === 2) path = "/unifier/overview/1";
       if (index === 3) path = "/unifier/functions/1";
       if (index === 4) path = "/unifier/functions/2";
       if (index === 5) path = "/unifier/customers";
@@ -590,7 +590,7 @@ function UnifierPage() {
                 현금 흐름 · 문서를
                 <br />
                 워크플로우 기반의 연결된 프로세스로 통합 관리하는 엔터프라이즈급
-                Project Controls/PMIS 플랫폼입니다.
+                Project Controls / PMIS 플랫폼입니다.
               </p>
 
               {/* Divider */}

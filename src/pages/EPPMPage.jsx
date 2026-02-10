@@ -455,21 +455,27 @@ const processStep3FieldUpdateImage =
 const processStep3ConnectionBullets = [
   {
     label: "The Problem",
-    body: "복잡한 입력 방식은 데이터 누락을 유발.",
+    body: "복잡한 입력 방식은 데이터 누락을 유발",
   },
   {
     label: "The Solution",
-    body: "현장 실무 인력을 위한 '가벼운 입력' 지원.",
+    body: "현장 실무 인력을 위한 '가벼운 입력' 지원",
   },
   {
     label: "Method",
-    body: "단순 폼 및 모바일 인터페이스를 통해 본인 작업의 진척을 즉시 공유.",
+    body: (
+      <>
+        단순 폼 및 모바일 인터페이스를 통해
+        <br />
+        본인 작업의 진척을 즉시 공유
+      </>
+    ),
   },
 ];
 
 const processStep5SummaryItems = [
   {
-    text: "계획 대비 실적(Progress)의 정밀한 추적.",
+    text: "계획 대비 실적(Progress)의 정밀한 추적",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle
@@ -490,7 +496,7 @@ const processStep5SummaryItems = [
     ),
   },
   {
-    text: "일정 변경이 전체 프로젝트에 미치는 영향 즉시 파악.",
+    text: "일정 변경이 전체 프로젝트에 미치는 영향 즉시 파악",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle
@@ -511,7 +517,7 @@ const processStep5SummaryItems = [
     ),
   },
   {
-    text: "표준화된 보고 체계를 통한 투명성 확보.",
+    text: "표준화된 보고 체계를 통한 투명성 확보",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect
@@ -1829,7 +1835,12 @@ function EPPMPage() {
                             •
                           </span>
                           <p className="eppm-process-step4-bullet-text">
-                            <strong>{item.label}:</strong> {item.body}
+                            <strong className="eppm-process-step4-bullet-label">
+                              {item.label}:
+                            </strong>
+                            <span className="eppm-process-step4-bullet-body">
+                              {item.body}
+                            </span>
                           </p>
                         </li>
                       ))}
