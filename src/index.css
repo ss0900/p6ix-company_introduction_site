@@ -16987,3 +16987,189 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     transform: none;
   }
 }
+
+/* Home OPC Menu Section */
+.home-opc-menu-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  justify-content: flex-start;
+  padding-top: calc(var(--header-height) + clamp(3.5rem, 6vw, 5.75rem));
+  padding-bottom: clamp(3.5rem, 6vw, 5rem);
+  background: #0a0a0f;
+}
+
+.home-opc-menu-container {
+  position: relative;
+  z-index: 1;
+}
+
+.home-opc-menu-header {
+  margin-bottom: clamp(1.8rem, 3.3vw, 2.8rem);
+}
+
+.home-opc-menu-title {
+  font-size: clamp(2rem, 4.4vw, 3.7rem);
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(90deg, #16daff 0%, #4ea0ff 55%, #6d6bff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.65rem;
+}
+
+.home-opc-menu-subcopy {
+  margin: 0;
+  max-width: 32rem;
+  font-size: clamp(0.96rem, 1.2vw, 1.08rem);
+  color: rgba(226, 233, 255, 0.8);
+}
+
+.home-opc-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 1.8vw, 1.6rem);
+}
+
+.home-opc-menu-card {
+  min-width: 0;
+}
+
+.home-opc-menu-card-link {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: clamp(20px, 2.1vw, 28px);
+  border: 1px solid rgba(138, 165, 220, 0.28);
+  background: #0a1220;
+  box-shadow: 0 18px 42px rgba(2, 7, 18, 0.5);
+  transition:
+    border-color 320ms var(--ease-in-out),
+    box-shadow 320ms var(--ease-in-out);
+}
+
+.home-opc-menu-card-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 420ms var(--ease-out-quart);
+  will-change: transform;
+}
+
+.home-opc-menu-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(3, 8, 20, 0.06) 4%,
+    rgba(3, 8, 20, 0.3) 54%,
+    rgba(2, 8, 20, 0.88) 100%
+  );
+}
+
+.home-opc-menu-card-content {
+  position: absolute;
+  left: clamp(1rem, 1.5vw, 1.4rem);
+  right: clamp(1rem, 1.5vw, 1.4rem);
+  bottom: clamp(1rem, 1.5vw, 1.4rem);
+  display: flex;
+  align-items: center;
+}
+
+.home-opc-menu-card-title {
+  margin: 0;
+  color: #f4f8ff;
+  font-size: clamp(1.5rem, 2vw, 1.95rem);
+  letter-spacing: -0.02em;
+}
+
+.home-opc-menu-card-arrow {
+  position: absolute;
+  right: clamp(0.95rem, 1.2vw, 1.2rem);
+  bottom: clamp(0.95rem, 1.2vw, 1.2rem);
+  width: clamp(2.25rem, 2.5vw, 2.7rem);
+  height: clamp(2.25rem, 2.5vw, 2.7rem);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  background: rgba(6, 14, 30, 0.58);
+  color: #f6fbff;
+  line-height: 1;
+  pointer-events: none;
+  transition:
+    background-color 300ms var(--ease-in-out),
+    border-color 300ms var(--ease-in-out);
+}
+
+.home-opc-menu-card-arrow svg {
+  width: clamp(1rem, 1.3vw, 1.1rem);
+  height: clamp(1rem, 1.3vw, 1.1rem);
+}
+
+.home-opc-menu-card-link:hover,
+.home-opc-menu-card-link:focus-visible {
+  border-color: rgba(182, 221, 255, 0.84);
+  box-shadow:
+    0 22px 52px rgba(1, 6, 18, 0.62),
+    0 0 0 1px rgba(68, 173, 255, 0.4);
+}
+
+.home-opc-menu-card-link:hover .home-opc-menu-card-image,
+.home-opc-menu-card-link:focus-visible .home-opc-menu-card-image {
+  transform: scale(1.07);
+}
+
+.home-opc-menu-card-link:hover .home-opc-menu-card-arrow,
+.home-opc-menu-card-link:focus-visible .home-opc-menu-card-arrow {
+  border-color: rgba(255, 255, 255, 0.52);
+  background: rgba(20, 38, 78, 0.75);
+}
+
+.home-opc-menu-card-link:focus-visible {
+  outline: 2px solid rgba(83, 224, 255, 0.95);
+  outline-offset: 3px;
+}
+
+@media (max-width: 1100px) {
+  .home-opc-menu-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .home-opc-menu-section {
+    padding-top: calc(var(--header-height) + 2.8rem);
+    justify-content: flex-start;
+  }
+
+  .home-opc-menu-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .home-opc-menu-card-link {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-opc-menu-card-link,
+  .home-opc-menu-card-image,
+  .home-opc-menu-card-arrow {
+    transition: none;
+  }
+
+  .home-opc-menu-card-link:hover .home-opc-menu-card-image,
+  .home-opc-menu-card-link:focus-visible .home-opc-menu-card-image {
+    transform: none;
+  }
+}
