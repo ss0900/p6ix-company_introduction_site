@@ -605,7 +605,7 @@ function UnifierPage() {
           <div
             className="tm-hero-section"
             style={{
-              backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url(https://images.pexels.com/photos/1181316/pexels-photo-1181316.jpeg?auto=compress&cs=tinysrgb&w=1200)`,
+              backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url(/Unifier.png)`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}

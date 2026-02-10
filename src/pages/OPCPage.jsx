@@ -41,7 +41,7 @@ const subMenuItems = [
     title: "비교",
     description: "P6와 OPC의 역할 기반 기능 전문성 비교",
     image:
-      "https://images.pexels.com/photos/2187605/pexels-photo-2187605.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "/OPC%20비교.png",
     link: "#application",
   },
 ];
