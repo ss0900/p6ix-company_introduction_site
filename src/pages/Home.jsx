@@ -5,7 +5,7 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 
 import HeroVideo from '../components/HeroVideo'
 import PpmMenuSection from '../components/panels/PpmMenuSection'
-import EPPMPanel from '../components/panels/EPPMPanel'
+import EppmMenuSection from '../components/panels/EppmMenuSection'
 import OPCPanel from '../components/panels/OPCPanel'
 import UnifierPanel from '../components/panels/UnifierPanel'
 import AconexPanel from '../components/panels/AconexPanel'
@@ -247,7 +247,7 @@ function Home() {
           <PpmMenuSection id="ppm" />
         </section>
         <section className="panel">
-          <EPPMPanel id="eppm" isActive={activeSection === 2} />
+          <EppmMenuSection id="eppm" />
         </section>
         <section className="panel">
           <OPCPanel id="opc" />
