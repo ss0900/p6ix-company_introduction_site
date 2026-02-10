@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { eppmMenuItems } from "../data/eppmMenuData";
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -108,29 +109,7 @@ function Header() {
     {
       path: "/eppm",
       label: "EPPM",
-      subItems: [
-        {
-          id: "overview",
-          title: "개요",
-          path: "/eppm/overview",
-          image:
-            "https://images.pexels.com/photos/5989932/pexels-photo-5989932.jpeg?auto=compress&cs=tinysrgb&w=600",
-        },
-        {
-          id: "functions",
-          title: "기능 소개",
-          path: "/eppm/functions/1",
-          image:
-            "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600",
-        },
-        {
-          id: "cases",
-          title: "과정",
-          path: "/eppm/process/1",
-          image:
-            "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=600",
-        },
-      ],
+      subItems: eppmMenuItems,
     },
     {
       path: "/opc",

@@ -11486,6 +11486,174 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   }
 }
 
+/* Aconex Benefits 3 - Core values 3-column cards */
+.aconex-page-container #benefits-3 .aconex-core-values-shell {
+  padding: clamp(20px, 4vh, 44px) var(--space-xl);
+}
+
+.aconex-page-container #benefits-3 .aconex-core-values-frame {
+  max-width: 1160px;
+  min-height: calc(100vh - clamp(72px, 12vh, 140px) - 40px);
+  margin-top: 200px;
+  justify-content: flex-start;
+  gap: clamp(24px, 3vh, 38px);
+}
+
+.aconex-page-container #benefits-3 .tm-section-header {
+  margin-bottom: clamp(8px, 1.2vh, 16px);
+}
+
+.aconex-page-container #benefits-3 .tm-section-title {
+  max-width: 920px;
+  line-height: 1.2;
+}
+
+.aconex-page-container #benefits-3 .aconex-core-values-grid {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 1.8vw, 24px);
+  align-items: stretch;
+}
+
+.aconex-page-container #benefits-3 .aconex-core-value-card {
+  min-height: clamp(330px, 48vh, 440px);
+  padding: clamp(24px, 2.1vw, 30px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(14px, 1.8vh, 22px);
+  text-align: center;
+  border-color: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+}
+
+.aconex-page-container #benefits-3 .aconex-core-value-icon {
+  width: clamp(100px, 8.6vw, 136px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(224, 235, 255, 0.2);
+  background: rgba(8, 14, 24, 0.68);
+}
+
+.aconex-page-container #benefits-3 .aconex-core-value-icon svg {
+  width: 74%;
+  height: 74%;
+  display: block;
+}
+
+.aconex-page-container #benefits-3 .aconex-core-value-icon-stroke {
+  fill: none;
+  stroke: rgba(224, 235, 255, 0.88);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.aconex-page-container #benefits-3 .aconex-core-value-icon-soft {
+  fill: rgba(255, 255, 255, 0.04);
+  stroke: rgba(224, 235, 255, 0.72);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.aconex-page-container #benefits-3 .aconex-core-value-icon-accent {
+  fill: rgba(0, 212, 255, 0.82);
+}
+
+.aconex-page-container #benefits-3 .aconex-core-value-icon-accent-line {
+  fill: none;
+  stroke: rgba(0, 212, 255, 0.84);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.aconex-page-container #benefits-3 .aconex-core-value-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-2xl), 1.95vw, var(--text-4xl));
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+}
+
+.aconex-page-container #benefits-3 .aconex-core-value-description {
+  margin: 0;
+  display: grid;
+  gap: clamp(2px, 0.6vh, 6px);
+  font-size: clamp(var(--text-base), 1.04vw, var(--text-lg));
+  line-height: 1.45;
+  color: var(--color-text-secondary);
+  word-break: keep-all;
+}
+
+.aconex-page-container #benefits-3 .aconex-core-value-description span {
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .aconex-page-container #benefits-3 .aconex-core-values-frame {
+    min-height: auto;
+    margin-top: clamp(152px, 10vh, 188px);
+    gap: var(--space-lg);
+  }
+
+  .aconex-page-container #benefits-3 .aconex-core-values-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 840px;
+  }
+
+  .aconex-page-container #benefits-3 .aconex-core-value-card {
+    min-height: clamp(280px, 34vh, 360px);
+  }
+}
+
+@media (max-width: 768px) {
+  .aconex-page-container #benefits-3 .aconex-core-values-shell {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .aconex-page-container #benefits-3 .aconex-core-values-frame {
+    margin-top: 136px;
+  }
+
+  .aconex-page-container #benefits-3 .aconex-core-values-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    gap: var(--space-lg);
+  }
+
+  .aconex-page-container #benefits-3 .aconex-core-value-card {
+    min-height: auto;
+    padding: clamp(20px, 4.8vw, 24px);
+    gap: var(--space-md);
+  }
+
+  .aconex-page-container #benefits-3 .aconex-core-value-icon {
+    width: clamp(88px, 26vw, 112px);
+  }
+
+  .aconex-page-container #benefits-3 .aconex-core-value-title {
+    font-size: clamp(var(--text-xl), 5.3vw, var(--text-2xl));
+  }
+
+  .aconex-page-container #benefits-3 .aconex-core-value-description {
+    font-size: clamp(var(--text-sm), 3.8vw, var(--text-base));
+  }
+}
+
 /* Aconex Overview 2 - CDE hub and spoke */
 .aconex-page-container #overview-content-2 .aconex-cde-shell {
   padding-top: clamp(12px, 2vh, 20px);
@@ -16172,4 +16340,255 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 .tm-wbs-lines line {
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+/* Home - PPM menu cards section */
+.ppm-menu-section {
+  overflow: hidden;
+  background: var(--color-bg-primary);
+}
+
+.ppm-menu-container {
+  position: relative;
+  z-index: 1;
+}
+
+.ppm-menu-header {
+  margin-bottom: clamp(1.2rem, 2.4vw, 2rem);
+}
+
+.ppm-menu-title {
+  font-size: clamp(2rem, 4.4vw, 3.7rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  background: linear-gradient(90deg, #15d7ff 0%, #4d9bff 55%, #7d52ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.65rem;
+}
+
+.ppm-menu-subcopy {
+  margin: 0;
+  color: rgba(223, 230, 255, 0.72);
+  font-size: clamp(0.96rem, 1.2vw, 1.06rem);
+}
+
+.ppm-menu-layout {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.8rem, 2vw, 1.5rem);
+}
+
+.ppm-menu-cards {
+  display: flex;
+  flex: 1;
+  min-height: clamp(320px, 45vh, 460px);
+  gap: clamp(0.65rem, 1.3vw, 1rem);
+}
+
+.ppm-menu-card {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(118, 157, 255, 0.18);
+  background: #0a1023;
+  transition:
+    flex 340ms var(--ease-in-out),
+    border-color 340ms var(--ease-in-out),
+    box-shadow 340ms var(--ease-in-out),
+    transform 340ms var(--ease-in-out);
+}
+
+.ppm-menu-card.is-active {
+  flex: 2.2 1 0;
+  border-color: rgba(46, 222, 255, 0.55);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.42),
+    0 0 40px rgba(0, 212, 255, 0.2);
+}
+
+.ppm-menu-card-image {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform: scale(1);
+  transition: transform 360ms var(--ease-in-out);
+}
+
+.ppm-menu-card.is-active .ppm-menu-card-image {
+  transform: scale(1.03);
+}
+
+.ppm-menu-card-link {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding: clamp(1.2rem, 2vw, 1.5rem);
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  text-decoration: none;
+}
+
+.ppm-menu-card-link:hover {
+  color: var(--color-text-primary);
+}
+
+.ppm-menu-card-link:focus-visible {
+  outline: 2px solid rgba(0, 212, 255, 0.95);
+  outline-offset: -2px;
+}
+
+.ppm-menu-card-bottom-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to top,
+      rgba(5, 8, 18, 0.92) 0%,
+      rgba(5, 8, 18, 0.62) 35%,
+      rgba(5, 8, 18, 0.18) 62%,
+      rgba(5, 8, 18, 0.05) 100%
+    );
+  pointer-events: none;
+}
+
+.ppm-menu-card-content {
+  position: relative;
+  z-index: 1;
+  max-width: 86%;
+}
+
+.ppm-menu-card-title {
+  margin: 0;
+  font-size: clamp(1.25rem, 2.4vw, 1.8rem);
+  font-weight: 700;
+  color: #eef5ff;
+}
+
+.ppm-menu-card-description {
+  margin-top: 0.6rem;
+  margin-bottom: 0;
+  color: rgba(227, 236, 255, 0.85);
+  font-size: clamp(0.88rem, 1.05vw, 1rem);
+  line-height: 1.5;
+  opacity: 0;
+  max-height: 0;
+  transform: translateY(8px);
+  overflow: hidden;
+  transition:
+    opacity 260ms ease,
+    max-height 320ms ease,
+    transform 260ms ease;
+}
+
+.ppm-menu-card.is-active .ppm-menu-card-description {
+  opacity: 1;
+  max-height: 5rem;
+  transform: translateY(0);
+}
+
+.ppm-menu-card-cta {
+  position: relative;
+  z-index: 1;
+  width: clamp(2rem, 2.4vw, 2.5rem);
+  height: clamp(2rem, 2.4vw, 2.5rem);
+  border-radius: 9px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  font-weight: 700;
+  background: rgba(9, 19, 37, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(225, 238, 255, 0.92);
+  transition: all 260ms var(--ease-in-out);
+}
+
+.ppm-menu-card.is-active .ppm-menu-card-cta {
+  background: linear-gradient(145deg, #e8fcff 0%, #9ceaff 100%);
+  color: #041024;
+  border-color: rgba(167, 239, 255, 0.95);
+  box-shadow: 0 8px 22px rgba(0, 212, 255, 0.35);
+}
+
+.ppm-menu-dots {
+  width: 1.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.48rem;
+}
+
+.ppm-menu-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.27);
+  transition: all 220ms var(--ease-in-out);
+}
+
+.ppm-menu-dot:hover,
+.ppm-menu-dot:focus-visible {
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.ppm-menu-dot:focus-visible {
+  outline: 2px solid rgba(0, 212, 255, 0.8);
+  outline-offset: 2px;
+}
+
+.ppm-menu-dot.is-active {
+  height: 1.5rem;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #5ce9ff 0%, #03c8ff 100%);
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.45);
+}
+
+@media (max-width: 1024px) {
+  .ppm-menu-layout {
+    align-items: stretch;
+  }
+
+  .ppm-menu-dots {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .ppm-menu-section {
+    padding-top: calc(var(--header-height) + 1.5rem);
+    justify-content: flex-start;
+  }
+
+  .ppm-menu-cards {
+    flex-direction: column;
+    min-height: auto;
+    gap: 0.7rem;
+  }
+
+  .ppm-menu-card {
+    min-height: 150px;
+  }
+
+  .ppm-menu-card.is-active {
+    min-height: 240px;
+    flex: 1 1 auto;
+  }
+
+  .ppm-menu-card-content {
+    max-width: 100%;
+  }
 }

@@ -6,6 +6,7 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import SectionIndicator from "../components/SectionIndicator";
 import EppmFunctionsSection from "../components/EppmFunctionsSection";
 import { eppmFunctionsIntro } from "../data/functionsIntroData";
+import { eppmMenuItems } from "../data/eppmMenuData";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -21,35 +22,6 @@ const sections = [
   { id: "cases-3", label: "과정 3" },
   { id: "cases-4", label: "과정 4" },
   { id: "cases-5", label: "과정 5" },
-];
-
-// Sub-menu items data
-const subMenuItems = [
-  {
-    id: "overview",
-    title: "개요",
-    description:
-      "EPPM(Enterprise Project Portfolio Management) 개요 및 핵심 기능",
-    image:
-      "/EPPM%20개요.png",
-    link: "#integration",
-  },
-  {
-    id: "functions",
-    title: "기능 소개",
-    description: "Critical Path Method 기반 공정 관리 솔루션",
-    image:
-      "/EPPM%20기능%20소개.png",
-    link: "#functions",
-  },
-  {
-    id: "cases",
-    title: "과정",
-    description: "우선순위 결정 및 투자 최적화 과정",
-    image:
-      "/EPPM%20과정.png",
-    link: "#cases",
-  },
 ];
 
 // Feature items for Functions section (matched to PPM functions/1)
@@ -1102,11 +1074,11 @@ function EPPMPage() {
 
               {/* Sub-menu Cards (PPM Style) */}
               <div className="ppm-submenu-grid">
-                {subMenuItems.map((item, index) => (
+                {eppmMenuItems.map((item) => (
                   <button
                     key={item.id}
                     className="ppm-submenu-card"
-                    onClick={() => scrollToSection(item.link.replace("#", ""))}
+                    onClick={() => navigate(item.path)}
                   >
                     <div
                       className="ppm-submenu-card-bg"

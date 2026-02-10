@@ -23,6 +23,7 @@ const sections = [
   { id: "functions-2", label: "기능 소개 2" },
   { id: "projects", label: "효과" },
   { id: "benefits-2", label: "효과 2" },
+  { id: "benefits-3", label: "효과 3" },
 ];
 
 const subMenuItems = [
@@ -74,6 +75,24 @@ const roleCompareData = [
       "실행과 기록 (Execution & Records)",
       "실행 과정의 모든 기록 (All Execution Records)",
     ],
+  },
+];
+
+const coreValueItems = [
+  {
+    id: "single-platform",
+    title: "단일 플랫폼",
+    description: ["모든 참여자가", "하나의 시스템에서 협업"],
+  },
+  {
+    id: "risk-reduction",
+    title: "리스크 감소",
+    description: ["변경 불가능한", "감사 추적으로 분쟁 예방"],
+  },
+  {
+    id: "standardization",
+    title: "표준화",
+    description: ["글로벌 표준 프로세스", "적용으로 업무 효율 극대화"],
   },
 ];
 
@@ -409,6 +428,166 @@ function IntegrationInformationGlyph() {
   );
 }
 
+function CoreValuePlatformGlyph() {
+  return (
+    <svg viewBox="0 0 120 120" role="img" aria-label="단일 플랫폼 아이콘">
+      <rect
+        x="44"
+        y="43"
+        width="32"
+        height="34"
+        rx="5"
+        className="aconex-core-value-icon-stroke"
+      />
+      <line
+        x1="44"
+        y1="52"
+        x2="76"
+        y2="52"
+        className="aconex-core-value-icon-stroke"
+      />
+      <line
+        x1="44"
+        y1="61"
+        x2="76"
+        y2="61"
+        className="aconex-core-value-icon-stroke"
+      />
+      <line
+        x1="44"
+        y1="70"
+        x2="76"
+        y2="70"
+        className="aconex-core-value-icon-stroke"
+      />
+
+      <circle cx="17" cy="20" r="8" className="aconex-core-value-icon-stroke" />
+      <circle cx="103" cy="20" r="8" className="aconex-core-value-icon-stroke" />
+      <circle cx="17" cy="100" r="8" className="aconex-core-value-icon-stroke" />
+      <circle cx="103" cy="100" r="8" className="aconex-core-value-icon-stroke" />
+      <circle cx="60" cy="16" r="6" className="aconex-core-value-icon-accent" />
+      <circle cx="60" cy="104" r="6" className="aconex-core-value-icon-accent" />
+
+      <path d="M25 24 L39 37" className="aconex-core-value-icon-stroke" />
+      <path d="M95 24 L81 37" className="aconex-core-value-icon-stroke" />
+      <path d="M25 96 L39 83" className="aconex-core-value-icon-stroke" />
+      <path d="M95 96 L81 83" className="aconex-core-value-icon-stroke" />
+      <path d="M60 23 L60 43" className="aconex-core-value-icon-accent-line" />
+      <path d="M60 77 L60 97" className="aconex-core-value-icon-accent-line" />
+    </svg>
+  );
+}
+
+function CoreValueShieldGlyph() {
+  return (
+    <svg viewBox="0 0 120 120" role="img" aria-label="리스크 감소 아이콘">
+      <path
+        d="M60 14 L91 26 V53 C91 78 74 96 60 104 C46 96 29 78 29 53 V26 Z"
+        className="aconex-core-value-icon-stroke"
+      />
+      <path
+        d="M60 26 L79 34 V52 C79 70 68 83 60 89 C52 83 41 70 41 52 V34 Z"
+        className="aconex-core-value-icon-soft"
+      />
+      <path
+        d="M50 60 L58 68 L73 50"
+        className="aconex-core-value-icon-accent-line"
+      />
+    </svg>
+  );
+}
+
+function CoreValueGlobalGlyph() {
+  return (
+    <svg viewBox="0 0 120 120" role="img" aria-label="표준화 아이콘">
+      <circle cx="49" cy="60" r="30" className="aconex-core-value-icon-stroke" />
+      <ellipse
+        cx="49"
+        cy="60"
+        rx="14"
+        ry="30"
+        className="aconex-core-value-icon-stroke"
+      />
+      <path d="M19 60 H79" className="aconex-core-value-icon-stroke" />
+      <path d="M24 45 H74" className="aconex-core-value-icon-stroke" />
+      <path d="M24 75 H74" className="aconex-core-value-icon-stroke" />
+
+      <g transform="translate(84 62)">
+        <circle r="13" className="aconex-core-value-icon-stroke" />
+        <circle r="5.2" className="aconex-core-value-icon-stroke" />
+        <rect
+          x="-1.8"
+          y="-21"
+          width="3.6"
+          height="7"
+          rx="1.4"
+          className="aconex-core-value-icon-accent"
+        />
+        <rect
+          x="-1.8"
+          y="14"
+          width="3.6"
+          height="7"
+          rx="1.4"
+          className="aconex-core-value-icon-accent"
+        />
+        <rect
+          x="-21"
+          y="-1.8"
+          width="7"
+          height="3.6"
+          rx="1.4"
+          className="aconex-core-value-icon-accent"
+        />
+        <rect
+          x="14"
+          y="-1.8"
+          width="7"
+          height="3.6"
+          rx="1.4"
+          className="aconex-core-value-icon-accent"
+        />
+        <rect
+          x="-1.8"
+          y="-21"
+          width="3.6"
+          height="7"
+          rx="1.4"
+          transform="rotate(45)"
+          className="aconex-core-value-icon-accent"
+        />
+        <rect
+          x="-1.8"
+          y="-21"
+          width="3.6"
+          height="7"
+          rx="1.4"
+          transform="rotate(90)"
+          className="aconex-core-value-icon-accent"
+        />
+        <rect
+          x="-1.8"
+          y="-21"
+          width="3.6"
+          height="7"
+          rx="1.4"
+          transform="rotate(135)"
+          className="aconex-core-value-icon-accent"
+        />
+        <rect
+          x="-1.8"
+          y="-21"
+          width="3.6"
+          height="7"
+          rx="1.4"
+          transform="rotate(-45)"
+          className="aconex-core-value-icon-accent"
+        />
+      </g>
+    </svg>
+  );
+}
+
 function AconexPage() {
   const { sectionId, subId } = useParams();
   const navigate = useNavigate();
@@ -430,6 +609,7 @@ function AconexPage() {
   const functionsSectionRef2 = useRef(null);
   const projectsSectionRef = useRef(null);
   const benefitsSectionRef2 = useRef(null);
+  const benefitsSectionRef3 = useRef(null);
 
   const overviewCardsRef = useRef([]);
   const overviewCardsRef2 = useRef([]);
@@ -439,6 +619,7 @@ function AconexPage() {
   const functionsCardsRef2 = useRef([]);
   const projectsCardsRef = useRef([]);
   const benefitsCardsRef2 = useRef([]);
+  const benefitsCardsRef3 = useRef([]);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -503,7 +684,8 @@ function AconexPage() {
     if (sectionId === "functions")
       targetId = subId === "2" ? "functions-2" : "functions";
     if (sectionId === "benefits")
-      targetId = subId === "2" ? "benefits-2" : "projects";
+      targetId =
+        subId === "3" ? "benefits-3" : subId === "2" ? "benefits-2" : "projects";
 
     const foundIndex = sections.findIndex((section) => section.id === targetId);
 
@@ -523,6 +705,7 @@ function AconexPage() {
       if (index === 5) path = "/aconex/functions/2";
       if (index === 6) path = "/aconex/benefits/1";
       if (index === 7) path = "/aconex/benefits/2";
+      if (index === 8) path = "/aconex/benefits/3";
 
       navigate(path, { replace: true });
     },
@@ -896,6 +1079,27 @@ function AconexPage() {
             stagger: 0.12,
             scrollTrigger: {
               trigger: benefitsSectionRef2.current,
+              start: "top 60%",
+              toggleActions: "play none none reverse",
+            },
+          },
+        );
+      }
+
+      if (benefitsSectionRef3.current) {
+        const benefits3Items = benefitsCardsRef3.current.filter(Boolean);
+        if (!benefits3Items.length) return;
+
+        gsap.fromTo(
+          benefits3Items,
+          { y: 40, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            stagger: 0.12,
+            scrollTrigger: {
+              trigger: benefitsSectionRef3.current,
               start: "top 60%",
               toggleActions: "play none none reverse",
             },
@@ -1426,6 +1630,49 @@ function AconexPage() {
                   </p>
                 </div>
               </article>
+            </div>
+          </div>
+        </section>
+
+        <section
+          className="aconex-panel tm-panel"
+          id="benefits-3"
+          ref={benefitsSectionRef3}
+        >
+          <div className="tm-methods-section aconex-overview-shell aconex-core-values-shell">
+            <div className="tm-methods-container aconex-overview-frame aconex-core-values-frame">
+              <div
+                className="tm-section-header"
+                ref={(element) => (benefitsCardsRef3.current[0] = element)}
+              >
+                <h2 className="tm-section-title">핵심 가치</h2>
+              </div>
+
+              <div className="aconex-core-values-grid">
+                {coreValueItems.map((item, index) => (
+                  <article
+                    key={item.id}
+                    className="tm-ppm-eppm-card aconex-core-value-card"
+                    ref={(element) =>
+                      (benefitsCardsRef3.current[index + 1] = element)
+                    }
+                  >
+                    <div className="aconex-core-value-icon" aria-hidden="true">
+                      {item.id === "single-platform" && <CoreValuePlatformGlyph />}
+                      {item.id === "risk-reduction" && <CoreValueShieldGlyph />}
+                      {item.id === "standardization" && <CoreValueGlobalGlyph />}
+                    </div>
+
+                    <h3 className="aconex-core-value-title">{item.title}</h3>
+
+                    <p className="aconex-core-value-description">
+                      {item.description.map((line) => (
+                        <span key={line}>{line}</span>
+                      ))}
+                    </p>
+                  </article>
+                ))}
+              </div>
             </div>
           </div>
         </section>
