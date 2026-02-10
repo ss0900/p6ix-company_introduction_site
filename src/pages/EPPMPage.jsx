@@ -434,22 +434,104 @@ const processInsightCards = [
   },
 ];
 
-const processStep2PlaceholderCards = [
-  { title: "Placeholder 1", body: "Content coming soon." },
-  { title: "Placeholder 2", body: "Content coming soon." },
-  { title: "Placeholder 3", body: "Content coming soon." },
+const processStep2ComparisonCards = [
+  {
+    product: "P6 Web Application",
+    description: "역할 기반의 주요 인터페이스, 접근성 및 협업 중심",
+    imageSrc: "/p6-web-application.png",
+    imageAlt: "P6 Web Application 화면 예시",
+  },
+  {
+    product: "P6 Professional",
+    description: "파워 유저를 위한 심층 스케줄링 및 오프라인 작업 지원",
+    imageSrc: "/p6-professional-schedule.png",
+    imageAlt: "P6 Professional 화면 예시",
+  },
 ];
 
-const processStep3PlaceholderCards = [
-  { title: "Placeholder 1", body: "Content coming soon." },
-  { title: "Placeholder 2", body: "Content coming soon." },
-  { title: "Placeholder 3", body: "Content coming soon." },
+const processStep3FieldUpdateImage =
+  "/Connectivity_between_the_field_and_the_system.png";
+
+const processStep3ConnectionBullets = [
+  {
+    label: "The Problem",
+    body: "복잡한 입력 방식은 데이터 누락을 유발.",
+  },
+  {
+    label: "The Solution",
+    body: "현장 실무 인력을 위한 '가벼운 입력' 지원.",
+  },
+  {
+    label: "Method",
+    body: "단순 폼 및 모바일 인터페이스를 통해 본인 작업의 진척을 즉시 공유.",
+  },
 ];
 
-const processStep4PlaceholderCards = [
-  { title: "Placeholder 1", body: "Content coming soon." },
-  { title: "Placeholder 2", body: "Content coming soon." },
-  { title: "Placeholder 3", body: "Content coming soon." },
+const processStep5SummaryItems = [
+  {
+    text: "계획 대비 실적(Progress)의 정밀한 추적.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle
+          cx="12"
+          cy="12"
+          r="8.5"
+          stroke="currentColor"
+          strokeWidth="1.7"
+        />
+        <path
+          d="M8.5 12L10.8 14.3L15.6 9.6"
+          stroke="currentColor"
+          strokeWidth="1.9"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    text: "일정 변경이 전체 프로젝트에 미치는 영향 즉시 파악.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle
+          cx="12"
+          cy="12"
+          r="8.5"
+          stroke="currentColor"
+          strokeWidth="1.7"
+        />
+        <path
+          d="M12 7.5V12L15.2 14.2"
+          stroke="currentColor"
+          strokeWidth="1.9"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    text: "표준화된 보고 체계를 통한 투명성 확보.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect
+          x="7.4"
+          y="4.8"
+          width="9.2"
+          height="14.4"
+          rx="1.8"
+          stroke="currentColor"
+          strokeWidth="1.7"
+        />
+        <path
+          d="M9.6 9.3H14.4M9.6 12H14.4M9.6 14.7H12.6"
+          stroke="currentColor"
+          strokeWidth="1.7"
+          strokeLinecap="round"
+        />
+      </svg>
+    ),
+  },
 ];
 
 function EPPMPage() {
@@ -1612,64 +1694,53 @@ function EPPMPage() {
         <section className="eppm-panel tm-panel" id="cases-3">
           <div className="tm-advantages-section eppm-process-section">
             <div className="tm-advantages-container eppm-process-container">
-              <div className="tm-section-header">
-                <h2 className="tm-section-title">
-                  2단계: 정교한 계획 및 일정 수립
-                </h2>
-              </div>
-
-              <div className="eppm-process-shell">
-                <div className="eppm-process-badge" aria-hidden="true">
-                  <svg
-                    className="eppm-process-badge-icon"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M12 4L4 8L12 12L20 8L12 4Z"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M4 12L12 16L20 12"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M4 16L12 20L20 16"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+              <div className="eppm-process-shell eppm-process-step3-shell">
+                <div className="tm-section-header eppm-process-step3-header">
+                  <h2 className="tm-section-title">
+                    2단계: 정교한 계획 및 일정 수립
+                  </h2>
+                  <p className="eppm-process-step3-subtitle">
+                    사용자 역할에 따른 맞춤형 인터페이스
+                  </p>
                 </div>
 
-                <div className="eppm-process-grid">
-                  <article className="eppm-process-visual-card tm-ppm-eppm-card">
-                    <div className="eppm-process-visual-media">
-                      <span>Step 2 Placeholder</span>
-                    </div>
-                  </article>
+                <div className="eppm-process-badge eppm-process-step3-badge">
+                  STEP 2
+                </div>
 
-                  <div className="eppm-process-info-stack">
-                    {processStep2PlaceholderCards.map((item) => (
-                      <article
-                        key={item.title}
-                        className="eppm-process-info-card tm-ppm-eppm-card"
-                      >
-                        <h3 className="eppm-process-info-label">
-                          {item.title}
-                        </h3>
-                        <p className="eppm-process-info-body">{item.body}</p>
-                      </article>
-                    ))}
-                  </div>
+                <div className="eppm-process-step3-grid">
+                  {processStep2ComparisonCards.map((item) => (
+                    <article
+                      key={item.product}
+                      className="eppm-process-step3-card tm-ppm-eppm-card"
+                    >
+                      <div className="eppm-process-step3-media">
+                        <img
+                          src={item.imageSrc}
+                          alt={item.imageAlt}
+                          loading="lazy"
+                          onLoad={(event) => {
+                            delete event.currentTarget.dataset.error;
+                          }}
+                          onError={(event) => {
+                            event.currentTarget.dataset.error = "true";
+                          }}
+                        />
+                        <div
+                          className="eppm-process-step3-media-placeholder"
+                          aria-hidden="true"
+                        >
+                          Product Screenshot
+                        </div>
+                      </div>
+                      <h3 className="eppm-process-step3-product">
+                        {item.product}
+                      </h3>
+                      <p className="eppm-process-step3-description">
+                        {item.description}
+                      </p>
+                    </article>
+                  ))}
                 </div>
               </div>
             </div>
@@ -1680,14 +1751,17 @@ function EPPMPage() {
         <section className="eppm-panel tm-panel" id="cases-4">
           <div className="tm-advantages-section eppm-process-section">
             <div className="tm-advantages-container eppm-process-container">
-              <div className="tm-section-header">
-                <h2 className="tm-section-title">
-                  3단계: 현장과 시스템의 연결
-                </h2>
-              </div>
+              <div className="eppm-process-shell eppm-process-step4-shell">
+                <div className="tm-section-header eppm-process-step4-header">
+                  <h2 className="tm-section-title">
+                    3단계: 현장과 시스템의 연결
+                  </h2>
+                </div>
 
-              <div className="eppm-process-shell">
-                <div className="eppm-process-badge" aria-hidden="true">
+                <div
+                  className="eppm-process-badge eppm-process-step4-badge"
+                  aria-hidden="true"
+                >
                   <svg
                     className="eppm-process-badge-icon"
                     viewBox="0 0 24 24"
@@ -1718,26 +1792,49 @@ function EPPMPage() {
                   </svg>
                 </div>
 
-                <div className="eppm-process-grid">
-                  <article className="eppm-process-visual-card tm-ppm-eppm-card">
-                    <div className="eppm-process-visual-media">
-                      <span>Step 3 Placeholder</span>
+                <div className="eppm-process-step4-grid">
+                  <article className="eppm-process-step4-frame eppm-process-step4-visual-frame tm-ppm-eppm-card">
+                    <div className="eppm-process-step4-media">
+                      <img
+                        src={processStep3FieldUpdateImage}
+                        alt="현장 팀원이 모바일 화면으로 작업 진척을 업데이트하는 예시"
+                        loading="lazy"
+                        onLoad={(event) => {
+                          delete event.currentTarget.dataset.error;
+                        }}
+                        onError={(event) => {
+                          event.currentTarget.dataset.error = "true";
+                        }}
+                      />
+                      <div
+                        className="eppm-process-step4-media-placeholder"
+                        aria-hidden="true"
+                      >
+                        Field Update Visual
+                      </div>
                     </div>
                   </article>
 
-                  <div className="eppm-process-info-stack">
-                    {processStep3PlaceholderCards.map((item) => (
-                      <article
-                        key={item.title}
-                        className="eppm-process-info-card tm-ppm-eppm-card"
-                      >
-                        <h3 className="eppm-process-info-label">
-                          {item.title}
-                        </h3>
-                        <p className="eppm-process-info-body">{item.body}</p>
-                      </article>
-                    ))}
-                  </div>
+                  <article className="eppm-process-step4-frame eppm-process-step4-text-frame tm-ppm-eppm-card">
+                    <ul className="eppm-process-step4-bullet-list">
+                      {processStep3ConnectionBullets.map((item) => (
+                        <li
+                          key={item.label}
+                          className="eppm-process-step4-bullet-item"
+                        >
+                          <span
+                            className="eppm-process-step4-bullet-dot"
+                            aria-hidden="true"
+                          >
+                            •
+                          </span>
+                          <p className="eppm-process-step4-bullet-text">
+                            <strong>{item.label}:</strong> {item.body}
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
+                  </article>
                 </div>
               </div>
             </div>
@@ -1748,63 +1845,137 @@ function EPPMPage() {
         <section className="eppm-panel tm-panel" id="cases-5">
           <div className="tm-advantages-section eppm-process-section">
             <div className="tm-advantages-container eppm-process-container">
-              <div className="tm-section-header">
-                <h2 className="tm-section-title">4단계: 계획 대비 실적 추적</h2>
-              </div>
-
-              <div className="eppm-process-shell">
-                <div className="eppm-process-badge" aria-hidden="true">
-                  <svg
-                    className="eppm-process-badge-icon"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M12 4L4 8L12 12L20 8L12 4Z"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M4 12L12 16L20 12"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M4 16L12 20L20 16"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+              <div className="eppm-process-shell eppm-process-step5-shell">
+                <div className="tm-section-header eppm-process-step5-header">
+                  <h2 className="tm-section-title">
+                    4단계: 계획 대비 실적 추적
+                  </h2>
                 </div>
 
-                <div className="eppm-process-grid">
-                  <article className="eppm-process-visual-card tm-ppm-eppm-card">
-                    <div className="eppm-process-visual-media">
-                      <span>Step 4 Placeholder</span>
-                    </div>
-                  </article>
-
-                  <div className="eppm-process-info-stack">
-                    {processStep4PlaceholderCards.map((item) => (
-                      <article
-                        key={item.title}
-                        className="eppm-process-info-card tm-ppm-eppm-card"
+                <article className="eppm-process-step5-panel tm-ppm-eppm-card">
+                  <div className="eppm-process-step5-badge" aria-hidden="true">
+                    <span className="eppm-process-step5-badge-icon-wrap">
+                      <svg
+                        className="eppm-process-step5-badge-icon"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                        <h3 className="eppm-process-info-label">
-                          {item.title}
-                        </h3>
-                        <p className="eppm-process-info-body">{item.body}</p>
-                      </article>
-                    ))}
+                        <circle
+                          cx="12"
+                          cy="12"
+                          r="7.8"
+                          stroke="currentColor"
+                          strokeWidth="1.8"
+                        />
+                        <path
+                          d="M12 8.2V12.2L14.8 14.2"
+                          stroke="currentColor"
+                          strokeWidth="1.8"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span className="eppm-process-step5-badge-text">
+                      STEP 4
+                    </span>
                   </div>
-                </div>
+
+                  <div className="eppm-process-step5-layout">
+                    <div
+                      className="eppm-process-step5-chart-card"
+                      role="img"
+                      aria-label="Baseline Plan과 Actual Progress의 추이를 비교한 차트"
+                    >
+                      <svg
+                        className="eppm-process-step5-chart-svg"
+                        viewBox="0 0 100 100"
+                        preserveAspectRatio="none"
+                      >
+                        <defs>
+                          <linearGradient
+                            id="eppmStep5ActualGradient"
+                            x1="0%"
+                            y1="0%"
+                            x2="100%"
+                            y2="0%"
+                          >
+                            <stop
+                              offset="0%"
+                              stopColor="rgba(255, 165, 94, 0.9)"
+                            />
+                            <stop
+                              offset="100%"
+                              stopColor="rgba(255, 112, 48, 1)"
+                            />
+                          </linearGradient>
+                          <marker
+                            id="eppmStep5BaselineArrow"
+                            markerWidth="4"
+                            markerHeight="4"
+                            refX="3.4"
+                            refY="2"
+                            orient="auto"
+                          >
+                            <path
+                              d="M0 0L4 2L0 4Z"
+                              fill="rgba(226, 243, 255, 0.9)"
+                            />
+                          </marker>
+                          <filter
+                            id="eppmStep5ActualGlow"
+                            x="-20%"
+                            y="-20%"
+                            width="140%"
+                            height="140%"
+                          >
+                            <feGaussianBlur stdDeviation="1.2" result="blur" />
+                            <feMerge>
+                              <feMergeNode in="blur" />
+                              <feMergeNode in="SourceGraphic" />
+                            </feMerge>
+                          </filter>
+                        </defs>
+
+                        <path
+                          className="eppm-process-step5-baseline"
+                          d="M8 88C36 69 66 42 95 13"
+                          markerEnd="url(#eppmStep5BaselineArrow)"
+                        />
+                        <path
+                          className="eppm-process-step5-actual"
+                          d="M8 88C20 82 30 74 38 57C45 41 53 42 60 56C68 72 77 66 88 30C92 20 95 16 97 14"
+                        />
+                      </svg>
+                      <span className="eppm-process-step5-chart-label eppm-process-step5-chart-label--baseline">
+                        Baseline Plan
+                      </span>
+                      <span className="eppm-process-step5-chart-label eppm-process-step5-chart-label--actual">
+                        Actual Progress
+                      </span>
+                    </div>
+
+                    <ul className="eppm-process-step5-summary-list">
+                      {processStep5SummaryItems.map((item) => (
+                        <li
+                          key={item.text}
+                          className="eppm-process-step5-summary-item"
+                        >
+                          <span
+                            className="eppm-process-step5-summary-icon"
+                            aria-hidden="true"
+                          >
+                            {item.icon}
+                          </span>
+                          <p className="eppm-process-step5-summary-text">
+                            {item.text}
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
               </div>
             </div>
           </div>
