@@ -33,7 +33,7 @@ const subMenuItems = [
     title: "기능 소개",
     description: "일정, 리스크, 포트폴리오, Lean 관리",
     image:
-      "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "/OPC%20기능%20소개.png",
     link: "#functions",
   },
   {

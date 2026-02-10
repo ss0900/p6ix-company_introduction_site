@@ -146,8 +146,7 @@ function Header() {
           id: "functions",
           title: "기능 소개",
           path: "/opc/functions/1",
-          image:
-            "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600",
+          image: "/OPC%20기능%20소개.png",
         },
         {
           id: "comparison",

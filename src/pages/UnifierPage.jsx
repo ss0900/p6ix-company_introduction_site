@@ -19,6 +19,7 @@ const sections = [
   { id: "functions-2", label: "기능 소개 2" },
   { id: "customers", label: "효과" },
   { id: "benefits-2", label: "효과 2" },
+  { id: "benefits-3", label: "효과 3" },
 ];
 
 const subMenuItems = [
@@ -79,6 +80,12 @@ const benefitsKpiData = [
   { value: "125+", label: "사전 구성된 비즈니스 프로세스" },
   { value: "250+", label: "대시보드 및 리포트" },
 ];
+const benefits2P6Image = encodeURI(
+  "/Primavera P6 EPPM - 일정 및 자원 계획 중심.png",
+);
+const benefits2UnifierImage = encodeURI(
+  "/Primavera Unifier - 비용, 계약, 워크플로우 중심.png",
+);
 
 function UnifierPage() {
   const { sectionId, subId } = useParams();
@@ -99,6 +106,7 @@ function UnifierPage() {
   const functionsSectionRef2 = useRef(null);
   const benefitsSectionRef = useRef(null);
   const benefitsSectionRef2 = useRef(null);
+  const benefitsSectionRef3 = useRef(null);
 
   // Animation refs
   const overviewCardsRef = useRef([]);
@@ -109,6 +117,7 @@ function UnifierPage() {
   const functionsCardsRef2 = useRef([]);
   const benefitsItemsRef = useRef([]);
   const benefitsItemsRef2 = useRef([]);
+  const benefitsItemsRef3 = useRef([]);
 
   // Check reduced motion preference
   useEffect(() => {
@@ -155,8 +164,8 @@ function UnifierPage() {
     if (sectionId) {
       // Handle mapping if necessary, or just rely on direct ID match
       // Route map:
-      // /unifier/overview/1, /unifier/overview/2, /unifier/functions/1, /unifier/functions/2, /unifier/benefits/1, /unifier/benefits/2
-      // IDs: overview-content, overview-content-2, functions, functions-2, customers, benefits-2
+      // /unifier/overview/1, /unifier/overview/2, /unifier/functions/1, /unifier/functions/2, /unifier/benefits/1, /unifier/benefits/2, /unifier/benefits/3
+      // IDs: overview-content, overview-content-2, functions, functions-2, customers, benefits-2, benefits-3
 
       let targetId = sectionId;
       if (sectionId === "overview")
@@ -165,7 +174,8 @@ function UnifierPage() {
       if (sectionId === "functions")
         targetId = subId === "2" ? "functions-2" : "functions";
       if (sectionId === "benefits")
-        targetId = subId === "2" ? "benefits-2" : "customers";
+        targetId =
+          subId === "3" ? "benefits-3" : subId === "2" ? "benefits-2" : "customers";
 
       const foundIndex = sections.findIndex((s) => s.id === targetId);
 
@@ -188,6 +198,7 @@ function UnifierPage() {
       if (index === 5) path = "/unifier/functions/2";
       if (index === 6) path = "/unifier/benefits/1";
       if (index === 7) path = "/unifier/benefits/2";
+      if (index === 8) path = "/unifier/benefits/3";
 
       navigate(path, { replace: true });
     },
@@ -557,6 +568,24 @@ function UnifierPage() {
           },
         );
       }
+
+      if (benefitsSectionRef3.current) {
+        gsap.fromTo(
+          benefitsItemsRef3.current,
+          { y: 50, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            stagger: 0.2,
+            scrollTrigger: {
+              trigger: benefitsSectionRef3.current,
+              start: "top 60%",
+              toggleActions: "play none none reverse",
+            },
+          },
+        );
+      }
     });
     return () => ctx.revert();
   };
@@ -886,14 +915,130 @@ function UnifierPage() {
                 <h2 className="tm-section-title">
                   The Synergy: Unifier + P6 EPPM
                 </h2>
+                <p className="unifier-benefits-2-subtitle">
+                  일정(Time)과 비용(Cost)의 완벽한 동기화
+                </p>
               </div>
 
-              <article
-                className="tm-ppm-eppm-card unifier-benefits-2-placeholder"
+              <div
+                className="unifier-benefits-2-flow"
                 ref={(el) => (benefitsItemsRef2.current[1] = el)}
               >
-                <p>Placeholder</p>
-              </article>
+                <article className="tm-ppm-eppm-card unifier-benefits-2-side-card unifier-benefits-2-side-card-left">
+                  <p className="unifier-benefits-2-side-label">Time/P6</p>
+                  <div
+                    className="unifier-benefits-2-media-stack"
+                    aria-label="Primavera P6 EPPM 화면"
+                  >
+                    <div className="unifier-benefits-2-media unifier-benefits-2-media-back" />
+                    <div className="unifier-benefits-2-media unifier-benefits-2-media-mid" />
+                    <div className="unifier-benefits-2-media unifier-benefits-2-media-front">
+                      <img
+                        src={benefits2P6Image}
+                        alt="Primavera P6 EPPM - 일정 및 자원 계획 중심"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </article>
+
+                <article className="tm-ppm-eppm-card unifier-benefits-2-connector-card">
+                  <span
+                    className="unifier-benefits-2-direction unifier-benefits-2-direction-left"
+                    aria-hidden="true"
+                  />
+                  <span
+                    className="unifier-benefits-2-direction unifier-benefits-2-direction-right"
+                    aria-hidden="true"
+                  />
+                  <p className="unifier-benefits-2-connector-title">EVM</p>
+                  <p className="unifier-benefits-2-connector-subtitle">
+                    (Earned Value Management)
+                  </p>
+                </article>
+
+                <article className="tm-ppm-eppm-card unifier-benefits-2-side-card unifier-benefits-2-side-card-right">
+                  <p className="unifier-benefits-2-side-label">Cost/Unifier</p>
+                  <div
+                    className="unifier-benefits-2-media-stack"
+                    aria-label="Primavera Unifier 화면"
+                  >
+                    <div className="unifier-benefits-2-media unifier-benefits-2-media-back" />
+                    <div className="unifier-benefits-2-media unifier-benefits-2-media-mid" />
+                    <div className="unifier-benefits-2-media unifier-benefits-2-media-front">
+                      <img
+                        src={benefits2UnifierImage}
+                        alt="Primavera Unifier - 비용, 계약, 워크플로우 중심"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <div
+                className="unifier-benefits-2-summary"
+                ref={(el) => (benefitsItemsRef2.current[2] = el)}
+              >
+                <div className="unifier-benefits-2-summary-columns">
+                  <div className="unifier-benefits-2-summary-item">
+                    <h3 className="unifier-benefits-2-summary-title">
+                      Primavera P6 EPPM
+                    </h3>
+                    <p className="unifier-benefits-2-summary-text">
+                      일정 및 자원 계획 중심
+                    </p>
+                  </div>
+
+                  <span
+                    className="unifier-benefits-2-summary-divider"
+                    aria-hidden="true"
+                  />
+
+                  <div className="unifier-benefits-2-summary-item">
+                    <h3 className="unifier-benefits-2-summary-title">
+                      Primavera Unifier
+                    </h3>
+                    <p className="unifier-benefits-2-summary-text">
+                      비용, 계약, 워크플로우 중심
+                    </p>
+                  </div>
+                </div>
+
+                <p className="unifier-benefits-2-conclusion">
+                  데이터 동기화: WBS, 액티비티(Activity), 자원 배정 연동을 통한
+                  통합 관리
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 9. Benefits Section 3 (route: /unifier/benefits/3 -> section id "benefits-3") */}
+        <section
+          className="unifier-panel tm-panel"
+          id="benefits-3"
+          ref={benefitsSectionRef3}
+        >
+          <div className="tm-methods-section unifier-benefits-section">
+            <div className="tm-methods-container unifier-benefits-container unifier-benefits-3-container">
+              <div
+                className="tm-section-header unifier-benefits-header"
+                ref={(el) => (benefitsItemsRef3.current[0] = el)}
+              >
+                <h2 className="tm-section-title">
+                  유연한 구축 환경 (Deployment Flexibility)
+                </h2>
+              </div>
+
+              <div
+                className="tm-ppm-eppm-card unifier-benefits-3-placeholder"
+                ref={(el) => (benefitsItemsRef3.current[1] = el)}
+              >
+                <p className="unifier-benefits-3-placeholder-text">
+                  Placeholder
+                </p>
+              </div>
             </div>
           </div>
         </section>
