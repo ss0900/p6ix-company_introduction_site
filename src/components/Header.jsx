@@ -191,7 +191,7 @@ function Header() {
         {
           id: "overview",
           title: "개요",
-          path: "/aconex/overview",
+          path: "/aconex/overview/1",
           image:
             "https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&w=600",
         },

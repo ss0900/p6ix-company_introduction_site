@@ -1029,14 +1029,122 @@ function UnifierPage() {
                 <h2 className="tm-section-title">
                   유연한 구축 환경 (Deployment Flexibility)
                 </h2>
+                <p className="unifier-benefits-3-subtitle">
+                  조직의 IT 전략과 보안 정책에 맞춘 최적의 선택
+                </p>
               </div>
 
               <div
-                className="tm-ppm-eppm-card unifier-benefits-3-placeholder"
+                className="unifier-benefits-3-compare"
                 ref={(el) => (benefitsItemsRef3.current[1] = el)}
               >
-                <p className="unifier-benefits-3-placeholder-text">
-                  Placeholder
+                <article className="tm-ppm-eppm-card unifier-benefits-3-option">
+                  <div className="unifier-benefits-3-option-layout">
+                    <div
+                      className="unifier-benefits-3-icon-wrap"
+                      aria-hidden="true"
+                    >
+                      <svg
+                        className="unifier-benefits-3-icon-badge unifier-benefits-3-icon-badge-cloud"
+                        viewBox="0 0 64 64"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <path
+                          className="unifier-benefits-3-icon-stroke"
+                          d="M18 41h28a8 8 0 0 0 1-16 14 14 0 0 0-27-2 8 8 0 0 0-2 18z"
+                        />
+                        <path
+                          className="unifier-benefits-3-icon-stroke"
+                          d="M32 26l9 4v7c0 7-5 11-9 13-4-2-9-6-9-13v-7z"
+                        />
+                        <path
+                          className="unifier-benefits-3-icon-stroke"
+                          d="M32 30v14"
+                        />
+                        <path
+                          className="unifier-benefits-3-icon-stroke"
+                          d="M27 37h10"
+                        />
+                      </svg>
+                    </div>
+
+                    <div className="unifier-benefits-3-option-copy">
+                      <h3 className="unifier-benefits-3-option-title">
+                        Oracle Cloud
+                      </h3>
+                      <p className="unifier-benefits-3-option-description">
+                        - 보안성, 확장성, 최신 기능 자동 업데이트
+                      </p>
+                    </div>
+                  </div>
+                </article>
+
+                <span className="unifier-benefits-3-divider" aria-hidden="true" />
+
+                <article className="tm-ppm-eppm-card unifier-benefits-3-option">
+                  <div className="unifier-benefits-3-option-layout">
+                    <div
+                      className="unifier-benefits-3-icon-wrap"
+                      aria-hidden="true"
+                    >
+                      <svg
+                        className="unifier-benefits-3-icon-badge"
+                        viewBox="0 0 64 64"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <rect
+                          className="unifier-benefits-3-icon-stroke"
+                          x="10"
+                          y="22"
+                          width="24"
+                          height="30"
+                          rx="2"
+                        />
+                        <rect
+                          className="unifier-benefits-3-icon-stroke"
+                          x="36"
+                          y="14"
+                          width="18"
+                          height="38"
+                          rx="2"
+                        />
+                        <path
+                          className="unifier-benefits-3-icon-stroke"
+                          d="M16 29h4M24 29h4M16 35h4M24 35h4M16 41h4M24 41h4M41 22h3M47 22h3M41 29h3M47 29h3M41 36h3M47 36h3"
+                        />
+                        <path
+                          className="unifier-benefits-3-icon-stroke"
+                          d="M22 52v-6M45 52v-7"
+                        />
+                      </svg>
+                    </div>
+
+                    <div className="unifier-benefits-3-option-copy">
+                      <h3 className="unifier-benefits-3-option-title">
+                        On-Premise
+                      </h3>
+                      <p className="unifier-benefits-3-option-description">
+                        - 조직 내부 정책에 따른 자체 서버 구축 및 관리 지원
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <div
+                className="unifier-benefits-3-conclusion-wrap"
+                ref={(el) => (benefitsItemsRef3.current[2] = el)}
+              >
+                <div className="unifier-benefits-3-bracket" aria-hidden="true">
+                  <span className="unifier-benefits-3-bracket-segment is-left" />
+                  <span className="unifier-benefits-3-bracket-center" />
+                  <span className="unifier-benefits-3-bracket-segment is-right" />
+                </div>
+
+                <p className="unifier-benefits-3-conclusion">
+                  어떤 환경에서도 동일한 사용자 경험을 제공합니다.
                 </p>
               </div>
             </div>

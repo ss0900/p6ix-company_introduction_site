@@ -181,7 +181,7 @@ function AconexPage() {
   const updateUrlForSection = useCallback(
     (index) => {
       let path = "/aconex";
-      if (index === 2) path = "/aconex/overview";
+      if (index === 2) path = "/aconex/overview/1";
       if (index === 3) path = "/aconex/functions/1";
       if (index === 4) path = "/aconex/functions/2";
       if (index === 5) path = "/aconex/projects";
