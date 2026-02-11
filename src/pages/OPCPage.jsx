@@ -24,24 +24,21 @@ const subMenuItems = [
     id: "overview",
     title: "개요",
     description: "클라우드 기반의 유연한 프로젝트 관리",
-    image:
-      "/OPC%20개요.png",
+    image: "/OPC%20개요.png",
     link: "#overview-content",
   },
   {
     id: "functions",
     title: "기능 소개",
     description: "일정, 리스크, 포트폴리오, Lean 관리",
-    image:
-      "/OPC%20기능%20소개.png",
+    image: "/OPC%20기능%20소개.png",
     link: "#functions",
   },
   {
     id: "comparison",
     title: "비교",
     description: "P6와 OPC의 역할 기반 기능 전문성 비교",
-    image:
-      "/OPC%20비교.png",
+    image: "/OPC%20비교.png",
     link: "#application",
   },
 ];
@@ -1657,8 +1654,9 @@ function OPCPage() {
             <div className="tm-core-container opc-overview-control-container">
               <div className="tm-section-header opc-overview-control-header">
                 <h2 className="tm-section-title">
-                  발주처를 '보고받는 위치'에서 '프로젝트를 통제하는 위치'로
-                  이동시킵니다.
+                  발주처를 '보고받는 위치'에서
+                  <br />
+                  '프로젝트를 통제하는 위치'로 이동시킵니다.
                 </h2>
               </div>
 
