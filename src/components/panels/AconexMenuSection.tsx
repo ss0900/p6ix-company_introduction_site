@@ -87,19 +87,6 @@ function AconexMenuSection({ id }: AconexMenuSectionProps) {
             ))}
           </div>
 
-          <div className="eppm-menu-dots" aria-label="Aconex 메뉴 카드 인디케이터">
-            {aconexHomeMenuCards.map((card, index) => (
-              <button
-                key={card.id}
-                type="button"
-                className={`eppm-menu-dot ${activeIndex === index ? "is-active" : ""}`}
-                aria-label={`${card.title} 카드 활성화`}
-                onMouseEnter={() => setActiveIndex(index)}
-                onFocus={() => setActiveIndex(index)}
-                onClick={() => setActiveIndex(index)}
-              />
-            ))}
-          </div>
         </div>
       </div>
     </section>

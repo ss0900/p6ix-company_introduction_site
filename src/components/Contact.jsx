@@ -8,7 +8,7 @@ function Contact({ id }) {
       <div className="container">
         <div
           className="fade-in-section"
-          style={{ textAlign: "center", marginBottom: "var(--space-4xl)" }}
+          style={{ textAlign: "center", marginBottom: "var(--space-2xl)" }}
         >
           <h2 className="section-title">Get In Touch</h2>
           <p className="section-subtitle" style={{ margin: "0 auto" }}>
@@ -70,7 +70,7 @@ function Contact({ id }) {
             </div>
           </div>
 
-          <div className="contact-card card-item">
+          {/* <div className="contact-card card-item">
             <div
               className="contact-icon"
               style={{ background: "var(--gradient-secondary)" }}
@@ -132,7 +132,7 @@ function Contact({ id }) {
                 ))}
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

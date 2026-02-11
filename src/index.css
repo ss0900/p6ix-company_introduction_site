@@ -1279,7 +1279,8 @@ a:hover {
 /* Contact Section */
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 560px));
+  justify-content: center;
   gap: var(--space-xl);
 }
 
@@ -16450,14 +16451,13 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 .ppm-menu-card-bottom-overlay {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(
-      to top,
-      rgba(5, 8, 18, 0.92) 0%,
-      rgba(5, 8, 18, 0.62) 35%,
-      rgba(5, 8, 18, 0.18) 62%,
-      rgba(5, 8, 18, 0.05) 100%
-    );
+  background: linear-gradient(
+    to top,
+    rgba(5, 8, 18, 0.92) 0%,
+    rgba(5, 8, 18, 0.62) 35%,
+    rgba(5, 8, 18, 0.18) 62%,
+    rgba(5, 8, 18, 0.05) 100%
+  );
   pointer-events: none;
 }
 
@@ -17031,7 +17031,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   max-width: clamp(940px, 84vw, 1160px);
-  margin-inline: 0;
+  margin-inline: auto;
   gap: clamp(0.85rem, 1.55vw, 1.35rem);
 }
 

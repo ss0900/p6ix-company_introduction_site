@@ -77,6 +77,10 @@ function Home() {
     }
 
     const panels = gsap.utils.toArray('.panel')
+    const footerSection = document.querySelector('.footer')
+    const snapTargets = footerSection ? [...panels, footerSection] : panels
+    const lastPanelIndex = panels.length - 1
+    const lastSnapIndex = snapTargets.length - 1
 
     panels.forEach((panel, i) => {
       ScrollTrigger.create({
@@ -94,6 +98,41 @@ function Home() {
       })
     })
 
+    if (footerSection) {
+      ScrollTrigger.create({
+        trigger: footerSection,
+        start: 'top center',
+        end: 'bottom center',
+        onEnter: () => {
+          currentSectionRef.current = lastSnapIndex
+          setActiveSection(lastPanelIndex)
+        },
+        onEnterBack: () => {
+          currentSectionRef.current = lastSnapIndex
+          setActiveSection(lastPanelIndex)
+        }
+      })
+    }
+
+    const snapToIndex = (targetIndex) => {
+      const target = snapTargets[targetIndex]
+      if (!target) return
+
+      currentSectionRef.current = targetIndex
+      setActiveSection(Math.min(targetIndex, lastPanelIndex))
+
+      gsap.to(window, {
+        duration: 0.8,
+        scrollTo: { y: target, autoKill: false },
+        ease: 'power3.inOut',
+        onComplete: () => {
+          setTimeout(() => {
+            isAnimatingRef.current = false
+          }, 100)
+        }
+      })
+    }
+
     const handleWheel = (e) => {
       if (isAnimatingRef.current) {
         e.preventDefault()
@@ -105,33 +144,19 @@ function Home() {
 
       if (Math.abs(delta) < threshold) return
 
-      e.preventDefault()
-      isAnimatingRef.current = true
-
       let nextSection = currentSectionRef.current
 
-      if (delta > 0 && currentSectionRef.current < panels.length - 1) {
+      if (delta > 0 && currentSectionRef.current < lastSnapIndex) {
         nextSection = currentSectionRef.current + 1
       } else if (delta < 0 && currentSectionRef.current > 0) {
         nextSection = currentSectionRef.current - 1
       } else {
-        isAnimatingRef.current = false
         return
       }
 
-      currentSectionRef.current = nextSection
-      setActiveSection(nextSection)
-
-      gsap.to(window, {
-        duration: 0.8,
-        scrollTo: { y: panels[nextSection], autoKill: false },
-        ease: 'power3.inOut',
-        onComplete: () => {
-          setTimeout(() => {
-            isAnimatingRef.current = false
-          }, 100)
-        }
-      })
+      e.preventDefault()
+      isAnimatingRef.current = true
+      snapToIndex(nextSection)
     }
 
     let touchStartY = 0
@@ -153,7 +178,7 @@ function Home() {
 
       let nextSection = currentSectionRef.current
 
-      if (delta > 0 && currentSectionRef.current < panels.length - 1) {
+      if (delta > 0 && currentSectionRef.current < lastSnapIndex) {
         nextSection = currentSectionRef.current + 1
       } else if (delta < 0 && currentSectionRef.current > 0) {
         nextSection = currentSectionRef.current - 1
@@ -162,19 +187,7 @@ function Home() {
         return
       }
 
-      currentSectionRef.current = nextSection
-      setActiveSection(nextSection)
-
-      gsap.to(window, {
-        duration: 0.8,
-        scrollTo: { y: panels[nextSection], autoKill: false },
-        ease: 'power3.inOut',
-        onComplete: () => {
-          setTimeout(() => {
-            isAnimatingRef.current = false
-          }, 100)
-        }
-      })
+      snapToIndex(nextSection)
     }
 
     window.addEventListener('wheel', handleWheel, { passive: false })

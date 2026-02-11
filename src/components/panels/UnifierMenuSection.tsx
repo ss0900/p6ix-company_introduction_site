@@ -98,19 +98,6 @@ function UnifierMenuSection({ id }: UnifierMenuSectionProps) {
             ))}
           </div>
 
-          <div className="ppm-menu-dots" aria-label="Unifier 메뉴 카드 인디케이터">
-            {cards.map((card, index) => (
-              <button
-                key={card.title}
-                type="button"
-                className={`ppm-menu-dot ${activeIndex === index ? "is-active" : ""}`}
-                aria-label={`${card.title} 카드 선택`}
-                onMouseEnter={() => setActiveIndex(index)}
-                onFocus={() => setActiveIndex(index)}
-                onClick={() => setActiveIndex(index)}
-              />
-            ))}
-          </div>
         </div>
       </div>
     </section>
