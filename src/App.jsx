@@ -47,7 +47,7 @@ function App() {
   }, []);
 
   return (
-    <Router>
+    <Router basename="/p6ix-company_introduction_site">
       <Loader isLoading={isLoading} />
       <ScrollToTop />
       <Header />
