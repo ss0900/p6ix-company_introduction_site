@@ -80,7 +80,7 @@ const featureItems2 = [
       </svg>
     ),
     title: <>WBS 및 Activity</>,
-    images: ["/WBS 및 Activity.png"],
+    images: [getAssetPath("/WBS 및 Activity.png")],
     alts: ["기능 소개 - WBS 및 Activity"],
   },
   {
@@ -103,7 +103,7 @@ const featureItems2 = [
       </svg>
     ),
     title: <>CP Activity 분석</>,
-    images: ["/CPM Activity 분석.png"],
+    images: [getAssetPath("/CPM Activity 분석.png")],
     alts: ["기능 소개 - CPM Activity 분석"],
   },
   {
@@ -122,7 +122,7 @@ const featureItems2 = [
         자동 계산
       </>
     ),
-    images: ["/CPM 자동계산.png"],
+    images: [getAssetPath("/CPM 자동계산.png")],
     alts: ["기능 소개 - CPM 자동계산"],
   },
   {
@@ -139,7 +139,7 @@ const featureItems2 = [
         />
       </svg>
     ),
-    images: ["/리소스 현황 및 분석_1.png", "/리소스 현황 및 분석_2.png"],
+    images: [getAssetPath("/리소스 현황 및 분석_1.png"), getAssetPath("/리소스 현황 및 분석_2.png")],
     alts: [
       "기능 소개 - 리소스 현황 및 분석_1",
       "기능 소개 - 리소스 현황 및 분석_2",
@@ -229,8 +229,8 @@ const featureItems = [
       </>
     ),
     images: [
-      "/인력, 장비, 자재 자원 계획 및 부하 분석_1.png",
-      "/인력, 장비, 자재 자원 계획 및 부하 분석_2.png",
+      getAssetPath("/인력, 장비, 자재 자원 계획 및 부하 분석_1.png"),
+      getAssetPath("/인력, 장비, 자재 자원 계획 및 부하 분석_2.png"),
     ],
     alts: [
       "기능 소개 - 인력, 장비, 자재 자원 계획 및 부하 분석_1",
@@ -257,7 +257,7 @@ const featureItems = [
       </svg>
     ),
     title: <>Baseline 설정 및 비교 분석</>,
-    images: ["/Baseline 설정 및 비교 분석.png"],
+    images: [getAssetPath("/Baseline 설정 및 비교 분석.png")],
     alts: ["기능 소개 - Baseline 설정 및 비교 분석"],
   },
   {
@@ -270,7 +270,7 @@ const featureItems = [
       </svg>
     ),
     title: <>시나리오별 일정 영향 분석</>,
-    images: ["/시나리오별 일정 영향 분석.png"],
+    images: [getAssetPath("/시나리오별 일정 영향 분석.png")],
     alts: ["기능 소개 - 시나리오별 일정 영향 분석"],
   },
   {
@@ -288,7 +288,7 @@ const featureItems = [
       </svg>
     ),
     title: <>공정 진도 및 실적 관리</>,
-    images: ["/공정 진도 및 실적 관리.png"],
+    images: [getAssetPath("/공정 진도 및 실적 관리.png")],
     alts: ["기능 소개 - 공정 진도 및 실적 관리"],
   },
 ];

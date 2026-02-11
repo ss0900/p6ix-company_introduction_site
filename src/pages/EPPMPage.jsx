@@ -428,19 +428,18 @@ const processStep2ComparisonCards = [
   {
     product: "P6 Web Application",
     description: "역할 기반의 주요 인터페이스, 접근성 및 협업 중심",
-    imageSrc: "/p6-web-application.png",
+    imageSrc: getAssetPath("/p6-web-application.png"),
     imageAlt: "P6 Web Application 화면 예시",
   },
   {
     product: "P6 Professional",
     description: "파워 유저를 위한 심층 스케줄링 및 오프라인 작업 지원",
-    imageSrc: "/p6-professional-schedule.png",
+    imageSrc: getAssetPath("/p6-professional-schedule.png"),
     imageAlt: "P6 Professional 화면 예시",
   },
 ];
 
-const processStep3FieldUpdateImage =
-  "/Connectivity_between_the_field_and_the_system.png";
+const processStep3FieldUpdateImage = getAssetPath("/Connectivity_between_the_field_and_the_system.png");
 
 const processStep3ConnectionBullets = [
   {
@@ -1686,7 +1685,7 @@ function EPPMPage() {
                     <div className="eppm-process-visual-media">
                       <img
                         src={encodeURI(
-                          "/1단계 우선순위 결정 및 투자 최적화.png",
+                          getAssetPath("/1단계 우선순위 결정 및 투자 최적화.png"),
                         )}
                         alt="1단계 우선순위 결정 및 투자 최적화"
                       />

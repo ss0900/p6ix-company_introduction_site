@@ -1,3 +1,5 @@
+import { getAssetPath } from "../utils/assetPath";
+
 export interface AconexHomeMenuCard {
   id: string;
   title: string;
@@ -14,7 +16,7 @@ export const aconexHomeMenuCards: AconexHomeMenuCard[] = [
     title: "개요",
     description:
       "건설 프로젝트 협업의 핵심 개념과 적용 범위를 빠르게 확인합니다.",
-    imageSrc: encodeURI("/Aconex 개요.png"),
+    imageSrc: getAssetPath("/Aconex 개요.png"),
     href: "/aconex/overview/1",
   },
   {
@@ -22,7 +24,7 @@ export const aconexHomeMenuCards: AconexHomeMenuCard[] = [
     title: "기능 소개",
     description:
       "문서 관리, 워크플로우, 커뮤니케이션 기능을 중심으로 Aconex 활용 방식을 살펴봅니다.",
-    imageSrc: encodeURI("/Aconex 기능 소개.png"),
+    imageSrc: getAssetPath("/Aconex 기능 소개.png"),
     href: "/aconex/functions/1",
   },
   {
@@ -30,7 +32,7 @@ export const aconexHomeMenuCards: AconexHomeMenuCard[] = [
     title: "효과",
     description:
       "Aconex 도입으로 얻는 협업 효율과 리스크 절감 효과를 확인합니다.",
-    imageSrc: encodeURI("/Aconex 효과.png"),
+    imageSrc: getAssetPath("/Aconex 효과.png"),
     href: "/aconex/benefits/1",
   },
 ];

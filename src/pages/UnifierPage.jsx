@@ -79,10 +79,10 @@ const benefitsKpiData = [
   { value: "250+", label: "대시보드 및 리포트" },
 ];
 const benefits2P6Image = encodeURI(
-  "/Primavera P6 EPPM - 일정 및 자원 계획 중심.png",
+  getAssetPath("/Primavera P6 EPPM - 일정 및 자원 계획 중심.png"),
 );
 const benefits2UnifierImage = encodeURI(
-  "/Primavera Unifier - 비용, 계약, 워크플로우 중심.png",
+  getAssetPath("/Primavera Unifier - 비용, 계약, 워크플로우 중심.png"),
 );
 
 function UnifierPage() {
