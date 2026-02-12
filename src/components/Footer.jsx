@@ -1,7 +1,5 @@
 import { getAssetPath } from "../utils/assetPath";
 function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
     <footer className="footer">
       <div className="container">
@@ -81,17 +79,21 @@ function Footer() {
             </span>{" "}
             <br />
             Tel : 02-6337-1771 <br />
-            Fax : 02-3281-4067 <br />
+            Fax : 02-6337-1772 <br />
             Mail : p6ix@p6ix.co.kr
           </p>
         </div>
 
         <div className="footer-bottom">
           <div className="copyright">
-            Copyright © {currentYear}. P6ixSC. All Rights Reserved.
+            Copyright © 2013. P6ixSC. All Rights Reserved.
           </div>
           <div className="social-links">
-            <a href="#" className="social-link" aria-label="Facebook">
+            <a
+              href="https://www.facebook.com/P6ix.SC"
+              className="social-link"
+              aria-label="Facebook"
+            >
               <svg
                 width="18"
                 height="18"
@@ -101,7 +103,11 @@ function Footer() {
                 <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.19 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.78-3.91 1.1 0 2.25.2 2.25.2v2.48H15.2c-1.25 0-1.64.78-1.64 1.58v1.9h2.79l-.45 2.91h-2.34V22c4.78-.75 8.44-4.92 8.44-9.94z" />
               </svg>
             </a>
-            <a href="#" className="social-link" aria-label="YouTube">
+            <a
+              href="https://www.youtube.com/@%ED%94%BC%EC%8B%9D%EC%8A%A4%EC%97%90%EC%8A%A4%EC%94%A8"
+              className="social-link"
+              aria-label="YouTube"
+            >
               <svg
                 width="18"
                 height="18"
@@ -109,6 +115,20 @@ function Footer() {
                 fill="currentColor"
               >
                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+            </a>
+            <a
+              href="https://blog.naver.com/p6consul"
+              className="social-link"
+              aria-label="Naver Blog"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm1 7V3.5L18.5 9H15zm-7 4h8v2H8v-2zm0 4h8v2H8v-2z" />
               </svg>
             </a>
           </div>

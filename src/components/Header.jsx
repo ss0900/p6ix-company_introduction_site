@@ -271,7 +271,7 @@ function Header() {
               className="btn btn-primary"
               style={{ padding: "0.5rem 1.25rem" }}
             >
-              Contact Us
+              문의하기
             </button>
           </Link>
         </nav>

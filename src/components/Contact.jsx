@@ -24,7 +24,13 @@ function Contact({ id }) {
               프로젝트 협업, 파트너십, 서비스 문의 등<br />
               비즈니스 관련 문의를 기다립니다.
             </p>
-            <button className="btn btn-primary" style={{ width: "100%" }}>
+            <button
+              className="btn btn-primary"
+              style={{ width: "100%" }}
+              onClick={() => {
+                window.location.href = "https://www.p6ix.co.kr/contact";
+              }}
+            >
               문의하기
               <svg
                 width="16"
