@@ -65,8 +65,8 @@ function AconexMenuSection({ id }: AconexMenuSectionProps) {
 
       <div className="container eppm-menu-container">
         <header className="eppm-menu-header">
-          <h2 className="eppm-menu-title">Primavera P6 Aconex</h2>
-          <p className="eppm-menu-subcopy">Aconex 하위 메뉴를 빠르게 살펴보세요.</p>
+          <h2 className="eppm-menu-title">Oracle Aconex</h2>
+          <p className="eppm-menu-subcopy">문서·협업·RFI·승인과 커뮤니케이션 이력 및 의사결정 기록 관리를 담당하는 협업 플랫폼입니다.</p>
         </header>
 
         <div className="eppm-menu-layout">

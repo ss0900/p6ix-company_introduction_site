@@ -432,10 +432,10 @@ const processStep2ComparisonCards = [
     imageAlt: "P6 Web Application 화면 예시",
   },
   {
-    product: "P6 Professional",
+    product: "Primavera P6 Professional",
     description: "파워 유저를 위한 심층 스케줄링 및 오프라인 작업 지원",
     imageSrc: getAssetPath("/P6_Professional_Schedule.png"),
-    imageAlt: "P6 Professional 화면 예시",
+    imageAlt: "Primavera P6 Professional 화면 예시",
   },
 ];
 

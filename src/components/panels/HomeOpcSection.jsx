@@ -27,8 +27,10 @@ function HomeOpcSection({ id }) {
     <section id={id} className="section home-opc-menu-section">
       <div className="container home-opc-menu-container">
         <header className="home-opc-menu-header fade-in-section">
-          <h2 className="home-opc-menu-title">Primavera P6 Cloud</h2>
-          <p className="home-opc-menu-subcopy">OPC 하위 메뉴를 빠르게 살펴보세요.</p>
+          <h2 className="home-opc-menu-title">Oracle Primavera Cloud (OPC)</h2>
+          <p className="home-opc-menu-subcopy" style={{ maxWidth: 'none' }}>
+            클라우드 기반으로 프로젝트·포트폴리오 운영에서 리소스·리스크·일정 통합을 담당하는 플랫폼입니다.
+          </p>
         </header>
 
         <div className="home-opc-menu-grid stagger-cards">

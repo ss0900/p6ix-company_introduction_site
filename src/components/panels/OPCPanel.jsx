@@ -178,7 +178,7 @@ function OPCPanel({ id }) {
     >
       <div className="container">
         <div className="opc-header fade-in-section">
-          <span className="product-panel-label">Oracle Primavera Cloud</span>
+          <span className="product-panel-label">Oracle Primavera Cloud (OPC)</span>
           <h2 className="product-panel-title">클라우드 기반 프로젝트 관리</h2>
           <p className="product-panel-description">
             SaaS 기반의 차세대 프로젝트 관리 플랫폼입니다.
@@ -200,7 +200,7 @@ function OPCPanel({ id }) {
             cursor: isDragging ? 'grabbing' : 'grab'
           }}
           role="region"
-          aria-label="Oracle Primavera Cloud 기능 슬라이더"
+          aria-label="Oracle Primavera Cloud (OPC) 기능 슬라이더"
         >
           <div className="opc-slider">
             {cloudFeatures.map((feature) => (
@@ -229,7 +229,7 @@ function OPCPanel({ id }) {
             className="btn btn-primary"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Oracle Primavera Cloud 소개서 다운로드"
+            aria-label="Oracle Primavera Cloud (OPC) 소개서 다운로드"
           >
             소개서 다운로드
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -241,7 +241,7 @@ function OPCPanel({ id }) {
           <a
             href="/opc"
             className="btn btn-secondary"
-            aria-label="Oracle Primavera Cloud 자세히 보기"
+            aria-label="Oracle Primavera Cloud (OPC) 자세히 보기"
           >
             자세히 보기
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

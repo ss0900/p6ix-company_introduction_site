@@ -631,7 +631,7 @@ function UnifierPage() {
           >
             <div className="tm-hero-content">
               <h1 className="unifier-hero-title tm-hero-title">
-                Oracle Primavera Unifier
+                Primavera Unifier
               </h1>
               <p className="tm-hero-subtitle">Unifier</p>
             </div>
@@ -932,7 +932,7 @@ function UnifierPage() {
                 ref={(el) => (benefitsItemsRef2.current[0] = el)}
               >
                 <h2 className="tm-section-title">
-                  The Synergy: Unifier + P6 EPPM
+                  The Synergy: Primavera Unifier + Primavera P6 EPPM
                 </h2>
                 <p className="unifier-benefits-2-subtitle">
                   일정(Time)과 비용(Cost)의 완벽한 동기화

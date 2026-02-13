@@ -77,8 +77,8 @@ function UnifierMenuSection({ id }: UnifierMenuSectionProps) {
     <section id={id} className="section ppm-menu-section">
       <div className="container ppm-menu-container">
         <header className="ppm-menu-header">
-          <h2 className="ppm-menu-title">Primavera P6 Unifier</h2>
-          <p className="ppm-menu-subcopy">Unifier 하위 메뉴를 빠르게 살펴보세요.</p>
+          <h2 className="ppm-menu-title">Primavera Unifier</h2>
+          <p className="ppm-menu-subcopy">비용·계약·변경(Change) 업무에서 승인·결재·통제 프로세스를 담당하는 통제 관리 영역입니다.</p>
         </header>
 
         <div className="ppm-menu-layout">

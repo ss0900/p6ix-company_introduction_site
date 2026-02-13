@@ -15,9 +15,9 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
 const sections = [
   { id: 'hero', label: 'Main' },
-  { id: 'ppm', label: 'P6 PPM' },
-  { id: 'eppm', label: 'P6 EPPM' },
+  { id: 'ppm', label: 'PPM' },
   { id: 'opc', label: 'OPC' },
+  { id: 'eppm', label: 'P6 EPPM' },
   { id: 'unifier', label: 'Unifier' },
   { id: 'aconex', label: 'Aconex' }
 ]
@@ -260,10 +260,10 @@ function Home() {
           <PpmMenuSection id="ppm" />
         </section>
         <section className="panel">
-          <EppmMenuSection id="eppm" />
+          <HomeOpcSection id="opc" />
         </section>
         <section className="panel">
-          <HomeOpcSection id="opc" />
+          <EppmMenuSection id="eppm" />
         </section>
         <section className="panel">
           <UnifierMenuSection id="unifier" />

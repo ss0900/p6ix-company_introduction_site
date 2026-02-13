@@ -16,7 +16,7 @@ import { getAssetPath } from "../utils/assetPath";
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const sections = [
-  { id: "hero", label: "Aconex" },
+  { id: "hero", label: "Oracle Aconex" },
   { id: "menu", label: "메뉴" },
   { id: "overview-content", label: "개요" },
   { id: "overview-content-2", label: "개요 2" },
@@ -45,7 +45,7 @@ const subMenuItems = [
   {
     id: "benefits",
     title: "효과",
-    description: "Primavera와 Aconex 역할 비교",
+    description: "Primavera와 Oracle Aconex 역할 비교",
     image: getAssetPath("/Aconex_Benefits.png"),
     link: "#projects",
   },
@@ -68,7 +68,7 @@ const roleCompareData = [
   },
   {
     id: "aconex",
-    title: "Oracle Primavera Aconex",
+    title: "Oracle Aconex",
     summary: [
       "실행과 기록 (Execution & Records)",
       "실행 과정의 모든 기록 (All Execution Records)",
@@ -1180,7 +1180,7 @@ function AconexPage() {
           >
             <div className="tm-hero-content">
               <h1 className="aconex-hero-title tm-hero-title">
-                Oracle Primavera Aconex
+                Oracle Aconex
               </h1>
               <p className="tm-hero-subtitle">Aconex</p>
             </div>
@@ -1208,7 +1208,7 @@ function AconexPage() {
                 </Link>
                 <span className="ppm-breadcrumb-separator">&gt;</span>
                 <span className="ppm-breadcrumb-item ppm-breadcrumb-current">
-                  Aconex
+                  Oracle Aconex
                 </span>
               </nav>
 
@@ -1341,7 +1341,7 @@ function AconexPage() {
                         <circle cx="390" cy="252" r="90" />
                         <text x="390" y="248" textAnchor="middle">
                           <tspan x="390" dy="0">
-                            Oracle Primavera Aconex
+                            Oracle Aconex
                           </tspan>
                           <tspan x="390" dy="36">
                             (CDE)
@@ -1525,7 +1525,7 @@ function AconexPage() {
                 ref={(element) => (projectsCardsRef.current[0] = element)}
               >
                 <h2 className="tm-section-title">
-                  Primavera와 Aconex 역할 비교
+                  Primavera와 Oracle Aconex 역할 비교
                 </h2>
               </div>
 
@@ -1592,7 +1592,7 @@ function AconexPage() {
                 <div
                   className="aconex-benefits-integration-diagram"
                   role="img"
-                  aria-label="Primavera와 Aconex 사이 일정 데이터와 진척 및 이슈가 양방향으로 연동되는 다이어그램"
+                  aria-label="Primavera와 Oracle Aconex 사이 일정 데이터와 진척 및 이슈가 양방향으로 연동되는 다이어그램"
                 >
                   <article
                     className="aconex-benefits-node aconex-benefits-node-left"
@@ -1649,7 +1649,7 @@ function AconexPage() {
 
                   <article
                     className="aconex-benefits-node aconex-benefits-node-right"
-                    aria-label="Aconex 정보 블록"
+                    aria-label="Oracle Aconex 정보 블록"
                   >
                     <span
                       className="aconex-benefits-node-icon"
@@ -1672,7 +1672,7 @@ function AconexPage() {
                     <span className="aconex-benefits-summary-label">
                       상호 보완
                     </span>
-                    : Primavera의 일정 통제 + Aconex의 프로세스/정보 통제
+                    : Primavera의 일정 통제 + Oracle Aconex의 프로세스/정보 통제
                   </p>
                   <p className="aconex-benefits-summary-line">
                     <span className="aconex-benefits-summary-label">결과</span>:

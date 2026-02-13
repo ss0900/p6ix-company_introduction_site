@@ -108,11 +108,6 @@ function Header() {
       ],
     },
     {
-      path: "/eppm",
-      label: "EPPM",
-      subItems: eppmMenuItems,
-    },
-    {
       path: "/opc",
       label: "OPC",
       subItems: [
@@ -135,6 +130,11 @@ function Header() {
           image: getAssetPath("/OPC_Comparison.png"),
         },
       ],
+    },
+    {
+      path: "/eppm",
+      label: "EPPM",
+      subItems: eppmMenuItems,
     },
     {
       path: "/unifier",

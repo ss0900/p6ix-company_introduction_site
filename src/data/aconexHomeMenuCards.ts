@@ -23,7 +23,7 @@ export const aconexHomeMenuCards: AconexHomeMenuCard[] = [
     id: "functions",
     title: "기능 소개",
     description:
-      "문서 관리, 워크플로우, 커뮤니케이션 기능을 중심으로 Aconex 활용 방식을 살펴봅니다.",
+      "문서 관리, 워크플로우, 커뮤니케이션 기능을 중심으로 Oracle Aconex 활용 방식을 살펴봅니다.",
     imageSrc: getAssetPath("/Aconex_Functions.png"),
     href: "/aconex/functions/1",
   },
@@ -31,7 +31,7 @@ export const aconexHomeMenuCards: AconexHomeMenuCard[] = [
     id: "benefits",
     title: "효과",
     description:
-      "Aconex 도입으로 얻는 협업 효율과 리스크 절감 효과를 확인합니다.",
+      "Oracle Aconex 도입으로 얻는 협업 효율과 리스크 절감 효과를 확인합니다.",
     imageSrc: getAssetPath("/Aconex_Benefits.png"),
     href: "/aconex/benefits/1",
   },

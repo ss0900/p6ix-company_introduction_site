@@ -3542,7 +3542,7 @@ function TimeManagementPage() {
                 ref={ppmEppmTitleRef}
                 style={{ marginTop: "50px", marginBottom: "-10px" }}
               >
-                <h2 className="tm-section-title">P6 PPM vs. EPPM</h2>
+                <h2 className="tm-section-title">Primavera PPM vs. Primavera P6 EPPM</h2>
               </div>
 
               {/* Two Column Layout */}

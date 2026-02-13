@@ -66,7 +66,7 @@ function EppmMenuSection({ id }: EppmMenuSectionProps) {
       <div className="container eppm-menu-container">
         <header className="eppm-menu-header">
           <h2 className="eppm-menu-title">Primavera P6 EPPM</h2>
-          <p className="eppm-menu-subcopy">EPPM 하위 메뉴를 빠르게 살펴보세요.</p>
+          <p className="eppm-menu-subcopy">다수 프로젝트를 기업 차원에서 표준화·비교·판단할 수 있도록 통합 관리를 담당하는 영역입니다.</p>
         </header>
 
         <div className="eppm-menu-layout">
