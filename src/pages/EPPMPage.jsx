@@ -301,10 +301,10 @@ const integrationItems = [
 
 const eppmCoreChallenges = [
   {
-    title: "포트폴리오 관점 의사결정",
+    title: "무엇부터 할지 우선순위 정하기",
     bullets: [
       "전략, 자본, 자원 제약 하에서 '무엇을 먼저 할지' 결정",
-      "후보 및 진행 프로젝트의 다차원 비교",
+      "프로젝트들을 비용·일정·효과로 비교해서 결정",
     ],
     icon: (
       <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -352,7 +352,7 @@ const eppmCoreChallenges = [
   {
     title: "표준화된 일정 및 통제",
     bullets: [
-      "대형 프로젝트의 WBS 및 크리티컬 패스(Critical Path) 관리",
+      "대형 프로젝트의 WBS 및 Critical Path 관리",
       "계획과 실행의 유기적 연결",
     ],
     icon: (
@@ -439,7 +439,9 @@ const processStep2ComparisonCards = [
   },
 ];
 
-const processStep3FieldUpdateImage = getAssetPath("/Connectivity_between_the_field_and_the_system.png");
+const processStep3FieldUpdateImage = getAssetPath(
+  "/Connectivity_between_the_field_and_the_system.png",
+);
 
 const processStep3ConnectionBullets = [
   {
@@ -1056,11 +1058,13 @@ function EPPMPage() {
           >
             <div className="tm-hero-content">
               <h1 className="eppm-hero-title tm-hero-title">
-                Enterprise Professional
+                Primavera P6
                 <br />
-                Project Management
+                Enterprise Project
+                <br />
+                Portfolio Management
               </h1>
-              <p className="tm-hero-subtitle">EPPM</p>
+              <p className="tm-hero-subtitle">Primavera P6 EPPM</p>
             </div>
             <button
               className="scroll-indicator"
@@ -1154,7 +1158,9 @@ function EPPMPage() {
         >
           <div className="cpm-features-container">
             <div className="cpm-section-header">
-              <h2 className="cpm-section-title">전략과 실행 사이의 간극</h2>
+              <h2 className="cpm-section-title">
+                세운 계획이 현장에서 그대로 실행되지 않는 문제
+              </h2>
             </div>
 
             <div
@@ -1262,10 +1268,8 @@ function EPPMPage() {
                   className="eppm-overview-gap-text-block"
                   ref={(el) => (integrationCardsRef.current[2] = el)}
                 >
-                  <h4>The Challenge</h4>
+                  <h4>문제</h4>
                   <p>
-                    Roboto Mono
-                    <br />
                     대규모 건설, 플랜트, 엔지니어링
                     <br />
                     프로젝트의 복잡성 증가
@@ -1277,9 +1281,8 @@ function EPPMPage() {
                   ref={(el) => (integrationCardsRef.current[3] = el)}
                 >
                   <p>
-                    단일 플랫폼에서의
-                    <br />
-                    통합된 시각 필요
+                    전체 현황을 한눈에 <br />
+                    보는 화면이 필요
                   </p>
                 </div>
 
@@ -1287,10 +1290,8 @@ function EPPMPage() {
                   className="eppm-overview-gap-text-block"
                   ref={(el) => (integrationCardsRef.current[4] = el)}
                 >
-                  <h4>The Disconnect</h4>
+                  <h4>단절</h4>
                   <p>
-                    Roboto Mono
-                    <br />
                     상위 레벨의 투자 결정과 현장의
                     <br />
                     WBS 기반 실행 간의 데이터 불일치
@@ -1310,7 +1311,7 @@ function EPPMPage() {
           <div className="cpm-features-container">
             <div className="cpm-section-header">
               <h2 className="cpm-section-title">
-                EPPM이 해결하는 2가지 핵심 과제
+                Primavera P6 EPPM이 해결하는 2가지 핵심 과제
               </h2>
             </div>
 
@@ -1369,7 +1370,7 @@ function EPPMPage() {
                   <h2 className="tm-section-title">단일 플랫폼, 완전한 통제</h2>
                   <p className="eppm-process-focus-subtitle">
                     <span>프로젝트, 프로그램, 포트폴리오를</span>
-                    <span>아우르는 엔터프라이즈급 관리 솔루션.</span>
+                    <span>아우르는 엔터프라이즈급 관리 솔루션</span>
                   </p>
                 </div>
 
@@ -1685,7 +1686,9 @@ function EPPMPage() {
                     <div className="eppm-process-visual-media">
                       <img
                         src={encodeURI(
-                          getAssetPath("/Priority_Setting_and_Investment_Optimization.png"),
+                          getAssetPath(
+                            "/Priority_Setting_and_Investment_Optimization.png",
+                          ),
                         )}
                         alt="1단계 우선순위 결정 및 투자 최적화"
                       />

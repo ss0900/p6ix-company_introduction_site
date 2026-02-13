@@ -79,8 +79,14 @@ const roleCompareData = [
 const coreValueItems = [
   {
     id: "single-platform",
-    title: "단일 플랫폼",
-    description: ["모든 참여자가", "하나의 시스템에서 협업"],
+    title: (
+      <>
+        한 곳에서
+        <br />
+        함께 일하기
+      </>
+    ),
+    description: ["발주처/협력사/현장이", "같은 화면에서 같이 작업"],
   },
   {
     id: "risk-reduction",
@@ -1179,9 +1185,7 @@ function AconexPage() {
             }}
           >
             <div className="tm-hero-content">
-              <h1 className="aconex-hero-title tm-hero-title">
-                Oracle Aconex
-              </h1>
+              <h1 className="aconex-hero-title tm-hero-title">Oracle Aconex</h1>
               <p className="tm-hero-subtitle">Aconex</p>
             </div>
             <button
@@ -1605,7 +1609,7 @@ function AconexPage() {
                       <IntegrationScheduleGlyph />
                     </span>
                     <p className="aconex-benefits-node-title">
-                      Primavera
+                      Primavera P6
                       <span>(Schedule)</span>
                     </p>
                   </article>
@@ -1672,7 +1676,8 @@ function AconexPage() {
                     <span className="aconex-benefits-summary-label">
                       상호 보완
                     </span>
-                    : Primavera의 일정 통제 + Oracle Aconex의 프로세스/정보 통제
+                    : Primavera P6의 일정 통제 + Oracle Aconex의 프로세스/정보
+                    통제
                   </p>
                   <p className="aconex-benefits-summary-line">
                     <span className="aconex-benefits-summary-label">결과</span>:

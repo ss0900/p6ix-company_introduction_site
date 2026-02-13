@@ -839,7 +839,7 @@ function UnifierPage() {
                     aria-hidden="true"
                   />
                   <p className="unifier-overview2-flowline-caption">
-                    끊김 없는 데이터 흐름 (Seamless Data Flow)
+                    데이터가 중간에서 끊기지 않고 자동으로 이어짐
                   </p>
                 </div>
               </div>
@@ -885,11 +885,10 @@ function UnifierPage() {
               {/* Reuse shared section header rhythm: tm-section-header + tm-section-title */}
               <div className="tm-section-header unifier-benefits-header">
                 <h2 className="tm-section-title">
-                  Unifier Accelerator: 빠른 가치 실현 (Speed to Value)
+                  Unifier Accelerator: 도입하자마자 바로 효과적
                 </h2>
                 <p className="unifier-benefits-subtitle">
-                  Oracle이 제공하는 글로벌 모범사례(Best Practice) 기반의 무상
-                  구성 템플릿
+                  Oracle이 제공하는 검증된 표준 방식 기반의 무상 구성 템플릿
                 </p>
               </div>
 

@@ -79,8 +79,11 @@ function PpmMenuSection({ id }: PpmMenuSectionProps) {
     <section id={id} className="section ppm-menu-section">
       <div className="container ppm-menu-container">
         <header className="ppm-menu-header">
-          <h2 className="ppm-menu-title">Primavera PPM</h2>
-          <p className="ppm-menu-subcopy">프로젝트 단위에서 일정·성과·리스크의 통합 관리와 모니터링을 담당하는 영역입니다.</p>
+          <h2 className="ppm-menu-title">Primavera P6 PPM</h2>
+          <p className="ppm-menu-subcopy">
+            프로젝트 단위에서 일정·성과·리스크의 통합 관리와 모니터링을 담당하는
+            영역입니다.
+          </p>
         </header>
 
         <div className="ppm-menu-layout">

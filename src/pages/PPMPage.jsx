@@ -139,7 +139,10 @@ const featureItems2 = [
         />
       </svg>
     ),
-    images: [getAssetPath("/Resource_Status_Analysis_1.png"), getAssetPath("/Resource_Status_Analysis_2.png")],
+    images: [
+      getAssetPath("/Resource_Status_Analysis_1.png"),
+      getAssetPath("/Resource_Status_Analysis_2.png"),
+    ],
     alts: [
       "기능 소개 - 리소스 현황 및 분석_1",
       "기능 소개 - 리소스 현황 및 분석_2",
@@ -1920,8 +1923,12 @@ function PPMPage() {
           }}
         >
           <div className="ppm-hero-content">
-            <h1 className="ppm-hero-title">Professional Project Management</h1>
-            <p className="ppm-hero-subtitle">PPM</p>
+            <h1 className="ppm-hero-title">
+              Primavera P6
+              <br />
+              Professional Project Management
+            </h1>
+            <p className="ppm-hero-subtitle">Primavera P6 PPM</p>
           </div>
           <button
             className="scroll-indicator"
@@ -2024,7 +2031,7 @@ function PPMPage() {
           <div className="ppm-cpm-container">
             <div className="ppm-cpm-header">
               <h2 className="ppm-cpm-title">
-                P6가 제공하는 결정적 비즈니스 가치
+                Primavera P6가 제공하는 결정적 비즈니스 가치
               </h2>
             </div>
 

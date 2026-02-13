@@ -38,7 +38,7 @@ const subMenuItems = [
   {
     id: "comparison",
     title: "비교",
-    description: "Primavera PPM과 OPC의 역할 기반 기능 전문성 비교",
+    description: "Primavera P6 PPM과 OPC의 역할 기반 기능 전문성 비교",
     image: getAssetPath("/OPC_Comparison.png"),
     link: "#application",
   },
@@ -1857,7 +1857,7 @@ function OPCPage() {
             <div className="tm-methods-container opc-comparison-container">
               <div className="tm-section-header opc-comparison-animate">
                 <h2 className="tm-section-title">
-                  역할에 따른 기능의 전문성: Primavera PPM vs OPC
+                  역할에 따른 기능의 전문성: Primavera P6 PPM vs OPC
                 </h2>
               </div>
 
@@ -1931,7 +1931,7 @@ function OPCPage() {
                         <th scope="col" className="opc-comparison-col-item">
                           비교 항목
                         </th>
-                        <th scope="col">Primavera PPM</th>
+                        <th scope="col">Primavera P6 PPM</th>
                         <th scope="col">Oracle Primavera Cloud (OPC)</th>
                       </tr>
                     </thead>
@@ -1950,7 +1950,7 @@ function OPCPage() {
                           <td className="opc-comparison-rating-cell">
                             <StarRating
                               count={row.p6Stars}
-                              label={`Primavera PPM ${row.item}`}
+                              label={`Primavera P6 PPM ${row.item}`}
                             />
                           </td>
                           <td className="opc-comparison-rating-cell">
@@ -1978,7 +1978,9 @@ function OPCPage() {
           <div className="tm-core-section opc-comparison-2-section">
             <div className="tm-core-container opc-comparison-2-container">
               <div className="tm-section-header opc-comparison-2-header opc-comparison-2-animate">
-                <h2 className="tm-section-title">Primavera PPM과 OPC의 역할</h2>
+                <h2 className="tm-section-title">
+                  Primavera P6 PPM과 OPC의 역할
+                </h2>
               </div>
 
               <div className="opc-comparison-2-grid opc-comparison-2-animate">

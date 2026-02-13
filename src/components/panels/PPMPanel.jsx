@@ -347,14 +347,14 @@ function PPMPanel({ id }) {
               </svg>
               <span>Primavera</span>
             </div>
-            <h2 className="ppm-hero-title">Primavera PPM</h2>
+            <h2 className="ppm-hero-title">Primavera P6 PPM</h2>
             <div className="ppm-hero-divider" />
             <p className="ppm-hero-headline">
               모든 규모의 프로젝트를 정밀하게 관리하세요
             </p>
             <p className="ppm-hero-desc">
               <span className="nowrap">
-                정밀하고 강력한 Primavera PPM은 복잡한 프로젝트의 일정과 자원
+                정밀하고 강력한 Primavera P6 PPM은 복잡한 프로젝트의 일정과 자원
                 계획을
               </span>
               <br />
