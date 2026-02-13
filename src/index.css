@@ -1412,14 +1412,14 @@ a:hover {
   font-size: var(--text-sm);
   color: var(--color-text-muted);
   max-width: 100%;
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  overflow-wrap: break-word;
+  word-break: keep-all;
 }
 
 .footer-breakable {
   white-space: normal;
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  overflow-wrap: break-word;
+  word-break: keep-all;
 }
 
 /* contact block inside footer: right-align on desktop, stay responsive on small screens */
@@ -2432,16 +2432,28 @@ a:hover {
   .footer-content {
     grid-template-columns: 1fr;
   }
+
+  .footer-brand {
+    max-width: 100%;
+  }
+
+  .footer-brand .footer-desc {
+    text-align: left;
+    line-height: 1.7;
+  }
+
   .footer-bottom {
     flex-direction: column;
     gap: var(--space-md);
     text-align: center;
   }
 
-  /* keep contact block readable on small screens */
+  /* keep footer contact block right-aligned on small screens */
   .footer-contact {
-    text-align: center;
+    text-align: right;
     justify-self: stretch;
+    grid-column: 1 / -1;
+    width: 100%;
   }
 
   .hero-title {
