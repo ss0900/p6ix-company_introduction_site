@@ -165,8 +165,16 @@ function Contact({ id }) {
           style={{ textAlign: "center", marginBottom: "var(--space-2xl)" }}
         >
           <h2 className="section-title">Get In Touch</h2>
-          <p className="section-subtitle" style={{ margin: "0 auto" }}>
-            비즈니스 문의 및 채용 정보를 확인하세요
+          <p
+            className="section-subtitle"
+            style={{
+              margin: "0 auto",
+              maxWidth: "none",
+              whiteSpace: "nowrap",
+            }}
+          >
+            제품을 나열하지 않고, 프로젝트 목적에 맞춘 Primavera 설계와
+            PMIS-X/4D BIM/AI 연계를 함께 제안합니다.
           </p>
         </div>
 
@@ -175,17 +183,25 @@ function Contact({ id }) {
             <div className="contact-icon">💼</div>
             <h3 className="contact-title">비즈니스 문의</h3>
             <p className="contact-desc">
-              프로젝트 협업, 파트너십, 서비스 문의 등<br />
-              비즈니스 관련 문의를 기다립니다.
+              프로젝트 규모·관리 수준·운영 환경에 맞춰
+              <br />
+              Primavera 기반 PMIS-X/4D BIM/AI 연계 전략을 상담합니다.
             </p>
             <button
               className="btn btn-primary"
-              style={{ width: "100%" }}
+              style={{
+                width: "100%",
+                textAlign: "center",
+                paddingRight: "calc(var(--space-xl) + 1.5rem)",
+              }}
+              aria-label="프로젝트 목적에 맞춘 Primavera 설계와 PMIS-X/4D BIM/AI 연계 컨설팅 문의"
               onClick={() => {
                 window.location.href = "https://www.p6ix.co.kr/contact";
               }}
             >
-              문의하기
+              프로젝트 목적 맞춤 Primavera 설계와
+              <br />
+              PMIS-X/4D BIM/AI 연계 문의
               <svg
                 width="16"
                 height="16"
@@ -193,6 +209,12 @@ function Contact({ id }) {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
+                style={{
+                  position: "absolute",
+                  right: "var(--space-lg)",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                }}
               >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>

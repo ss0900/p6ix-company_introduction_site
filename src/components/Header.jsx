@@ -270,8 +270,9 @@ function Header() {
             <button
               className="btn btn-primary"
               style={{ padding: "0.5rem 1.25rem" }}
+              aria-label="프로젝트 목적 맞춤 Primavera 설계 및 PMIS-X/4D BIM/AI 연계 컨설팅 문의"
             >
-              문의하기
+              통합 컨설팅 문의
             </button>
           </Link>
         </nav>

@@ -1507,7 +1507,7 @@ function OPCPage() {
           >
             <div className="tm-hero-content">
               <h1 className="opc-hero-title tm-hero-title">
-                Oracle Primavera Cloud (OPC)
+                Oracle Primavera Cloud
               </h1>
               <p className="tm-hero-subtitle">OPC</p>
             </div>
