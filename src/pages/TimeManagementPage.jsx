@@ -783,7 +783,47 @@ function TimeManagementPage() {
           { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
         );
 
-        // 0.3s - Timeline base line draw (left to right)
+        // 0.3s - Central cloud hub scale-up
+        if (hubRef.current) {
+          tl.fromTo(
+            hubRef.current,
+            { opacity: 0, scale: 0 },
+            { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.7)" },
+            "-=0.2",
+          );
+        }
+
+        // 0.8s - Connection lines draw from center outward
+        connectLinesRef.current.forEach((line, i) => {
+          if (line) {
+            tl.fromTo(
+              line,
+              { strokeDasharray: "150", strokeDashoffset: 150 },
+              { strokeDashoffset: 0, duration: 0.5, ease: "power2.out" },
+              i === 0 ? "-=0.3" : "<",
+            );
+          }
+        });
+
+        // 1.1s - All 4 boxes fade-in with bounce simultaneously
+        boxesRef.current.forEach((box, i) => {
+          if (box) {
+            tl.fromTo(
+              box,
+              { opacity: 0, scale: 0.8, y: 20 },
+              {
+                opacity: 1,
+                scale: 1,
+                y: 0,
+                duration: 0.5,
+                ease: "back.out(1.5)",
+              },
+              i === 0 ? "-=0.2" : "<",
+            );
+          }
+        });
+
+        // 1.5s - Timeline base line draw (left to right)
         if (timelineLineRef.current) {
           tl.fromTo(
             timelineLineRef.current,
@@ -794,11 +834,11 @@ function TimeManagementPage() {
               ease: "power2.out",
               transformOrigin: "left center",
             },
-            "-=0.2",
+            "-=0.1",
           );
         }
 
-        // 0.5s, 0.7s, 0.9s - Timeline items popup sequentially
+        // 1.8s - Timeline items popup sequentially
         timelineItemsRef.current.forEach((item, i) => {
           if (item) {
             const isLast = i === timelineItemsRef.current.length - 1;
@@ -818,46 +858,6 @@ function TimeManagementPage() {
             if (isLast) {
               tl.to(item, { scale: 1, duration: 0.2 });
             }
-          }
-        });
-
-        // 1.2s - Central cloud hub scale-up
-        if (hubRef.current) {
-          tl.fromTo(
-            hubRef.current,
-            { opacity: 0, scale: 0 },
-            { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.7)" },
-            "-=0.1",
-          );
-        }
-
-        // 1.5s - Connection lines draw from center outward
-        connectLinesRef.current.forEach((line, i) => {
-          if (line) {
-            tl.fromTo(
-              line,
-              { strokeDasharray: "150", strokeDashoffset: 150 },
-              { strokeDashoffset: 0, duration: 0.5, ease: "power2.out" },
-              i === 0 ? "-=0.3" : "<",
-            );
-          }
-        });
-
-        // 1.8s - All 4 boxes fade-in with bounce simultaneously
-        boxesRef.current.forEach((box, i) => {
-          if (box) {
-            tl.fromTo(
-              box,
-              { opacity: 0, scale: 0.8, y: 20 },
-              {
-                opacity: 1,
-                scale: 1,
-                y: 0,
-                duration: 0.5,
-                ease: "back.out(1.5)",
-              },
-              i === 0 ? "-=0.2" : "<",
-            );
           }
         });
       }, advantagesSectionRef);
@@ -3024,7 +3024,7 @@ function TimeManagementPage() {
                     <path
                       className="tm-connect-line"
                       ref={(el) => (connectLinesRef.current[0] = el)}
-                      d="M50 60 Q100 60 130 100"
+                      d="M0 60 Q100 60 130 120"
                       stroke="var(--color-accent)"
                       strokeWidth="2"
                       fill="none"
@@ -3032,7 +3032,7 @@ function TimeManagementPage() {
                     <path
                       className="tm-connect-line"
                       ref={(el) => (connectLinesRef.current[1] = el)}
-                      d="M50 190 Q100 190 130 150"
+                      d="M0 190 Q100 190 130 150"
                       stroke="var(--color-accent)"
                       strokeWidth="2"
                       fill="none"
@@ -3040,7 +3040,7 @@ function TimeManagementPage() {
                     <path
                       className="tm-connect-line"
                       ref={(el) => (connectLinesRef.current[2] = el)}
-                      d="M250 60 Q200 60 170 100"
+                      d="M600 60 Q200 60 170 120"
                       stroke="var(--color-accent)"
                       strokeWidth="2"
                       fill="none"
@@ -3048,7 +3048,7 @@ function TimeManagementPage() {
                     <path
                       className="tm-connect-line"
                       ref={(el) => (connectLinesRef.current[3] = el)}
-                      d="M250 190 Q200 190 170 150"
+                      d="M600 190 Q200 190 170 150"
                       stroke="var(--color-accent)"
                       strokeWidth="2"
                       fill="none"

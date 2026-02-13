@@ -6589,8 +6589,8 @@ a:hover {
   transform: scale(1.05);
 }
 
-/* Connecting Lines Animation */
-.tm-connect-line {
+/* Connecting Lines Animation (Goals section only) */
+.tm-goals-section .tm-connect-line {
   stroke-dashoffset: 0;
   animation: tm-dash-flow 2s linear infinite;
 }
@@ -6701,25 +6701,25 @@ a:hover {
   }
 }
 
-/* Connecting Lines - Hidden by default */
-.tm-connect-line {
+/* Connecting Lines - Hidden by default (Goals section only) */
+.tm-goals-section .tm-connect-line {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
 /* Segment Hover - Show connecting line and dim others */
-.tm-segment-quality:hover ~ .tm-connect-quality,
-.tm-label-quality:hover ~ .tm-connect-quality {
+.tm-goals-section .tm-segment-quality:hover ~ .tm-connect-quality,
+.tm-goals-section .tm-label-quality:hover ~ .tm-connect-quality {
   opacity: 1;
 }
 
-.tm-segment-management:hover ~ .tm-connect-management,
-.tm-label-management:hover ~ .tm-connect-management {
+.tm-goals-section .tm-segment-management:hover ~ .tm-connect-management,
+.tm-goals-section .tm-label-management:hover ~ .tm-connect-management {
   opacity: 1;
 }
 
-.tm-segment-economic:hover ~ .tm-connect-economic,
-.tm-label-economic:hover ~ .tm-connect-economic {
+.tm-goals-section .tm-segment-economic:hover ~ .tm-connect-economic,
+.tm-goals-section .tm-label-economic:hover ~ .tm-connect-economic {
   opacity: 1;
 }
 
@@ -7515,6 +7515,10 @@ a:hover {
 .tm-connect-line {
   stroke-dasharray: 100;
   stroke-dashoffset: 0;
+  stroke-width: 3.2px;
+  stroke: rgba(0, 212, 255, 0.92);
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.45));
 }
 
 /* Cloud Hub */
