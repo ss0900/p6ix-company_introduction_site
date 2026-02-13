@@ -17055,7 +17055,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   }
 
   #core-3 .tm-core-timeline-summary-wrapper {
-    margin-top: var(--space-lg);
+    margin-top: var(--space-xs);
   }
 
   .tm-wbs-tree-scroll {
