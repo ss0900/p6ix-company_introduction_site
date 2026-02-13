@@ -800,7 +800,19 @@ a:hover {
   align-items: center; /* 자식 요소(타이틀/서브타이틀) 중앙 정렬 */
   text-align: center; /* 텍스트 자체도 가운데 정렬 */
   width: 100%;
-  max-width: 800px;
+  max-width: min(94vw, 1120px);
+}
+
+.hero-video-section .hero-title {
+  font-size: clamp(1.75rem, 4.2vw, 3.95rem);
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+}
+
+.hero-video-section .hero-title-line {
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: keep-all;
 }
 
 .hero-video-section .scroll-indicator {
@@ -2617,6 +2629,12 @@ a:hover {
 
   .hero-title {
     font-size: var(--text-4xl);
+  }
+
+  .hero-video-section .hero-title {
+    font-size: clamp(1.2rem, 5.4vw, 2.05rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
   }
   .hero-cta {
     flex-direction: column;
