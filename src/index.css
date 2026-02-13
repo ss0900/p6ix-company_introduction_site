@@ -6911,6 +6911,10 @@ a:hover {
   font-weight: 500;
 }
 
+.tm-methods-section .tm-feedback-mobile {
+  display: none;
+}
+
 /* Chevron Flow Container */
 .tm-chevron-flow {
   display: flex;
@@ -7069,34 +7073,12 @@ a:hover {
 
 /* Responsive Styles for Methods Section */
 @media (max-width: 992px) {
-  .tm-chevron-flow {
-    flex-direction: column;
+  .tm-methods-section .tm-methods-container {
     gap: var(--space-md);
   }
 
-  .tm-chevron-step {
-    max-width: 100%;
-  }
-
-  .tm-chevron-shape {
-    clip-path: none;
-    border-radius: var(--radius-lg);
+  .tm-methods-section .tm-chevron-shape {
     padding: var(--space-lg);
-  }
-
-  .tm-step-planning .tm-chevron-shape,
-  .tm-step-scheduling .tm-chevron-shape,
-  .tm-step-controlling .tm-chevron-shape {
-    clip-path: none;
-  }
-
-  .tm-chevron-header,
-  .tm-step-items {
-    padding-left: 0;
-  }
-
-  .tm-methods-section .tm-flow-arrow {
-    transform: rotate(90deg);
   }
 }
 
@@ -7105,19 +7087,128 @@ a:hover {
     padding: var(--space-lg);
   }
 
-  .tm-methods-container {
+  .tm-methods-section .tm-methods-container {
     gap: var(--space-md);
+    overflow: visible;
   }
 
-  .tm-step-label-en {
+  .tm-methods-section .tm-flow-arrow {
+    display: none;
+  }
+
+  .tm-methods-section .tm-feedback-mobile {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    gap: 0.42rem;
+    margin-top: 0.1rem;
+    padding: 0.45rem 0.9rem;
+    max-width: calc(100% - 1rem);
+    border-radius: 999px;
+    border: 1px solid rgba(249, 115, 22, 0.85);
+    background: rgba(249, 115, 22, 0.14);
+    color: #fb923c;
+    font-size: clamp(0.74rem, 3.2vw, 0.86rem);
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    box-shadow: 0 0 12px rgba(249, 115, 22, 0.24);
+  }
+
+  .tm-methods-section .tm-feedback-mobile-icon {
+    font-size: 0.98rem;
+    line-height: 1;
+    filter: drop-shadow(0 0 4px rgba(249, 115, 22, 0.45));
+  }
+
+  .tm-methods-section .tm-feedback-mobile-text {
+    letter-spacing: 0.01em;
+  }
+
+  .tm-methods-section .tm-chevron-flow {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+    overflow: visible;
+  }
+
+  .tm-methods-section .tm-chevron-step {
+    width: min(100%, 360px);
+    max-width: 360px;
+    overflow: visible;
+  }
+
+  .tm-methods-section .tm-chevron-shape {
+    clip-path: none;
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+  }
+
+  .tm-methods-section .tm-step-planning .tm-chevron-shape,
+  .tm-methods-section .tm-step-scheduling .tm-chevron-shape,
+  .tm-methods-section .tm-step-controlling .tm-chevron-shape {
+    clip-path: none;
+  }
+
+  .tm-methods-section .tm-chevron-header,
+  .tm-methods-section .tm-step-items {
+    padding-left: 0;
+  }
+
+  .tm-methods-section .tm-chevron-step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -1.05rem;
+    width: 3px;
+    height: 0.95rem;
+    border-radius: 999px;
+    transform: translateX(-50%);
+    background: linear-gradient(
+      180deg,
+      rgba(0, 212, 255, 0.95) 0%,
+      rgba(0, 212, 255, 0.35) 100%
+    );
+    box-shadow: 0 0 8px rgba(0, 212, 255, 0.45);
+    pointer-events: none;
+  }
+
+  .tm-methods-section .tm-chevron-step:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -1.34rem;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 9px solid rgba(0, 212, 255, 0.96);
+    filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.5));
+    pointer-events: none;
+  }
+
+  .tm-methods-section .tm-chevron-flow:hover .tm-chevron-step:not(:hover) {
+    opacity: 1;
+    filter: none;
+  }
+
+  .tm-methods-section .tm-chevron-step:hover .tm-chevron-shape {
+    transform: none;
+    filter: none;
+  }
+
+  .tm-methods-section .tm-step-label-en {
     font-size: var(--text-lg);
   }
 
-  .tm-step-items li {
+  .tm-methods-section .tm-step-items li {
     font-size: var(--text-xs);
   }
 
-  .tm-item-icon {
+  .tm-methods-section .tm-item-icon {
     width: 20px;
     height: 20px;
   }

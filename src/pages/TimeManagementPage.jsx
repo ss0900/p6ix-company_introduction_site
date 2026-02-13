@@ -2823,6 +2823,13 @@ function TimeManagementPage() {
                 </div>
               </div>
 
+              <div className="tm-feedback-mobile">
+                <span className="tm-feedback-mobile-icon" aria-hidden="true">
+                  ↺
+                </span>
+                <span className="tm-feedback-mobile-text">피드백 / 재계획</span>
+              </div>
+
               {/* Bottom Feedback Arrow */}
               <div
                 className="tm-flow-arrow tm-arrow-backward"
