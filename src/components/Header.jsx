@@ -18,6 +18,16 @@ function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    setMenuOpen(false);
+    setActiveDropdown(null);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    document.body.classList.toggle("mobile-menu-open", menuOpen);
+    return () => document.body.classList.remove("mobile-menu-open");
+  }, [menuOpen]);
+
   const navLinks = [
     // {
     //   path: "/company",
@@ -191,18 +201,18 @@ function Header() {
       <div className="container header-content">
         <Link
           to="/"
-          className="logo"
-          style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}
+          className="logo header-logo-group"
+          onClick={() => setMenuOpen(false)}
         >
           <img
             src={getAssetPath("/P6ix_SC_Logo_White.png")}
             alt="Company Logo"
-            style={{ height: "2.5rem", objectFit: "contain" }}
+            className="header-logo"
           />
           <img
             src={getAssetPath("/Oracle_Partner_Logo.png")}
             alt="Partner Logo"
-            style={{ height: "2.5rem", objectFit: "contain" }}
+            className="header-logo partner"
           />
         </Link>
 
@@ -279,50 +289,52 @@ function Header() {
 
         <button
           className="mobile-menu-btn"
-          onClick={() => setMenuOpen(!menuOpen)}
-          style={{
-            display: "none",
-            background: "transparent",
-            border: "none",
-            color: "var(--color-text-primary)",
-            fontSize: "1.5rem",
-            cursor: "pointer",
-          }}
+          type="button"
+          onClick={() => setMenuOpen((prev) => !prev)}
+          aria-label="메뉴 열기"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu-panel"
         >
-          &#9776;
+          <span className="mobile-menu-line" />
+          <span className="mobile-menu-line" />
+          <span className="mobile-menu-line" />
         </button>
       </div>
 
+      <button
+        type="button"
+        className={`mobile-menu-backdrop ${menuOpen ? "show" : ""}`}
+        onClick={() => setMenuOpen(false)}
+        aria-label="메뉴 닫기"
+      />
+
       <div
+        id="mobile-menu-panel"
         className={`mobile-menu ${menuOpen ? "open" : ""}`}
-        style={{
-          display: menuOpen ? "flex" : "none",
-          flexDirection: "column",
-          position: "absolute",
-          top: "100%",
-          left: 0,
-          right: 0,
-          background: "rgba(10, 10, 15, 0.98)",
-          padding: "1rem",
-          gap: "1rem",
-        }}
+        aria-hidden={!menuOpen}
       >
         {navLinks.map((link) => (
           <Link
             key={link.path}
             to={link.path}
-            className="nav-link"
+            className={`mobile-menu-link ${location.pathname.startsWith(link.path) ? "active" : ""}`}
             onClick={() => {
               setMenuOpen(false);
               if (location.pathname.startsWith(link.path)) {
                 window.scrollTo(0, 0);
               }
             }}
-            style={{ padding: "0.75rem 1rem" }}
           >
             {link.label}
           </Link>
         ))}
+        <Link
+          to="/contact"
+          className="mobile-menu-cta"
+          onClick={() => setMenuOpen(false)}
+        >
+          통합 컨설팅 문의
+        </Link>
       </div>
     </header>
   );
