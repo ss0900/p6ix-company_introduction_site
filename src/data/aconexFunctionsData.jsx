@@ -54,7 +54,7 @@ export const aconexFunctionsIntro = {
         </svg>
       ),
       title: <>문서 관리</>,
-      image: getAssetPath("/문서 관리(Document Control  Document Register).png"),
+      image: getAssetPath("/Document_Control.png"),
       alt: "기능 소개 - 문서 관리",
     },
     {
@@ -84,7 +84,7 @@ export const aconexFunctionsIntro = {
         </svg>
       ),
       title: <>문서 송부</>,
-      image: getAssetPath("/문서 송부(Transmittals).png"),
+      image: getAssetPath("/Transmittals.png"),
       alt: "기능 소개 - 문서 송부",
     },
     {
@@ -165,7 +165,7 @@ export const aconexFunctionsIntro = {
         </svg>
       ),
       title: <>메일 + 업무폼</>,
-      image: getAssetPath("/메일(Mail) + 업무폼(RFI 등 Mail Type 기반).png"),
+      image: getAssetPath("/Mail_Form.png"),
       alt: "기능 소개 - 메일 + 업무폼",
     },
     {
@@ -228,7 +228,7 @@ export const aconexFunctionsIntro = {
           <br />& My Tasks
         </>
       ),
-      image: getAssetPath("/워크플로우(Workflows) – 검토승인 & My Tasks.png"),
+      image: getAssetPath("/Workflows_Review_Approval_MyTasks.png"),
       alt: "기능 소개 - 워크플로우 – 검토/승인 & My Tasks",
     },
   ],

@@ -32,21 +32,21 @@ const subMenuItems = [
     id: "overview",
     title: "개요",
     description: "건설 프로젝트 협업을 위한 클라우드 플랫폼",
-    image: getAssetPath("/Aconex%20개요.png"),
+    image: getAssetPath("/Aconex_Overview.png"),
     link: "#overview-content",
   },
   {
     id: "functions",
     title: "기능 소개",
     description: "문서 관리, 메일, 워크플로우, 협업",
-    image: getAssetPath("/Aconex%20기능%20소개.png"),
+    image: getAssetPath("/Aconex_Functions.png"),
     link: "#functions",
   },
   {
     id: "benefits",
     title: "효과",
     description: "Primavera와 Aconex 역할 비교",
-    image: getAssetPath("/Aconex%20효과.png"),
+    image: getAssetPath("/Aconex_Benefits.png"),
     link: "#projects",
   },
 ];
@@ -1295,7 +1295,7 @@ function AconexPage() {
                 >
                   <img
                     className="aconex-overview-diagram-image"
-                    src={getAssetPath("/Information Silos.png")}
+                    src={getAssetPath("/Information_Silos.png")}
                     alt="Information Silos 다이어그램"
                   />
                 </article>

@@ -7,7 +7,7 @@ function Footer() {
           <div className="footer-brand">
             <div className="footer-logo">
               <img
-                src={getAssetPath("/피식스에스씨_rgb_06.좌우국영문화이트.png")}
+                src={getAssetPath("/P6ix_SC_Logo_White.png")}
                 alt="P6ix SC Logo"
                 className="footer-logo-img"
               />

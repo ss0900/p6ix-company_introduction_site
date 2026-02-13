@@ -26,21 +26,21 @@ const subMenuItems = [
     id: "overview",
     title: "개요",
     description: "PPM(Project Portfolio Management) 개요 및 핵심 기능",
-    image: getAssetPath("/PPM%20개요.png"),
+    image: getAssetPath("/PPM_Overview.png"),
     link: "#overview",
   },
   {
     id: "functions",
     title: "기능 소개",
     description: "Critical Path Method 기반 공정 관리 중심 기능",
-    image: getAssetPath("/PPM%20기능%20소개.png"),
+    image: getAssetPath("/PPM_Functions.png"),
     link: "#functions",
   },
   {
     id: "benefits",
     title: "효과",
     description: "PPM 솔루션 도입으로 기대할 수 있는 효과",
-    image: getAssetPath("/PPM%20효과.png"),
+    image: getAssetPath("/PPM_Benefits.png"),
     link: "#benefits",
   },
 ];
@@ -80,7 +80,7 @@ const featureItems2 = [
       </svg>
     ),
     title: <>WBS 및 Activity</>,
-    images: [getAssetPath("/WBS 및 Activity.png")],
+    images: [getAssetPath("/WBS_Activity.png")],
     alts: ["기능 소개 - WBS 및 Activity"],
   },
   {
@@ -103,7 +103,7 @@ const featureItems2 = [
       </svg>
     ),
     title: <>CP Activity 분석</>,
-    images: [getAssetPath("/CPM Activity 분석.png")],
+    images: [getAssetPath("/CPM_Activity_Analysis.png")],
     alts: ["기능 소개 - CPM Activity 분석"],
   },
   {
@@ -122,7 +122,7 @@ const featureItems2 = [
         자동 계산
       </>
     ),
-    images: [getAssetPath("/CPM 자동계산.png")],
+    images: [getAssetPath("/CPM_Auto_Calculation.png")],
     alts: ["기능 소개 - CPM 자동계산"],
   },
   {
@@ -139,7 +139,7 @@ const featureItems2 = [
         />
       </svg>
     ),
-    images: [getAssetPath("/리소스 현황 및 분석_1.png"), getAssetPath("/리소스 현황 및 분석_2.png")],
+    images: [getAssetPath("/Resource_Status_Analysis_1.png"), getAssetPath("/Resource_Status_Analysis_2.png")],
     alts: [
       "기능 소개 - 리소스 현황 및 분석_1",
       "기능 소개 - 리소스 현황 및 분석_2",
@@ -229,8 +229,8 @@ const featureItems = [
       </>
     ),
     images: [
-      getAssetPath("/인력, 장비, 자재 자원 계획 및 부하 분석_1.png"),
-      getAssetPath("/인력, 장비, 자재 자원 계획 및 부하 분석_2.png"),
+      getAssetPath("/Resource_Planning_Load_Analysis_1.png"),
+      getAssetPath("/Resource_Planning_Load_Analysis_2.png"),
     ],
     alts: [
       "기능 소개 - 인력, 장비, 자재 자원 계획 및 부하 분석_1",
@@ -257,7 +257,7 @@ const featureItems = [
       </svg>
     ),
     title: <>Baseline 설정 및 비교 분석</>,
-    images: [getAssetPath("/Baseline 설정 및 비교 분석.png")],
+    images: [getAssetPath("/Baseline_Settings_and_Comparison_Analysis.png")],
     alts: ["기능 소개 - Baseline 설정 및 비교 분석"],
   },
   {
@@ -270,7 +270,7 @@ const featureItems = [
       </svg>
     ),
     title: <>시나리오별 일정 영향 분석</>,
-    images: [getAssetPath("/시나리오별 일정 영향 분석.png")],
+    images: [getAssetPath("/Scenario_Planning_Comparison.png")],
     alts: ["기능 소개 - 시나리오별 일정 영향 분석"],
   },
   {
@@ -288,7 +288,7 @@ const featureItems = [
       </svg>
     ),
     title: <>공정 진도 및 실적 관리</>,
-    images: [getAssetPath("/공정 진도 및 실적 관리.png")],
+    images: [getAssetPath("/Process_Progress_and_Performance_Management.png")],
     alts: ["기능 소개 - 공정 진도 및 실적 관리"],
   },
 ];
@@ -331,134 +331,7 @@ const getFeatureItemsGlobalSlideIndex = (featureIndex, imageIndex = 0) => {
   const safeImageIndex = Math.max(0, Math.min(imageIndex, maxImageIndex));
   return offset + safeImageIndex;
 };
-// Overview content items with carousel images
-const overviewContentItems = [
-  {
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect
-          x="8"
-          y="12"
-          width="32"
-          height="24"
-          rx="2"
-          stroke="currentColor"
-          strokeWidth="2"
-        />
-        <rect
-          x="14"
-          y="18"
-          width="8"
-          height="12"
-          rx="1"
-          stroke="currentColor"
-          strokeWidth="1.5"
-        />
-        <rect
-          x="26"
-          y="22"
-          width="8"
-          height="8"
-          rx="1"
-          stroke="currentColor"
-          strokeWidth="1.5"
-        />
-      </svg>
-    ),
-    title: "포트폴리오 관리",
-    description: "전사 프로젝트 현황 통합 관리",
-    image: getAssetPath("/포트폴리오자본·예산 계획(Portfolio & Capital Planning).png"),
-    alt: "PPM 개요 - 포트폴리오 관리",
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="24" cy="24" r="16" stroke="currentColor" strokeWidth="2" />
-        <path d="M24 8L28 16L24 12L20 16Z" fill="currentColor" />
-        <text
-          x="24"
-          y="29"
-          fontSize="14"
-          fill="currentColor"
-          textAnchor="middle"
-          fontWeight="bold"
-        >
-          1
-        </text>
-      </svg>
-    ),
-    title: "우선순위 결정",
-    description: "전략 기반 프로젝트 우선순위 설정",
-    image: getAssetPath("/우선순위 매트릭스(Prioritization Matrix)로 평가선정.png"),
-    alt: "PPM 개요 - 우선순위 결정",
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="24" cy="24" r="18" stroke="currentColor" strokeWidth="2" />
-        <path
-          d="M24 10V24H34"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-        <circle cx="14" cy="24" r="3" fill="currentColor" />
-        <circle cx="34" cy="14" r="3" fill="currentColor" />
-        <circle cx="34" cy="34" r="3" fill="currentColor" />
-      </svg>
-    ),
-    title: "자원 최적화",
-    description: "전사 자원의 효율적 배분",
-    image: getAssetPath("/리소스 시나리오 최적화(Resource Scenario Optimization).png"),
-    alt: "PPM 개요 - 자원 최적화",
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line
-          x1="12"
-          y1="36"
-          x2="12"
-          y2="24"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-        <line
-          x1="20"
-          y1="36"
-          x2="20"
-          y2="18"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-        <line
-          x1="28"
-          y1="36"
-          x2="28"
-          y2="14"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-        <line
-          x1="36"
-          y1="36"
-          x2="36"
-          y2="20"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
-    title: "성과 분석",
-    description: "프로젝트 성과 측정 및 분석",
-    image: getAssetPath("/대시보드·리포팅·분석(Analytics  Dashboards).png"),
-    alt: "PPM 개요 - 성과 분석",
-  },
-];
+
 const renderOverviewValueIcon = (iconType) => {
   if (iconType === "processing") {
     return (

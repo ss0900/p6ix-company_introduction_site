@@ -28,21 +28,21 @@ const subMenuItems = [
     id: "overview",
     title: "개요",
     description: "비용, 계약, 문서 관리의 완벽한 통합",
-    image: getAssetPath("/Unifier%20개요.png"),
+    image: getAssetPath("/Unifier_Overview.png"),
     link: "#overview-content",
   },
   {
     id: "functions",
     title: "기능 소개",
     description: "프로젝트 통제와 비용 관리 핵심 기능",
-    image: getAssetPath("/Unifier%20기능%20소개.png"),
+    image: getAssetPath("/Unifier_Functions.png"),
     link: "#functions",
   },
   {
     id: "benefits",
     title: "효과",
     description: "공공, 부동산, 인프라 도입 효과",
-    image: getAssetPath("/Unifier%20효과.png"),
+    image: getAssetPath("/Unifier_Benefits.png"),
     link: "#customers",
   },
 ];
@@ -79,10 +79,10 @@ const benefitsKpiData = [
   { value: "250+", label: "대시보드 및 리포트" },
 ];
 const benefits2P6Image = encodeURI(
-  getAssetPath("/Primavera P6 EPPM - 일정 및 자원 계획 중심.png"),
+  getAssetPath("/Schedule_and_Resource_Plan_Center.png"),
 );
 const benefits2UnifierImage = encodeURI(
-  getAssetPath("/Primavera Unifier - 비용, 계약, 워크플로우 중심.png"),
+  getAssetPath("/Cost_Contract_and_Workflow_Center.png"),
 );
 
 function UnifierPage() {

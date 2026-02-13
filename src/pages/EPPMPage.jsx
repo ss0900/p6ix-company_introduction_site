@@ -59,7 +59,7 @@ const functionItems2 = [
         <br />- WBS 코드, Activity 코드 설정
       </>
     ),
-    image: getAssetPath("/코드 관리.png"),
+    image: getAssetPath("/Code_Management.png"),
     alt: "기능 소개 - 코드 관리",
   },
   {
@@ -112,7 +112,7 @@ const functionItems2 = [
         커스터마이징 뷰 제공
       </>
     ),
-    image: getAssetPath("/보고 기능.png"),
+    image: getAssetPath("/Reporting.png"),
     alt: "기능 소개 - 보고 기능",
   },
   {
@@ -150,7 +150,7 @@ const functionItems2 = [
         <br />- 사용자별 Role/Project Access 설정
       </>
     ),
-    image: getAssetPath("/권한 관리.png"),
+    image: getAssetPath("/User_Management.png"),
     alt: "기능 소개 - 권한 관리",
   },
 ];
@@ -428,13 +428,13 @@ const processStep2ComparisonCards = [
   {
     product: "P6 Web Application",
     description: "역할 기반의 주요 인터페이스, 접근성 및 협업 중심",
-    imageSrc: getAssetPath("/p6-web-application.png"),
+    imageSrc: getAssetPath("/P6_Web_Application.png"),
     imageAlt: "P6 Web Application 화면 예시",
   },
   {
     product: "P6 Professional",
     description: "파워 유저를 위한 심층 스케줄링 및 오프라인 작업 지원",
-    imageSrc: getAssetPath("/p6-professional-schedule.png"),
+    imageSrc: getAssetPath("/P6_Professional_Schedule.png"),
     imageAlt: "P6 Professional 화면 예시",
   },
 ];
@@ -1685,7 +1685,7 @@ function EPPMPage() {
                     <div className="eppm-process-visual-media">
                       <img
                         src={encodeURI(
-                          getAssetPath("/process_step1_priority.png"),
+                          getAssetPath("/Priority_Setting_and_Investment_Optimization.png"),
                         )}
                         alt="1단계 우선순위 결정 및 투자 최적화"
                       />

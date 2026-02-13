@@ -10,13 +10,7 @@ import Footer from "./components/Footer";
 import Loader from "./components/Loader";
 import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
-import Company from "./pages/Company";
 import TimeManagementPage from "./pages/TimeManagementPage";
-import PPM from "./pages/PPM";
-import EPPM from "./pages/EPPM";
-import OPC from "./pages/OPC";
-import Unifier from "./pages/Unifier";
-import Aconex from "./pages/Aconex";
 import Contact from "./components/Contact";
 
 import CompanyIntro from "./pages/company/Intro";
@@ -55,7 +49,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
 
-        <Route path="/company" element={<Company />} />
         <Route path="/company/intro" element={<CompanyIntro />} />
         <Route path="/company/ceo" element={<CompanyCEO />} />
         <Route path="/company/organization" element={<CompanyOrganization />} />

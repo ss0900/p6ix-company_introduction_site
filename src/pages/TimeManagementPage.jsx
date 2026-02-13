@@ -32,17 +32,17 @@ const subMenuItems = [
   {
     id: "overview",
     title: "개요",
-    image: getAssetPath("/공정관리%20개요.png"),
+    image: getAssetPath("/Process_Overview.png"),
   },
   {
     id: "advantages",
     title: "장점",
-    image: getAssetPath("/공정관리%20장점.png"),
+    image: getAssetPath("/Process_Advantages.png"),
   },
   {
     id: "core",
     title: "핵심 개념",
-    image: getAssetPath("/공정관리%20핵심%20개념.png"),
+    image: getAssetPath("/Process_Core_Concepts.png"),
   },
 ];
 
@@ -1320,7 +1320,7 @@ function TimeManagementPage() {
           id="hero"
           ref={heroSectionRef}
           style={{
-            backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url(${getAssetPath("/공정관리.png")})`,
+            backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url(${getAssetPath("/Process_Control.png")})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -1328,7 +1328,7 @@ function TimeManagementPage() {
           <div
             className="tm-hero-section"
             style={{
-              backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url(${getAssetPath("/공정관리.png")})`,
+              backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url(${getAssetPath("/Process_Control.png")})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}

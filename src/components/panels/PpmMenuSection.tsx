@@ -14,7 +14,7 @@ const cards: ExpandableCardItem[] = [
     description:
       "포트폴리오 목표와 투자 우선순위를 정렬하고, 프로젝트 전반의 실행 방향을 한눈에 파악합니다.",
     href: "/ppm/overview/1",
-    image: getAssetPath("/PPM%20개요.png"),
+    image: getAssetPath("/PPM_Overview.png"),
     imageAlt: "PPM 개요 카드 배경",
   },
   {
@@ -22,7 +22,7 @@ const cards: ExpandableCardItem[] = [
     description:
       "CPM 기반 일정 관리, 시나리오 분석, 자원 최적화를 통해 계획 정확도와 실행력을 동시에 강화합니다.",
     href: "/ppm/functions/1",
-    image: getAssetPath("/PPM%20기능%20소개.png"),
+    image: getAssetPath("/PPM_Functions.png"),
     imageAlt: "PPM 기능 소개 카드 배경",
   },
   {
@@ -30,7 +30,7 @@ const cards: ExpandableCardItem[] = [
     description:
       "의사결정 속도 향상, 리스크 조기 대응, 성과 가시성 확보로 프로젝트 성공 확률을 높입니다.",
     href: "/ppm/benefits",
-    image: getAssetPath("/PPM%20효과.png"),
+    image: getAssetPath("/PPM_Benefits.png"),
     imageAlt: "PPM 효과 카드 배경",
   },
 ];

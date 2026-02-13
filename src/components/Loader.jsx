@@ -5,7 +5,7 @@ function Loader({ isLoading }) {
       <div className="loader-content">
         <div className="loader-logo">
           <img
-            src={getAssetPath("/피식스에스씨_rgb_06.좌우국영문화이트.png")}
+            src={getAssetPath("/P6ix_SC_Logo_White.png")}
             alt="Company Logo"
             style={{ height: '3.5rem', objectFit: 'contain' }}
           />

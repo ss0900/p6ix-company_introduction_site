@@ -21,7 +21,7 @@ export const unifierFunctions2Intro = {
         </svg>
       ),
       title: "대시보드 · 리포팅 · 분석",
-      image: getAssetPath("/대시보드·리포팅·분석(Analytics  Dashboards).png"),
+      image: getAssetPath("/Performance_Analysis.png"),
       alt: "기능 소개 - 대시보드 · 리포팅 · 분석",
     },
     {
@@ -74,7 +74,7 @@ export const unifierFunctions2Intro = {
           Document Manager 연계
         </>
       ),
-      image: getAssetPath("/문서첨부·마크업 + Document Manager 연계.png"),
+      image: getAssetPath("/Document_Markup_Manager.png"),
       alt: "기능 소개 - 문서/첨부·마크업 + Document Manager 연계",
     },
     {
@@ -111,7 +111,7 @@ export const unifierFunctions2Intro = {
           <br /> 이메일 기반 처리 지원
         </>
       ),
-      image: getAssetPath("/알림·태스크(Tasks)·이메일 기반 처리 지원.png"),
+      image: getAssetPath("/Notifications_Tasks_Email.png"),
       alt: "기능 소개 - 알림, 태스크 및 이메일 기반 처리 지원",
     },
   ],

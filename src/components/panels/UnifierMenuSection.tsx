@@ -13,7 +13,7 @@ const cards: ExpandableCardItem[] = [
     description:
       "비용, 계약, 문서 관리의 통합 운영 구조를 확인하고 Unifier의 핵심 가치를 빠르게 파악합니다.",
     href: "/unifier/overview/1",
-    image: getAssetPath("/Unifier%20개요.png"),
+    image: getAssetPath("/Unifier_Overview.png"),
     imageAlt: "Unifier 개요 카드 배경",
   },
   {
@@ -21,7 +21,7 @@ const cards: ExpandableCardItem[] = [
     description:
       "비용 통제, 계약 관리, 워크플로우 자동화 등 프로젝트 통제 중심 기능을 확인합니다.",
     href: "/unifier/functions/1",
-    image: getAssetPath("/Unifier%20기능%20소개.png"),
+    image: getAssetPath("/Unifier_Functions.png"),
     imageAlt: "Unifier 기능 소개 카드 배경",
   },
   {
@@ -29,7 +29,7 @@ const cards: ExpandableCardItem[] = [
     description:
       "공공, 인프라, 민간 프로젝트에서의 도입 효과와 운영 성과를 사례 관점으로 살펴봅니다.",
     href: "/unifier/benefits/1",
-    image: getAssetPath("/Unifier%20효과.png"),
+    image: getAssetPath("/Unifier_Benefits.png"),
     imageAlt: "Unifier 효과 카드 배경",
   },
 ];

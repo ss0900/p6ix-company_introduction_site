@@ -6,19 +6,19 @@ const opcHomeMenuCards = [
     key: 'overview',
     title: '개요',
     href: '/opc/overview/1',
-    imageSrc: getAssetPath('/OPC 개요.png')
+    imageSrc: getAssetPath('/OPC_Overview.png')
   },
   {
     key: 'functions',
     title: '기능 소개',
     href: '/opc/functions/1',
-    imageSrc: getAssetPath('/OPC 기능 소개.png')
+    imageSrc: getAssetPath('/OPC_Functions.png')
   },
   {
     key: 'comparison',
     title: '비교',
     href: '/opc/comparison/1',
-    imageSrc: getAssetPath('/OPC 비교.png')
+    imageSrc: getAssetPath('/OPC_Comparison.png')
   }
 ]
 
