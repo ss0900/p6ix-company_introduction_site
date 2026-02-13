@@ -16035,9 +16035,24 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     position: relative;
   }
 
-  #core-4 .tm-core-flow-option::before {
-    content: "OPTION 1";
-    align-self: flex-start;
+  #core-4 .tm-core-flow-option .tm-core-flow-branch-label {
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+    white-space: nowrap;
+    font-size: var(--text-sm);
+    line-height: 1.35;
+  }
+
+  #core-4 .tm-core-flow-option--left .tm-core-flow-branch-label::before,
+  #core-4 .tm-core-flow-option--right .tm-core-flow-branch-label::before {
+    align-self: center;
     font-size: 11px;
     letter-spacing: 0.08em;
     color: rgba(170, 190, 220, 0.88);
@@ -16045,22 +16060,15 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     border: 1px solid rgba(110, 160, 255, 0.25);
     border-radius: 999px;
     background: rgba(12, 18, 36, 0.72);
+    flex: 0 0 auto;
   }
 
-  #core-4 .tm-core-flow-option--right::before {
+  #core-4 .tm-core-flow-option--left .tm-core-flow-branch-label::before {
+    content: "OPTION 1";
+  }
+
+  #core-4 .tm-core-flow-option--right .tm-core-flow-branch-label::before {
     content: "OPTION 2";
-  }
-
-  #core-4 .tm-core-flow-option .tm-core-flow-branch-label {
-    position: static;
-    top: auto;
-    left: auto;
-    transform: none;
-    margin: 0;
-    text-align: left;
-    white-space: normal;
-    font-size: var(--text-sm);
-    line-height: 1.35;
   }
 
   #core-4 .tm-core-flow-option .tm-core-flow-branch-label--emphasis {
