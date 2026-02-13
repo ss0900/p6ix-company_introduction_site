@@ -4328,12 +4328,14 @@ function TimeManagementPage() {
                     </span>
                   </p>
                   <p className="tm-core-mobile-summary-item tm-core-mobile-summary-item--delay">
-                    <span className="tm-core-mobile-summary-label">Delay:</span>
-                    <span className="tm-core-mobile-summary-range">
-                      {baselineEndDate} -&gt; {updateEndDate}
+                    <span className="tm-core-mobile-summary-delay-main">
+                      <span className="tm-core-mobile-summary-label">Delay:</span>
+                      <span className="tm-core-mobile-summary-range">
+                        {baselineEndDate} -&gt; {updateEndDate}
+                      </span>
                     </span>
                     <span className="tm-core-mobile-delay-badge">
-                      Delay +{delayDays} days
+                      +{delayDays} Days
                     </span>
                   </p>
                 </div>

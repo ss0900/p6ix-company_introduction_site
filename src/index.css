@@ -17016,9 +17016,27 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     color: rgba(248, 113, 113, 0.95);
   }
 
+  #core-3 .tm-core-mobile-summary-item--delay {
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+
+  #core-3 .tm-core-mobile-summary-delay-main {
+    min-width: 0;
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
   #core-3 .tm-core-mobile-delay-badge {
     display: inline-flex;
     align-items: center;
+    margin-left: auto;
+    flex: 0 0 auto;
     padding: 2px 8px;
     border-radius: var(--radius-full);
     border: 1px solid rgba(248, 113, 113, 0.6);
@@ -17034,6 +17052,10 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     font-size: var(--text-base);
     line-height: 1.55;
     padding: var(--space-md);
+  }
+
+  #core-3 .tm-core-timeline-summary-wrapper {
+    margin-top: var(--space-lg);
   }
 
   .tm-wbs-tree-scroll {
