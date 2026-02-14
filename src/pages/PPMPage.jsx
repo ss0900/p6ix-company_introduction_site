@@ -1237,6 +1237,152 @@ const p6MsComparisonSummary = [
   "Primavera P6는 대규모/복잡 프로젝트의 기준 도구이며,",
   "MS Project는 소규모 프로젝트와 빠른 도입이 요구되는 환경에 적합합니다.",
 ];
+
+const formatSvgNumber = (value) =>
+  Number.isInteger(value) ? value : Number(value.toFixed(2));
+
+const buildRoundedOrthPath = (points, cornerRadius = 10) => {
+  if (!Array.isArray(points) || points.length < 2) return "";
+
+  const toPoint = (point) =>
+    `${formatSvgNumber(point.x)} ${formatSvgNumber(point.y)}`;
+
+  let d = `M ${toPoint(points[0])}`;
+
+  for (let i = 1; i < points.length; i += 1) {
+    const prev = points[i - 1];
+    const curr = points[i];
+    const next = points[i + 1];
+
+    if (!next) {
+      d += ` L ${toPoint(curr)}`;
+      continue;
+    }
+
+    const v1x = curr.x - prev.x;
+    const v1y = curr.y - prev.y;
+    const v2x = next.x - curr.x;
+    const v2y = next.y - curr.y;
+    const len1 = Math.hypot(v1x, v1y);
+    const len2 = Math.hypot(v2x, v2y);
+    const isAxisAligned =
+      (v1x === 0 || v1y === 0) && (v2x === 0 || v2y === 0) && len1 && len2;
+
+    if (!isAxisAligned) {
+      d += ` L ${toPoint(curr)}`;
+      continue;
+    }
+
+    const r = Math.min(cornerRadius, len1 / 2, len2 / 2);
+    const p1 = {
+      x: curr.x - Math.sign(v1x) * r,
+      y: curr.y - Math.sign(v1y) * r,
+    };
+    const p2 = {
+      x: curr.x + Math.sign(v2x) * r,
+      y: curr.y + Math.sign(v2y) * r,
+    };
+
+    d += ` L ${toPoint(p1)} Q ${toPoint(curr)} ${toPoint(p2)}`;
+  }
+
+  return d;
+};
+
+const overviewPrecisionDiagram = {
+  viewBox: "0 0 760 440",
+  nodes: [
+    { x: 20, y: 266, width: 86, height: 34, rx: 8, tone: "is-main" },
+    { x: 146, y: 258, width: 72, height: 20, rx: 6 },
+    { x: 146, y: 288, width: 72, height: 20, rx: 6 },
+    { x: 146, y: 336, width: 90, height: 28, rx: 8, tone: "is-main" },
+    { x: 246, y: 266, width: 84, height: 34, rx: 8, tone: "is-main" },
+    { x: 316, y: 164, width: 76, height: 32, rx: 8, tone: "is-main" },
+    { x: 386, y: 70, width: 100, height: 32, rx: 7, tone: "is-core" },
+    { x: 386, y: 110, width: 100, height: 32, rx: 7, tone: "is-core" },
+    { x: 408, y: 150, width: 78, height: 18, rx: 6 },
+    { x: 408, y: 176, width: 78, height: 18, rx: 6 },
+    { x: 420, y: 202, width: 66, height: 18, rx: 6 },
+    { x: 412, y: 228, width: 74, height: 20, rx: 6 },
+    { x: 412, y: 254, width: 74, height: 20, rx: 6 },
+    { x: 412, y: 280, width: 74, height: 20, rx: 6 },
+    { x: 404, y: 306, width: 82, height: 20, rx: 6, tone: "is-main" },
+    { x: 404, y: 332, width: 82, height: 20, rx: 6 },
+    { x: 404, y: 358, width: 82, height: 20, rx: 6 },
+    { x: 404, y: 384, width: 82, height: 20, rx: 6 },
+    { x: 396, y: 410, width: 90, height: 20, rx: 6 },
+    { x: 502, y: 122, width: 90, height: 32, rx: 7, tone: "is-main" },
+    { x: 514, y: 160, width: 74, height: 20, rx: 6 },
+    { x: 514, y: 186, width: 74, height: 20, rx: 6 },
+    { x: 502, y: 254, width: 92, height: 34, rx: 7, tone: "is-main" },
+    { x: 514, y: 292, width: 74, height: 20, rx: 6 },
+    { x: 502, y: 344, width: 92, height: 34, rx: 7, tone: "is-main" },
+    { x: 514, y: 382, width: 74, height: 20, rx: 6 },
+    { x: 498, y: 400, width: 96, height: 30, rx: 7, tone: "is-main" },
+  ],
+  links: [
+    [{ x: 106, y: 283 }, { x: 138, y: 283 }, { x: 138, y: 268 }, { x: 146, y: 268 }],
+    [{ x: 106, y: 283 }, { x: 138, y: 283 }, { x: 138, y: 298 }, { x: 146, y: 298 }],
+    [{ x: 218, y: 268 }, { x: 238, y: 268 }, { x: 238, y: 283 }, { x: 246, y: 283 }],
+    [{ x: 218, y: 298 }, { x: 238, y: 298 }, { x: 238, y: 350 }, { x: 236, y: 350 }],
+    [{ x: 236, y: 350 }, { x: 362, y: 350 }, { x: 362, y: 316 }, { x: 404, y: 316 }],
+    [{ x: 372, y: 94 }, { x: 372, y: 424 }],
+    [{ x: 372, y: 126 }, { x: 386, y: 126 }],
+    [{ x: 372, y: 166 }, { x: 408, y: 166 }],
+    [{ x: 372, y: 192 }, { x: 408, y: 192 }],
+    [{ x: 372, y: 238 }, { x: 412, y: 238 }],
+    [{ x: 372, y: 264 }, { x: 412, y: 264 }],
+    [{ x: 372, y: 290 }, { x: 412, y: 290 }],
+    [{ x: 372, y: 316 }, { x: 404, y: 316 }],
+    [{ x: 372, y: 342 }, { x: 404, y: 342 }],
+    [{ x: 372, y: 368 }, { x: 404, y: 368 }],
+    [{ x: 372, y: 394 }, { x: 404, y: 394 }],
+    [{ x: 372, y: 420 }, { x: 396, y: 420 }],
+    [{ x: 486, y: 138 }, { x: 502, y: 138 }],
+    [{ x: 486, y: 170 }, { x: 514, y: 170 }],
+    [{ x: 486, y: 196 }, { x: 514, y: 196 }],
+    [{ x: 486, y: 271 }, { x: 502, y: 271 }],
+    [{ x: 486, y: 302 }, { x: 514, y: 302 }],
+    [{ x: 486, y: 361 }, { x: 502, y: 361 }],
+    [{ x: 486, y: 392 }, { x: 514, y: 392 }],
+    [{ x: 486, y: 415 }, { x: 498, y: 415 }],
+    [{ x: 626, y: 138 }, { x: 626, y: 415 }],
+    [{ x: 592, y: 138 }, { x: 626, y: 138 }],
+    [{ x: 588, y: 170 }, { x: 626, y: 170 }],
+    [{ x: 588, y: 196 }, { x: 626, y: 196 }],
+    [{ x: 594, y: 271 }, { x: 626, y: 271 }],
+    [{ x: 588, y: 302 }, { x: 626, y: 302 }],
+    [{ x: 594, y: 361 }, { x: 626, y: 361 }],
+    [{ x: 588, y: 392 }, { x: 626, y: 392 }],
+    [{ x: 594, y: 415 }, { x: 626, y: 415 }],
+    [{ x: 626, y: 182 }, { x: 634, y: 182 }],
+    [{ x: 626, y: 291 }, { x: 634, y: 291 }],
+    [{ x: 626, y: 384 }, { x: 634, y: 384 }],
+    [{ x: 634, y: 182 }, { x: 634, y: 384 }],
+    [{ x: 634, y: 291 }, { x: 642, y: 291 }],
+  ],
+  criticalPathPoints: [
+    { x: 74, y: 283 },
+    { x: 154, y: 283 },
+    { x: 154, y: 350 },
+    { x: 250, y: 350 },
+    { x: 250, y: 283 },
+    { x: 320, y: 283 },
+    { x: 320, y: 180 },
+    { x: 372, y: 180 },
+    { x: 372, y: 86 },
+    { x: 386, y: 86 },
+  ],
+  criticalArrows: ["286,275 302,283 286,291", "356,78 372,86 356,94"],
+  criticalStartDot: { cx: 74, cy: 283, r: 8 },
+  criticalBadge: { x: 112, y: 188, width: 198, height: 46, textX: 211, textY: 218 },
+  project: { x: 642, y: 248, width: 104, height: 86, textX: 694, textY: 301 },
+};
+
+const overviewPrecisionCriticalPathD = buildRoundedOrthPath(
+  overviewPrecisionDiagram.criticalPathPoints,
+  12,
+);
 function PPMPage() {
   const { sectionId, subId } = useParams();
   const navigate = useNavigate();
@@ -2200,272 +2346,85 @@ function PPMPage() {
               >
                 <svg
                   className="ppm-overview-precision-svg"
-                  viewBox="0 0 760 440"
+                  viewBox={overviewPrecisionDiagram.viewBox}
                   role="img"
                   preserveAspectRatio="xMidYMid meet"
                 >
                   <title>CPM 및 WBS 네트워크 로직 다이어그램</title>
 
-                  <g className="ppm-overview-precision-line-group">
-                    <path
-                      className="ppm-overview-precision-line"
-                      d="M114 292H154M226 275H250M226 305H250M240 349H360V326H404"
-                    />
-                    <path
-                      className="ppm-overview-precision-line"
-                      d="M370 98V212M370 130H382M370 176H404M370 202H404M370 248V424M370 310H404M370 362H404M370 414H396"
-                    />
-                    <path
-                      className="ppm-overview-precision-line"
-                      d="M480 143H498M480 179H508M480 207H508M480 279H500M480 359H500M480 417H496M596 143H626V291H642M582 279H626M588 359H626M588 417H626M626 182H642M626 292H642M626 384H642"
-                    />
+                  <g className="ppm-overview-precision-line-group" aria-hidden="true">
+                    {overviewPrecisionDiagram.links.map((points, index) => (
+                      <path
+                        key={`precision-link-${index}`}
+                        className="ppm-overview-precision-line"
+                        d={buildRoundedOrthPath(points, 8)}
+                      />
+                    ))}
                   </g>
 
-                  <g className="ppm-overview-precision-node-group">
-                    <rect
-                      className="ppm-overview-precision-node is-main"
-                      x="36"
-                      y="274"
-                      width="78"
-                      height="36"
-                      rx="8"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node"
-                      x="154"
-                      y="264"
-                      width="72"
-                      height="22"
-                      rx="6"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node"
-                      x="154"
-                      y="294"
-                      width="72"
-                      height="22"
-                      rx="6"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node is-main"
-                      x="154"
-                      y="334"
-                      width="86"
-                      height="30"
-                      rx="8"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node is-main"
-                      x="250"
-                      y="272"
-                      width="80"
-                      height="34"
-                      rx="8"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node is-main"
-                      x="320"
-                      y="168"
-                      width="76"
-                      height="34"
-                      rx="8"
-                    />
-
-                    <rect
-                      className="ppm-overview-precision-node is-core"
-                      x="382"
-                      y="82"
-                      width="98"
-                      height="34"
-                      rx="7"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node is-core"
-                      x="382"
-                      y="124"
-                      width="98"
-                      height="34"
-                      rx="7"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node"
-                      x="404"
-                      y="166"
-                      width="76"
-                      height="20"
-                      rx="6"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node"
-                      x="404"
-                      y="192"
-                      width="76"
-                      height="20"
-                      rx="6"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node"
-                      x="420"
-                      y="224"
-                      width="60"
-                      height="18"
-                      rx="6"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node"
-                      x="412"
-                      y="248"
-                      width="68"
-                      height="20"
-                      rx="6"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node"
-                      x="412"
-                      y="274"
-                      width="68"
-                      height="20"
-                      rx="6"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node"
-                      x="412"
-                      y="300"
-                      width="68"
-                      height="20"
-                      rx="6"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node"
-                      x="404"
-                      y="326"
-                      width="76"
-                      height="20"
-                      rx="6"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node"
-                      x="404"
-                      y="352"
-                      width="76"
-                      height="20"
-                      rx="6"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node"
-                      x="404"
-                      y="378"
-                      width="76"
-                      height="20"
-                      rx="6"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node"
-                      x="396"
-                      y="404"
-                      width="84"
-                      height="20"
-                      rx="6"
-                    />
-
-                    <rect
-                      className="ppm-overview-precision-node is-main"
-                      x="498"
-                      y="126"
-                      width="86"
-                      height="34"
-                      rx="7"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node"
-                      x="508"
-                      y="168"
-                      width="74"
-                      height="22"
-                      rx="6"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node is-main"
-                      x="508"
-                      y="196"
-                      width="74"
-                      height="22"
-                      rx="6"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node is-main"
-                      x="500"
-                      y="262"
-                      width="88"
-                      height="34"
-                      rx="7"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node is-main"
-                      x="500"
-                      y="342"
-                      width="88"
-                      height="34"
-                      rx="7"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node is-main"
-                      x="496"
-                      y="402"
-                      width="92"
-                      height="30"
-                      rx="7"
-                    />
+                  <g className="ppm-overview-precision-node-group" aria-hidden="true">
+                    {overviewPrecisionDiagram.nodes.map((node, index) => (
+                      <rect
+                        key={`precision-node-${index}`}
+                        className={`ppm-overview-precision-node${node.tone ? ` ${node.tone}` : ""}`}
+                        x={node.x}
+                        y={node.y}
+                        width={node.width}
+                        height={node.height}
+                        rx={node.rx}
+                      />
+                    ))}
                   </g>
 
-                  <g className="ppm-overview-precision-critical-group">
+                  <g className="ppm-overview-precision-critical-group" aria-hidden="true">
                     <path
                       className="ppm-overview-precision-critical-path"
-                      d="M74 292H154V349H250V289H320V185H382"
+                      d={overviewPrecisionCriticalPathD}
                     />
                     <circle
                       className="ppm-overview-precision-critical-dot"
-                      cx="74"
-                      cy="292"
-                      r="8"
+                      cx={overviewPrecisionDiagram.criticalStartDot.cx}
+                      cy={overviewPrecisionDiagram.criticalStartDot.cy}
+                      r={overviewPrecisionDiagram.criticalStartDot.r}
                     />
-                    <polygon
-                      className="ppm-overview-precision-critical-arrow"
-                      points="232,281 248,289 232,297"
-                    />
-                    <polygon
-                      className="ppm-overview-precision-critical-arrow"
-                      points="188,341 204,349 188,357"
-                    />
-                    <polygon
-                      className="ppm-overview-precision-critical-arrow"
-                      points="302,177 318,185 302,193"
-                    />
-                    <polygon
-                      className="ppm-overview-precision-critical-arrow"
-                      points="312,160 328,168 312,176"
-                    />
+                    {overviewPrecisionDiagram.criticalArrows.map((points, index) => (
+                      <polygon
+                        key={`precision-critical-arrow-${index}`}
+                        className="ppm-overview-precision-critical-arrow"
+                        points={points}
+                      />
+                    ))}
                     <g className="ppm-overview-precision-critical-badge">
-                      <rect x="112" y="188" width="198" height="46" rx="10" />
-                      <text x="211" y="218" textAnchor="middle">
+                      <rect
+                        x={overviewPrecisionDiagram.criticalBadge.x}
+                        y={overviewPrecisionDiagram.criticalBadge.y}
+                        width={overviewPrecisionDiagram.criticalBadge.width}
+                        height={overviewPrecisionDiagram.criticalBadge.height}
+                        rx="10"
+                      />
+                      <text
+                        x={overviewPrecisionDiagram.criticalBadge.textX}
+                        y={overviewPrecisionDiagram.criticalBadge.textY}
+                        textAnchor="middle"
+                      >
                         Critical Path
                       </text>
                     </g>
                   </g>
 
-                  <g className="ppm-overview-precision-project-group">
+                  <g className="ppm-overview-precision-project-group" aria-hidden="true">
                     <rect
                       className="ppm-overview-precision-project-box"
-                      x="642"
-                      y="248"
-                      width="104"
-                      height="86"
+                      x={overviewPrecisionDiagram.project.x}
+                      y={overviewPrecisionDiagram.project.y}
+                      width={overviewPrecisionDiagram.project.width}
+                      height={overviewPrecisionDiagram.project.height}
                       rx="10"
                     />
                     <text
                       className="ppm-overview-precision-project-text"
-                      x="694"
-                      y="301"
+                      x={overviewPrecisionDiagram.project.textX}
+                      y={overviewPrecisionDiagram.project.textY}
                       textAnchor="middle"
                     >
                       Project
