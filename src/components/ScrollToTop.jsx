@@ -6,9 +6,10 @@ export default function ScrollToTop() {
   const prevPathname = useRef(pathname);
 
   useEffect(() => {
-    // If staying within /time-management or /eppm or /opc or /unifier or /aconex, do not scroll to top
+    // If staying within product sub-routes, do not scroll to top.
     // This allows the page-internal scrolling logic (GSAP) to handle positioning
     if ((pathname.startsWith('/time-management') && prevPathname.current.startsWith('/time-management')) ||
+        (pathname.startsWith('/ppm') && prevPathname.current.startsWith('/ppm')) ||
         (pathname.startsWith('/eppm') && prevPathname.current.startsWith('/eppm')) ||
         (pathname.startsWith('/opc') && prevPathname.current.startsWith('/opc')) ||
         (pathname.startsWith('/unifier') && prevPathname.current.startsWith('/unifier')) ||
