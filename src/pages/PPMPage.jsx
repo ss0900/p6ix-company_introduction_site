@@ -1614,7 +1614,9 @@ function PPMPage() {
 
     if (shouldHijackScroll) {
       window.addEventListener("wheel", handleWheel, { passive: false });
-      window.addEventListener("touchstart", handleTouchStart, { passive: true });
+      window.addEventListener("touchstart", handleTouchStart, {
+        passive: true,
+      });
       window.addEventListener("touchend", handleTouchEnd, { passive: true });
     }
 
@@ -2198,199 +2200,272 @@ function PPMPage() {
               >
                 <svg
                   className="ppm-overview-precision-svg"
-                  viewBox="0 0 640 440"
+                  viewBox="0 0 760 440"
                   role="img"
+                  preserveAspectRatio="xMidYMid meet"
                 >
                   <title>CPM 및 WBS 네트워크 로직 다이어그램</title>
 
                   <g className="ppm-overview-precision-line-group">
                     <path
                       className="ppm-overview-precision-line"
-                      d="M114 296H148M208 248H238M208 328H238M302 296H334M392 114H428M392 154H428M392 194H428M392 236H428M392 276H428M392 316H428M392 356H428M392 396H428"
+                      d="M114 292H154M226 275H250M226 305H250M240 349H360V326H404"
                     />
                     <path
                       className="ppm-overview-precision-line"
-                      d="M148 296V248M148 296V328M178 248V328M238 248V328M334 296V114M334 296V236M334 296V356M392 114V194M392 236V316M392 356V396M508 154V222M508 276V222M508 376V222"
+                      d="M370 98V212M370 130H382M370 176H404M370 202H404M370 248V424M370 310H404M370 362H404M370 414H396"
                     />
                     <path
                       className="ppm-overview-precision-line"
-                      d="M502 154H546M502 276H546M502 376H546"
+                      d="M480 143H498M480 179H508M480 207H508M480 279H500M480 359H500M480 417H496M596 143H626V291H642M582 279H626M588 359H626M588 417H626M626 182H642M626 292H642M626 384H642"
+                    />
+                  </g>
+
+                  <g className="ppm-overview-precision-node-group">
+                    <rect
+                      className="ppm-overview-precision-node is-main"
+                      x="36"
+                      y="274"
+                      width="78"
+                      height="36"
+                      rx="8"
+                    />
+                    <rect
+                      className="ppm-overview-precision-node"
+                      x="154"
+                      y="264"
+                      width="72"
+                      height="22"
+                      rx="6"
+                    />
+                    <rect
+                      className="ppm-overview-precision-node"
+                      x="154"
+                      y="294"
+                      width="72"
+                      height="22"
+                      rx="6"
+                    />
+                    <rect
+                      className="ppm-overview-precision-node is-main"
+                      x="154"
+                      y="334"
+                      width="86"
+                      height="30"
+                      rx="8"
+                    />
+                    <rect
+                      className="ppm-overview-precision-node is-main"
+                      x="250"
+                      y="272"
+                      width="80"
+                      height="34"
+                      rx="8"
+                    />
+                    <rect
+                      className="ppm-overview-precision-node is-main"
+                      x="320"
+                      y="168"
+                      width="76"
+                      height="34"
+                      rx="8"
+                    />
+
+                    <rect
+                      className="ppm-overview-precision-node is-core"
+                      x="382"
+                      y="82"
+                      width="98"
+                      height="34"
+                      rx="7"
+                    />
+                    <rect
+                      className="ppm-overview-precision-node is-core"
+                      x="382"
+                      y="124"
+                      width="98"
+                      height="34"
+                      rx="7"
+                    />
+                    <rect
+                      className="ppm-overview-precision-node"
+                      x="404"
+                      y="166"
+                      width="76"
+                      height="20"
+                      rx="6"
+                    />
+                    <rect
+                      className="ppm-overview-precision-node"
+                      x="404"
+                      y="192"
+                      width="76"
+                      height="20"
+                      rx="6"
+                    />
+                    <rect
+                      className="ppm-overview-precision-node"
+                      x="420"
+                      y="224"
+                      width="60"
+                      height="18"
+                      rx="6"
+                    />
+                    <rect
+                      className="ppm-overview-precision-node"
+                      x="412"
+                      y="248"
+                      width="68"
+                      height="20"
+                      rx="6"
+                    />
+                    <rect
+                      className="ppm-overview-precision-node"
+                      x="412"
+                      y="274"
+                      width="68"
+                      height="20"
+                      rx="6"
+                    />
+                    <rect
+                      className="ppm-overview-precision-node"
+                      x="412"
+                      y="300"
+                      width="68"
+                      height="20"
+                      rx="6"
+                    />
+                    <rect
+                      className="ppm-overview-precision-node"
+                      x="404"
+                      y="326"
+                      width="76"
+                      height="20"
+                      rx="6"
+                    />
+                    <rect
+                      className="ppm-overview-precision-node"
+                      x="404"
+                      y="352"
+                      width="76"
+                      height="20"
+                      rx="6"
+                    />
+                    <rect
+                      className="ppm-overview-precision-node"
+                      x="404"
+                      y="378"
+                      width="76"
+                      height="20"
+                      rx="6"
+                    />
+                    <rect
+                      className="ppm-overview-precision-node"
+                      x="396"
+                      y="404"
+                      width="84"
+                      height="20"
+                      rx="6"
+                    />
+
+                    <rect
+                      className="ppm-overview-precision-node is-main"
+                      x="498"
+                      y="126"
+                      width="86"
+                      height="34"
+                      rx="7"
+                    />
+                    <rect
+                      className="ppm-overview-precision-node"
+                      x="508"
+                      y="168"
+                      width="74"
+                      height="22"
+                      rx="6"
+                    />
+                    <rect
+                      className="ppm-overview-precision-node is-main"
+                      x="508"
+                      y="196"
+                      width="74"
+                      height="22"
+                      rx="6"
+                    />
+                    <rect
+                      className="ppm-overview-precision-node is-main"
+                      x="500"
+                      y="262"
+                      width="88"
+                      height="34"
+                      rx="7"
+                    />
+                    <rect
+                      className="ppm-overview-precision-node is-main"
+                      x="500"
+                      y="342"
+                      width="88"
+                      height="34"
+                      rx="7"
+                    />
+                    <rect
+                      className="ppm-overview-precision-node is-main"
+                      x="496"
+                      y="402"
+                      width="92"
+                      height="30"
+                      rx="7"
                     />
                   </g>
 
                   <g className="ppm-overview-precision-critical-group">
                     <path
                       className="ppm-overview-precision-critical-path"
-                      d="M86 296H148V328H238V296H302V114H392"
+                      d="M74 292H154V349H250V289H320V185H382"
                     />
                     <circle
                       className="ppm-overview-precision-critical-dot"
-                      cx="86"
-                      cy="296"
+                      cx="74"
+                      cy="292"
                       r="8"
                     />
                     <polygon
                       className="ppm-overview-precision-critical-arrow"
-                      points="226,288 242,296 226,304"
+                      points="232,281 248,289 232,297"
                     />
                     <polygon
                       className="ppm-overview-precision-critical-arrow"
-                      points="384,106 400,114 384,122"
+                      points="188,341 204,349 188,357"
+                    />
+                    <polygon
+                      className="ppm-overview-precision-critical-arrow"
+                      points="302,177 318,185 302,193"
+                    />
+                    <polygon
+                      className="ppm-overview-precision-critical-arrow"
+                      points="312,168 320,152 328,168"
                     />
                     <g className="ppm-overview-precision-critical-badge">
-                      <rect x="126" y="200" width="176" height="44" rx="10" />
-                      <text x="214" y="228" textAnchor="middle">
+                      <rect x="112" y="188" width="198" height="46" rx="10" />
+                      <text x="211" y="218" textAnchor="middle">
                         Critical Path
                       </text>
                     </g>
                   </g>
 
-                  <g className="ppm-overview-precision-node-group">
-                    <rect
-                      className="ppm-overview-precision-node is-main"
-                      x="54"
-                      y="276"
-                      width="64"
-                      height="40"
-                      rx="8"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node"
-                      x="150"
-                      y="236"
-                      width="58"
-                      height="24"
-                      rx="6"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node"
-                      x="150"
-                      y="316"
-                      width="58"
-                      height="24"
-                      rx="6"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node is-main"
-                      x="238"
-                      y="276"
-                      width="64"
-                      height="40"
-                      rx="8"
-                    />
-
-                    <rect
-                      className="ppm-overview-precision-node is-core"
-                      x="334"
-                      y="96"
-                      width="92"
-                      height="36"
-                      rx="7"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node is-core"
-                      x="334"
-                      y="140"
-                      width="92"
-                      height="36"
-                      rx="7"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node"
-                      x="362"
-                      y="184"
-                      width="64"
-                      height="24"
-                      rx="6"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node"
-                      x="362"
-                      y="226"
-                      width="64"
-                      height="24"
-                      rx="6"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node"
-                      x="362"
-                      y="266"
-                      width="64"
-                      height="24"
-                      rx="6"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node"
-                      x="362"
-                      y="306"
-                      width="64"
-                      height="24"
-                      rx="6"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node"
-                      x="362"
-                      y="346"
-                      width="64"
-                      height="24"
-                      rx="6"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node"
-                      x="362"
-                      y="386"
-                      width="64"
-                      height="24"
-                      rx="6"
-                    />
-
-                    <rect
-                      className="ppm-overview-precision-node is-main"
-                      x="428"
-                      y="138"
-                      width="74"
-                      height="32"
-                      rx="7"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node"
-                      x="428"
-                      y="178"
-                      width="74"
-                      height="24"
-                      rx="6"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node is-main"
-                      x="428"
-                      y="258"
-                      width="82"
-                      height="36"
-                      rx="7"
-                    />
-                    <rect
-                      className="ppm-overview-precision-node is-main"
-                      x="428"
-                      y="358"
-                      width="82"
-                      height="36"
-                      rx="7"
-                    />
-                  </g>
-
                   <g className="ppm-overview-precision-project-group">
                     <rect
                       className="ppm-overview-precision-project-box"
-                      x="546"
-                      y="178"
-                      width="92"
-                      height="88"
+                      x="642"
+                      y="248"
+                      width="104"
+                      height="86"
                       rx="10"
                     />
                     <text
                       className="ppm-overview-precision-project-text"
-                      x="592"
-                      y="232"
+                      x="694"
+                      y="301"
                       textAnchor="middle"
                     >
                       Project

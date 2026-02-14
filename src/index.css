@@ -14603,6 +14603,20 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   max-height: 430px;
 }
 
+#overview-features-2 .ppm-overview-precision-layout {
+  grid-template-columns: minmax(0, 28fr) minmax(0, 44fr) minmax(0, 28fr);
+}
+
+#overview-features-2 .ppm-overview-precision-diagram {
+  min-height: clamp(320px, 36vh, 430px);
+}
+
+#overview-features-2 .ppm-overview-precision-svg {
+  width: 100%;
+  max-height: 460px;
+  aspect-ratio: 760 / 440;
+}
+
 .ppm-overview-precision-line {
   fill: none;
   stroke: rgba(215, 225, 235, 0.44);
