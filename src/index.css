@@ -15966,6 +15966,31 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 }
 
 @media (max-width: 768px) {
+  #core-5 .tm-core-scurve {
+    gap: var(--space-md);
+  }
+
+  #core-5 .tm-core-scurve-chart {
+    padding: var(--space-sm);
+    min-height: auto;
+    align-items: stretch;
+    justify-content: stretch;
+  }
+
+  #core-5 .tm-core-scurve-svg {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 640 / 420;
+    display: block;
+  }
+
+  #core-5 .tm-core-scurve-info {
+    min-height: auto;
+    padding: var(--space-md);
+  }
+}
+
+@media (max-width: 768px) {
   #core-4.tm-panel {
     overflow: visible;
   }
