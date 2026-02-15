@@ -1321,50 +1321,177 @@ const overviewPrecisionDiagram = {
     { x: 498, y: 400, width: 96, height: 30, rx: 7, tone: "is-main" },
   ],
   links: [
-    [{ x: 106, y: 283 }, { x: 138, y: 283 }, { x: 138, y: 268 }, { x: 146, y: 268 }],
-    [{ x: 106, y: 283 }, { x: 138, y: 283 }, { x: 138, y: 298 }, { x: 146, y: 298 }],
-    [{ x: 218, y: 268 }, { x: 238, y: 268 }, { x: 238, y: 283 }, { x: 246, y: 283 }],
-    [{ x: 218, y: 298 }, { x: 238, y: 298 }, { x: 238, y: 350 }, { x: 236, y: 350 }],
-    [{ x: 236, y: 350 }, { x: 362, y: 350 }, { x: 362, y: 316 }, { x: 404, y: 316 }],
-    [{ x: 372, y: 94 }, { x: 372, y: 424 }],
-    [{ x: 372, y: 126 }, { x: 386, y: 126 }],
-    [{ x: 372, y: 166 }, { x: 408, y: 166 }],
-    [{ x: 372, y: 192 }, { x: 408, y: 192 }],
-    [{ x: 372, y: 238 }, { x: 412, y: 238 }],
-    [{ x: 372, y: 264 }, { x: 412, y: 264 }],
-    [{ x: 372, y: 290 }, { x: 412, y: 290 }],
-    [{ x: 372, y: 316 }, { x: 404, y: 316 }],
-    [{ x: 372, y: 342 }, { x: 404, y: 342 }],
-    [{ x: 372, y: 368 }, { x: 404, y: 368 }],
-    [{ x: 372, y: 394 }, { x: 404, y: 394 }],
-    [{ x: 372, y: 420 }, { x: 396, y: 420 }],
-    [{ x: 486, y: 138 }, { x: 502, y: 138 }],
-    [{ x: 486, y: 170 }, { x: 514, y: 170 }],
-    [{ x: 486, y: 196 }, { x: 514, y: 196 }],
-    [{ x: 486, y: 271 }, { x: 502, y: 271 }],
-    [{ x: 486, y: 302 }, { x: 514, y: 302 }],
-    [{ x: 486, y: 361 }, { x: 502, y: 361 }],
-    [{ x: 486, y: 392 }, { x: 514, y: 392 }],
-    [{ x: 486, y: 415 }, { x: 498, y: 415 }],
-    [{ x: 626, y: 138 }, { x: 626, y: 415 }],
-    [{ x: 592, y: 138 }, { x: 626, y: 138 }],
-    [{ x: 588, y: 170 }, { x: 626, y: 170 }],
-    [{ x: 588, y: 196 }, { x: 626, y: 196 }],
-    [{ x: 594, y: 271 }, { x: 626, y: 271 }],
-    [{ x: 588, y: 302 }, { x: 626, y: 302 }],
-    [{ x: 594, y: 361 }, { x: 626, y: 361 }],
-    [{ x: 588, y: 392 }, { x: 626, y: 392 }],
-    [{ x: 594, y: 415 }, { x: 626, y: 415 }],
-    [{ x: 626, y: 182 }, { x: 634, y: 182 }],
-    [{ x: 626, y: 291 }, { x: 634, y: 291 }],
-    [{ x: 626, y: 384 }, { x: 634, y: 384 }],
-    [{ x: 634, y: 182 }, { x: 634, y: 384 }],
-    [{ x: 634, y: 291 }, { x: 642, y: 291 }],
+    [
+      { x: 106, y: 283 },
+      { x: 138, y: 283 },
+      { x: 138, y: 268 },
+      { x: 146, y: 268 },
+    ],
+    [
+      { x: 106, y: 283 },
+      { x: 138, y: 283 },
+      { x: 138, y: 298 },
+      { x: 146, y: 298 },
+    ],
+    [
+      { x: 218, y: 268 },
+      { x: 238, y: 268 },
+      { x: 238, y: 283 },
+      { x: 246, y: 283 },
+    ],
+    [
+      { x: 218, y: 298 },
+      { x: 238, y: 298 },
+      { x: 238, y: 350 },
+      { x: 236, y: 350 },
+    ],
+    [
+      { x: 236, y: 350 },
+      { x: 362, y: 350 },
+      { x: 362, y: 316 },
+      { x: 404, y: 316 },
+    ],
+    [
+      { x: 372, y: 94 },
+      { x: 372, y: 424 },
+    ],
+    [
+      { x: 372, y: 126 },
+      { x: 386, y: 126 },
+    ],
+    [
+      { x: 372, y: 166 },
+      { x: 408, y: 166 },
+    ],
+    [
+      { x: 372, y: 192 },
+      { x: 408, y: 192 },
+    ],
+    [
+      { x: 372, y: 238 },
+      { x: 412, y: 238 },
+    ],
+    [
+      { x: 372, y: 264 },
+      { x: 412, y: 264 },
+    ],
+    [
+      { x: 372, y: 290 },
+      { x: 412, y: 290 },
+    ],
+    [
+      { x: 372, y: 316 },
+      { x: 404, y: 316 },
+    ],
+    [
+      { x: 372, y: 342 },
+      { x: 404, y: 342 },
+    ],
+    [
+      { x: 372, y: 368 },
+      { x: 404, y: 368 },
+    ],
+    [
+      { x: 372, y: 394 },
+      { x: 404, y: 394 },
+    ],
+    [
+      { x: 372, y: 420 },
+      { x: 396, y: 420 },
+    ],
+    [
+      { x: 486, y: 138 },
+      { x: 502, y: 138 },
+    ],
+    [
+      { x: 486, y: 170 },
+      { x: 514, y: 170 },
+    ],
+    [
+      { x: 486, y: 196 },
+      { x: 514, y: 196 },
+    ],
+    [
+      { x: 486, y: 271 },
+      { x: 502, y: 271 },
+    ],
+    [
+      { x: 486, y: 302 },
+      { x: 514, y: 302 },
+    ],
+    [
+      { x: 486, y: 361 },
+      { x: 502, y: 361 },
+    ],
+    [
+      { x: 486, y: 392 },
+      { x: 514, y: 392 },
+    ],
+    [
+      { x: 486, y: 415 },
+      { x: 498, y: 415 },
+    ],
+    [
+      { x: 626, y: 138 },
+      { x: 626, y: 415 },
+    ],
+    [
+      { x: 592, y: 138 },
+      { x: 626, y: 138 },
+    ],
+    [
+      { x: 588, y: 170 },
+      { x: 626, y: 170 },
+    ],
+    [
+      { x: 588, y: 196 },
+      { x: 626, y: 196 },
+    ],
+    [
+      { x: 594, y: 271 },
+      { x: 626, y: 271 },
+    ],
+    [
+      { x: 588, y: 302 },
+      { x: 626, y: 302 },
+    ],
+    [
+      { x: 594, y: 361 },
+      { x: 626, y: 361 },
+    ],
+    [
+      { x: 588, y: 392 },
+      { x: 626, y: 392 },
+    ],
+    [
+      { x: 594, y: 415 },
+      { x: 626, y: 415 },
+    ],
+    [
+      { x: 626, y: 182 },
+      { x: 634, y: 182 },
+    ],
+    [
+      { x: 626, y: 291 },
+      { x: 634, y: 291 },
+    ],
+    [
+      { x: 626, y: 384 },
+      { x: 634, y: 384 },
+    ],
+    [
+      { x: 634, y: 182 },
+      { x: 634, y: 384 },
+    ],
+    [
+      { x: 634, y: 291 },
+      { x: 642, y: 291 },
+    ],
   ],
   criticalPathPoints: [
-    { x: 74, y: 283 },
-    { x: 106, y: 283 },
-    { x: 106, y: 350 },
+    { x: 64, y: 283 },
+    { x: 115, y: 283 },
+    { x: 115, y: 350 },
     { x: 246, y: 350 },
     { x: 246, y: 283 },
     { x: 316, y: 283 },
@@ -1373,8 +1500,15 @@ const overviewPrecisionDiagram = {
     { x: 386, y: 86 },
   ],
   criticalArrows: ["182,342 198,350 182,358", "342,172 358,180 342,188"],
-  criticalStartDot: { cx: 74, cy: 283, r: 8 },
-  criticalBadge: { x: 112, y: 188, width: 198, height: 46, textX: 211, textY: 218 },
+  criticalStartDot: { cx: 64, cy: 283, r: 8 },
+  criticalBadge: {
+    x: 112,
+    y: 188,
+    width: 198,
+    height: 46,
+    textX: 211,
+    textY: 218,
+  },
   project: { x: 642, y: 248, width: 104, height: 86, textX: 694, textY: 301 },
 };
 
@@ -2352,7 +2486,10 @@ function PPMPage() {
                 >
                   <title>CPM 및 WBS 네트워크 로직 다이어그램</title>
 
-                  <g className="ppm-overview-precision-line-group" aria-hidden="true">
+                  <g
+                    className="ppm-overview-precision-line-group"
+                    aria-hidden="true"
+                  >
                     <path
                       className="ppm-overview-precision-line"
                       d={overviewPrecisionCriticalBasePathD}
@@ -2366,7 +2503,10 @@ function PPMPage() {
                     ))}
                   </g>
 
-                  <g className="ppm-overview-precision-node-group" aria-hidden="true">
+                  <g
+                    className="ppm-overview-precision-node-group"
+                    aria-hidden="true"
+                  >
                     {overviewPrecisionDiagram.nodes.map((node, index) => (
                       <rect
                         key={`precision-node-${index}`}
@@ -2380,7 +2520,10 @@ function PPMPage() {
                     ))}
                   </g>
 
-                  <g className="ppm-overview-precision-critical-group" aria-hidden="true">
+                  <g
+                    className="ppm-overview-precision-critical-group"
+                    aria-hidden="true"
+                  >
                     <path
                       className="ppm-overview-precision-critical-path"
                       d={overviewPrecisionCriticalPathD}
@@ -2391,13 +2534,15 @@ function PPMPage() {
                       cy={overviewPrecisionDiagram.criticalStartDot.cy}
                       r={overviewPrecisionDiagram.criticalStartDot.r}
                     />
-                    {overviewPrecisionDiagram.criticalArrows.map((points, index) => (
-                      <polygon
-                        key={`precision-critical-arrow-${index}`}
-                        className="ppm-overview-precision-critical-arrow"
-                        points={points}
-                      />
-                    ))}
+                    {overviewPrecisionDiagram.criticalArrows.map(
+                      (points, index) => (
+                        <polygon
+                          key={`precision-critical-arrow-${index}`}
+                          className="ppm-overview-precision-critical-arrow"
+                          points={points}
+                        />
+                      ),
+                    )}
                     <g className="ppm-overview-precision-critical-badge">
                       <rect
                         x={overviewPrecisionDiagram.criticalBadge.x}
@@ -2416,7 +2561,10 @@ function PPMPage() {
                     </g>
                   </g>
 
-                  <g className="ppm-overview-precision-project-group" aria-hidden="true">
+                  <g
+                    className="ppm-overview-precision-project-group"
+                    aria-hidden="true"
+                  >
                     <rect
                       className="ppm-overview-precision-project-box"
                       x={overviewPrecisionDiagram.project.x}
