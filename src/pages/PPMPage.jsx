@@ -1502,6 +1502,7 @@ const overviewPrecisionDiagram = {
   criticalArrows: [
     "126,342 142,350 126,358",
     "182,342 198,350 182,358",
+    "280,275 296,283 280,291",
     "342,172 358,180 342,188",
   ],
   criticalStartDot: { cx: 64, cy: 283, r: 8 },
