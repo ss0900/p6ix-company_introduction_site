@@ -1663,6 +1663,23 @@ function PPMPage() {
   const setFunctions2Feature = useCallback((featureIndex) => {
     setActiveFeature2Index(featureIndex);
     setActiveFeature2ImageIndex(0);
+
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia("(max-width: 768px)").matches &&
+      imageCardRef2.current
+    ) {
+      imageCardRef2.current.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+      });
+      imageCardRef2.current.classList.remove("is-mobile-feedback");
+      void imageCardRef2.current.offsetWidth;
+      imageCardRef2.current.classList.add("is-mobile-feedback");
+      window.setTimeout(() => {
+        imageCardRef2.current?.classList.remove("is-mobile-feedback");
+      }, 240);
+    }
   }, []);
 
   // [MOD] ppm/functions/2: click dot -> map to card and image index

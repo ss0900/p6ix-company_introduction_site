@@ -14096,13 +14096,13 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 }
 
 @media (max-width: 768px) {
-  #functions .ppm-functions-layout {
+  :is(#functions, #functions-2) .ppm-functions-layout {
     display: flex;
     flex-direction: column;
     gap: clamp(16px, 4.8vw, 24px);
   }
 
-  #functions .ppm-functions-media {
+  :is(#functions, #functions-2) .ppm-functions-media {
     order: 1;
     width: 100%;
     display: block;
@@ -14111,7 +14111,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     transform: none;
   }
 
-  #functions .cpm-carousel-container {
+  :is(#functions, #functions-2) .cpm-carousel-container {
     width: 100%;
     max-height: none;
     height: auto;
@@ -14128,7 +14128,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     border-radius: 0;
   }
 
-  #functions .cpm-carousel-wrapper {
+  :is(#functions, #functions-2) .cpm-carousel-wrapper {
     width: 100%;
     aspect-ratio: 16 / 9;
     border-radius: var(--radius-xl);
@@ -14139,18 +14139,18 @@ tr:nth-child(2) .tm-td-p6:hover::after {
       0 0 0 1px rgba(255, 255, 255, 0.05);
   }
 
-  #functions .cpm-carousel-slide {
+  :is(#functions, #functions-2) .cpm-carousel-slide {
     height: 100%;
   }
 
-  #functions .cpm-carousel-slide img {
+  :is(#functions, #functions-2) .cpm-carousel-slide img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: contain;
   }
 
-  #functions .cpm-carousel-dots {
+  :is(#functions, #functions-2) .cpm-carousel-dots {
     position: static;
     bottom: auto;
     left: auto;
@@ -14161,28 +14161,30 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     gap: 8px;
   }
 
-  #functions .cpm-carousel-dot {
+  :is(#functions, #functions-2) .cpm-carousel-dot {
     width: 8px;
     height: 8px;
   }
 
-  #functions .cpm-carousel-dot.active {
+  :is(#functions, #functions-2) .cpm-carousel-dot.active {
     width: 20px;
     border-radius: 999px;
   }
 
-  #functions .cpm-carousel-container.is-mobile-feedback .cpm-carousel-wrapper {
+  :is(#functions, #functions-2)
+    .cpm-carousel-container.is-mobile-feedback
+    .cpm-carousel-wrapper {
     animation: ppm-functions-media-flash 240ms ease-out;
   }
 
-  #functions .ppm-functions-cards {
+  :is(#functions, #functions-2) .ppm-functions-cards {
     order: 2;
     width: 100%;
     height: auto;
     margin-top: 0;
   }
 
-  #functions .cpm-feature-cards {
+  :is(#functions, #functions-2) .cpm-feature-cards {
     width: 100%;
     height: auto;
     grid-template-columns: 1fr;
@@ -14190,18 +14192,18 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     overflow: visible;
   }
 
-  #functions .cpm-feature-card {
+  :is(#functions, #functions-2) .cpm-feature-card {
     padding: clamp(14px, 4vw, 18px) clamp(14px, 4.4vw, 18px);
     text-align: left;
   }
 
-  #functions .cpm-feature-icon {
+  :is(#functions, #functions-2) .cpm-feature-icon {
     width: 34px;
     height: 34px;
     margin: 0 0 10px;
   }
 
-  #functions .cpm-feature-title {
+  :is(#functions, #functions-2) .cpm-feature-title {
     margin-bottom: 0;
     line-height: 1.45;
     word-break: keep-all;
@@ -14209,7 +14211,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     white-space: normal;
   }
 
-  #functions .cpm-feature-divider-line {
+  :is(#functions, #functions-2) .cpm-feature-divider-line {
     left: 0;
     width: 100%;
     opacity: 0.75;
@@ -14217,7 +14219,9 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 }
 
 @media (max-width: 768px) and (prefers-reduced-motion: reduce) {
-  #functions .cpm-carousel-container.is-mobile-feedback .cpm-carousel-wrapper {
+  :is(#functions, #functions-2)
+    .cpm-carousel-container.is-mobile-feedback
+    .cpm-carousel-wrapper {
     animation: none;
   }
 }
