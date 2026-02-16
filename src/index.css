@@ -14083,6 +14083,145 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   color: var(--color-accent);
 }
 
+@keyframes ppm-functions-media-flash {
+  0% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.08);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+
+@media (max-width: 768px) {
+  #functions .ppm-functions-layout {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(16px, 4.8vw, 24px);
+  }
+
+  #functions .ppm-functions-media {
+    order: 1;
+    width: 100%;
+    display: block;
+    height: auto;
+    padding-top: 0;
+    transform: none;
+  }
+
+  #functions .cpm-carousel-container {
+    width: 100%;
+    max-height: none;
+    height: auto;
+    aspect-ratio: auto;
+    margin-bottom: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
+    border-radius: 0;
+  }
+
+  #functions .cpm-carousel-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    background: var(--color-bg-card);
+    box-shadow:
+      0 25px 50px -12px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  #functions .cpm-carousel-slide {
+    height: 100%;
+  }
+
+  #functions .cpm-carousel-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  #functions .cpm-carousel-dots {
+    position: static;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    margin-top: 10px;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  #functions .cpm-carousel-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  #functions .cpm-carousel-dot.active {
+    width: 20px;
+    border-radius: 999px;
+  }
+
+  #functions .cpm-carousel-container.is-mobile-feedback .cpm-carousel-wrapper {
+    animation: ppm-functions-media-flash 240ms ease-out;
+  }
+
+  #functions .ppm-functions-cards {
+    order: 2;
+    width: 100%;
+    height: auto;
+    margin-top: 0;
+  }
+
+  #functions .cpm-feature-cards {
+    width: 100%;
+    height: auto;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    overflow: visible;
+  }
+
+  #functions .cpm-feature-card {
+    padding: clamp(14px, 4vw, 18px) clamp(14px, 4.4vw, 18px);
+    text-align: left;
+  }
+
+  #functions .cpm-feature-icon {
+    width: 34px;
+    height: 34px;
+    margin: 0 0 10px;
+  }
+
+  #functions .cpm-feature-title {
+    margin-bottom: 0;
+    line-height: 1.45;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    white-space: normal;
+  }
+
+  #functions .cpm-feature-divider-line {
+    left: 0;
+    width: 100%;
+    opacity: 0.75;
+  }
+}
+
+@media (max-width: 768px) and (prefers-reduced-motion: reduce) {
+  #functions .cpm-carousel-container.is-mobile-feedback .cpm-carousel-wrapper {
+    animation: none;
+  }
+}
+
 /* PPM Benefits Section */
 .ppm-benefits-section {
   background: var(--color-bg-secondary);
