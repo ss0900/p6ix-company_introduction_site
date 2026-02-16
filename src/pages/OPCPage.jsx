@@ -871,6 +871,29 @@ function StarRating({ count, label }) {
   );
 }
 
+function MobileStarRating({ count, label }) {
+  const totalStars = 5;
+
+  return (
+    <div
+      className="opc-comparison-mobile-stars"
+      role="img"
+      aria-label={`${label} ${count}점 / 5점 만점`}
+    >
+      {Array.from({ length: totalStars }).map((_, index) => (
+        <svg
+          key={`${label}-mobile-${index}`}
+          className={`opc-comparison-mobile-star-icon ${index < count ? "is-filled" : "is-empty"}`}
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M12 2.4L14.94 8.36L21.52 9.32L16.76 13.96L17.88 20.52L12 17.44L6.12 20.52L7.24 13.96L2.48 9.32L9.06 8.36L12 2.4Z" />
+        </svg>
+      ))}
+    </div>
+  );
+}
+
 function OPCPage() {
   const { sectionId, subId } = useParams();
   const navigate = useNavigate();
@@ -1971,6 +1994,44 @@ function OPCPage() {
                       ))}
                     </tbody>
                   </table>
+                </div>
+
+                <div className="opc-comparison-mobile" aria-label="모바일 비교 카드">
+                  <div className="opc-comparison-mobile-legend">
+                    <span>PPM = Primavera P6 PPM</span>
+                    <span>OPC = Oracle Primavera Cloud</span>
+                  </div>
+
+                  <div className="opc-comparison-mobile-group-pills" aria-hidden="true">
+                    <span className="opc-comparison-mobile-group-pill is-p6">
+                      {comparisonGroups.left.label}
+                    </span>
+                    <span className="opc-comparison-mobile-group-pill is-opc">
+                      {comparisonGroups.right.label}
+                    </span>
+                  </div>
+
+                  <ul className="opc-comparison-mobile-list">
+                    {comparisonRows.map((row) => (
+                      <li key={`${row.item}-mobile`} className="opc-comparison-mobile-card">
+                        <h3
+                          className={`opc-comparison-mobile-item ${row.emphasized ? "is-emphasized" : ""}`}
+                        >
+                          {row.item}
+                        </h3>
+
+                        <div className="opc-comparison-mobile-rating-row">
+                          <span className="opc-comparison-mobile-product">PPM</span>
+                          <MobileStarRating count={row.p6Stars} label={`PPM ${row.item}`} />
+                        </div>
+
+                        <div className="opc-comparison-mobile-rating-row">
+                          <span className="opc-comparison-mobile-product">OPC</span>
+                          <MobileStarRating count={row.opcStars} label={`OPC ${row.item}`} />
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
