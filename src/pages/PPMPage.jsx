@@ -2668,13 +2668,9 @@ function PPMPage() {
                   </span>
                 </h3>
                 <p className="ppm-overview-precision-module-description">
-                  복잡한 프로젝트를 위계적인 WBS(작업
-                  <br />
-                  분해 구조)로 명확하게 구조화하고,
-                  <br />
-                  작업 간의 논리적 관계를 정의하여
-                  <br />
-                  전체 공정을 시각화합니다.
+                  복잡한 프로젝트를 위계적인 WBS(작업 분해 구조)로 명확하게
+                  구조화하고, 작업 간의 논리적 관계를 정의하여 전체 공정을
+                  시각화합니다.
                 </p>
               </article>
             </div>

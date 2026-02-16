@@ -15071,6 +15071,71 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   }
 }
 
+@media (max-width: 768px) {
+  #overview-features-2 .ppm-overview-precision-layout {
+    grid-template-columns: 1fr;
+    gap: clamp(16px, 4.5vw, 24px);
+    padding: clamp(18px, 4.8vw, 22px) clamp(14px, 4.2vw, 18px);
+    overflow: visible;
+  }
+
+  #overview-features-2 .ppm-overview-precision-module {
+    width: 100%;
+    gap: clamp(8px, 2.6vw, 12px);
+  }
+
+  #overview-features-2 .ppm-overview-precision-module:first-of-type {
+    order: 1;
+  }
+
+  #overview-features-2 .ppm-overview-precision-diagram {
+    order: 2;
+    width: 100%;
+    min-height: 0;
+    padding: 2px 0;
+  }
+
+  #overview-features-2 .ppm-overview-precision-module:last-of-type {
+    order: 3;
+  }
+
+  #overview-features-2 .ppm-overview-precision-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: none;
+  }
+
+  #overview-features-2 .ppm-overview-precision-module-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  #overview-features-2 .ppm-overview-precision-module-title {
+    gap: 4px;
+  }
+
+  #overview-features-2 .ppm-overview-precision-module-title-ko {
+    line-height: 1.3;
+  }
+
+  #overview-features-2 .ppm-overview-precision-module-title-en {
+    font-size: clamp(0.95rem, 3.8vw, 1.05rem);
+    line-height: 1.45;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: none;
+  }
+
+  #overview-features-2 .ppm-overview-precision-module-description {
+    font-size: clamp(0.98rem, 3.9vw, 1.06rem);
+    line-height: 1.7;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+}
+
 @media (max-width: 640px) {
   .ppm-overview-content-section {
     padding: 100px var(--space-md) var(--space-2xl);
