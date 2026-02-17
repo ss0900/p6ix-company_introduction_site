@@ -9704,8 +9704,13 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   top: clamp(18px, 3.2vw, 44px);
   left: 0;
   z-index: 4;
-  max-width: min(460px, 34vw);
+  max-width: min(620px, 46vw);
   margin-top: 0;
+}
+
+.eppm-page-container #cases .eppm-process-focus-subtitle {
+  white-space: nowrap;
+  font-size: clamp(var(--text-sm), 1.25vw, var(--text-lg));
 }
 
 .eppm-page-container #cases .eppm-process-focus-visual {
@@ -10551,6 +10556,10 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     margin-top: 0;
   }
 
+  .eppm-page-container #cases .eppm-process-focus-subtitle {
+    white-space: normal;
+  }
+
   .eppm-process-focus-visual {
     margin-top: clamp(4px, 1.4vh, 14px);
   }
@@ -10785,6 +10794,10 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     top: clamp(10px, 2.2vh, 18px);
     left: 0;
     max-width: min(92vw, 350px);
+  }
+
+  .eppm-page-container #cases .eppm-process-focus-subtitle {
+    white-space: normal;
   }
 
   .eppm-process-focus-subtitle {
