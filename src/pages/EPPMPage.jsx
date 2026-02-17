@@ -869,7 +869,13 @@ function EPPMPage() {
           { y: -50, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" },
         );
-      integrationCardsRef.current.forEach((card, i) => {
+      const isMobileViewport = window.matchMedia("(max-width: 768px)").matches;
+      const integrationCardOrder = isMobileViewport
+        ? [0, 1, 2, 4, 3]
+        : [0, 1, 2, 3, 4];
+
+      integrationCardOrder.forEach((cardIndex, i) => {
+        const card = integrationCardsRef.current[cardIndex];
         if (card)
           integrationTl.fromTo(
             card,
