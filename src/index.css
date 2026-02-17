@@ -12263,7 +12263,10 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     word-break: keep-all;
   }
 
-  .aconex-page-container #benefits-2 .aconex-benefits-mobile-connector-copy span {
+  .aconex-page-container
+    #benefits-2
+    .aconex-benefits-mobile-connector-copy
+    span {
     display: block;
     margin-top: 3px;
     font-size: clamp(0.8rem, 3vw, 0.9rem);
@@ -12281,6 +12284,10 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 
   .aconex-page-container #benefits-2 .aconex-benefits-node-title span {
     font-size: clamp(var(--text-xs), 3.2vw, var(--text-sm));
+  }
+
+  .aconex-page-container #benefits-2 .aconex-benefits-summary {
+    margin-top: clamp(8px, 3vw, 14px);
   }
 
   .aconex-page-container #benefits-2 .aconex-benefits-summary-line {
