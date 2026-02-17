@@ -1383,8 +1383,7 @@ function EPPMPage() {
                 <div className="tm-section-header eppm-process-focus-header">
                   <h2 className="tm-section-title">단일 플랫폼, 완전한 통제</h2>
                   <p className="eppm-process-focus-subtitle">
-                    <span>프로젝트, 프로그램, 포트폴리오를</span>
-                    <span>아우르는 엔터프라이즈급 관리 솔루션</span>
+                    프로젝트, 프로그램, 포트폴리오를 아우르는 엔터프라이즈급 관리 솔루션
                   </p>
                 </div>
 
