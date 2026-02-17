@@ -13776,6 +13776,51 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     min-height: 156px;
   }
 
+  #benefits-2 .unifier-benefits-2-connector-card {
+    padding-top: clamp(30px, 5vw, 40px);
+    padding-bottom: clamp(30px, 5vw, 40px);
+  }
+
+  #benefits-2 .unifier-benefits-2-direction {
+    left: 50%;
+    right: auto;
+    top: auto;
+    width: 2px;
+    height: clamp(20px, 4.2vw, 28px);
+    transform: translateX(-50%);
+  }
+
+  #benefits-2 .unifier-benefits-2-direction::after {
+    left: 50%;
+    right: auto;
+    top: auto;
+    width: 0;
+    height: 0;
+    border: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+  }
+
+  #benefits-2 .unifier-benefits-2-direction-left {
+    top: 12px;
+  }
+
+  #benefits-2 .unifier-benefits-2-direction-left::after {
+    transform: translate(-50%, -100%);
+    top: -1px;
+    border-bottom: 7px solid rgba(195, 214, 241, 0.8);
+  }
+
+  #benefits-2 .unifier-benefits-2-direction-right {
+    bottom: 12px;
+  }
+
+  #benefits-2 .unifier-benefits-2-direction-right::after {
+    transform: translate(-50%, 100%);
+    bottom: -1px;
+    border-top: 7px solid rgba(195, 214, 241, 0.8);
+  }
+
   #benefits-2 .unifier-benefits-2-summary-columns {
     display: none;
   }
