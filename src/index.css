@@ -10675,6 +10675,23 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   }
 }
 
+@media (max-width: 768px) {
+  .eppm-page-container #integration .eppm-overview-gap-bottom
+    > .eppm-overview-gap-text-block:first-of-type {
+    order: 1;
+  }
+
+  .eppm-page-container #integration .eppm-overview-gap-bottom
+    > .eppm-overview-gap-text-block:last-of-type {
+    order: 2;
+  }
+
+  .eppm-page-container #integration .eppm-overview-gap-bottom
+    > .eppm-overview-gap-conclusion {
+    order: 3;
+  }
+}
+
 @media (max-width: 640px) {
   #functions .cpm-feature-cards,
   #functions-2 .cpm-feature-cards {
