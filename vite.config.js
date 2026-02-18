@@ -6,6 +6,12 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5173,
-    open: true
+    open: true,
+    watch: {
+      awaitWriteFinish: {
+        stabilityThreshold: 250,
+        pollInterval: 100
+      }
+    }
   }
 })
