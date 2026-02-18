@@ -16382,6 +16382,10 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   left: calc(var(--tm-core-branch-right-x) - 75%);
 }
 
+#core-4 .tm-core-flow-branches {
+  --tm-core-flow-branch-pad: var(--space-xl);
+}
+
 .tm-core-flow-option {
   display: contents;
 }
