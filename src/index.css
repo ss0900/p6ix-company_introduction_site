@@ -16244,6 +16244,10 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   border-color: rgba(110, 160, 255, 0.18);
 }
 
+#core-4 .tm-core-flow-node {
+  width: min(200px, 100%);
+}
+
 .tm-core-flow-icon {
   font-size: var(--text-lg);
   color: var(--color-accent);
