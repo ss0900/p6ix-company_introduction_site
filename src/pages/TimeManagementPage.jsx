@@ -4132,7 +4132,10 @@ function TimeManagementPage() {
                 {/* Top: Bullet definitions */}
                 <ul className="tm-core-ald-bullets">
                   <li>Activity: 작업의 최하위 단위</li>
-                  <li>Logic: 작업 간의 인과관계 (Sequence)</li>
+                  <li>
+                    Logic: 작업 간의 인과관계 (Sequence) / “무엇이 먼저 끝나야
+                    다음이 시작되는가”를 정의
+                  </li>
                   <li>
                     Duration: 각 Activity를 “시작~완료”까지 수행하는 데 필요한
                     시간 (작업일 / 시간 단위)
@@ -4145,12 +4148,10 @@ function TimeManagementPage() {
                     <div className="tm-core-ald-card tm-core-ald-card--complete card glass">
                       <span className="tm-core-ald-status">Complete</span>
                       <span className="tm-core-ald-duration">5d</span>
-                      <span className="tm-core-ald-activity">
-                        Design Foundation
-                      </span>
+                      <span className="tm-core-ald-activity">기초 설계</span>
                     </div>
                     <span className="tm-core-ald-step-caption">
-                      Complete: Actual/As-built
+                      Complete: 실제 기간
                     </span>
                   </div>
 
@@ -4168,12 +4169,10 @@ function TimeManagementPage() {
                     <div className="tm-core-ald-card tm-core-ald-card--progress card glass">
                       <span className="tm-core-ald-status">In Progress</span>
                       <span className="tm-core-ald-duration">10d</span>
-                      <span className="tm-core-ald-activity">
-                        Purchase Rebar
-                      </span>
+                      <span className="tm-core-ald-activity">철근 구매</span>
                     </div>
                     <span className="tm-core-ald-step-caption">
-                      In progress: Remaining Duration
+                      In progress: 남은 기간
                     </span>
                   </div>
 
@@ -4185,12 +4184,10 @@ function TimeManagementPage() {
                     <div className="tm-core-ald-card tm-core-ald-card--pending card glass">
                       <span className="tm-core-ald-status">Not Started</span>
                       <span className="tm-core-ald-duration">7d</span>
-                      <span className="tm-core-ald-activity">
-                        Install Rebar
-                      </span>
+                      <span className="tm-core-ald-activity">철근 시공</span>
                     </div>
                     <span className="tm-core-ald-step-caption">
-                      Not started: Original Duration
+                      Not started: 원래 기간
                     </span>
                   </div>
                 </div>
@@ -4201,8 +4198,8 @@ function TimeManagementPage() {
                     EPC Logic: 설계가 되어야 구매하고, 자재가 있어야 시공한다.
                   </p>
                   <p className="tm-core-ald-caption">
-                    E(설계) Duration 확정 → P(조달) 리드타임 반영 → C(시공)
-                    작업일수 산정
+                    E(설계) 기간 확정 → P(조달) 리드타임(발주~납기) 반영 →
+                    C(시공) 작업일수 산정
                   </p>
                 </div>
               </div>
@@ -4226,7 +4223,7 @@ function TimeManagementPage() {
                       Baseline (기준선)
                     </span>
                     <p className="tm-core-timeline-desc">
-                      프로젝트 시작 시 확정된 불변의 계획 (The Ruler)
+                      프로젝트 시작 시 확정된 불변의 계획
                     </p>
                   </div>
                   <div className="tm-core-timeline-grid tm-core-timeline-grid--baseline">
@@ -4282,10 +4279,10 @@ function TimeManagementPage() {
                       className="tm-core-timeline-title"
                       ref={updateTitleRef}
                     >
-                      Update (실적)
+                      Update (실적선)
                     </span>
                     <p className="tm-core-timeline-desc">
-                      현재 시점의 실제 진행 상황 (The Measurement)
+                      현재 시점의 실제 진행 상황
                     </p>
                   </div>
                   <div className="tm-core-timeline-grid tm-core-timeline-grid--update">
@@ -4314,22 +4311,31 @@ function TimeManagementPage() {
                   </div>
                 </div>
 
-                <div className="tm-core-mobile-summary" aria-label="Timeline summary">
+                <div
+                  className="tm-core-mobile-summary"
+                  aria-label="Timeline summary"
+                >
                   <p className="tm-core-mobile-summary-item">
-                    <span className="tm-core-mobile-summary-label">Baseline:</span>
+                    <span className="tm-core-mobile-summary-label">
+                      Baseline:
+                    </span>
                     <span className="tm-core-mobile-summary-range">
                       {baselineStartDate} -&gt; {baselineEndDate}
                     </span>
                   </p>
                   <p className="tm-core-mobile-summary-item">
-                    <span className="tm-core-mobile-summary-label">Update:</span>
+                    <span className="tm-core-mobile-summary-label">
+                      Update:
+                    </span>
                     <span className="tm-core-mobile-summary-range">
                       {updateStartDate} -&gt; {updateEndDate}
                     </span>
                   </p>
                   <p className="tm-core-mobile-summary-item tm-core-mobile-summary-item--delay">
                     <span className="tm-core-mobile-summary-delay-main">
-                      <span className="tm-core-mobile-summary-label">Delay:</span>
+                      <span className="tm-core-mobile-summary-label">
+                        Delay:
+                      </span>
                       <span className="tm-core-mobile-summary-range">
                         {baselineEndDate} -&gt; {updateEndDate}
                       </span>
@@ -4341,7 +4347,7 @@ function TimeManagementPage() {
                 </div>
                 <div className="tm-core-timeline-summary-wrapper">
                   <p className="tm-core-timeline-summary">
-                    Baseline vs Update 비교를 통해 지연/단축을 판단함
+                    Baseline vs Update 비교를 통해 공정 지연/단축을 판단함
                   </p>
                 </div>
               </div>
@@ -4357,8 +4363,7 @@ function TimeManagementPage() {
               <div className="tm-section-header">
                 <h2 className="tm-section-title">Schedule Control</h2>
                 <p className="tm-section-subtitle">
-                  개발(Development) → 평가(Assessment) →
-                  유지/통제(Maintenance/Control)
+                  개발 → 평가 → 유지 / 통제 (현재 슬라이드)
                 </p>
               </div>
 
@@ -4367,9 +4372,7 @@ function TimeManagementPage() {
                   <span className="tm-core-flow-icon" aria-hidden="true">
                     ⚠️
                   </span>
-                  <span className="tm-core-flow-title">
-                    지연 발생 (Delay Detected)
-                  </span>
+                  <span className="tm-core-flow-title">지연 발생</span>
                   <span className="tm-core-flow-sub">
                     Critical Path 영향 확인
                   </span>
@@ -4382,7 +4385,7 @@ function TimeManagementPage() {
 
                 <div className="tm-core-flow-diamond card glass">
                   <div className="tm-core-flow-diamond-inner">
-                    범위(Scope) 유지 & 기간 단축 필요?
+                    범위 유지 & 기간 단축 필요?
                   </div>
                 </div>
 
@@ -4413,7 +4416,7 @@ function TimeManagementPage() {
 
                   <div className="tm-core-flow-option tm-core-flow-option--left">
                     <span className="tm-core-flow-branch-label tm-core-flow-branch-label--left">
-                      Logic 변경 (Change Logic)
+                      Logic 변경
                     </span>
                     <div className="tm-core-flow-branch tm-core-flow-branch--left">
                       <div className="tm-core-flow-result card glass">
@@ -4424,7 +4427,7 @@ function TimeManagementPage() {
                           🧱
                         </span>
                         <span className="tm-core-flow-result-text">
-                          공정 중첩 (Fast Tracking)
+                          공정 중첩
                         </span>
                       </div>
                     </div>
@@ -4432,7 +4435,7 @@ function TimeManagementPage() {
 
                   <div className="tm-core-flow-option tm-core-flow-option--right">
                     <span className="tm-core-flow-branch-label tm-core-flow-branch-label--right tm-core-flow-branch-label--emphasis">
-                      자원 투입 (Add Resources)
+                      자원 투입
                     </span>
                     <div className="tm-core-flow-branch tm-core-flow-branch--right">
                       <div className="tm-core-flow-result tm-core-flow-result--emphasis card glass">
@@ -4443,7 +4446,7 @@ function TimeManagementPage() {
                           🪙
                         </span>
                         <span className="tm-core-flow-result-text">
-                          공정 압축 (Crashing)
+                          공정 압축
                         </span>
                       </div>
                     </div>
@@ -4451,8 +4454,8 @@ function TimeManagementPage() {
                 </div>
 
                 <div className="tm-core-flow-note">
-                  Note: Schedule Compression은 범위를 줄이지 않고 총 기간을
-                  단축하는 기법입니다.
+                  Schedule Compression = 범위를 줄이지 않고 총 기간을 단축하는
+                  기법
                 </div>
               </div>
             </div>
