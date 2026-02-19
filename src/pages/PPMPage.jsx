@@ -3164,7 +3164,7 @@ function PPMPage() {
                           <td data-label="MS Project">
                             <div className="ppm-benefits-compare-cell">
                               <span
-                                className={`ppm-benefits-compare-text ${row.msAccent ? "ppm-benefits-compare-text-accent-soft" : ""}`}
+                                className={`ppm-benefits-compare-text ${row.msAccent ? "ppm-benefits-compare-text-accent" : ""}`}
                               >
                                 {row.ms}
                               </span>
