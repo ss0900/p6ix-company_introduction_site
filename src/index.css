@@ -450,6 +450,11 @@ a:hover {
   gap: 1.5rem;
 }
 
+.header-logo-link {
+  display: inline-flex;
+  align-items: center;
+}
+
 .header-logo {
   height: 2.5rem;
   width: auto;

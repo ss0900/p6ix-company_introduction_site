@@ -226,28 +226,32 @@ function Header() {
   return (
     <header className={`header ${scrolled ? "scrolled" : ""}`}>
       <div className="container header-content">
-        <Link
-          to="/"
-          className="logo header-logo-group"
-          onClick={() => setMenuOpen(false)}
-        >
-          <img
-            src={getAssetPath("/P6ix_SC_Logo_White.png")}
-            alt="Company Logo"
-            className="header-logo"
-          />
+        <div className="logo header-logo-group">
+          <Link to="/" className="header-logo-link" onClick={() => setMenuOpen(false)}>
+            <img
+              src={getAssetPath("/P6ix_SC_Logo_White.png")}
+              alt="Company Logo"
+              className="header-logo"
+            />
+          </Link>
           <img
             src={getAssetPath("/dividing_line.png")}
             alt=""
             aria-hidden="true"
             className="header-logo-divider"
           />
-          <img
-            src={getAssetPath("/Oracle_Partner_Logo.png")}
-            alt="Partner Logo"
-            className="header-logo partner"
-          />
-        </Link>
+          <a
+            href="https://www.p6ix.co.kr/"
+            className="header-logo-link"
+            onClick={() => setMenuOpen(false)}
+          >
+            <img
+              src={getAssetPath("/Oracle_Partner_Logo_1.png")}
+              alt="Partner Logo"
+              className="header-logo partner"
+            />
+          </a>
+        </div>
 
         <nav className="nav">
           {navLinks.map((link) => (
