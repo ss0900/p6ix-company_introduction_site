@@ -16234,6 +16234,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 
 #core-4 .tm-core-flowchart {
   --tm-core-diamond-width: clamp(250px, 36vw, 300px);
+  --tm-core-node-width: 200px;
 }
 
 .tm-core-flow-node {
@@ -16249,7 +16250,11 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 }
 
 #core-4 .tm-core-flow-node {
-  width: min(200px, 100%);
+  width: var(--tm-core-node-width);
+}
+
+#core-4 .tm-core-flow-result {
+  width: var(--tm-core-node-width);
 }
 
 .tm-core-flow-icon {
