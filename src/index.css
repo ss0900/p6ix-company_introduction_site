@@ -10363,6 +10363,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   display: flex;
   flex-direction: column;
   gap: clamp(12px, 1.4vw, 16px);
+  align-self: center;
 }
 
 .eppm-page-container #cases-5 .eppm-process-step5-summary-item {
