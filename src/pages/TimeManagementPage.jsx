@@ -4555,14 +4555,14 @@ function TimeManagementPage() {
                         y="220"
                         transform="rotate(-90 24 220)"
                       >
-                        Progress (%)
+                        진도율 (%)
                       </text>
                       <text
                         className="tm-core-scurve-axis-label"
                         x="250"
                         y="380"
                       >
-                        Time (Project Duration)
+                        시간 (프로젝트 기간)
                       </text>
                     </g>
 
@@ -4626,8 +4626,8 @@ function TimeManagementPage() {
                 <div className="tm-core-scurve-info card glass">
                   <ul className="tm-core-scurve-bullets">
                     <li>
-                      <strong>Resources:</strong> 인력, 자재, 장비의 투입이 곧
-                      진도율(Progress)로 연결
+                      <strong>자원:</strong> 인력, 자재, 장비의 투입이 곧
+                      진도율로 연결
                     </li>
                     <br />
                     <li>
