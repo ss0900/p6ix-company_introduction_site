@@ -10369,7 +10369,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: clamp(10px, 1.1vw, 14px);
-  align-items: flex-start;
+  align-items: center;
   padding: clamp(12px, 1.2vw, 16px);
   border-radius: calc(var(--radius-lg) + 2px);
   border: 1px solid rgba(144, 212, 255, 0.18);
