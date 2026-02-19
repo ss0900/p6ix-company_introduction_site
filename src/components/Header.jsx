@@ -55,6 +55,14 @@ function Header() {
     };
   }, [menuOpen]);
 
+  const handleHomeLogoClick = () => {
+    setMenuOpen(false);
+
+    if (location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   const navLinks = [
     // {
     //   path: "/company",
@@ -227,7 +235,7 @@ function Header() {
     <header className={`header ${scrolled ? "scrolled" : ""}`}>
       <div className="container header-content">
         <div className="logo header-logo-group">
-          <Link to="/" className="header-logo-link" onClick={() => setMenuOpen(false)}>
+          <Link to="/" className="header-logo-link" onClick={handleHomeLogoClick}>
             <img
               src={getAssetPath("/P6ix_SC_Logo_White.png")}
               alt="Company Logo"
