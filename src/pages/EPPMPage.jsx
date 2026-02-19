@@ -480,7 +480,7 @@ const processStep3ConnectionBullets = [
 
 const processStep5SummaryItems = [
   {
-    text: "계획 대비 실적(Progress)의 정밀한 추적",
+    text: "계획 대비 실적의 정밀한 추적",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle
