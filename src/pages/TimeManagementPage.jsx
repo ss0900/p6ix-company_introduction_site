@@ -55,7 +55,7 @@ const coreDocumentationItems = [
   {
     iconKey: "as-built-schedule",
     title: "As-built Schedule",
-    description: "착공부터 준공까지의 이력 관리 (History)",
+    description: "착공부터 준공까지의 이력 관리",
   },
   {
     iconKey: "claim-eot",
